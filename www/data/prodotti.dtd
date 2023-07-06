@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT prodotti (prodotto*)>
+
+<!ELEMENT prodotto (marca, nome, descrizione, costo, categoria, quantita)>
+<!ATTLIST prodotto
+    id ID #REQUIRED>
+<!ELEMENT marca       (#PCDATA)>
+<!ELEMENT nome        (#PCDATA)>
+<!ELEMENT descrizione (#PCDATA)>
+<!ELEMENT costo       (#PCDATA)>
+<!ELEMENT categoria   (#PCDATA)>
+<!ELEMENT quantita    (#PCDATA)>
