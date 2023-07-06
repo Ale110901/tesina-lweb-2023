@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prodotti xmlns="http://www.lweb.uni/tesina-rcstore/prodotti/">
+  <prodotto id="1">
+    <marca>MyProtein</marca>
+    <nome>Proteine 2kg</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>20.00</costo>
+    <categoria>Proteine</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+</prodotti>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:prod="http://www.lweb.uni/tesina-rcstore/prodotti/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/prodotti/">
+
+<xsd:element name="prodotti">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="prod:prodotto" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="prodotto">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="prod:marca"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:nome"         minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:descrizione"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:costo"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:categoria"    minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:quantita"     minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="marca" type="xsd:string" />
+<xsd:element name="nome" type="xsd:string" />
+<xsd:element name="descrizione" type="xsd:string" />
+<xsd:element name="costo" type="xsd:decimal" />
+<xsd:element name="categoria" type="xsd:string" />
+<xsd:element name="quantita" type="xsd:positiveInteger" />
+
+</xsd:schema>

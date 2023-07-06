@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clienti xmlns="http://www.lweb.uni/tesina-rcstore/clienti/">
+  <cliente id="1">
+    <attivo>true</attivo>
+    <nome>Mario</nome>
+    <cognome>Rossi</cognome>
+    <telefono>+390773123456</telefono>
+    <indirizzo>Via Isonzo, 104, Latina, Italia</indirizzo>
+    <!--
+    <indirizzo>
+      <via>Isonzo</via>
+      <civico>104</civico>
+      <citta>Latina</citta>
+      <stato>Italia</stato>
+    </indirizzo>
+    -->
+    <codiceFiscale>MRARSS00C20E472X</codiceFiscale>
+    <email>mario.rossi@gmail.com</email>
+    <credito>120.00</credito>
+    <reputazione>100</reputazione>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+  </cliente>
+</clienti>

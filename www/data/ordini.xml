@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ordini xmlns="http://www.lweb.uni/tesina-rcstore/ordini/">
+  <ordine id="1">
+    <data>2023-05-15</data>
+    <utente>3</utente>
+    <indirizzo>Via del Corso 101, Roma, Italia</indirizzo>
+    <sconto>0</sconto>
+    <prodotti>
+      <prodotto id="3" quantita="2"/>
+      <prodotto id="6" quantita="2"/>
+      <prodotto id="11" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="2">
+    <data>2023-06-08</data>
+    <utente>1</utente>
+    <indirizzo>Via Doria 12, Latina, Italia</indirizzo>
+    <sconto>20</sconto>
+    <prodotti>
+      <prodotto id="3" quantita="1"/>
+      <prodotto id="5" quantita="1"/>
+      <prodotto id="12" quantita="3"/>
+    </prodotti>
+  </ordine>
+</ordini>

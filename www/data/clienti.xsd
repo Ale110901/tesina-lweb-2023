@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:prod="http://www.lweb.uni/tesina-rcstore/clienti/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/clienti/">
+
+<xsd:element name="clienti">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="prod:cliente" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="cliente">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="prod:attivo"         minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:nome"           minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:cognome"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:telefono"       minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:indirizzo"      minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:codiceFiscale"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:email"          minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:credito"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:reputazione"    minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="prod:password"       minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="attivo" type="xsd:boolean" />
+<xsd:element name="nome" type="xsd:string" />
+<xsd:element name="cognome" type="xsd:string" />
+<xsd:element name="telefono" type="xsd:string" />
+<xsd:element name="indirizzo" type="xsd:string" />
+<xsd:element name="codiceFiscale" type="xsd:string" length="16" />
+<xsd:element name="email" type="xsd:string" />
+<xsd:element name="credito" type="xsd:decimal" />
+<xsd:element name="reputazione" type="xsd:integer" />
+<xsd:element name="password" type="xsd:string" length="32" />
+
+</xsd:schema>
