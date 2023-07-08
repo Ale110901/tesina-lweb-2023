@@ -4,6 +4,7 @@
 <!ELEMENT prodotto (marca, nome, descrizione, costo, categoria, quantita)>
 <!ATTLIST prodotto
     id ID #REQUIRED>
+
 <!ELEMENT marca       (#PCDATA)>
 <!ELEMENT nome        (#PCDATA)>
 <!ELEMENT descrizione (#PCDATA)>

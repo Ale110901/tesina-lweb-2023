@@ -4,6 +4,7 @@
 <!ELEMENT utente (tipo, attivo, nome, cognome, telefono, indirizzo, codiceFiscale, email, credito, reputazione, password)>
 <!ATTLIST utente
     id ID #REQUIRED>
+
 <!ELEMENT tipo          (#PCDATA)>
 <!ELEMENT attivo        (#PCDATA)>
 <!ELEMENT nome          (#PCDATA)>

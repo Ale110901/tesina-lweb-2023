@@ -4,12 +4,15 @@
 <!ELEMENT ordine (data, utente, indirizzo, sconto, prodotti)>
 <!ATTLIST ordine
     id ID #REQUIRED>
-<!ELEMENT data      (#PCDATA)>
-<!ELEMENT utente    (#PCDATA)>
-<!ELEMENT indirizzo (#PCDATA)>
-<!ELEMENT sconto    (#PCDATA)>
+
 <!ELEMENT prodotti  (prodotto*)>
+
 <!ELEMENT prodotto>
 <!ATTLIST prodotto
     id ID #REQUIRED
     quantita CDATA #REQUIRED>
+
+<!ELEMENT data      (#PCDATA)>
+<!ELEMENT utente    (#PCDATA)>
+<!ELEMENT indirizzo (#PCDATA)>
+<!ELEMENT sconto    (#PCDATA)>

@@ -4,5 +4,6 @@
 <!ELEMENT faq (domanda, risposta)>
 <!ATTLIST faq
     id ID #REQUIRED>
+
 <!ELEMENT domanda   (#PCDATA)>
 <!ELEMENT risposta  (#PCDATA)>
