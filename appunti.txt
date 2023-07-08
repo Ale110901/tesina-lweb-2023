@@ -1,1 +1,5 @@
 usort(): per l'ordinamento dell'XML
+
+Caratteri:
+- ' => &#39;
+- ? => &#63;
