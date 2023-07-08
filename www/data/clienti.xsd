@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns:prod="http://www.lweb.uni/tesina-rcstore/clienti/"
+  xmlns:cli="http://www.lweb.uni/tesina-rcstore/clienti/"
   targetNamespace="http://www.lweb.uni/tesina-rcstore/clienti/">
 
 <xsd:element name="clienti">
   <xsd:complexType>
     <xsd:sequence>
-      <xsd:element ref="prod:cliente" minOccurs="0" maxOccurs="unbounded" />
+      <xsd:element ref="cli:cliente" minOccurs="0" maxOccurs="unbounded" />
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>
@@ -15,16 +15,16 @@
 <xsd:element name="cliente">
   <xsd:complexType>
     <xsd:sequence>
-      <xsd:element ref="prod:attivo"         minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:nome"           minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:cognome"        minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:telefono"       minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:indirizzo"      minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:codiceFiscale"  minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:email"          minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:credito"        minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:reputazione"    minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="prod:password"       minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:attivo"         minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:nome"           minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:cognome"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:telefono"       minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:indirizzo"      minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:codiceFiscale"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:email"          minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:credito"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:reputazione"    minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="cli:password"       minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
