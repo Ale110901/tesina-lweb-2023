@@ -3,3 +3,9 @@ usort(): per l'ordinamento dell'XML
 Caratteri:
 - ' => &#39;
 - ? => &#63;
+
+Mancano:
+- Categorie
+- Crediti
+- Recensioni
+- Sconti e bonus
