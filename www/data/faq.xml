@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://www.lweb.uni/tesina-rcstore/faq/">
+  <faq id="1">
+    <domanda>Quanto costa la spedizione&#63;</domanda>
+    <risposta>La spedizione varia tra 1 &euro; e 5 &euro; e dipende dalla destinazione.</risposta>
+  </faq>
+</faqs>

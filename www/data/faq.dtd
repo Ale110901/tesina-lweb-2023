@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT faqs (faq*)>
+
+<!ELEMENT faq (domanda, risposta)>
+<!ATTLIST faq
+    id ID #REQUIRED>
+<!ELEMENT domanda   (#PCDATA)>
+<!ELEMENT risposta  (#PCDATA)>

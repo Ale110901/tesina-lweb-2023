@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:faq="http://www.lweb.uni/tesina-rcstore/faq/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/faq/">
+
+<xsd:element name="faqs">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="faq:faq" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="faq">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="faq:domanda"   minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="faq:risposta"  minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="domanda"  type="xsd:string" />
+<xsd:element name="risposta" type="xsd:string" />
+
+</xsd:schema>
