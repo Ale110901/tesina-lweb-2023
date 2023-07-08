@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domande xmlns="http://www.lweb.uni/tesina-rcstore/domande/">
+  <domanda id="1">
+    <idUtente>24</idUtente>
+    <idProdotto>14</idProdotto>
+    <contenuto>Quali gusti sono disponibili&#63;</contenuto>
+    <ratings>
+      <rating>
+        <idUtente>37</idUtente>
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+    <risposte>
+      <risposta>
+        <idUtente>51</idUtente>
+        <contenuto>Cioccolata e lampone</contenuto>
+        <ratings>
+          <rating>
+            <idUtente>29</idUtente>
+            <supporto>3</supporto>
+            <utilita>5</utilita>
+          </rating>
+        </ratings>
+      </risposta>
+    </risposte>
+  </domanda>
+</domande>
