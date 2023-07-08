@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT domande (domanda*)>
+
+<!ELEMENT domanda (idUtente, idProdotto, contenuto, ratings, risposte)>
+<!ATTLIST domanda
+    id ID #REQUIRED>
+
+<!ELEMENT risposte (risposta*)>
+
+<!ELEMENT risposta (idUtente, contenuto, ratings)>
+<!ATTLIST risposta
+    id ID #REQUIRED>
+
+<!ELEMENT ratings (rating*)>
+
+<!ELEMENT rating (idUtente, supporto, utilita)>
+
+<!ELEMENT idUtente    (#PCDATA)>
+<!ELEMENT idProdotto  (#PCDATA)>
+<!ELEMENT contenuto   (#PCDATA)>
+<!ELEMENT supporto    (#PCDATA)>
+<!ELEMENT utilita     (#PCDATA)>
