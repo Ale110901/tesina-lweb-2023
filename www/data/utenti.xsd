@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ut="http://www.lweb.uni/tesina-rcstore/utenti/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/utenti/">
+
+<xsd:element name="utenti">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="ut:utente" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="utente">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="ut:tipo"           minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ut:attivo"         minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:nome"           minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ut:cognome"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ut:telefono"       minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:indirizzo"      minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:codiceFiscale"  minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:email"          minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ut:credito"        minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:reputazione"    minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="ut:password"       minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="tipo"           type="xsd:string" />
+<xsd:element name="attivo"         type="xsd:boolean" />
+<xsd:element name="nome"           type="xsd:string" />
+<xsd:element name="cognome"        type="xsd:string" />
+<xsd:element name="telefono"       type="xsd:string" />
+<xsd:element name="indirizzo"      type="xsd:string" />
+<xsd:element name="codiceFiscale"  type="xsd:string" length="16" />
+<xsd:element name="email"          type="xsd:string" />
+<xsd:element name="credito"        type="xsd:decimal" />
+<xsd:element name="reputazione"    type="xsd:integer" />
+<xsd:element name="password"       type="xsd:string" length="32" />
+
+</xsd:schema>

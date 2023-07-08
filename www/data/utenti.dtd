@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT clienti (cliente*)>
+<!ELEMENT utenti (utente*)>
 
-<!ELEMENT cliente (attivo, nome, cognome, telefono, indirizzo, codiceFiscale, email, credito, reputazione, password)>
-<!ATTLIST cliente
+<!ELEMENT utente (tipo, attivo, nome, cognome, telefono, indirizzo, codiceFiscale, email, credito, reputazione, password)>
+<!ATTLIST utente
     id ID #REQUIRED>
+<!ELEMENT tipo          (#PCDATA)>
 <!ELEMENT attivo        (#PCDATA)>
 <!ELEMENT nome          (#PCDATA)>
 <!ELEMENT cognome       (#PCDATA)>

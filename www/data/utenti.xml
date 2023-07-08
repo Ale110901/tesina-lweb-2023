@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utenti xmlns="http://www.lweb.uni/tesina-rcstore/utenti/">
+  <utente id="1">
+    <tipo>cliente</tipo>
+    <attivo>true</attivo>
+    <nome>Mario</nome>
+    <cognome>Rossi</cognome>
+    <telefono>+390773123456</telefono>
+    <indirizzo>Via Isonzo, 104, Latina, Italia</indirizzo>
+    <codiceFiscale>RSSMRA83P12E472K</codiceFiscale>
+    <email>mario.rossi@gmail.com</email>
+    <credito>120.00</credito>
+    <reputazione>100</reputazione>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+  </utente>
+  <utente id="2">
+    <tipo>gestore</tipo>
+    <nome>Luigi</nome>
+    <cognome>Bianchi</cognome>
+    <email>luigi.bianchi@gmail.com</email>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+  </utente>
+  <utente id="3">
+    <tipo>admin</tipo>
+    <nome>Francesco</nome>
+    <cognome>Marroni</cognome>
+    <email>francesco.marroni@gmail.com</email>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+  </utente>
+</utenti>
