@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:dom="http://www.lweb.uni/tesina-rcstore/dom/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/dom/">
+
+<xsd:element name="domande">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:domanda" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="domanda">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:idUtente"    minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:idProdotto"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:contenuto"   minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:ratings"     minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:risposte"    minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="risposte">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:risposta" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="risposta">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:idUtente"   minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:contenuto"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:ratings"    minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="ratings">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:rating" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="rating">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="dom:idUtente"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:supporto"  minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:utilita"   minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="idUtente"    type="xsd:positiveInteger" />
+<xsd:element name="idProdotto"  type="xsd:positiveInteger" />
+<xsd:element name="contenuto"   type="xsd:string" />
+<xsd:element name="supporto"    type="xsd:integer" minInclusive="1" maxInclusive="3" />
+<xsd:element name="utilita"     type="xsd:integer" minInclusive="1" maxInclusive="5" />
+
+</xsd:schema>
