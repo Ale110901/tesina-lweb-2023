@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categorie xmlns="http://www.lweb.uni/tesina-rcstore/categorie/">
+  <categoria id="1">
+    <nome>Proteine</nome>
+  </categoria>
+  <categoria id="2">
+    <nome>Barrette</nome>
+  </categoria>
+  <categoria id="3">
+    <nome>Vitamine</nome>
+  </categoria>
+</categorie>

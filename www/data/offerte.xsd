@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:off="http://www.lweb.uni/tesina-rcstore/offerte/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/offerte/">
+
+<!-- DA FINIRE -->
+
+<xsd:element name="offerte">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="off:offerta" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="offerta">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="off:tipo"        minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="off:percentuale" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="off:target"      minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="off:parametro"   minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="off:idProdotto"  minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="tipo"        type="xsd:string" />
+<xsd:element name="percentuale" type="xsd:positiveInteger" />
+<xsd:element name="target"      type="xsd:string" />
+<xsd:element name="parametro"   type="xsd:decimal" />
+<xsd:element name="idProdotto"  type="xsd:positiveInteger" />
+
+</xsd:schema>

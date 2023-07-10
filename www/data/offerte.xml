@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DA FINIRE -->
+<offerte xmlns="http://www.lweb.uni/tesina-rcstore/offerte/">
+  <offerta id="1">
+    <tipo>sconto</tipo>
+    <percentuale>20</percentuale>
+    <target>cliRep</target>
+    <parametro>50</parametro>
+    <idProdotto>17</idProdotto>
+  </offerta>
+  <offerta id="2">
+    <tipo>bonus</tipo>
+    <percentuale>10</percentuale>
+    <target>eccMag</target>
+    <parametro>100</parametro>
+    <idProdotto>51</idProdotto>
+  </offerta>
+</offerte>

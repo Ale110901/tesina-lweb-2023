@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT offerte (offerta*)>
+
+<!ELEMENT offerta (tipo, percentuale, target, parametro, idProdotto)>
+<!ATTLIST offerta
+    id ID #REQUIRED>
+
+<!ELEMENT tipo         (#PCDATA)>
+<!ELEMENT percentuale  (#PCDATA)>
+<!ELEMENT target       (#PCDATA)>
+<!ELEMENT parametro    (#PCDATA)>
+<!ELEMENT idProdotto   (#PCDATA)>

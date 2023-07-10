@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:acc="http://www.lweb.uni/tesina-rcstore/accrediti/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/accrediti/">
+
+<xsd:element name="accrediti">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="acc:accredito" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="accredito">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="acc:data"     minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="acc:idUtente" minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="acc:quantita" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="data"     type="xsd:dateTime" />
+<xsd:element name="idUtente" type="xsd:positiveInteger" />
+<xsd:element name="quantita" type="xsd:decimal" />
+
+</xsd:schema>
