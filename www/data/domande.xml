@@ -3,7 +3,7 @@
   <domanda id="1">
     <idUtente>24</idUtente>
     <idProdotto>14</idProdotto>
-    <contenuto>Quali gusti sono disponibili&#63;</contenuto>
+    <contenuto>Quali gusti sono disponibili?</contenuto>
     <ratings>
       <rating>
         <idUtente>37</idUtente>
@@ -12,7 +12,7 @@
       </rating>
     </ratings>
     <risposte>
-      <risposta>
+      <risposta id="1">
         <idUtente>51</idUtente>
         <contenuto>Cioccolata e lampone</contenuto>
         <ratings>

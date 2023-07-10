@@ -37,10 +37,10 @@
 <xsd:element name="cognome"        type="xsd:string" />
 <xsd:element name="telefono"       type="xsd:string" />
 <xsd:element name="indirizzo"      type="xsd:string" />
-<xsd:element name="codiceFiscale"  type="xsd:string" length="16" />
+<xsd:element name="codiceFiscale"  type="xsd:string" />
 <xsd:element name="email"          type="xsd:string" />
 <xsd:element name="credito"        type="xsd:decimal" />
 <xsd:element name="reputazione"    type="xsd:integer" />
-<xsd:element name="password"       type="xsd:string" length="32" />
+<xsd:element name="password"       type="xsd:string" />
 
 </xsd:schema>
