@@ -1,5 +1,8 @@
 <?php
-$xmlPath = '../data/';
+require_once('../config.php');
+
+header('Content-Type: text/plain');
+
 $tables = [
   'accrediti',
   'categorie',
@@ -16,20 +19,9 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 });
 
 foreach ($tables as $table) {
-  $xmlFile = $xmlPath . $table . '.xml';
-  $xsdFile = $xmlPath . $table . '.xsd';
+  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+  $xsdFile = RC_ROOT . '/data/' . $table . '.xsd';
 
-  /*
-  $xmlString = '';
-  $lines = file($xmlFile);
-  if (!$lines) {
-    printf("## %s: ERRORE\n", $table);
-    continue;
-  }
-  foreach ($lines as $line) {
-    $xmlString .= trim($line);
-  }
-  */
   $doc = new DOMDocument();
   $doc->load($xmlFile);
 
