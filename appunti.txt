@@ -5,7 +5,4 @@ Caratteri:
 - ? => &#63;
 
 Mancano:
-- Categorie
-- Crediti
-- Recensioni
 - Sconti e bonus
