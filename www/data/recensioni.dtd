@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT recensioni (recensione*)>
+
+<!ELEMENT recensione (idProdotto, idUtente, testoRecensione)>
+<!ATTLIST recensione
+    id ID #REQUIRED>
+
+<!ELEMENT idProdotto       (#PCDATA)>
+<!ELEMENT idUtente         (#PCDATA)>
+<!ELEMENT testoRecensione  (#PCDATA)>

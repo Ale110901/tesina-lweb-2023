@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:recensione="http://www.lweb.uni/tesina-rcstore/recensione/"
+  targetNamespace="http://www.lweb.uni/tesina-rcstore/recensione/">
+
+<xsd:element name="recensioni">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="recensione:recensione" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="recensione">
+  <xsd:complexType>
+    <xsd:sequence>
+        <xsd:element ref="recensione:idProdotto"   minOccurs="1" maxOccurs="1" />
+        <xsd:element ref="recensione:idUtente"   minOccurs="1" maxOccurs="1" />
+        <xsd:element ref="recensione:testoRecensione"  minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="idProdotto"  type="xsd:positiveInteger" />
+<xsd:element name="idUtente"  type="xsd:positiveInteger" />
+<xsd:element name="testoRecensione" type="xsd:string" />
+
+</xsd:schema>
