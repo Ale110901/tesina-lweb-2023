@@ -3,6 +3,13 @@
   <recensione id="1">
     <idProdotto>21</idProdotto>
     <idUtente>12</idUtente>
-    <testoRecensione>Recensione di prova</testoRecensione>
+    <contenuto>Recensione di prova</contenuto>
+    <ratings>
+      <rating>
+        <idUtente>37</idUtente>
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
   </recensione>
 </recensioni>
