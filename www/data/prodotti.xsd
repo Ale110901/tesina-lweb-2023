@@ -30,7 +30,7 @@
 <xsd:element name="nome" type="xsd:string" />
 <xsd:element name="descrizione" type="xsd:string" />
 <xsd:element name="costo" type="xsd:decimal" />
-<xsd:element name="categoria" type="xsd:string" />
+<xsd:element name="categoria" type="xsd:positiveInteger" />
 <xsd:element name="quantita" type="xsd:positiveInteger" />
 
 </xsd:schema>

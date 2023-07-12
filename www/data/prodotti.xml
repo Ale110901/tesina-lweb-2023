@@ -5,7 +5,7 @@
     <nome>Proteine 2kg</nome>
     <descrizione>Descrizione</descrizione>
     <costo>20.00</costo>
-    <categoria>Proteine</categoria>
+    <categoria>2</categoria>
     <quantita>54</quantita>
   </prodotto>
 </prodotti>
