@@ -16,12 +16,12 @@
   <xsd:complexType>
     <xsd:sequence>
       <xsd:element ref="ord:data"      minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="ord:utente"    minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:indirizzo" minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:sconto"    minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:prodotti"  minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="id"       type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="idUtente" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
 
@@ -41,7 +41,6 @@
 </xsd:element>
 
 <xsd:element name="data"      type="xsd:dateTime" />
-<xsd:element name="utente"    type="xsd:positiveInteger" />
 <xsd:element name="indirizzo" type="xsd:string" />
 <xsd:element name="sconto"    type="xsd:integer" />
 

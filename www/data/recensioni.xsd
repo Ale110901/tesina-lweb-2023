@@ -15,12 +15,12 @@
 <xsd:element name="recensione">
   <xsd:complexType>
     <xsd:sequence>
-        <xsd:element ref="rec:idProdotto" minOccurs="1" maxOccurs="1" />
         <xsd:element ref="rec:idUtente"   minOccurs="1" maxOccurs="1" />
         <xsd:element ref="rec:contenuto"  minOccurs="1" maxOccurs="1" />
         <xsd:element ref="rec:ratings"    minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="id"          type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="idProdotto"  type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
 
@@ -42,7 +42,6 @@
   </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="idProdotto" type="xsd:positiveInteger" />
 <xsd:element name="idUtente"   type="xsd:positiveInteger" />
 <xsd:element name="contenuto"  type="xsd:string" />
 <xsd:element name="supporto"   type="xsd:integer" />

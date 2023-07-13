@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domande xmlns="http://www.lweb.uni/tesina-rcstore/domande/">
-  <domanda id="1">
+  <domanda id="1" idProdotto="14">
     <idUtente>24</idUtente>
-    <idProdotto>14</idProdotto>
     <contenuto>Quali gusti sono disponibili?</contenuto>
     <ratings>
       <rating>

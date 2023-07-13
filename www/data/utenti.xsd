@@ -22,13 +22,13 @@
       <xsd:element ref="ut:telefono"       minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:indirizzo"      minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:codiceFiscale"  minOccurs="0" maxOccurs="1" />
-      <xsd:element ref="ut:email"          minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ut:credito"        minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:reputazione"    minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:password"       minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ut:carrello"       minOccurs="0" maxOccurs="1" />
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="id"    type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="email" type="xsd:string" use="required" />
   </xsd:complexType>
 </xsd:element>
 
@@ -54,7 +54,6 @@
 <xsd:element name="telefono"       type="xsd:string" />
 <xsd:element name="indirizzo"      type="xsd:string" />
 <xsd:element name="codiceFiscale"  type="xsd:string" />
-<xsd:element name="email"          type="xsd:string" />
 <xsd:element name="credito"        type="xsd:decimal" />
 <xsd:element name="reputazione"    type="xsd:integer" />
 <xsd:element name="password"       type="xsd:string" />

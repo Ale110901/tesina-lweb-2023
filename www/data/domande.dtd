@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT domande (domanda*)>
 
-<!ELEMENT domanda (idUtente, idProdotto, contenuto, ratings, risposte)>
+<!ELEMENT domanda (idProdotto, contenuto, ratings, risposte)>
 <!ATTLIST domanda
-    id ID #REQUIRED>
+    id       ID #REQUIRED
+    idUtente ID #REQUIRED>
 
 <!ELEMENT risposte (risposta*)>
 
