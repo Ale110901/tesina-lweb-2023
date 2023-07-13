@@ -12,6 +12,11 @@
     <credito>120.00</credito>
     <reputazione>100</reputazione>
     <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <carrello>
+      <prodotto id="3" quantita="2"/>
+      <prodotto id="6" quantita="2"/>
+      <prodotto id="11" quantita="1"/>
+    </carrello>
   </utente>
   <utente id="2">
     <tipo>gestore</tipo>

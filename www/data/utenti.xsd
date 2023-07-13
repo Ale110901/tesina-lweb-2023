@@ -26,8 +26,24 @@
       <xsd:element ref="ut:credito"        minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:reputazione"    minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:password"       minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ut:carrello"       minOccurs="0" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="carrello">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element ref="ut:prodotto" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="prodotto">
+  <xsd:complexType>
+    <xsd:attribute name="id"       type="xsd:positiveInteger" use="required" />
+    <xsd:attribute name="quantita" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
 
