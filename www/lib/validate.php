@@ -12,6 +12,7 @@ $tables = [
   'ordini',
   'prodotti',
   'utenti'
+  'recensioni',
 ];
 
 set_error_handler(function ($errno, $errstr, $errfile, $errline) {
