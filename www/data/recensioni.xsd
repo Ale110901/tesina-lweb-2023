@@ -45,5 +45,7 @@
 <xsd:element name="idProdotto" type="xsd:positiveInteger" />
 <xsd:element name="idUtente"   type="xsd:positiveInteger" />
 <xsd:element name="contenuto"  type="xsd:string" />
+<xsd:element name="supporto"   type="xsd:integer" />
+<xsd:element name="utilita"    type="xsd:integer" />
 
 </xsd:schema>

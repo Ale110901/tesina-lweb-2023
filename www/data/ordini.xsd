@@ -40,7 +40,7 @@
   </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="data"      type="xsd:date" />
+<xsd:element name="data"      type="xsd:dateTime" />
 <xsd:element name="utente"    type="xsd:positiveInteger" />
 <xsd:element name="indirizzo" type="xsd:string" />
 <xsd:element name="sconto"    type="xsd:integer" />
