@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT offerte (offerta*)>
 
-<!ELEMENT offerta (tipo, percentuale, target, crediti, dataInizio, reputazione, anni, idProdotto, idCategoria, quantitaMin)>
+<!ELEMENT offerta (tipo, percentuale, numCrediti, target, creditiSpesi, dataInizio, reputazione, anni, idProdotto, idCategoria, quantitaMin)>
 <!ATTLIST offerta
     id ID #REQUIRED>
 
 <!ELEMENT tipo         (#PCDATA)>
 <!ELEMENT percentuale  (#PCDATA)>
+<!ELEMENT numCrediti   (#PCDATA)>
 <!ELEMENT target       (#PCDATA)>
 
-<!ELEMENT crediti      (#PCDATA)>
+<!ELEMENT creditiSpesi (#PCDATA)>
 <!ELEMENT dataInizio   (#PCDATA)>
 <!ELEMENT reputazione  (#PCDATA)>
 <!ELEMENT anni         (#PCDATA)>

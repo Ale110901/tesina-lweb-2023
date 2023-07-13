@@ -4,12 +4,12 @@
     <tipo>sconto</tipo>
     <percentuale>20</percentuale>
     <target>credData</target>
-    <crediti>100.00</crediti>
+    <creditiSpesi>100.00</creditiSpesi>
     <dataInizio>2023-05-15</dataInizio>
   </offerta>
   <offerta id="2">
     <tipo>bonus</tipo>
-    <percentuale>10</percentuale>
+    <numCrediti>3</numCrediti>
     <target>eccMag</target>
     <idProdotto>51</idProdotto>
     <quantitaMin>100</quantitaMin>
