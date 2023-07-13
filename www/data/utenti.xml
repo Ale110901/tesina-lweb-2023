@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <utenti xmlns="http://www.lweb.uni/tesina-rcstore/utenti/">
-  <utente id="1" email="mario.rossi@gmail.com">
-    <tipo>cliente</tipo>
+  <utente id="1" tipo="cliente" email="mario.rossi@gmail.com">
     <attivo>true</attivo>
     <nome>Mario</nome>
     <cognome>Rossi</cognome>
@@ -17,14 +16,12 @@
       <prodotto id="11" quantita="1"/>
     </carrello>
   </utente>
-  <utente id="2" email="luigi.bianchi@gmail.com">
-    <tipo>gestore</tipo>
+  <utente id="2" tipo="gestore" email="luigi.bianchi@gmail.com">
     <nome>Luigi</nome>
     <cognome>Bianchi</cognome>
     <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
   </utente>
-  <utente id="3" email="francesco.marroni@gmail.com">
-    <tipo>admin</tipo>
+  <utente id="3" tipo="admin" email="francesco.marroni@gmail.com">
     <nome>Francesco</nome>
     <cognome>Marroni</cognome>
     <password>5f4dcc3b5aa765d61d8327deb882cf99</password>

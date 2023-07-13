@@ -15,7 +15,6 @@
 <xsd:element name="utente">
   <xsd:complexType>
     <xsd:sequence>
-      <xsd:element ref="ut:tipo"           minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ut:attivo"         minOccurs="0" maxOccurs="1" />
       <xsd:element ref="ut:nome"           minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ut:cognome"        minOccurs="1" maxOccurs="1" />
@@ -29,6 +28,7 @@
     </xsd:sequence>
     <xsd:attribute name="id"    type="xsd:positiveInteger" use="required" />
     <xsd:attribute name="email" type="xsd:string" use="required" />
+    <xsd:attribute name="tipo"  type="xsd:string" use="required" />
   </xsd:complexType>
 </xsd:element>
 
@@ -47,7 +47,6 @@
   </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="tipo"           type="xsd:string" />
 <xsd:element name="attivo"         type="xsd:boolean" />
 <xsd:element name="nome"           type="xsd:string" />
 <xsd:element name="cognome"        type="xsd:string" />
