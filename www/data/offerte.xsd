@@ -20,8 +20,14 @@
       <xsd:element ref="off:tipo"        minOccurs="1" maxOccurs="1" />
       <xsd:element ref="off:percentuale" minOccurs="1" maxOccurs="1" />
       <xsd:element ref="off:target"      minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="off:parametro"   minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="off:idProdotto"  minOccurs="1" maxOccurs="1" />
+
+      <xsd:element ref="off:crediti"     minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:dataInizio"  minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:reputazione" minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:anni"        minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:idProdotto"  minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:idCategoria" minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="off:quantitaMin" minOccurs="0" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
@@ -30,7 +36,13 @@
 <xsd:element name="tipo"        type="xsd:string" />
 <xsd:element name="percentuale" type="xsd:positiveInteger" />
 <xsd:element name="target"      type="xsd:string" />
-<xsd:element name="parametro"   type="xsd:decimal" />
+
+<xsd:element name="crediti"     type="xsd:decimal" />
+<xsd:element name="dataInizio"  type="xsd:date" />
+<xsd:element name="reputazione" type="xsd:positiveInteger" />
+<xsd:element name="anni"        type="xsd:positiveInteger" />
 <xsd:element name="idProdotto"  type="xsd:positiveInteger" />
+<xsd:element name="idCategoria" type="xsd:positiveInteger" />
+<xsd:element name="quantitaMin" type="xsd:positiveInteger" />
 
 </xsd:schema>

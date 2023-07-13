@@ -4,15 +4,15 @@
   <offerta id="1">
     <tipo>sconto</tipo>
     <percentuale>20</percentuale>
-    <target>cliRep</target>
-    <parametro>50</parametro>
-    <idProdotto>17</idProdotto>
+    <target>credData</target>
+    <crediti>100.00</crediti>
+    <dataInizio>2023-05-15</dataInizio>
   </offerta>
   <offerta id="2">
     <tipo>bonus</tipo>
     <percentuale>10</percentuale>
     <target>eccMag</target>
-    <parametro>100</parametro>
     <idProdotto>51</idProdotto>
+    <quantitaMin>100</quantitaMin>
   </offerta>
 </offerte>
