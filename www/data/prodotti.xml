@@ -1,10 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <prodotti xmlns="http://www.lweb.uni/tesina-rcstore/prodotti/">
   <prodotto id="1">
-    <marca>MyProtein</marca>
-    <nome>Proteine 2kg</nome>
+    <marca>Marca</marca>
+    <nome>BLP99.9 8:1:1 Pure Professional</nome>
     <descrizione>Descrizione</descrizione>
-    <costo>20.00</costo>
+    <costo>39.95</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="2">
+    <marca>Marca</marca>
+    <nome>Omega Pure</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>19.99</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="3">
+    <marca>Marca</marca>
+    <nome>100% Whey 2,28kg</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>100.99</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="4">
+    <marca>Marca</marca>
+    <nome>Isolate-pro grass-fed 700g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>52.00</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="5">
+    <marca>Marca</marca>
+    <nome>Snickers hi protein 62g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>2.70</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="6">
+    <marca>Marca</marca>
+    <nome>Iso Whey Zero</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>49.87</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="7">
+    <marca>Marca</marca>
+    <nome>Choco Egg 40gg</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>2.40</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="8">
+    <marca>Marca</marca>
+    <nome>Vb whey 104 9.8 - 450g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>46.00</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="9">
+    <marca>Marca</marca>
+    <nome>Vb whey 104 9.8 - 900g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>76.00</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="10">
+    <marca>Marca</marca>
+    <nome>Whey 80 professional 2000g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>70.99</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="11">
+    <marca>Marca</marca>
+    <nome>Mars protein 57g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>2.99</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="12">
+    <marca>Marca</marca>
+    <nome>Hydro Purebar 55g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>5.00</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="13">
+    <marca>Marca</marca>
+    <nome>Grenade Carb Killa 60g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>3.95</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="14">
+    <marca>Marca</marca>
+    <nome>CarbControl Bar 100g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>5.70</costo>
+    <categoria>2</categoria>
+    <quantita>54</quantita>
+  </prodotto>
+  <prodotto id="15">
+    <marca>Marca</marca>
+    <nome>Peanut Butter 495g</nome>
+    <descrizione>Descrizione</descrizione>
+    <costo>9.99</costo>
     <categoria>2</categoria>
     <quantita>54</quantita>
   </prodotto>
