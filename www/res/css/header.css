@@ -1,12 +1,12 @@
 #header {
-  background-color: #e04336;
+  background-color: #ff525270;
   width: 70%;
   padding: 16px 15%;
 }
 
 #header > #titolo > a {
   font-family: 'Rampart One', cursive;
-  color: white;
+  color: darkred;
   text-decoration: none;
 }
 
@@ -16,8 +16,24 @@
 }
 
 #header > #icone > a {
-  padding-left: 24px;
-  font-size: 1.25em;
+  text-decoration: none;
+  font-size: 1.4em;
+  padding-left: 0.7em;
+}
+
+#header > #icone > #numero-item-carrello {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  height: 1.2em;
+  font-size: 0.5em;
+  position: absolute;
+  font-size: 0.6em;
+  border-radius: 50%;
+  right: 23.8em;
+  text-align: center;
+  vertical-align: 1em;
+  width: 1.2em;
+  line-height: 1.2em;
 }
 
 #header > #menu {
