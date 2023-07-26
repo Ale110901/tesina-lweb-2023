@@ -20,6 +20,25 @@ function save_xml($doc, $table) {
   $doc->save($xmlFile);
 }
 
+/* eventualmente da fare con xpath... */
+function access_verification($doc, $email, $password){
+  $root = $doc->documentElement;
+  $utenti = $root->childNodes;
+  $trovato = false;
+  $i = 0;
+  do{
+    $utente = $utenti->item($i);
+    $password_utente = $utente->getElementsByTagName('password')[0]->textContent;
+    $attivo_utente = $utente->getElementsByTagName('attivp')[0]->textContent;
+    $email_utente = $utente->getAttribute('email');
+    if($email_utente == $email && $password_utente == $password && $attivo_utente == true){
+      $trovato = true;
+    }
+    $i++;
+  }while($i < $utenti->length && !$trovato);
+
+  return $trovato;
+}
 
 function domlist_to_array($domlist) {
   $arr = [];
