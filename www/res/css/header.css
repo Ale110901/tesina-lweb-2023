@@ -1,0 +1,44 @@
+#header {
+  background-color: #e04336;
+  width: 70%;
+  padding: 16px 15%;
+}
+
+#header > #titolo > a {
+  font-family: 'Rampart One', cursive;
+  color: white;
+  text-decoration: none;
+}
+
+#header > #icone {
+  float: right;
+  padding: 0.5em 0px;
+}
+
+#header > #icone > a {
+  padding-left: 24px;
+  font-size: 1.25em;
+}
+
+#header > #menu {
+  column-gap: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  padding: 16px 0px;
+}
+
+
+#header > #menu > li > a {
+  border-radius: 6px;
+  border: 2px;
+  color: white;
+  font-size: 1.25em;
+  padding: 7px 18px;
+  text-decoration: none;
+}
+
+#header > #menu > li > a:hover {
+  border-style: solid;
+}

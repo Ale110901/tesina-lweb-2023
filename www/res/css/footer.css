@@ -1,0 +1,22 @@
+#footer {
+  color: white;
+  font-size: 0.75em;
+}
+
+#footer > #sopra {
+  background-color: #e04336;
+
+  column-gap: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#footer > #sopra > div > #contatti {
+  text-align: left;
+  word-spacing: 8px;
+}
+
+#footer > #sotto {
+  background-color: red;
+}
