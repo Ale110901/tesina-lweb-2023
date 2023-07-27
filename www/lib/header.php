@@ -1,6 +1,10 @@
 <div id="header">
   <div id="icone">
-    <a href="<?php if($sessione) { ?> profilo.php <?php } else { ?> registrazione.php <?php }?>" title="profilo">&#x01F464</a>   
+<?php if ($sessione) { ?>
+    <a href="profilo.php" title="Profilo">&#x01F464</a>
+<?php } else { ?>
+    <a href="registrazione.php" title="Registrazione">&#x01F464</a>
+<?php }?>
     <a href="#" title="carrello">&#x01F6D2</a>
     <span id="numero-item-carrello">0</span>
   </div>
