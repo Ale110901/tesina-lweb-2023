@@ -26,7 +26,8 @@ function save_xml($doc, $table) {
 }
 
 /* eventualmente da fare con xpath... */
-function access_verification($doc, $email, $password){
+function access_verification($email, $password){
+  $doc = load_xml('utenti');
   /*$root = $doc->documentElement;
   $utenti = $root->childNodes;
   $trovato = false;
@@ -43,8 +44,9 @@ function access_verification($doc, $email, $password){
   }while($i < $utenti->length && !$trovato);*/
   /* DA SISTEMARE */
   $xpath = new DOMXPath($doc);
-  $query = "//utenti/utente[@email = '$email']/attivo/nome/cognome/telefono/indirizzo/codiceFiscale/credito/reputazione/password[text() = MD5('$password')";
+  $query = "/utente[@email='$email']";
   $result = $xpath->query($query);
+  var_dump($result);
   return $result;
 }
 
