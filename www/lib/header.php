@@ -3,7 +3,7 @@
 <?php if ($sessione) { ?>
     <a href="profilo.php" title="Profilo">&#x01F464</a>
 <?php } else { ?>
-    <a href="registrazione.php" title="Registrazione">&#x01F464</a>
+    <a href="registrazione.php" title="profilo">&#x01F464</a>
 <?php }?>
     <a href="#" title="carrello">&#x01F6D2</a>
     <span id="numero-item-carrello">0</span>
