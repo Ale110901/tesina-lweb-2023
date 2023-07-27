@@ -1,8 +1,9 @@
 <?php
-require_once('./config.sample.php');
+require_once('./config.php');
 
 function load_xml($table) {
-  $xmlFile = 'C:/xampp/htdocs/Tesina_LWEB/tesina-lweb-2023/www' . '/data/' . $table . '.xml';
+  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+
 
   $xmlString = '';
   foreach(file($xmlFile) as $line) {
