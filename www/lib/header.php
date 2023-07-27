@@ -1,14 +1,3 @@
-<?php
-require_once('xml.php');
-
-session_start();
-$sessione = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
-$email = "prova";
-$password = "prova";
-$doc = load_xml('utenti');
-access_verification($doc, $email, $password);
-?>
-
 <div id="header">
   <div id="icone">
     <a href="<?php if($sessione) { ?> profilo.php <?php } else { ?> registrazione.php <?php }?>" title="profilo">&#x01F464</a>   
