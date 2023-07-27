@@ -4,9 +4,13 @@ require_once('./config.php');
 function load_xml($table) {
   $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
 
+  $xmlData = file($xmlFile);
+  if (!$xmlData) {
+    return null;
+  }
 
   $xmlString = '';
-  foreach(file($xmlFile) as $line) {
+  foreach($xmlData as $line) {
     $xmlString .= trim($line);
   }
   $doc = new DOMDocument();
