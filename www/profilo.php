@@ -15,21 +15,19 @@
 
 <body>
   <?php require('lib/header.php'); ?>
-  <div id="contenuto" class="centrato">
-    <?php ?>
-    <h2 class="">Profilo </h2>
-    <label for="nome">Nome utente:</label><br>
-    <label for="cognome">Cognome:</label><br>
-    <label for="telefono">Telefono:</label><br>
-    <label for="indirizzo">Indirizzo:</label>
-    <span><button type="submit" name="azione" value="modifica_indirizzo" class="button-modifica-indirizzo" title="modifica indirizzo">&#x01F4DD</button></span>
-    <br>
-    <label for="codiceFiscale">Codice fiscale:</label><br>
-    <label for="credito">Credito:</label><br>
-    <button type="submit" name="azione" value="accedi" class="button">Accedi</button>
-
+  <div id="card-esterna-profilo" class="centrato py-1em">
+    <h2 class="">Profilo</h2>
+        <label id="card-interna-profilo" for="nome"><b>Nome:</b> Alessandro</label><br>
+        <label id="card-interna-profilo" for="cognome"><b>Cognome:</b> Cecchetto</label><br>
+        <label id="card-interna-profilo" for="email"><b>Email:</b> alecechetto2001@gmail.com</label><br>
+        <label id="card-interna-profilo" for="telefono"><b>Telefono:</b> +39 3334617057</label><br>
+        <label id="card-interna-profilo" for="indirizzo"><b>Indirizzo:</b> via casamia, 15</label>
+        <span><button type="submit" name="azione" value="modifica_indirizzo" class="button-modifica-indirizzo" title="modifica indirizzo">&#x01F4DD</button></span><br>
+        <label id="card-interna-profilo" for="codiceFiscale"><b>Codice fiscale:</b></label><br>
+        <label id="card-interna-profilo" for="credito"><b>Credito:</b></label><br>
   </div>
 
   <?php require('lib/footer.php'); ?>
 </body>
 </html>
+C:\xampp\htdocs\Tesina_LWEB\tesina-lweb-2023\www\utenti\admin\utente
