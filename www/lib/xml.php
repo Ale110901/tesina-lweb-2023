@@ -1,8 +1,8 @@
 <?php
-require_once('../config.php');
+require_once('./config.sample.php');
 
 function load_xml($table) {
-  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+  $xmlFile = 'C:/xampp/htdocs/Tesina_LWEB/tesina-lweb-2023/www' . '/data/' . $table . '.xml';
 
   $xmlString = '';
   foreach(file($xmlFile) as $line) {
@@ -22,7 +22,7 @@ function save_xml($doc, $table) {
 
 /* eventualmente da fare con xpath... */
 function access_verification($doc, $email, $password){
-  $root = $doc->documentElement;
+  /*$root = $doc->documentElement;
   $utenti = $root->childNodes;
   $trovato = false;
   $i = 0;
@@ -35,9 +35,12 @@ function access_verification($doc, $email, $password){
       $trovato = true;
     }
     $i++;
-  }while($i < $utenti->length && !$trovato);
-
-  return $trovato;
+  }while($i < $utenti->length && !$trovato);*/
+  /* DA SISTEMARE */
+  $xpath = new DOMXPath($doc);
+  $query = "//utenti/utente[@email = '$email']/attivo/nome/cognome/telefono/indirizzo/codiceFiscale/credito/reputazione/password[text() = MD5('$password')";
+  $result = $xpath->query($query);
+  return $result;
 }
 
 function domlist_to_array($domlist) {
