@@ -19,6 +19,21 @@ function load_xml($table) {
   return $doc;
 }
 
+function estrazione_utente($id) {
+  $doc = load_xml('utenti');
+  
+  $xpath = new DOMXPath($doc);
+  $xpath->registerNameSpace('ut', 'http://www.lweb.uni/tesina-rcstore/utenti/');
+  $query = "/ut:utenti/ut:utente[@id = $id]";
+  $result = $xpath->evaluate($query);
+  if ($result->length !== 1) {
+    echo ("Utente non presente\n");
+    return false;
+  }
+
+  return $result[0];
+}
+
 function save_xml($doc, $table) {
   $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
 
