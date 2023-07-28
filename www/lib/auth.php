@@ -31,6 +31,6 @@ function access_verification($email, $password){
   }
 
   echo ("Accesso riuscito!\n");
-  return true;
+  return $utente->getAttribute('id');
 }
 ?>
