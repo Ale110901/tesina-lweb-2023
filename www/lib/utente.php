@@ -4,7 +4,7 @@ require_once('xml.php');
 function access_verification($email, $password){
   $doc = load_xml('utenti');
 
-  $result = xpath($doc, 'utenti', "/ut:utenti/ut:utente[@email='$email']");
+  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
   if ($result->length !== 1) {
     echo ("Errore email\n");
     return false;
@@ -32,7 +32,7 @@ function access_verification($email, $password){
 }
 
 function estrazione_utente($doc, $id) {
-  $result = xpath($doc, 'utenti', "/ut:utenti/ut:utente[@id=$id]");
+  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id=$id]");
   if ($result->length !== 1) {
     echo ("Utente non presente\n");
     return false;
