@@ -16,13 +16,13 @@ if (!isset($_POST['azione'])) {
   $id_prodotto = $_POST['id_prodotto'];
   $quantita = $_POST['quantita'];
 
-  /*
-  if (!$loggato) {
+  if ($loggato || true) {  // quel || true disattiva l'else per ora
+    aggiungi_carrello($id_prodotto, $quantita);
+  } else {
+    $_SESSION['agg_carr_id_prod'] = $id_prodotto;
+    $_SESSION['agg_carr_qta'] = $quantita;
     redirect_login();
   }
-  */
-
-  aggiungi_carrello($id_prodotto, $quantita);
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
