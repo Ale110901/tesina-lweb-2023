@@ -43,7 +43,7 @@ if (!isset($_POST['azione'])) {
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto">
     <h2>CATALOGO</h2>
-    <div id="catalogo-shop">
+    <div id="catalogo">
 <?php
   $doc_prod = load_xml('prodotti');
   $prodotti = $doc_prod->documentElement->childNodes;

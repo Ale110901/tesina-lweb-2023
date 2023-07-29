@@ -29,4 +29,29 @@ function aggiungi_carrello($id_prodotto, $qta_diff) {
 
   save_xml($doc_utenti, 'utenti');
 }
+
+function conta_carrello() {
+  if (!isset($_SESSION['id_utente']) && false) { // disattiva l'if
+    return 0;
+  }
+
+  // $id_utente = $_SESSION['id_utente'];
+  $id_utente = '1';
+
+  $doc_utenti = load_xml('utenti');
+  $result = xpath($doc_utenti, 'utenti',
+    '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto'
+  );
+
+  if ($result->length === 0) {
+    return 0;
+  }
+
+  $somma = 0;
+  for ($i = 0; $i < $result->length; $i++) {
+    $somma += $result[$i]->getAttribute('quantita');
+  }
+
+  return $somma;
+}
 ?>

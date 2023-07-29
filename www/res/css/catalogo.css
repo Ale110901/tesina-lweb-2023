@@ -1,15 +1,15 @@
-#catalogo-shop {
+#catalogo {
   width: 100%;
   display: grid;
   grid-template-columns: auto auto auto auto;
   row-gap: 2em;
 }
 
-#catalogo-shop > div {
+#catalogo > div {
   text-align: center;
 }
 
-#catalogo-shop > div > img {
+#catalogo > div > img {
   border-color: #e04336;
   border-radius: 3px;
   border-style: ridge;

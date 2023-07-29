@@ -1,3 +1,8 @@
+<?php
+require_once(RC_ROOT . '/lib/carrello.php');
+
+$qta_carrello = conta_carrello();
+?>
 <div id="header">
   <div id="icone">
 <?php if ($loggato) { ?>
@@ -6,7 +11,7 @@
     <a href="<?php echo(RC_SUBDIR); ?>/registrazione.php" title="profilo">&#x01F464</a>
 <?php }?>
     <a href="#" title="carrello">&#x01F6D2</a>
-    <span id="numero-item-carrello">0</span>
+    <span id="numero-item-carrello"><?php echo($qta_carrello); ?></span>
   </div>
   <h1 id="titolo"><a href="<?php echo(RC_SUBDIR); ?>/index.php">R&amp;C store</a></h1>
   <ul id="menu">
