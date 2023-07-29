@@ -4,10 +4,7 @@ require_once('xml.php');
 function access_verification($email, $password){
   $doc = load_xml('utenti');
 
-  $xpath = new DOMXPath($doc);
-  $xpath->registerNameSpace('ut', 'http://www.lweb.uni/tesina-rcstore/utenti/');
-  $query = "/ut:utenti/ut:utente[@email='$email']";
-  $result = $xpath->evaluate($query);
+  $result = xpath($doc, 'utenti', "/ut:utenti/ut:utente[@email='$email']");
   if ($result->length !== 1) {
     echo ("Errore email\n");
     return false;
@@ -19,7 +16,7 @@ function access_verification($email, $password){
   if ($tipo === 'cliente') {
     $attivo = $utente->getElementsByTagName('attivo')[0]->textContent;
     if ($attivo !== 'true') {
-      echo ("Errore attivo");
+      echo ("Errore abilitazione");
       return false;
     }
   }
@@ -35,10 +32,7 @@ function access_verification($email, $password){
 }
 
 function estrazione_utente($doc, $id) {
-  $xpath = new DOMXPath($doc);
-  $xpath->registerNameSpace('ut', 'http://www.lweb.uni/tesina-rcstore/utenti/');
-  $query = "/ut:utenti/ut:utente[@id = $id]";
-  $result = $xpath->evaluate($query);
+  $result = xpath($doc, 'utenti', "/ut:utenti/ut:utente[@id=$id]");
   if ($result->length !== 1) {
     echo ("Utente non presente\n");
     return false;
