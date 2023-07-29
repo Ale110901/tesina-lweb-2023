@@ -1,13 +1,38 @@
-.button-modifica-indirizzo {
-  border: none;
+.mostra-modifiche-profilo {
+  display: block;
+}
+
+.input-profilo {
+  display: none;
+}
+
+.button-modifica-profilo {
   background: transparent;
-  font-size: 1.2em;
+  border-radius: 5px;
+  font-size: 1em;
   cursor: pointer;
+  transition-duration: 0.4s;
+  padding: 6px 12px;
+  border: 2px solid #59cef5;
+}
+
+.button-modifica-profilo:hover {
+  background-color: #59cef5;
+  color: white;
+}
+
+.button-conferma-profilo {
+  display: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #card-esterna-profilo {
   margin: 4em auto 4em auto;
-  width: 40%;
+  width: 45%;
   border: 2px solid rgb(255, 0, 0);
   border-radius: 20px;
   box-shadow: rgba(112, 112, 112, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -22,7 +47,7 @@
   font-size: 1.8em;
 }
 
-#info-profilo {
+#table-info-profilo {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -34,3 +59,14 @@
   padding-right: 1.7em;
 }
 
+#input-profilo {
+  padding:8px;
+  border:none;
+  border-bottom:1px solid #000000;
+  background: transparent;
+  display: block;
+}
+
+#input-profilo{
+  display: none;
+}

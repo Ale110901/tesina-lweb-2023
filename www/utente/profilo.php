@@ -31,55 +31,91 @@
 </head>
 
 <body>
-  <?php require('../lib/header.php'); ?> 
+
+  <script>
+    function visibilita(){
+      var element1 = document.getElementById("info-profilo");
+      var element2 = document.getElementById("modifiche-profilo2");
+      var element3 = document.getElementById("modifiche-profilo3");
+      var element4 = document.getElementById("modifiche-profilo4");
+      var element5 = document.getElementById("modifiche-profilo5");
+      var element6 = document.getElementById("modifiche-profilo6");
+      element1.classList.toggle("mostra-modifiche-profilo");
+      element2.classList.toggle("mostra-modifiche-profilo");
+      element3.classList.toggle("mostra-modifiche-profilo");
+      element4.classList.toggle("mostra-modifiche-profilo");
+      element5.classList.toggle("mostra-modifiche-profilo");
+      element6.classList.toggle("mostra-modifiche-profilo");
+    }
+  </script>
+
+  <?php require(RC_ROOT . '/lib/header.php'); ?> 
   <div id="card-esterna-profilo" class="py-1em">
     <h2>Profilo</h2>
-  <!--  <label for="nome"><b>Nome:</b> <span>Alessandro</span></label><br>
-        <label for="cognome"><b>Cognome:</b> <span>Cecchetto</span> </label><br>
-        <label for="email"><b>Email:</b> <span>alecechetto2001@gmail.com</span> </label><br>
-        <label for="telefono"><b>Telefono:</b> <span>+39 3334617057</span> </label><br>
-        <label for="indirizzo"><b>Indirizzo:</b> <span>via casamia, 15</span> </label>
-        <span> <button type="submit" name="azione" value="modifica_indirizzo" class="button-modifica-indirizzo" title="modifica indirizzo">&#x01F4DD</button> </span><br>
-        <label for="codiceFiscale"><b>Codice fiscale:</b><span> </span></label><br>
-        <label for="credito"><b>Credito:</b></label><br> -->
-      <table id="info-profilo" class="py-1em">
-        <tr>
-          <td id="specifica-campo"><b>Nome:</b></td>
-          <td> <?php echo $nome; ?> </td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Cognome:</b></td>
-          <td><?php echo $cognome; ?></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Email:</b></td>
-          <td><?php  ?></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Telefono:</b></td>
-          <td><?php echo $telefono; ?></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Indirizzo:</b></td>
-          <td><?php echo $indirizzo; ?><span><button type="submit" name="azione" value="modifica_indirizzo" class="button-modifica-indirizzo" title="modifica indirizzo">&#x01F4DD</button></span></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Codice fiscale:</b></td>
-          <td><?php echo $codiceFiscale; ?></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Credito:</b></td>
-          <td><?php echo $credito; ?></td>
-        </tr>
-        <tr>
-          <td id="specifica-campo"><b>Reputazione:</b></td>
-          <td><?php echo $reputazione; ?></td>
-        </tr>
-
-      </tbody>
-    </table>
+      <form id="form-profilo" action="profilo.php" method="POST">
+        <table id="table-info-profilo" class="py-1em">
+          <tr>
+            <td id="specifica-campo"><b>Nome:</b></td>
+            <td> 
+              <span id="info-profilo"> <?php echo $nome; ?> </span> 
+              <input type="text" class="input-profilo" id="modifiche-profilo1" name="reset_nome">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Cognome:</b></td>
+            <td> 
+              <span id="info-profilo"> <?php echo $cognome; ?> </span>
+              <input type="text" class="input-profilo" id="modifiche-profilo2" name="reset_cognome">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Email:</b></td>
+            <td>
+              <span id="info-profilo"> <?php  ?> </span>
+              <input type="text" class="input-profilo" id="modifiche-profilo3" name="reset_email">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Telefono:</b></td>
+            <td>
+              <span id="info-profilo"> <?php echo $telefono; ?> </span>
+              <input type="text" class="input-profilo" id="modifiche-profilo4" name="reset_telefono">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Indirizzo:</b></td>
+            <td>
+              <span id="info-profilo"> <?php echo $indirizzo; ?> </span>
+              <input type="text" class="input-profilo" id="modifiche-profilo5" name="reset_indirizzo">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Codice fiscale:</b></td>
+            <td>
+              <span id="info-profilo"> <?php echo $codiceFiscale; ?> </span>
+              <input type="text" class="input-profilo" id="modifiche-profilo6" name="reset_cf">
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Credito:</b></td>
+            <td>
+              <span id="info-profilo"> <?php echo $credito; ?> &euro;</span>
+              <!--<input type="text" id="input-profilo" name="reset_indirizzo">-->
+            </td>
+          </tr>
+          <tr>
+            <td id="specifica-campo"><b>Reputazione:</b></td>
+            <td>
+              <?php echo $reputazione; ?>
+            </td>
+          </tr>
+        </table>
+        <button type="submit" class="button-conferma-profilo" id="conferma-modifiche" name="azione" value="conferma_modifiche_profilo" title="conferma modifiche">Conferma modifiche</button>
+      </form>
+      <button type="submit" class="button-modifica-profilo mt-8" id="modifica" name="azione" value="cambia_profilo" title="modifica profilo" onclick="visibilita()">Modifica profilo</button>
   </div>
 
-  <?php require('../lib/footer.php'); ?>
+  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+
 </body>
 </html>
