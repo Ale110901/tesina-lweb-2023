@@ -3,7 +3,7 @@ require_once('xml.php');
 
 function access_verification($email, $password){
   $doc = load_xml('utenti');
-  
+
   $xpath = new DOMXPath($doc);
   $xpath->registerNameSpace('ut', 'http://www.lweb.uni/tesina-rcstore/utenti/');
   $query = "/ut:utenti/ut:utente[@email='$email']";
@@ -32,5 +32,18 @@ function access_verification($email, $password){
 
   echo ("Accesso riuscito!\n");
   return $utente->getAttribute('id');
+}
+
+function estrazione_utente($doc, $id) {
+  $xpath = new DOMXPath($doc);
+  $xpath->registerNameSpace('ut', 'http://www.lweb.uni/tesina-rcstore/utenti/');
+  $query = "/ut:utenti/ut:utente[@id = $id]";
+  $result = $xpath->evaluate($query);
+  if ($result->length !== 1) {
+    echo ("Utente non presente\n");
+    return false;
+  }
+
+  return $result[0];
 }
 ?>

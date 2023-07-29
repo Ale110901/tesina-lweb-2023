@@ -1,7 +1,13 @@
 <?php
   require_once('../config.php');
+
+  $perm_visitatore = true;
+  $perm_cliente = true;
+  $perm_gestore = true;
+  $perm_admin = true;
+
   require_once(RC_ROOT . '/lib/start.php');
-  require_once(RC_ROOT . '/lib/auth.php');
+  require_once(RC_ROOT . '/lib/utente.php');
   require_once(RC_ROOT . '/lib/xml.php');
 
   $id_utente = access_verification('mario.rossi@gmail.com', 'password');
