@@ -1,33 +1,16 @@
-.mostra-modifiche-profilo {
-  display: block;
-}
-
-.input-profilo {
-  display: none;
-}
-
 .button-modifica-profilo {
   background: transparent;
   border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  padding: 6px 12px;
   border: 2px solid #59cef5;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 6px 12px;
+  transition-duration: 0.4s;
 }
 
 .button-modifica-profilo:hover {
   background-color: #59cef5;
   color: white;
-}
-
-.button-conferma-profilo {
-  display: none;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #card-esterna-profilo {
@@ -55,18 +38,13 @@
   line-height: 2em;
 }
 
-#specifica-campo {
+.specifica-campo {
   padding-right: 1.7em;
 }
 
-#input-profilo {
-  padding:8px;
-  border:none;
-  border-bottom:1px solid #000000;
+.input-profilo {
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #000000;
   background: transparent;
-  display: block;
-}
-
-#input-profilo{
-  display: none;
 }
