@@ -26,6 +26,10 @@ body {
   text-align: center;
 }
 
+.nascosto {
+  display: none;
+}
+
 
 .mt-8 {
   margin-top: 8px;
