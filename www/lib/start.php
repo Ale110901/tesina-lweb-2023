@@ -1,4 +1,11 @@
 <?php
+if (RC_ROOT === null) {
+  header('Content-Type: text/plain');
+
+  echo ('Il sito non e\' stato installato. Procedere con l\'installazione prima.');
+  exit ();
+}
+
 session_start();
 
 $loggato = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
