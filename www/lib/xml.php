@@ -1,5 +1,5 @@
 <?php
-require_once(RC_ROOT . '/config.php');
+require_once('../config.php');
 
 function load_xml($table) {
   $xmlFile = RC_ROOT . '/data/' . $table . '.xml';

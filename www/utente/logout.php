@@ -1,4 +1,6 @@
 <?php
+require_once('../config.php');
+
 session_start();
 if (isset($_SESSION['id_utente'])) {
   unset($_SESSION['id_utente']);
@@ -6,7 +8,7 @@ if (isset($_SESSION['id_utente'])) {
 }
 $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 if (!isset($redirect) || $redirect === '') {
-  $redirect = 'index.php';
+  $redirect = RC_SUBDIR . '/index.php';
 }
 header('Location: ' . $redirect);
 ?>

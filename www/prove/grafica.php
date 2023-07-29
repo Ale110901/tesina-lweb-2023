@@ -1,19 +1,22 @@
-<?php require('lib/start.php'); ?>
+<?php
+require_once('../lib/start.php');
+require_once('../config.php');
+?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Prova &ndash; R&amp;C store</title>
+  <title>Prova grafica &ndash; R&amp;C store</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
 
-  <link rel="stylesheet" type="text/css" href="res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
 </head>
 
 <body>
-  <?php require('lib/header.php'); ?>
+  <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto">
     <h2>CATALOGO</h2>
     <p>
@@ -93,7 +96,7 @@ Una domanda postata da clienti, con una relativa risposta, può essere "elevata"
     </div>
   -->
   </div>
-  <?php require('lib/footer.php'); ?>
+  <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
 
 </html>
