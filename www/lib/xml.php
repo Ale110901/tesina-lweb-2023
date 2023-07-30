@@ -73,9 +73,9 @@ function get_next_id($elements) {
 }
 
 function xpath($doc, $table, $query) {
-  $xpath = new DOMXPath($doc);
-  $xpath->registerNameSpace('ns', 'http://www.lweb.uni/tesina-rcstore/' . $table . '/');
-  $result = $xpath->evaluate($query);
+  $xp = new DOMXPath($doc);
+  $xp->registerNameSpace('ns', 'http://www.lweb.uni/tesina-rcstore/' . $table . '/');
+  $result = $xp->evaluate($query);
   return $result;
 }
 ?>
