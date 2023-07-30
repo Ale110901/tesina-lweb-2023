@@ -2,8 +2,7 @@
 require_once(RC_ROOT . '/lib/xml.php');
 
 function aggiungi_carrello($id_prodotto, $qta_diff) {
-  // $id_utente = $_SESSION['id_utente'];
-  $id_utente = '1';
+  $id_utente = $_SESSION['id_utente'];
 
   $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
@@ -31,12 +30,11 @@ function aggiungi_carrello($id_prodotto, $qta_diff) {
 }
 
 function conta_carrello() {
-  if (!isset($_SESSION['id_utente']) && false) { // disattiva l'if
+  if (!isset($_SESSION['id_utente'])) {
     return 0;
   }
 
-  // $id_utente = $_SESSION['id_utente'];
-  $id_utente = '1';
+  $id_utente = $_SESSION['id_utente'];
 
   $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
