@@ -1,6 +1,12 @@
 <?php
-require_once('../lib/start.php');
 require_once('../config.php');
+
+$perm_visitatore = true;
+$perm_cliente = true;
+$perm_gestore = true;
+$perm_admin = true;
+
+require_once(RC_ROOT . '/lib/start.php');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -76,25 +82,6 @@ FAQ
 Esiste una pagina di FAQ, gestita dall'admin.
 Una domanda postata da clienti, con una relativa risposta, può essere "elevata" a far parte delle FAQ.
     </p>
-    <!--
-
-    <div id="catalogo-shop">
-      <div id="articolo_ID">
-        <img src="res/css/shop_img/shop_ID.png"  alt="shop_ID.png" ></img>
-        <p>NOME</p>
-        <p class="prezzo">PREZZO &euro;</p>
-        <form class="pt-1em" action="shop.php#articolo_ID" method="post">
-          <input type="hidden" name="id_articolo" value="ID" />
-          <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
-          <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="centrato pt-64">
-      <a class="button" href="carrello.php">Vai al carrello</a>
-    </div>
-  -->
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
