@@ -5,11 +5,7 @@ $qta_carrello = conta_carrello();
 ?>
 <div id="header">
   <div id="icone">
-<?php if ($loggato) { ?>
     <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" title="Profilo">&#x01F464</a>
-<?php } else { ?>
-    <a href="<?php echo(RC_SUBDIR); ?>/registrazione.php" title="profilo">&#x01F464</a>
-<?php }?>
     <a href="#" title="carrello">&#x01F6D2</a>
     <span id="numero-item-carrello"><?php echo($qta_carrello); ?></span>
   </div>
@@ -17,8 +13,7 @@ $qta_carrello = conta_carrello();
   <ul id="menu">
     <li><a href="<?php echo(RC_SUBDIR); ?>/index.php">Homepage</a></li>
     <li><a href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Catalogo</a></li>
-    <li><a href="<?php echo(RC_SUBDIR); ?>/servizi.php">Servizi</a></li>
-    <li><a href="<?php echo(RC_SUBDIR); ?>/shop.php">Shop</a></li>
+    <li><a href="<?php echo(RC_SUBDIR); ?>/faq.php">FAQ</a></li>
     <li><a href="<?php echo(RC_SUBDIR); ?>/info.php">Informazioni</a></li>
   </ul>
 </div>
