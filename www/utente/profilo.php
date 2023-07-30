@@ -10,31 +10,31 @@
   require_once(RC_ROOT . '/lib/utente.php');
   require_once(RC_ROOT . '/lib/xml.php');
 
-  $id_utente = access_verification('mario.rossi@gmail.com', 'password');
+  // $id_utente = $_SESSION['id_utente'];
+  $id_utente = 1;
 
-  if ($id_utente !== false) {
-    $doc_utenti = load_xml('utenti');
-    $nodo_utente = estrazione_utente($doc_utenti, $id_utente);
+  $doc_utenti = load_xml('utenti');
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
+  $utente = $result[0];
 
-    if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
-      $nodo_utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
-      $nodo_utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
-      $nodo_utente->getElementsByTagName('telefono')[0]->textContent = $_POST['telefono'];
-      $nodo_utente->getElementsByTagName('indirizzo')[0]->textContent = $_POST['indirizzo'];
-      $nodo_utente->getElementsByTagName('codiceFiscale')[0]->textContent = $_POST['codice_fiscale'];
+  if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
+    $utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
+    $utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
+    $utente->getElementsByTagName('telefono')[0]->textContent = $_POST['telefono'];
+    $utente->getElementsByTagName('indirizzo')[0]->textContent = $_POST['indirizzo'];
+    $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $_POST['codice_fiscale'];
 
-      save_xml($doc_utenti, 'utenti');
-    }
-
-    $nome = $nodo_utente->getElementsByTagName('nome')[0]->textContent;
-    $cognome = $nodo_utente->getElementsByTagName('cognome')[0]->textContent;
-    $email = $nodo_utente->getAttribute('email');
-    $telefono = $nodo_utente->getElementsByTagName('telefono')[0]->textContent;
-    $indirizzo = $nodo_utente->getElementsByTagName('indirizzo')[0]->textContent;
-    $codice_fiscale = $nodo_utente->getElementsByTagName('codiceFiscale')[0]->textContent;
-    $credito = $nodo_utente->getElementsByTagName('credito')[0]->textContent;
-    $reputazione = $nodo_utente->getElementsByTagName('reputazione')[0]->textContent;
+    save_xml($doc_utenti, 'utenti');
   }
+
+  $nome = $utente->getElementsByTagName('nome')[0]->textContent;
+  $cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
+  $email = $utente->getAttribute('email');
+  $telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
+  $indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
+  $codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
+  $credito = $utente->getElementsByTagName('credito')[0]->textContent;
+  $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
