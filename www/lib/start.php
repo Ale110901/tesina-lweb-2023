@@ -1,4 +1,6 @@
 <?php
+require_once(RC_ROOT . '/lib/utils.php');
+
 if (RC_ROOT === null) {
   header('Content-Type: text/plain');
 
@@ -9,7 +11,6 @@ if (RC_ROOT === null) {
 session_start();
 
 $loggato = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
-$pag_corr = RC_SUBDIR . '/index.php';
 
 if (!$perm_visitatore) {
   if (!$loggato) {
@@ -24,10 +25,5 @@ if (!$perm_visitatore) {
     header('Location: /accesso_negato.php');
     exit();
   }
-}
-
-function redirect_login() {
-  header('Location: /login.php?redirect=' . $pag_corr);
-  exit();
 }
 ?>

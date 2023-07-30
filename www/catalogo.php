@@ -8,6 +8,7 @@ $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
+require_once(RC_ROOT . '/lib/utils.php');
 require_once(RC_ROOT . '/lib/carrello.php');
 
 if (!isset($_POST['azione'])) {
