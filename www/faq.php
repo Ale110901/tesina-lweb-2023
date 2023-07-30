@@ -27,8 +27,15 @@ $faqs = $doc_faq->documentElement->childNodes;
 </head>
 
 <body>
+
+  <script>
+    function mostra(){
+      document.getElementById('risposta').classList.toggle("visibile");
+    }
+  </script>
+
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
+  <div id="contenuto" class="centrato">
     <h2>FAQ</h2>
     <div id="faq">
 <?php
@@ -38,7 +45,10 @@ for ($i = 0; $i < $faqs->length; $i++) {
   $risposta = $faq->getElementsByTagName('risposta')[0]->textContent;
 ?>
       <div>
-        <h4><?php echo($domanda); ?></h4>
+        <button id="button-domanda" onclick="mostra()"><?php echo($domanda); ?></button>
+        <span id="button-freccia">&#x21D3;</span>
+      </div>
+      <div  class="nascosto" id="risposta">
         <p><?php echo($risposta); ?></p>
       </div>
 <?php

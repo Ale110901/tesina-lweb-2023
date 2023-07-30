@@ -32,6 +32,10 @@ body {
   display: none;
 }
 
+.visibile {
+  display: block;
+}
+
 
 .mt-8 {
   margin-top: 8px;

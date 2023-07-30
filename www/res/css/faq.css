@@ -2,3 +2,21 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+#button-domanda {
+  border-radius: 4px;
+  font-size: medium;
+  background: transparent;
+  width: 55%;
+  height: 3em;
+  color: black;
+  border: 2px solid #b1a6a6;
+  cursor: pointer;
+}
+
+#button-freccia {
+  position: relative;
+  margin-left: -60px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
