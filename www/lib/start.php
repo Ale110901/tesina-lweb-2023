@@ -22,6 +22,7 @@ if (!$perm_visitatore) {
     ($_SESSION['tipo'] === 'gestore' && !$perm_gestore) ||
     ($_SESSION['tipo'] === 'admin' && !$perm_admin)
   ) {
+    http_response_code(403);
     header('Location: /accesso_negato.php');
     exit();
   }
