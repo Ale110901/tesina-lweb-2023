@@ -1,6 +1,5 @@
 <?php
 if (isset($_GET['subdir'])) {
-
   $subdir = rtrim($_GET['subdir'], '/');
 } else {
   $subdir = '';

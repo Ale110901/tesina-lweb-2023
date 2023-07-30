@@ -1,7 +1,7 @@
 <?php
   require_once('../config.php');
 
-  $perm_visitatore = true;
+  $perm_visitatore = false;
   $perm_cliente = true;
   $perm_gestore = true;
   $perm_admin = true;

@@ -18,12 +18,12 @@ if (!$perm_visitatore) {
   }
 
   if (
-    ($_SESSION['tipo'] === 'cliente' && !$perm_cliente) ||
-    ($_SESSION['tipo'] === 'gestore' && !$perm_gestore) ||
-    ($_SESSION['tipo'] === 'admin' && !$perm_admin)
+    ($_SESSION['tipo_utente'] === 'cliente' && !$perm_cliente) ||
+    ($_SESSION['tipo_utente'] === 'gestore' && !$perm_gestore) ||
+    ($_SESSION['tipo_utente'] === 'admin' && !$perm_admin)
   ) {
     http_response_code(403);
-    header('Location: /accesso_negato.php');
+    header('Location: ' . RC_SUBDIR . '/accesso_negato.php');
     exit();
   }
 }
