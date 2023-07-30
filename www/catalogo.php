@@ -11,19 +11,23 @@ require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/utils.php');
 require_once(RC_ROOT . '/lib/carrello.php');
 
-if (!isset($_POST['azione'])) {
-  // Non fa niente
-} else if ($_POST['azione'] === 'aggiungi') {
+if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi') {
   $id_prodotto = $_POST['id_prodotto'];
   $quantita = $_POST['quantita'];
 
-  if ($loggato || true) {  // quel || true disattiva l'else per ora
+  if ($loggato) {  // quel || true disattiva l'else per ora
     aggiungi_carrello($id_prodotto, $quantita);
   } else {
     $_SESSION['agg_carr_id_prod'] = $id_prodotto;
     $_SESSION['agg_carr_qta'] = $quantita;
     redirect_login();
   }
+}
+
+if ($loggato && isset($_SESSION['agg_carr_id_prod'])) {
+  aggiungi_carrello($_SESSION['agg_carr_id_prod'], $_SESSION['agg_carr_qta']);
+  unset($_SESSION['agg_carr_id_prod']);
+  unset($_SESSION['agg_carr_qta']);
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
