@@ -72,9 +72,9 @@
   </script>
 
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="card-esterna-profilo" class="py-1em">
+  <div id="pagina-form">
     <h2>Profilo</h2>
-      <form id="form-profilo" action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="POST">
+      <form action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="POST">
         <table id="table-info-profilo" class="py-1em">
           <tr>
             <td class="specifica-campo"><b>Nome:</b></td>
@@ -121,6 +121,7 @@
             <td class="specifica-campo"><b>Credito:</b></td>
             <td>
               <span class="info-profilo"><?php echo ($credito); ?> &euro;</span>
+              <a href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
             </td>
           </tr>
           <tr>
@@ -133,6 +134,7 @@
         <button type="submit" class="button-modifica-profilo nascosto" name="azione" value="modifica" title="conferma modifiche">Conferma modifiche</button>
       </form>
       <button class="button-modifica-profilo mt-8" title="modifica profilo" onclick="visibilita()">Modifica profilo</button>
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button-modifica-profilo mt-8" title="Logout">Logout</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
