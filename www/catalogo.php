@@ -71,7 +71,7 @@ if ($loggato && isset($_SESSION['agg_carr_id_prod'])) {
         <p class="prezzo"><?php echo($p_costo); ?> &euro;</p>
         <form class="pt-1em" action="<?php echo(RC_SUBDIR); ?>/catalogo.php#prodotto_<?php echo($p_id); ?>" method="post">
           <input type="hidden" name="id_prodotto" value="<?php echo($p_id); ?>" />
-          <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
+          <input type="number" name="quantita" class="input-box" value="0" min="0" step="1" size="3" max="99" />
           <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
         </form>
       </div>

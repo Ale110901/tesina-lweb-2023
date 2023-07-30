@@ -1,3 +1,4 @@
+/*
 .button-modifica-profilo {
   background: transparent;
   border-radius: 5px;
@@ -12,8 +13,9 @@
   background-color: #59cef5;
   color: white;
 }
+*/
 
-#table-info-profilo {
+#info-profilo {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -21,13 +23,6 @@
   line-height: 2em;
 }
 
-.specifica-campo {
+#info-profilo > tbody > tr > td:nth-child(1) {
   padding-right: 1.7em;
-}
-
-.input-profilo {
-  padding: 8px;
-  border: none;
-  border-bottom: 1px solid #000000;
-  background: transparent;
 }

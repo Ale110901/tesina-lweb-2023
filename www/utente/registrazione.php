@@ -49,25 +49,25 @@ if ($redirect !== '') {
 <?php if (!$registrazione || $errore) { ?>
     <form action="<?php echo(RC_SUBDIR); ?>/utente/registrazione.php" method="POST">
       <label for="nome">Nome:</label><br>
-      <input type="text" name="nome" value="<?php echo($nome); ?>"><br>
+      <input type="text" class="input-box" name="nome" value="<?php echo($nome); ?>"><br>
 
       <label for="cognome">Cognome:</label><br>
-      <input type="text" name="cognome" value="<?php echo($cognome); ?>"><br>
+      <input type="text" class="input-box" name="cognome" value="<?php echo($cognome); ?>"><br>
 
       <label for="username">Email:</label><br>
-      <input type="text" name="username" value="<?php echo($username); ?>"><br>
+      <input type="text" class="input-box" name="username" value="<?php echo($username); ?>"><br>
 
       <label for="password">Password:</label><br>
-      <input type="password" name="password" value="<?php if (!$err_pwd) { echo($password); } ?>"><br>
+      <input type="password" class="input-box" name="password" value="<?php if (!$err_pwd) { echo($password); } ?>"><br>
 
       <label for="password">Telefono:</label><br>
-      <input type="password" name="telefono" value="<?php if (!$err_tel) { echo($telefono); } ?>"><br>
+      <input type="text" class="input-box" name="telefono" value="<?php if (!$err_tel) { echo($telefono); } ?>"><br>
 
       <label for="password">Indirizzo:</label><br>
-      <input type="password" name="indirizzo" value="<?php if (!$err_indir) { echo($indirizzo); } ?>"><br>
+      <input type="text" class="input-box" name="indirizzo" value="<?php if (!$err_indir) { echo($indirizzo); } ?>"><br>
 
       <label for="password">Codice fiscale:</label><br>
-      <input type="password" name="codice_fiscale" value="<?php if (!$err_cf) { echo($codice_fiscale); } ?>"><br>
+      <input type="text" class="input-box" name="codice_fiscale" value="<?php if (!$err_cf) { echo($codice_fiscale); } ?>"><br>
 
       <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
 

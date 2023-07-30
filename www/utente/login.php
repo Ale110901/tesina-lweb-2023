@@ -61,10 +61,10 @@ if ($redirect !== '') {
     <h2 class="py-16">LOGIN</h2>
     <form action="<?php echo(RC_SUBDIR); ?>/utente/login.php" method="POST" >
       <label for="username">Nome utente:</label><br>
-      <input type="text" name="username" value="mario.rossi@gmail.com"><br><br>
+      <input type="text" class="input-box" name="username" value="mario.rossi@gmail.com"><br><br>
 
       <label for="password">Password:</label><br>
-      <input type="password" name="password" value="password"><br><br>
+      <input type="password" class="input-box" name="password" value="password"><br><br>
 
       <button type="submit" name="azione" value="accedi" class="button">Accedi</button>
 

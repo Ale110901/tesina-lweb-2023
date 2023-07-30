@@ -53,17 +53,7 @@
 
   <script>
     function visibilita() {
-      var elemInfo = document.getElementsByClassName('info-mod');
-      for (var i = 0; i < elemInfo.length; i++) {
-        elemInfo[i].classList.toggle("nascosto");
-      }
-
-      var elemInfo = document.getElementsByClassName('input-profilo');
-      for (var i = 0; i < elemInfo.length; i++) {
-        elemInfo[i].classList.toggle("nascosto");
-      }
-
-      var elemInfo = document.getElementsByClassName('button-modifica-profilo');
+      var elemInfo = document.getElementsByClassName('con-toggle');
       for (var i = 0; i < elemInfo.length; i++) {
         elemInfo[i].classList.toggle("nascosto");
       }
@@ -74,66 +64,66 @@
   <div id="pagina-form">
     <h2>Profilo</h2>
       <form action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="POST">
-        <table id="table-info-profilo" class="py-1em">
+        <table id="info-profilo" class="py-1em">
           <tr>
-            <td class="specifica-campo"><b>Nome:</b></td>
+            <td><b>Nome:</b></td>
             <td>
-              <span class="info-mod"><?php echo ($nome); ?></span>
-              <input type="text" class="input-profilo nascosto" name="nome" value="<?php echo ($nome); ?>" />
+              <span class="con-toggle"><?php echo ($nome); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="nome" value="<?php echo ($nome); ?>" />
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Cognome:</b></td>
+            <td><b>Cognome:</b></td>
             <td>
-              <span class="info-mod"><?php echo ($cognome); ?></span>
-              <input type="text" class="input-profilo nascosto" name="cognome" value="<?php echo ($cognome); ?>" />
+              <span class="con-toggle"><?php echo ($cognome); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="cognome" value="<?php echo ($cognome); ?>" />
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Email:</b></td>
+            <td><b>Email:</b></td>
             <td>
-              <span class="info-profilo"><?php echo ($email); ?></span>
+              <span><?php echo ($email); ?></span>
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Telefono:</b></td>
+            <td><b>Telefono:</b></td>
             <td>
-              <span class="info-mod"><?php echo ($telefono); ?></span>
-              <input type="text" class="input-profilo nascosto" name="telefono" value="<?php echo ($telefono); ?>" />
+              <span class="con-toggle"><?php echo ($telefono); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="telefono" value="<?php echo ($telefono); ?>" />
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Indirizzo:</b></td>
+            <td><b>Indirizzo:</b></td>
             <td>
-              <span class="info-mod"><?php echo ($indirizzo); ?></span>
-              <input type="text" class="input-profilo nascosto" name="indirizzo" value="<?php echo ($indirizzo); ?>" />
+              <span class="con-toggle"><?php echo ($indirizzo); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="indirizzo" value="<?php echo ($indirizzo); ?>" />
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Codice fiscale:</b></td>
+            <td><b>Codice fiscale:</b></td>
             <td>
-              <span class="info-mod"><?php echo ($codice_fiscale); ?></span>
-              <input type="text" class="input-profilo nascosto" name="codice_fiscale" value="<?php echo ($codice_fiscale); ?>" />
+              <span class="con-toggle"><?php echo ($codice_fiscale); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="codice_fiscale" value="<?php echo ($codice_fiscale); ?>" />
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Credito:</b></td>
+            <td><b>Credito:</b></td>
             <td>
-              <span class="info-profilo"><?php echo ($credito); ?> &euro;</span>
+              <span><?php echo ($credito); ?> &euro;</span>
               <a href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
             </td>
           </tr>
           <tr>
-            <td class="specifica-campo"><b>Reputazione:</b></td>
+            <td><b>Reputazione:</b></td>
             <td>
-              <span class="info-profilo"><?php echo ($reputazione); ?> punti</span>
+              <span><?php echo ($reputazione); ?> punti</span>
             </td>
           </tr>
         </table>
-        <button type="submit" class="button-modifica-profilo nascosto" name="azione" value="modifica" title="conferma modifiche">Conferma modifiche</button>
+        <button type="submit" name="azione" value="modifica" class="button con-toggle nascosto" title="Conferma modifiche">Conferma modifiche</button>
       </form>
-      <button class="button-modifica-profilo mt-8" title="modifica profilo" onclick="visibilita()">Modifica profilo</button>
-      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button-modifica-profilo mt-8" title="Logout">Logout</a>
+      <button class="button con-toggle mt-8" title="Modifica profilo" onclick="visibilita()">Modifica profilo</button>
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button con-toggle mt-8" title="Logout">Logout</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
