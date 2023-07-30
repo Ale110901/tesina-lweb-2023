@@ -1,43 +1,33 @@
 <?php
-require_once('xml.php');
+require_once(RC_ROOT . '/lib/xml.php');
 
-function access_verification($email, $password){
+function login($email, $password) {
   $doc = load_xml('utenti');
 
   $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
   if ($result->length !== 1) {
-    echo ("Errore email\n");
-    return false;
+    return "Errore email";
   }
 
   $utente = $result[0];
+
+  $password2 = $utente->getElementsByTagName('password')[0]->textContent;
+  if ($password2 !== md5($password)) {
+    return "Errore password";
+  }
+
   $tipo = $utente->getAttribute('tipo');
 
   if ($tipo === 'cliente') {
     $attivo = $utente->getElementsByTagName('attivo')[0]->textContent;
     if ($attivo !== 'true') {
-      echo ("Errore abilitazione");
-      return false;
+      return "Errore abilitazione";
     }
   }
 
-  $password2 = $utente->getElementsByTagName('password')[0]->textContent;
-  if ($password2 !== md5($password)) {
-    echo ("Errore password");
-    return false;
-  }
+  $_SESSION['id_utente'] = $utente->getAttribute('id');
+  $_SESSION['tipo_utente'] = $tipo;
 
-  echo ("Accesso riuscito!\n");
-  return $utente->getAttribute('id');
-}
-
-function estrazione_utente($doc, $id) {
-  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id=$id]");
-  if ($result->length !== 1) {
-    echo ("Utente non presente\n");
-    return false;
-  }
-
-  return $result[0];
+  return "Ok";
 }
 ?>
