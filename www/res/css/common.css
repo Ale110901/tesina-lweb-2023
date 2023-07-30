@@ -45,6 +45,13 @@ body {
   text-align: center;
 }
 
+.scatola {
+  border-color: #e04336;
+  border-radius: 6px;
+  border-style: ridge;
+  border-width: 6px;
+}
+
 .centrato {
   text-align: center;
 }

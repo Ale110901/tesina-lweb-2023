@@ -53,7 +53,6 @@ if ($redirect !== '') {
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/login.css" />
 </head>
 
 <body>
