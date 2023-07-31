@@ -1,0 +1,10 @@
+#contenuto {
+    display: flex;
+    column-gap: 64px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#descrizione > p {
+    padding: 0.3em 0 0.3em 0;
+}
