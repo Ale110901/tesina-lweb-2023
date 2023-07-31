@@ -64,7 +64,12 @@ if ($loggato && isset($_SESSION['agg_carr_id_prod'])) {
     $p_quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 ?>
       <div id="prodotto_<?php echo($p_id); ?>">
-        <img src="res/img/prodotti/<?php echo($p_id); ?>.png" alt="shop_<?php echo($p_id); ?>.png" ></img>
+      <form class="pt-1em" action="<?php echo(RC_SUBDIR); ?>/prodotto.php" method="post">
+          <input type="hidden" name="id_prodotto" value="<?php echo($p_id); ?>" />
+          <button id="btn-oscurato">
+            <img id="img-prod" src="res/img/prodotti/<?php echo($p_id); ?>.png" alt="shop_<?php echo($p_id); ?>.png" ></img>
+          </button>    
+      </form> 
         <p><?php echo($p_categoria); ?></p>
         <p><?php echo($p_marca); ?></p>
         <p><?php echo($p_nome); ?></p>
