@@ -29,8 +29,8 @@ $faqs = $doc_faq->documentElement->childNodes;
 <body>
 
   <script>
-    function mostra(){
-      document.getElementById('risposta').classList.toggle("visibile");
+    function mostra(id){
+      document.getElementById('risposta' + id).classList.toggle("visibile");
     }
   </script>
 
@@ -41,14 +41,15 @@ $faqs = $doc_faq->documentElement->childNodes;
 <?php
 for ($i = 0; $i < $faqs->length; $i++) {
   $faq = $faqs[$i];
+  $id = $faq->getAttribute('id');
   $domanda =  $faq->getElementsByTagName('domanda')[0]->textContent;
   $risposta = $faq->getElementsByTagName('risposta')[0]->textContent;
 ?>
       <div>
-        <button id="button-domanda" onclick="mostra()"><?php echo($domanda); ?></button>
+        <button id="button-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
         <span id="button-freccia">&#x21D3;</span>
       </div>
-      <div  class="nascosto" id="risposta">
+      <div  class="nascosto" id="risposta<?php echo($id); ?>">
         <p><?php echo($risposta); ?></p>
       </div>
 <?php

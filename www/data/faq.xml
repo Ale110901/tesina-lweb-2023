@@ -4,4 +4,8 @@
     <domanda>Quanto costa la spedizione?</domanda>
     <risposta>La spedizione varia tra 1€ e 5€ e dipende dalla destinazione.</risposta>
   </faq>
+  <faq id="2">
+    <domanda>Quanto costa la spedizione?</domanda>
+    <risposta>La spedizione varia tra 1€ e 5€ e dipende dalla destinazione.</risposta>
+  </faq>
 </faqs>

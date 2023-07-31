@@ -46,8 +46,8 @@ if ($loggato && isset($_SESSION['agg_carr_id_prod'])) {
 
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
-    <h2>CATALOGO</h2>
+  <div id="contenuto" class="centrato">
+    <h2 class="pb-32">CATALOGO</h2>
     <div id="catalogo">
 <?php
   $doc_prod = load_xml('prodotti');
