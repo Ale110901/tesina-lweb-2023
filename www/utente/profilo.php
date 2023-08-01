@@ -110,7 +110,7 @@
             <td><b>Credito:</b></td>
             <td>
               <span><?php echo ($credito); ?> &euro;</span>
-              <a href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
+              <a href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php"> <span id="ricarica">Ricarica</span> </a>
             </td>
           </tr>
           <tr>
