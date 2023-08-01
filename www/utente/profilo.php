@@ -61,7 +61,7 @@
   </script>
 
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="pagina-form">
+  <div id="pagina-form" class="centrato">
     <h2>Profilo</h2>
       <form action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="POST">
         <table id="info-profilo" class="py-1em">
@@ -122,8 +122,9 @@
         </table>
         <button type="submit" name="azione" value="modifica" class="button con-toggle nascosto" title="Conferma modifiche">Conferma modifiche</button>
       </form>
-      <button class="button con-toggle mt-8" title="Modifica profilo" onclick="visibilita()">Modifica profilo</button>
-      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button con-toggle mt-8" title="Logout">Logout</a>
+      <button class="button con-toggle mt-8 mb-16" title="Modifica profilo" onclick="visibilita()">Modifica profilo</button>
+      <br />
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button con-toggle" title="Logout">Logout</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
