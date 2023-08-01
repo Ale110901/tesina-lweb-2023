@@ -1,12 +1,12 @@
 <?php
 require_once('../config.php');
+require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/xml.php');
 
 $perm_visitatore = true;
 $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
-
-require_once(RC_ROOT . '/lib/start.php');
 
 $nome = 'test'; // $_POST['nome'];
 $cognome = 'test'; // $_POST['cognome'];
@@ -21,12 +21,66 @@ $err_tel = false;
 $err_indir = false;
 $err_cf = false;
 
-$errore = $err_pwd || $err_tel || $err_indir || $err_cf;
+$registrato = false;
+
+if ($nome === '' || $cognome === '' || $username === '' || $password === '') {
+  $err_vuoto = true;
+} else if (!preg_match('/^[A-Za-z0-9!£$%&()=?^,.;:_|]{8,}$/', $password)) {
+  $err_pwd = true;
+} else if (!preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) { 
+  $err_cf = true;
+} else if (!preg_match('/^\+\[0-9]{12}$/', $telefono)) { 
+  $err_tel = true;
+} else if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
+  $err_indir = true;
+}
+
+
+$errore = $err_pwd || $err_tel || $err_indir || $err_cf || $err_vuoto;
 
 $link_log = RC_SUBDIR . '/utente/login.php';
 if ($redirect !== '') {
   $link_log .= '?redirect=' . $redirect;
 }
+
+if (isset($_POST['azione']) && $_POST['azione'] === 'registrazione' && !$errore) {
+  $doc_utenti = load_xml('utenti');
+  $root = $doc_utenti->documentElement;
+  $utenti = $root->childNodes;
+
+  $nuovo_utente = $doc_utenti->createElement('utente');
+
+  $id_utente = get_next_id($utenti);
+  $nuovo_utente->setAttribute('id', $id_utente);
+  $nuovo_utente->setAttribute('tipo', 'cliente');
+  $nuovo_utente->setAttribute('email', $username);
+
+  $attivo = $doc_utenti->createElement('attivo', true);
+  $nuovo_utente->appendChild($attivo);
+  $nome = $doc_utenti->createElement('nome', $nome);
+  $nuovo_utente->appendChild($nome);
+  $cognome = $doc_utenti->createElement('indirizzo', $cognome);
+  $nuovo_utente->appendChild($cognome);
+  $telefono = $doc_utenti->createElement('telefono', $telefono);
+  $nuovo_utente->appendChild($telefono);
+  $indirizzo = $doc_utenti->createElement('indirizzo', $indirizzo);
+  $nuovo_utente->appendChild($indirizzo);
+  $codice_fiscale = $doc_utenti->createElement('codice_fiscale', $codice_fiscale);
+  $nuovo_utente->appendChild($codice_fiscale);
+  $password = $doc_utenti->createElement('password', $password);
+  $nuovo_utente->appendChild($password);
+  $reputazione = $doc_utenti->createElement('reputazione', 0);
+  $nuovo_utente->appendChild($reputazione);
+  $credito = $doc_utenti->createElement('credito', 0);
+  $nuovo_utente->appendChild($credito);
+
+  $root->appendChild($nuovo_utente);
+
+  save_xml($doc_utenti, 'utenti');
+
+  $registrato = true;
+}
+
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -79,7 +133,7 @@ if ($redirect !== '') {
 <?php
   if ($err_vuoto) {
 ?>
-      <p>Tutti i campi devono essere compilati</p>
+      <p>Tutti i campi devono essere compilati!</p>
 <?php
   } else {
     if ($err_pwd) {
@@ -95,7 +149,7 @@ if ($redirect !== '') {
     }
     if ($err_tel) {
 ?>
-      <p class="mt-8">Telefono non valido.</p>
+      <p class="mt-8">Telefono non valido. (specificare anche il prefisso, es: +39)</p>
 <?php
     }
     if ($err_indir) {
