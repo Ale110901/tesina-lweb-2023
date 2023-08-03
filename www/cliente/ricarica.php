@@ -42,16 +42,15 @@ if ($ricarica && $qta_valida) {
       <button type="submit" name="azione" value="ricarica" class="button ml-32 mt-8">Invia richiesta</button>
     </form>
 <?php } else if ($creato) { ?>
-  <div class="pt-16 mb-8">
-    <p>La richiesta e' stata inviata. In caso di approvazione il credito verr&agrave; incrementato.</p>
-    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
-  </div>
+    <div class="pt-16 mb-8">
+      <p>La richiesta e' stata inviata. In caso di approvazione il credito verr&agrave; incrementato.</p>
+    </div>
 <?php } else { ?>
-  <div class="pt-16 mb-8">
-    <p>Errore nella creazione della richiesta...</p>
-    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
-  </div>
+    <div class="pt-16 mb-8">
+      <p>Errore nella creazione della richiesta...</p>
+    </div>
 <?php } ?>
+    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
