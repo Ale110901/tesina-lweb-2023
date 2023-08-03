@@ -106,6 +106,9 @@ div > h2 {
   display: block;
 }
 
+.giustificato {
+  text-align: justify;
+}
 
 
 .my-32 {
@@ -177,4 +180,9 @@ div > h2 {
 
 .pb-32 {
   padding-bottom: 32px;
+}
+
+.px-16 {
+  padding-left: 16px;
+  padding-right: 16px;
 }
