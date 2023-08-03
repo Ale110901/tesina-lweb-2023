@@ -1,39 +1,39 @@
 <?php
-  require_once('../config.php');
+require_once('../config.php');
 
-  $perm_visitatore = false;
-  $perm_cliente = true;
-  $perm_gestore = true;
-  $perm_admin = true;
+$perm_visitatore = false;
+$perm_cliente = true;
+$perm_gestore = true;
+$perm_admin = true;
 
-  require_once(RC_ROOT . '/lib/start.php');
-  require_once(RC_ROOT . '/lib/utente.php');
-  require_once(RC_ROOT . '/lib/xml.php');
+require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/xml.php');
 
-  $id_utente = $_SESSION['id_utente'];
+$id_utente = $_SESSION['id_utente'];
 
-  $doc_utenti = load_xml('utenti');
-  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
-  $utente = $result[0];
+$doc_utenti = load_xml('utenti');
+$result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
+$utente = $result[0];
 
-  if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
-    $utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
-    $utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
-    $utente->getElementsByTagName('telefono')[0]->textContent = $_POST['telefono'];
-    $utente->getElementsByTagName('indirizzo')[0]->textContent = $_POST['indirizzo'];
-    $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $_POST['codice_fiscale'];
+if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
+  $utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
+  $utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
+  $utente->getElementsByTagName('telefono')[0]->textContent = $_POST['telefono'];
+  $utente->getElementsByTagName('indirizzo')[0]->textContent = $_POST['indirizzo'];
+  $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $_POST['codice_fiscale'];
 
-    save_xml($doc_utenti, 'utenti');
-  }
+  save_xml($doc_utenti, 'utenti');
+}
 
-  $nome = $utente->getElementsByTagName('nome')[0]->textContent;
-  $cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
-  $email = $utente->getAttribute('email');
-  $telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
-  $indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
-  $codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
-  $credito = $utente->getElementsByTagName('credito')[0]->textContent;
-  $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
+$nome = $utente->getElementsByTagName('nome')[0]->textContent;
+$cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
+$email = $utente->getAttribute('email');
+$telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
+$indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
+$codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
+$credito = $utente->getElementsByTagName('credito')[0]->textContent;
+$reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
