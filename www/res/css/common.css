@@ -8,6 +8,11 @@ body {
   font-size: 1.25em;
 }
 
+div > h2 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
 
 #contenuto {
   background-color: #f0d3d6;
