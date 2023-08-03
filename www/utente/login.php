@@ -25,7 +25,7 @@ if ($sessione) {
   $password = $_POST['password'];
   $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : '';
 
-  $result = login($username, $password);
+  $result = login_utente($username, $password);
   $loggato = $result === 'Ok';
 }
 

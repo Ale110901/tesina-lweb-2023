@@ -1,7 +1,7 @@
 <?php
 require_once(RC_ROOT . '/lib/xml.php');
 
-function login($email, $password) {
+function login_utente($email, $password) {
   $doc = load_xml('utenti');
 
   $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
