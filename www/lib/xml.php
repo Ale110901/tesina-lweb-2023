@@ -34,26 +34,34 @@ function domlist_to_array($domlist) {
   return $arr;
 }
 
-function sort_by_element_dec($elements, $key) {
-  usort($elements, function($aElement, $bElement) use ($key) {
+function sort_by_element_dec($elements, $key, $desc) {
+  usort($elements, function($aElement, $bElement) use ($key, $desc) {
     $aValue = $aElement->getElementsByTagName($key)[0]->textContent;
     $bValue = $bElement->getElementsByTagName($key)[0]->textContent;
 
     $aValue = floatval($aValue);
     $bValue = floatval($bValue);
 
-    return $aValue <=> $bValue;
+    if ($desc) {
+      return $bValue <=> $aValue;
+    } else {
+      return $aValue <=> $bValue;
+    }
   });
 
   return $elements;
 }
 
-function sort_by_element_txt($elements, $key) {
-  usort($elements, function($aElement, $bElement) use ($key) {
+function sort_by_element_txt($elements, $key, $desc) {
+  usort($elements, function($aElement, $bElement) use ($key, $desc) {
     $aValue = $aElement->getElementsByTagName($key)[0]->textContent;
     $bValue = $bElement->getElementsByTagName($key)[0]->textContent;
 
-    return strnatcmp($aValue, $bValue);
+    if ($desc) {
+      return strnatcmp($bValue, $aValue);
+    } else {
+      return strnatcmp($aValue, $bValue);
+    }
   });
 
   return $elements;

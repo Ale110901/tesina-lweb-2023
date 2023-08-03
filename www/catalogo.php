@@ -9,6 +9,26 @@ $perm_admin = true;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/categoria.php');
+
+$doc_prod = load_xml('prodotti');
+$prodotti = $doc_prod->documentElement->childNodes;
+$prodotti = domlist_to_array($prodotti);
+
+$ord_desc = $_GET['desc'] === 'on';
+switch ($_GET['ordina']) {
+  case 'nome':
+    $prodotti = sort_by_element_txt($prodotti, 'nome', $ord_desc);
+    break;
+  case 'marca':
+    $prodotti = sort_by_element_txt($prodotti, 'marca', $ord_desc);
+    break;
+  case 'categoria':
+    $prodotti = sort_by_element_dec($prodotti, 'categoria', $ord_desc);
+    break;
+  case 'prezzo':
+    $prodotti = sort_by_element_dec($prodotti, 'costo', $ord_desc);
+    break;
+}
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -28,14 +48,23 @@ require_once(RC_ROOT . '/lib/categoria.php');
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="pb-32">CATALOGO</h2>
+    <form action="<?php echo(RC_SUBDIR); ?>/catalogo.php" method="get">
+      <label for="sort">Ordinamento:</label>
+
+      <select name="ordina">
+        <option value="nome">Nome</option>
+        <option value="categoria">Categoria</option>
+        <option value="marca">Marca</option>
+        <option value="prezzo">Prezzo</option>
+      </select>
+
+      <input type="checkbox" name="desc">Ordine contrario</input>
+
+      <button type="submit">Invia</button>
+    </form>
     <div id="catalogo">
 <?php
-  $doc_prod = load_xml('prodotti');
-  $prodotti = $doc_prod->documentElement->childNodes;
-
-  for ($i = 0; $i < $prodotti->length; $i++) {
-    $prodotto = $prodotti[$i];
-
+  foreach ($prodotti as $prodotto) {
     $p_id = $prodotto->getAttribute('id');
     $p_costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
     $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
