@@ -5,11 +5,11 @@
   row-gap: 2em;
 }
 
-#catalogo > div {
-  text-align: center;
+#catalogo > div > a {
+  text-decoration: none;
 }
 
-#img-prod {
+#img-prodotto {
   border-color: #e04336;
   border-radius: 10px;
   border-style: ridge;

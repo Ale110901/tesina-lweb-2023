@@ -9,17 +9,21 @@ $perm_admin = true;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-$id_prodotto = $_POST['id_prodotto'];
-$doc_prodotti = load_xml('prodotti');
-$result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$id_prodotto]");
-$prodotto = $result[0];
+$id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
+if ($id_valido) {
+  $id_prodotto = $_GET['id'];
 
-$nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
-$marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
-$descrizione = $prodotto->getElementsByTagName('descrizione')[0]->textContent;
-$costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
-$categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
-$quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
+  $doc_prodotti = load_xml('prodotti');
+  $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$id_prodotto]");
+  $prodotto = $result[0];
+
+  $nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
+  $marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
+  $descrizione = $prodotto->getElementsByTagName('descrizione')[0]->textContent;
+  $costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
+  $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
+  $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
+}
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -33,25 +37,26 @@ $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/index.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotto.css" />
 </head>
 
 <body>
-
   <?php require(RC_ROOT . '/lib/header.php'); ?>
 
   <div id="contenuto">
-    <img id="img-prod" src="res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="shop_<?php echo($p_id); ?>.png" ></img>
+<?php if (!$id_valido) { ?>
+    <p>Specificare l'id del prodotto come parametro id.</p>
+<?php } else { ?>
+    <img id="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="shop_<?php echo($p_id); ?>.png" ></img>
     <div id="descrizione">
-        <p><i> <?php echo($marca); ?> </i></p>
-        <p><b> <?php echo($nome); ?> </b></p>
-        <p> <?php echo($descrizione); ?> </p>
+      <p><i><?php echo($marca); ?></i></p>
+      <p><b><?php echo($nome); ?></b></p>
+      <p><?php echo($descrizione); ?></p>
     </div>
+<?php } ?>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
-
 </body>
 
 </html>
