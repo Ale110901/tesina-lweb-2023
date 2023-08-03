@@ -96,7 +96,7 @@ if ($redirect !== '') {
   <div id="pagina-form" class="centrato">
     <h2 class="py-16">REGISTRAZIONE</h2>
 <?php if (!$registrazione || $errore) { ?>
-    <form action="<?php echo(RC_SUBDIR); ?>/utente/registrazione.php" method="POST">
+    <form action="<?php echo(RC_SUBDIR); ?>/utente/registrazione.php" method="post">
       <label for="nome">Nome:</label><br>
       <input type="text" class="input-box" name="nome" value="<?php echo($nome); ?>"><br>
 

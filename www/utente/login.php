@@ -59,7 +59,7 @@ if ($redirect !== '') {
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2 class="py-16">LOGIN</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/utente/login.php" method="POST" >
+    <form action="<?php echo(RC_SUBDIR); ?>/utente/login.php" method="post" >
       <label for="username">Nome utente:</label><br>
       <input type="text" class="input-box" name="username" value="mario.rossi@gmail.com"><br><br>
 

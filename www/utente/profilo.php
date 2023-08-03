@@ -63,7 +63,7 @@ $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2>Profilo</h2>
-      <form action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="POST">
+      <form action="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" method="post">
         <table id="info-profilo" class="py-1em">
           <tr>
             <td><b>Nome:</b></td>
