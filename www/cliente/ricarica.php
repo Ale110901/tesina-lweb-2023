@@ -1,13 +1,20 @@
 <?php
-  require_once('../config.php');
+require_once('../config.php');
 
-  $perm_visitatore = false;
-  $perm_cliente = true;
-  $perm_gestore = false;
-  $perm_admin = false;
+$perm_visitatore = false;
+$perm_cliente = true;
+$perm_gestore = false;
+$perm_admin = false;
 
-  require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/accredito.php');
 
+$ricarica = isset($_POST['azione']) && $_POST['azione'] === 'ricarica';
+$qta_valida = isset($_POST['quantita']) && !is_nan($_POST['quantita']);
+
+if ($ricarica && $qta_valida) {
+  $creato = crea_accredito($_POST['quantita']);
+}
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -25,18 +32,28 @@
 </head>
 
 <body>
-
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  
-  <div class="centrato" id="pagina-form">
-    <form action="<?php echo(RC_SUBDIR); ?>/" method="POST">   <!-- impostare percorso file gestore -->
-        <label for="ricarica">Importo da ricaricare:</label><br>
-        <input type="number" class="input-flat" name="valore_ricarica" min="0" step="1" size="3"/>
-        <button type="submit" name="azione" value="ricarica" class="button ml-32 mt-8">Invia Richiesta</button>
+
+  <div id="pagina-form" class="centrato">
+<?php if (!$ricarica) { ?>
+    <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="POST">
+      <label for="ricarica">Importo da ricaricare:</label><br>
+      <input type="number" class="input-flat" name="quantita" min="0" step="1" size="3"/>
+      <button type="submit" name="azione" value="ricarica" class="button ml-32 mt-8">Invia richiesta</button>
     </form>
+<?php } else if ($creato) { ?>
+  <div class="pt-16 mb-8">
+    <p>La richiesta e' stata inviata. In caso di approvazione il credito verr&agrave; incrementato.</p>
+    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
+  </div>
+<?php } else { ?>
+  <div class="pt-16 mb-8">
+    <p>Errore nella creazione della richiesta...</p>
+    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
+  </div>
+<?php } ?>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
-
 </body>
 </html>
