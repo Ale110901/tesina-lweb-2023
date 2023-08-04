@@ -3,6 +3,7 @@
   <ordine id="1" idUtente="3">
     <data>2023-05-15T23:10:47</data>
     <indirizzo>Via del Corso 101, Roma, Italia</indirizzo>
+    <prezzoFinale>120.00</prezzoFinale>
     <sconto>0</sconto>
     <prodotti>
       <prodotto id="3" quantita="2"/>
@@ -13,6 +14,7 @@
   <ordine id="2" idUtente="1">
     <data>2023-06-08T17:29:56</data>
     <indirizzo>Via Doria 12, Latina, Italia</indirizzo>
+    <prezzoFinale>80.00</prezzoFinale>
     <sconto>20</sconto>
     <prodotti>
       <prodotto id="3" quantita="1"/>

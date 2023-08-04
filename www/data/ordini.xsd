@@ -43,5 +43,6 @@
 <xsd:element name="data"      type="xsd:dateTime" />
 <xsd:element name="indirizzo" type="xsd:string" />
 <xsd:element name="sconto"    type="xsd:integer" />
+<xsd:element name="prezzoFinale" type="xsd:decimal" />
 
 </xsd:schema>

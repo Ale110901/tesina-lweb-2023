@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT ordini (ordine*)>
 
-<!ELEMENT ordine (data, indirizzo, sconto, prodotti)>
+<!ELEMENT ordine (data, indirizzo, prezzoFinale, sconto, prodotti)>
 <!ATTLIST ordine
     id       ID #REQUIRED
     idUtente ID #REQUIRED>
@@ -15,4 +15,5 @@
 
 <!ELEMENT data      (#PCDATA)>
 <!ELEMENT indirizzo (#PCDATA)>
+<!ELEMENT prezzoFinale (#PCDATA)>
 <!ELEMENT sconto    (#PCDATA)>
