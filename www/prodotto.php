@@ -33,6 +33,8 @@ if ($id_valido) {
     $sconto = calcola_sconto($off_app);
     $bonus = calcola_bonus($off_app);
     $costo_finale = round($costo_orig * (1 - $sconto), 2);
+
+    $disponibile = $quantita > 0;
   }
 }
 ?>
@@ -71,7 +73,7 @@ if ($id_valido) {
         <div id="prod-top-dx">
           <div id="prod-top-dx-info">
             <div id="col-1">
-<?php if ($quantita > 0) { ?>
+<?php if ($disponibile) { ?>
               <p>&#x1F44D; Quantità disponibile: <?php echo($quantita); ?></p>
 <?php } else { ?>
               <p>&#x274C; Prodotto terminato!</p>
@@ -93,10 +95,10 @@ if ($id_valido) {
             <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
               <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
               <div id="input-qta">
-                <input type="number" name="quantita" class="input-box" value="0" min="0" step="1" size="3" max="<?php echo($quantita); ?>" />
+                <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($quantita); ?>" <?php if (!$disponibile) echo ('disabled'); ?>/>
               </div>
               <div id="btn-aggiungi">
-                <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi al carrello</button>
+                <button type="submit" name="azione" value="aggiungi" class="button ml-8" <?php if (!$disponibile) echo ('disabled'); ?>>Aggiungi al carrello</button>
               </div>
             </form>
         </div>
