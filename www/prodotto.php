@@ -15,14 +15,18 @@ if ($id_valido) {
 
   $doc_prodotti = load_xml('prodotti');
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$id_prodotto]");
-  $prodotto = $result[0];
+  if ($result->length !== 1) {
+    $id_valido = false;
+  } else {
+    $prodotto = $result[0];
 
-  $nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
-  $marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
-  $descrizione = $prodotto->getElementsByTagName('descrizione')[0]->textContent;
-  $costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
-  $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
-  $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
+    $nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
+    $marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
+    $descrizione = $prodotto->getElementsByTagName('descrizione')[0]->textContent;
+    $costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
+    $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
+    $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
+  }
 }
 ?>
 
@@ -30,7 +34,7 @@ if ($id_valido) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Home page &ndash; R&amp;C store</title>
+  <title>Prodotto &ndash; R&amp;C store</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
 
@@ -45,9 +49,9 @@ if ($id_valido) {
 
   <div id="contenuto">
 <?php if (!$id_valido) { ?>
-    <p>Specificare l'id del prodotto come parametro id.</p>
+    <p>Prodotto non trovato.</p>
 <?php } else { ?>
-    <img id="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="shop_<?php echo($p_id); ?>.png" ></img>
+    <img id="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>
     <div id="descrizione">
       <p><i><?php echo($marca); ?></i></p>
       <p><b><?php echo($nome); ?></b></p>
