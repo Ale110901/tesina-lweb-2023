@@ -35,6 +35,7 @@ switch ($ord_type) {
 }
 
 $doc_categorie = load_xml('categorie');
+$doc_offerte = load_xml('offerte');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -85,7 +86,8 @@ $doc_categorie = load_xml('categorie');
     $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
     $p_categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
 
-    $sconto = calcola_sconto($p_id);
+    $off_app = offerte_applicabili($doc_offerte, $prodotto);
+    $sconto = calcola_sconto($off_app);
     $costo_finale = round($p_costo * (1 - $sconto), 2);
 ?>
       <div class="card-prodotto <?php if ($p_quantita === '0') echo('out-of-stock'); ?>">

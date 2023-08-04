@@ -28,8 +28,10 @@ if ($id_valido) {
     $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
     $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
-    $sconto = calcola_sconto($id_prodotto);
-    $crediti = calcola_crediti($id_prodotto);
+    $doc_offerte = load_xml('offerte');
+    $off_app = offerte_applicabili($doc_offerte, $prodotto);
+    $sconto = calcola_sconto($off_app);
+    $bonus = calcola_bonus($off_app);
     $costo_finale = round($costo_orig * (1 - $sconto), 2);
   }
 }
@@ -72,8 +74,8 @@ if ($id_valido) {
 <?php if ($sconto > 0.00) { ?>
               <p>&#x1F4B2; <?php echo($sconto * 100); ?>% di sconto</p>
 <?php } ?>
-<?php if ($crediti > 0) { ?>
-              <p>&#x1F4B2; +<?php echo($crediti); ?> crediti</p>
+<?php if ($bonus > 0) { ?>
+              <p>&#x1F4B2; +<?php echo($bonus); ?> crediti</p>
 <?php } ?>
             </div>
             <div id="col-2">
