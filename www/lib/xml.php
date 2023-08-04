@@ -69,8 +69,8 @@ function sort_by_element_txt($elements, $key, $desc) {
 
 function get_next_id($elements) {
   $next_id = 0;
-  for ($i = 0; $i < $elements->length; $i++) {
-    $cur_id = $elements[$i]->getAttribute('id');
+  foreach ($elements as $element) {
+    $cur_id = $element->getAttribute('id');
     if ($next_id < $cur_id) {
       $next_id = $cur_id;
     }

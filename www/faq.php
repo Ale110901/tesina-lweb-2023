@@ -39,8 +39,7 @@ $faqs = $doc_faq->documentElement->childNodes;
     <h2>FAQ</h2>
     <div id="faq">
 <?php
-for ($i = 0; $i < $faqs->length; $i++) {
-  $faq = $faqs[$i];
+foreach ($faqs as $faq) {
   $id = $faq->getAttribute('id');
   $domanda =  $faq->getElementsByTagName('domanda')[0]->textContent;
   $risposta = $faq->getElementsByTagName('risposta')[0]->textContent;

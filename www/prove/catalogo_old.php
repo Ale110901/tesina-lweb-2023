@@ -53,9 +53,7 @@ if ($loggato && isset($_SESSION['agg_carr_id_prod'])) {
   $doc_prod = load_xml('prodotti');
   $prodotti = $doc_prod->documentElement->childNodes;
 
-  for ($i = 0; $i < $prodotti->length; $i++) {
-    $prodotto = $prodotti[$i];
-
+  foreach ($prodotti as $prodotto) {
     $p_id = $prodotto->getAttribute('id');
     $p_costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
     $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;

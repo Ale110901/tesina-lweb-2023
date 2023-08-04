@@ -46,8 +46,8 @@ function conta_carrello() {
   }
 
   $somma = 0;
-  for ($i = 0; $i < $result->length; $i++) {
-    $somma += $result[$i]->getAttribute('quantita');
+  foreach ($result as $item) {
+    $somma += $item->getAttribute('quantita');
   }
 
   return $somma;
