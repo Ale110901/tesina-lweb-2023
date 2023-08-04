@@ -58,7 +58,8 @@ function offerte_applicabili($doc, $prodotto) {
         if ($id_utente === 0) {
           break;
         }
-        $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns_utente[@id='$id_utente']/reputazione[0]");
+        $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione");
+        $result = $result[0]->textContent;
         $reputazione = $offerta->getElementsByTagName('reputazione')[0]->textContent;
         if ($result >= $reputazione) {
           array_push($off_app, $offerta);
@@ -69,7 +70,17 @@ function offerte_applicabili($doc, $prodotto) {
         if ($id_utente === 0) {
           break;
         }
-        // PROBLEMA
+        $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:dataRegistrazione");
+        $result = $result[0]->textContent;
+
+        $data_reg = date_create($result);
+        $oggi = date_create();
+        $diff = date_diff($data_reg, $oggi)->format('%Y');
+        $anni = $offerta->getElementsByTagName('anni')[0]->textContent;
+
+        if ($diff >= $anni) {
+          array_push($off_app, $offerta);
+        }
         break;
       case 'prodSpec':
         // "e' un prodotto particolare"
