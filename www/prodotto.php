@@ -85,15 +85,15 @@ if ($id_valido) {
               <span><?php echo($costo_finale); ?> &euro;</span>
             </div>
           </div>
-          <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
-            <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
-            <div id="input-qta">
-              <input type="number" name="quantita" class="input-box" value="0" min="0" step="1" size="3" max="99" />
-            </div>
-            <div id="btn-aggiungi">
-              <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi al carrello</button>
-            </div>
-          </form>
+            <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
+              <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
+              <div id="input-qta">
+                <input type="number" name="quantita" class="input-box" value="0" min="0" step="1" size="3" max="99" />
+              </div>
+              <div id="btn-aggiungi">
+                <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi al carrello</button>
+              </div>
+            </form>
         </div>
       </div>
       <hr />

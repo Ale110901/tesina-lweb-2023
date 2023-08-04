@@ -36,6 +36,9 @@
 #prod-top-dx-info {
   display: flex;
   flex-direction: row;
+  margin-bottom: 32px;
+  margin-top: 16px;
+  margin-right: 8px;
 }
 
 #prod-top-dx-info > div {
@@ -50,6 +53,7 @@
   display: flex;
   flex-direction: row;
   column-gap: 16px;
+  vertical-align: middle;
 }
 
 #prod-top-dx-action > #input-qta {
