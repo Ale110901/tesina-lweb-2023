@@ -33,6 +33,8 @@ switch ($ord_type) {
     $prodotti = sort_by_element_dec($prodotti, 'costo', $ord_desc);
     break;
 }
+
+$doc_categorie = load_xml('categorie');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -90,7 +92,7 @@ switch ($ord_type) {
         <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
           <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           <div class="overlay">terminato</div>
-          <p><i><?php echo(ottieni_categoria($p_categoria)); ?></i></p>
+          <p><i><?php echo(ottieni_categoria($doc_categorie, $p_categoria)); ?></i></p>
           <p><i><?php echo($p_marca); ?></i></p>
           <p><b><?php echo($p_nome); ?></b></p>
           <p>
