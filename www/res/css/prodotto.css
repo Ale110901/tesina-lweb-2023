@@ -1,17 +1,80 @@
-#contenuto {
-    display: flex;
-    column-gap: 64px;
-    flex-direction: row;
-    justify-content: center;
+#prod-top {
+  display: flex;
+  column-gap: 64px;
+  flex-direction: row;
+  justify-content: center;
 }
 
-#descrizione > p {
-    padding: 0.3em 0 0.3em 0;
+#prod-top > div {
+  width: 100%;
 }
 
-#img-prodotto {
+#prod-top-sx {
+  text-align: center;
+}
+
+#prod-top-sx > img {
   border-color: #e04336;
   border-radius: 10px;
   border-style: ridge;
   border-width: 1.5px;
+
+  flex-shrink: 2;
+}
+
+#prod-top-mid > p {
+  padding: 0.3em 0 0.3em 0;
+}
+
+#prod-top-dx {
+  border-color: #e04336;
+  border-radius: 10px;
+  border-style: ridge;
+  border-width: 1.5px;
+}
+
+#prod-top-dx-info {
+  display: flex;
+  flex-direction: row;
+}
+
+#prod-top-dx-info > div {
+  flex-basis: 50%;
+}
+
+#prod-top-dx-info > #col-2 {
+  text-align: right;
+}
+
+#prod-top-dx-action {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+#prod-top-dx-action > #input-qta {
+  flex-basis: 20%;
+}
+
+#prod-top-dx-action > #btn-aggiungi {
+  flex-basis: 80%;
+}
+
+#prod-top-dx-action > div > * {
+  width: 100%;
+}
+
+#marca {
+  font-style: italic;
+  color: grey;
+}
+
+#nome {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#descrizione {
+  font-style: normal;
 }
