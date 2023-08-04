@@ -182,3 +182,7 @@ div > h2 {
   padding-left: 16px;
   padding-right: 16px;
 }
+
+.pl-8 {
+  padding-left: 8px;
+}

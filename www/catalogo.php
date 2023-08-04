@@ -51,21 +51,23 @@ switch ($ord_type) {
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="pb-32">CATALOGO</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/catalogo.php" method="get">
+
+    <form id="filtri" action="<?php echo(RC_SUBDIR); ?>/catalogo.php" method="get" class="mb-32">
       <label for="ordina">Ordinamento:</label>
 
       <select name="ordina">
-        <option value="nome" <?php if ($ord_type === 'nome') echo ('selected="true"'); ?>>Nome</option>
-        <option value="categoria" <?php if ($ord_type === 'categoria') echo ('selected="true"'); ?>>Categoria</option>
-        <option value="marca" <?php if ($ord_type === 'marca') echo ('selected="true"'); ?>>Marca</option>
-        <option value="prezzo" <?php if ($ord_type === 'prezzo') echo ('selected="true"'); ?>>Prezzo</option>
+        <option value="nome" <?php if ($ord_type === 'nome') echo ('selected="true"'); ?> >Nome</option>
+        <option value="categoria" <?php if ($ord_type === 'categoria') echo ('selected="true"'); ?> >Categoria</option>
+        <option value="marca" <?php if ($ord_type === 'marca') echo ('selected="true"'); ?> >Marca</option>
+        <option value="prezzo" <?php if ($ord_type === 'prezzo') echo ('selected="true"'); ?> >Prezzo</option>
       </select>
 
-      <input type="checkbox" name="desc" <?php if ($ord_desc) echo ('checked="true"'); ?>>Ordine contrario</input>
-      <input type="checkbox" name="solo_disp" <?php if ($solo_disp) echo ('checked="true"'); ?>>Solo in stock</input>
+      <input type="checkbox" name="desc" <?php if ($ord_desc) echo ('checked="true"'); ?>> Ordine contrario</input>
+      <input type="checkbox" name="solo_disp" <?php if ($solo_disp) echo ('checked="true"'); ?>> Solo in stock</input>
 
-      <button type="submit">Invia</button>
+      <button type="submit" class="ml-8">Invia</button>
     </form>
+
     <div id="catalogo">
 <?php
   foreach ($prodotti as $prodotto) {
@@ -84,9 +86,9 @@ switch ($ord_type) {
         <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
           <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           <div class="overlay">terminato</div>
-          <p><?php echo(ottieni_categoria($p_categoria)); ?></p>
-          <p><?php echo($p_marca); ?></p>
-          <p><?php echo($p_nome); ?></p>
+          <p><i><?php echo(ottieni_categoria($p_categoria)); ?></i></p>
+          <p><i><?php echo($p_marca); ?></i></p>
+          <p><b><?php echo($p_nome); ?></b></p>
           <p class="prezzo"><?php echo($p_costo); ?> &euro;</p>
         </a>
       </div>
