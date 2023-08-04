@@ -110,6 +110,10 @@ div > h2 {
   text-decoration: line-through;
 }
 
+.scala-grigi {
+  filter: grayscale();
+}
+
 .my-32 {
   margin-top: 32px;
   margin-bottom: 32px;
