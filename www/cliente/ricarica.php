@@ -21,7 +21,7 @@ if ($ricarica && $qta_valida) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Ricarica</title>
+  <title>Ricarica &ndash; R&amp;C store</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rampart+One&amp;display=swap" />
 
@@ -36,7 +36,7 @@ if ($ricarica && $qta_valida) {
 
   <div id="pagina-form" class="centrato">
 <?php if (!$ricarica) { ?>
-    <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
+    <form class="pb-16" action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
       <label for="ricarica">Importo da ricaricare:</label><br>
       <input type="number" class="input-flat" name="quantita" min="0" step="1" size="3"/>
       <button type="submit" name="azione" value="ricarica" class="button ml-32 mt-8">Invia richiesta</button>
@@ -50,7 +50,7 @@ if ($ricarica && $qta_valida) {
       <p>Errore nella creazione della richiesta...</p>
     </div>
 <?php } ?>
-    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
+    <a class="button" href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
