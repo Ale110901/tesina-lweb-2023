@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ordini xmlns="http://www.lweb.uni/tesina-rcstore/ordini/">
-  <ordine id="1" idUtente="3">
+  <ordine id="1" idUtente="1">
     <data>2023-05-15T23:10:47</data>
     <indirizzo>Via del Corso 101, Roma, Italia</indirizzo>
     <prezzoFinale>120.00</prezzoFinale>

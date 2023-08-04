@@ -3,8 +3,11 @@
   border-collapse: collapse;
 }
 
+#tbl-ordini > thead{
+  background-color: rgb(170, 162, 162);
+}
+
 #tbl-ordini th, #tbl-ordini td {
-  padding: 8px;
-  border: 1px solid black;
-  border-collapse: collapse;
+  padding: 10px;
+  border-bottom: 1px solid rgb(170, 162, 162);
 }

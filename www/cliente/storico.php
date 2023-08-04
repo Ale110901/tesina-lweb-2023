@@ -36,7 +36,7 @@ $doc_prodotti = load_xml('prodotti');
 
   <div id="contenuto" class="centrato">
     <h2>ORDINI</h2>
-    <table id="tbl-ordini" class="scatola mx-auto my-32">
+    <table id="tbl-ordini" class="mx-auto my-32">
       <thead>
         <th>Data e ora</th>
         <th>Indirizzo</th>
