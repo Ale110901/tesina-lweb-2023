@@ -106,6 +106,9 @@ div > h2 {
   text-align: justify;
 }
 
+.barrato {
+  text-decoration: line-through;
+}
 
 .my-32 {
   margin-top: 32px;
