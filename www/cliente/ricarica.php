@@ -38,7 +38,7 @@ if ($ricarica && $qta_valida) {
 <?php if (!$ricarica) { ?>
     <form class="pb-16" action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
       <label for="ricarica">Importo da ricaricare:</label><br>
-      <input type="number" class="input-flat" name="quantita" min="0" step="1" size="3"/>
+      <input type="number" class="input-flat" name="quantita" min="1" step="1" size="5"/>
       <button type="submit" name="azione" value="ricarica" class="button ml-32 mt-8">Invia richiesta</button>
     </form>
 <?php } else if ($creato) { ?>
