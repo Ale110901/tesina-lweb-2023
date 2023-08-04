@@ -11,6 +11,7 @@
 
 #prod-top-sx {
   text-align: center;
+  flex-basis: 20%;
 }
 
 #prod-top-sx > img {
@@ -18,8 +19,10 @@
   border-radius: 10px;
   border-style: ridge;
   border-width: 1.5px;
+}
 
-  flex-shrink: 2;
+#prod-top-mid {
+  flex-basis: 45%;
 }
 
 #prod-top-mid > p {
@@ -27,10 +30,17 @@
 }
 
 #prod-top-dx {
+  background-color: #e0e0e0;
+
   border-color: #e04336;
   border-radius: 10px;
   border-style: ridge;
   border-width: 1.5px;
+
+  height: 100%;
+  padding: 12px;
+
+  flex-basis: 35%;
 }
 
 #prod-top-dx-info {
@@ -53,7 +63,7 @@
   display: flex;
   flex-direction: row;
   column-gap: 16px;
-  vertical-align: middle;
+  padding: 16px;
 }
 
 #prod-top-dx-action > #input-qta {
@@ -81,4 +91,13 @@
 
 #descrizione {
   font-style: normal;
+  text-align: justify;
+}
+
+#prezzo-originale {
+  font-size: 1em;
+}
+
+#prezzo-finale {
+  font-size: 1.75em;
 }
