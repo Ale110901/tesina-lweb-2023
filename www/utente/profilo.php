@@ -34,6 +34,7 @@ $indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
 $codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
 $credito = $utente->getElementsByTagName('credito')[0]->textContent;
 $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
+$data_reg = $utente->getElementsByTagName('dataRegistrazione')[0]->textContent;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -117,6 +118,12 @@ $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
             <td><b>Reputazione:</b></td>
             <td>
               <span><?php echo ($reputazione); ?> punti</span>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Data registrazione:</b></td>
+            <td>
+              <span><?php echo ($data_reg); ?></span>
             </td>
           </tr>
         </table>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT utenti (utente*)>
 
-<!ELEMENT utente (attivo, nome, cognome, telefono, indirizzo, codiceFiscale, credito, reputazione, password, carrello)>
+<!ELEMENT utente (attivo, nome, cognome, telefono, indirizzo, codiceFiscale, credito, reputazione, password, dataRegistrazione, carrello)>
 <!ATTLIST utente
     id    ID    #REQUIRED
     email CDATA #REQUIRED
@@ -16,6 +16,7 @@
 <!ELEMENT credito       (#PCDATA)>
 <!ELEMENT reputazione   (#PCDATA)>
 <!ELEMENT password      (#PCDATA)>
+<!ELEMENT dataRegistrazione (#PCDATA)>
 
 <!ELEMENT carrello  (prodotto*)>
 

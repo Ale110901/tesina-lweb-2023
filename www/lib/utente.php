@@ -76,6 +76,9 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
   $el_credito = $doc_utenti->createElement('credito', '0.00');
   $nuovo_utente->appendChild($el_credito);
 
+  $el_data_reg = $doc_utenti->createElement('dataRegistrazione', date('Y-m-d'));
+  $nuovo_utente->appendChild($el_data_reg);
+
   $el_carrello = $doc_utenti->createElement('carrello');
   $nuovo_utente->appendChild($el_carrello);
 
