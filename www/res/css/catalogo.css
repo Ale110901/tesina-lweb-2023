@@ -9,15 +9,31 @@
   text-decoration: none;
 }
 
-#img-prodotto {
+.card-prodotto {
+  position: relative;
+}
+
+.card-prodotto > a > img {
   border-color: #e04336;
   border-radius: 10px;
   border-style: ridge;
   border-width: 1.5px;
 }
 
-#btn-oscurato {
-  background: none;
-  border: none;
-  cursor: pointer;
+.card-prodotto > a > div.overlay {
+  display: none;
+}
+
+.out-of-stock > a > img {
+  filter: grayscale();
+}
+
+.out-of-stock > a > div.overlay {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5rem;
+  margin: 4px;
+  background: #f4208f;
 }
