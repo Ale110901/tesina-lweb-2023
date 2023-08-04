@@ -118,7 +118,7 @@ if ($redirect !== '') {
       <label for="password">Codice fiscale:</label><br>
       <input type="text" class="input-box" name="codice_fiscale" value="<?php echo($codice_fiscale); ?>"><br>
 
-      <button type="submit" name="azione" value="registrazione" class="button">Registrati!</button>
+      <button type="submit" name="azione" value="registrazione" class="button mt-32">Registrati!</button>
 
       <input type="hidden" name="redirect" value="<?php echo($redirect); ?>"></input>
     </form>
