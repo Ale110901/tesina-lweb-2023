@@ -27,10 +27,9 @@ $faqs = $doc_faq->documentElement->childNodes;
 </head>
 
 <body>
-
   <script>
-    function mostra(id){
-      document.getElementById('risposta' + id).classList.toggle("visibile");
+    function mostra(id) {
+      document.getElementById('risposta' + id).classList.toggle("nascosto");
     }
   </script>
 
@@ -45,10 +44,10 @@ foreach ($faqs as $faq) {
   $risposta = $faq->getElementsByTagName('risposta')[0]->textContent;
 ?>
       <div>
-        <button id="button-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
-        <span id="button-freccia">&#x21D3;</span>
+        <button class="btn-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
+        <span class="btn-freccia">&#x21D3;</span>
       </div>
-      <div  class="nascosto" id="risposta<?php echo($id); ?>">
+      <div id="risposta<?php echo($id); ?>" class="nascosto">
         <p><?php echo($risposta); ?></p>
       </div>
 <?php

@@ -3,7 +3,7 @@
   margin-bottom: 1em;
 }
 
-#button-domanda {
+.btn-domanda {
   border-radius: 4px;
   font-size: medium;
   background: transparent;
@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-#button-freccia {
+.btn-freccia {
   position: relative;
   margin-left: -60px;
   font-size: 1.2em;
