@@ -9,6 +9,7 @@ $perm_admin = true;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/categoria.php');
+require_once(RC_ROOT . '/lib/offerte.php');
 
 $doc_prod = load_xml('prodotti');
 $prodotti = $doc_prod->documentElement->childNodes;
@@ -81,6 +82,9 @@ switch ($ord_type) {
     $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
     $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
     $p_categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
+
+    $sconto = calcola_sconto($p_id);
+    $costo_finale = round($p_costo * (1 - $sconto), 2);
 ?>
       <div class="card-prodotto <?php if ($p_quantita === '0') echo('out-of-stock'); ?>">
         <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
@@ -89,7 +93,12 @@ switch ($ord_type) {
           <p><i><?php echo(ottieni_categoria($p_categoria)); ?></i></p>
           <p><i><?php echo($p_marca); ?></i></p>
           <p><b><?php echo($p_nome); ?></b></p>
-          <p class="prezzo"><?php echo($p_costo); ?> &euro;</p>
+          <p>
+<?php if ($p_costo - $costo_finale >= 0.01) { ?>
+            <span class="prezzo barrato"><?php echo($p_costo); ?> &euro;</span>
+<?php } ?>
+            <span class="prezzo"><?php echo($costo_finale); ?> &euro;</span>
+          </p>
         </a>
       </div>
 <?php
