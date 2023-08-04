@@ -28,16 +28,14 @@
   padding-right: 1.7em;
 }
 
-#info-profilo > tbody > tr > td > a {
+.link {
   text-decoration: none;
-  padding-left: 2em;
 }
 
-#info-profilo > tbody > tr > td > a > span{
+.link > span {
   border-radius: 5px;
   border: 1px solid red;
   padding: 0.2em;
   color: black;
   background-color: floralwhite;
 }
-
