@@ -69,7 +69,7 @@ foreach ($ordini as $ordine) {
           <td><?php echo($o_data); ?></td>
           <td><?php echo($o_indirizzo); ?></td>
           <td><?php echo($o_sconto); ?> %</td>
-          <td><?php echo($o_prezzo); ?> &euro;</td>
+          <td><?php echo(number_format($o_prezzo, 2)); ?> &euro;</td>
           <td><pre class="giustificato"><?php echo($o_articoli); ?></pre></td>
         </tr>
 <?php } ?>

@@ -112,7 +112,7 @@ $data_reg = date_format(date_create($data_reg), 'd F Y');
           <tr>
             <td><b>Credito:</b></td>
             <td>
-              <span><?php echo ($credito); ?> &euro;</span>
+              <span><?php echo (number_format($credito, 2)); ?> &euro;</span>
               <a class="link pl-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php"> <span>Ricarica</span> </a>
             </td>
           </tr>

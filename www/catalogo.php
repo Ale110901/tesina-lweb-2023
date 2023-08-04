@@ -98,10 +98,10 @@ $doc_offerte = load_xml('offerte');
           <p><i><?php echo($p_marca); ?></i></p>
           <p><b><?php echo($p_nome); ?></b></p>
           <p>
+            <span class="prezzo"><?php echo(number_format($costo_finale, 2)); ?> &euro;</span>
 <?php if ($p_costo - $costo_finale >= 0.01) { ?>
-            <span class="prezzo barrato"><?php echo($p_costo); ?> &euro;</span>
+            <span class="prezzo barrato"><?php echo(number_format($p_costo, 2)); ?> &euro;</span>
 <?php } ?>
-            <span class="prezzo"><?php echo($costo_finale); ?> &euro;</span>
           </p>
         </a>
       </div>

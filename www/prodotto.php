@@ -85,9 +85,9 @@ if ($id_valido) {
             </div>
             <div id="col-2">
 <?php if ($costo_orig - $costo_finale >= 0.01) { ?>
-              <span id="prezzo-originale" class="barrato"><?php echo($costo_orig); ?> &euro;</span>
+              <span id="prezzo-originale" class="barrato"><?php echo(number_format($costo_orig, 2)); ?> &euro;</span>
 <?php } ?>
-              <span id='prezzo-finale'><?php echo($costo_finale); ?> &euro;</span>
+              <span id='prezzo-finale'><?php echo(number_format($costo_finale, 2)); ?> &euro;</span>
             </div>
           </div>
             <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
