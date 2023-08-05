@@ -25,4 +25,20 @@ function calcola_rating_medio($ratings) {
     'utilita' =>  $acc_util / $ratings->length
   ];
 }
+
+function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
+  $id_utente = $_SESSION['id_utente'];
+  
+  $rating = $doc_utenti->createElement('rating');
+
+  $rating->setAttribute('idUtente', $id_utente);
+
+  $el_supporto = $doc_utenti->createElement('supporto', $supporto);
+  $rating->appendChild($el_supporto);
+
+  $el_utilita = $doc_utenti->createElement('utilita', $utilita);
+  $rating->appendChild($el_utilita);
+
+  $ratings->appendChild($rating);
+}
 ?>
