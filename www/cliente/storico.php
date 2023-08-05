@@ -40,7 +40,6 @@ $doc_prodotti = load_xml('prodotti');
       <thead>
         <th>Data e ora</th>
         <th>Indirizzo</th>
-        <th>Sconto applicato</th>
         <th>Prezzo pagato</th>
         <th>Articoli</th>
       </thead>
@@ -51,7 +50,6 @@ foreach ($ordini as $ordine) {
 
   $o_data = date_format(date_create($result), 'Y/m/d H:i:s');
   $o_indirizzo = $ordine->getElementsByTagName('indirizzo')[0]->textContent;
-  $o_sconto = $ordine->getElementsByTagName('sconto')[0]->textContent;
   $o_prezzo = $ordine->getElementsByTagName('prezzoFinale')[0]->textContent;
 
   $o_prodotti = $ordine->getElementsByTagName('prodotti')[0]->childNodes;
@@ -68,7 +66,6 @@ foreach ($ordini as $ordine) {
         <tr>
           <td><?php echo($o_data); ?></td>
           <td><?php echo($o_indirizzo); ?></td>
-          <td><?php echo($o_sconto); ?> %</td>
           <td><?php echo(number_format($o_prezzo, 2)); ?> &euro;</td>
           <td><pre class="giustificato"><?php echo($o_articoli); ?></pre></td>
         </tr>
