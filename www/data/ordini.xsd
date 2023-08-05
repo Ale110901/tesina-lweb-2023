@@ -17,7 +17,7 @@
     <xsd:sequence>
       <xsd:element ref="ord:data"      minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:indirizzo" minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="ord:sconto"    minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="ord:prezzoFinale" minOccurs="1" maxOccurs="1" />
       <xsd:element ref="ord:prodotti"  minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id"       type="xsd:positiveInteger" use="required" />
@@ -42,7 +42,6 @@
 
 <xsd:element name="data"      type="xsd:dateTime" />
 <xsd:element name="indirizzo" type="xsd:string" />
-<xsd:element name="sconto"    type="xsd:integer" />
 <xsd:element name="prezzoFinale" type="xsd:decimal" />
 
 </xsd:schema>
