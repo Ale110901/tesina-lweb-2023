@@ -55,5 +55,7 @@
   top: 0;
   padding: 0.5rem;
   margin: 4px;
-  background: #f4208f;
+  background: #617df7;
+  border-radius: 5px;
+  font-weight: bold;
 }
