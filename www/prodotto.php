@@ -9,6 +9,7 @@ $perm_admin = true;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/offerte.php');
+require_once(RC_ROOT . '/lib/rating.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 if ($id_valido) {
@@ -35,10 +36,17 @@ if ($id_valido) {
     $costo_finale = round($costo_orig * (1 - $sconto), 2);
 
     $disponibile = $quantita > 0;
+
+    $doc_recensioni = load_xml('recensioni');
+    $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
+
+    $doc_domande = load_xml('domande');
+    $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
+
+    $doc_utenti = load_xml('utenti');
   }
 }
 ?>
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -70,7 +78,7 @@ if ($id_valido) {
           <p id="nome"><?php echo($nome); ?></p>
           <p id="descrizione"><?php echo($descrizione); ?></p>
         </div>
-        <div id="prod-top-dx">
+        <div id="prod-top-dx" class="riquadro">
           <div id="prod-top-dx-info">
             <div id="col-1">
 <?php if ($disponibile) { ?>
@@ -103,21 +111,131 @@ if ($id_valido) {
             </form>
         </div>
       </div>
-      <button id="bp-left" class="button-prodotto"> Recensioni</button>
-      <button id="bp-right"> Domande e Risposte</button>
-      <div>
+      <button id="tab-rec" class="tab-attiva" onclick="mostraRecensioni()"> Recensioni</button><button id="tab-dr" class="tab-inattiva" onclick="mostraDR()"> Domande e Risposte</button>
+      <div id="recensioni">
         <h3>Recensioni</h3>
-        <p>E' buono.</p>
+<?php
+  foreach ($recensioni as $recensione) {
+    $id_recensione = $recensione->getAttribute('id');
+    $id_utente = $recensione->getElementsByTagName('idUtente')[0]->textContent;
+    $contenuto = $recensione->getElementsByTagName('contenuto')[0]->textContent;
+
+    $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
+    $utente = $result[0];
+    $nome_ut = $utente->getElementsByTagName('nome')[0]->textContent;
+    $cognome_ut = $utente->getElementsByTagName('cognome')[0]->textContent;
+
+    $ratings = $recensione->getElementsByTagName('ratings')[0]->childNodes;
+    $rating_medio = calcola_rating_medio($ratings);
+?>
+        <div class="flex-col mb-32 mt-16">
+          <div class="fb-20">
+            Supporto <?php echo($rating_medio['supporto']); ?>, utilit&agrave; <?php echo($rating_medio['utilita']); ?>
+            <p>da <?php echo($nome_ut . ' ' . $cognome_ut); ?></p>
+            <div class="riquadro pa-8 mt-8 mr-32">
+              <p id="supporto_<?php echo($id_recensione); ?>">Supporto:
+                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 1)">&#x2606</a>
+                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 2)">&#x2606</a>
+                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 3)">&#x2606</a>
+                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 4)">&#x2606</a>
+                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 5)">&#x2606</a>
+              </p>
+              <form id="rating_<?php echo($id_recensione); ?>" method="post">
+                <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
+                <input type="hidden" name="supporto" value="0" />
+                <input type="hidden" name="utilita" value="0" />
+                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4">Invia</button>
+              </form>
+              <p id="utilita_<?php echo($id_recensione); ?>">Utilit&agrave;:
+                <a class="stellina" href="#1" onclick="setUtilita(<?php echo($id_recensione); ?>, 1)">&#x2606</a>
+                <a class="stellina" href="#2" onclick="setUtilita(<?php echo($id_recensione); ?>, 2)">&#x2606</a>
+                <a class="stellina" href="#3" onclick="setUtilita(<?php echo($id_recensione); ?>, 3)">&#x2606</a>
+              </p>
+            </div>
+          </div>
+          <div class="fb-80">
+            <p class="giustificato"><?php echo($contenuto); ?></p>
+          </div>
+        </div>
+<?php
+  }
+?>
       </div>
-      <hr class="my-32" />
-      <div>
+      <div id="dr" class="nascosto">
         <h3>Domande e risposte</h3>
-        <h4>Ciao?</h4>
+<?php
+  foreach ($domande as $domanda) {
+    $contenuto = $domanda->getElementsByTagName('contenuto')[0]->textContent;
+?>
+        <h4><?php echo($contenuto); ?></h4>
         <p>Ciao.</p>
+<?php
+  }
+?>
       </div>
     </div>
 <?php } ?>
   </div>
+
+  <script type="text/javascript">
+    function mostraRecensioni() {
+      var tabRec = document.getElementById('tab-rec');
+      var tabDR = document.getElementById('tab-dr');
+      var divRec = document.getElementById('recensioni');
+      var divDR = document.getElementById('dr');
+
+      tabDR.classList.add('tab-inattiva');
+      tabDR.classList.remove('tab-attiva');
+
+      tabRec.classList.add('tab-attiva');
+      tabRec.classList.remove('tab-inattiva');
+
+      divRec.classList.toggle('nascosto');
+      divDR.classList.toggle('nascosto');
+    }
+
+    function mostraDR() {
+      var tabRec = document.getElementById('tab-rec');
+      var tabDR = document.getElementById('tab-dr');
+      var divRec = document.getElementById('recensioni');
+      var divDR = document.getElementById('dr');
+
+      tabRec.classList.add('tab-inattiva');
+      tabRec.classList.remove('tab-attiva');
+
+      tabDR.classList.add('tab-attiva');
+      tabDR.classList.remove('tab-inattiva');
+
+      divRec.classList.toggle('nascosto');
+      divDR.classList.toggle('nascosto');
+    }
+
+    function setSupporto(id, valore) {
+      document.forms['rating_' + id].elements.supporto.value = valore;
+
+      var stelline = document.querySelectorAll('#supporto_' + id + ' > a');
+      for (var i = 0; i < stelline.length; i++) {
+        if (i < valore) {
+          stelline[i].textContent = '\u2605';
+        } else {
+          stelline[i].textContent = '\u2606';
+        }
+      }
+    }
+
+    function setUtilita(id, valore) {
+      document.forms['rating_' + id].elements.utilita.value = valore;
+
+      var stelline = document.querySelectorAll('#utilita_' + id + ' > a');
+      for (var i = 0; i < stelline.length; i++) {
+        if (i < valore) {
+          stelline[i].textContent = '\u2605';
+        } else {
+          stelline[i].textContent = '\u2606';
+        }
+      }
+    }
+  </script>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>

@@ -30,17 +30,18 @@
 }
 
 #prod-top-dx {
+  flex-basis: 35%;
+  height: 100%;
+  padding: 12px;
+}
+
+.riquadro {
   background-color: #e0e0e0;
 
   border-color: #e04336;
   border-radius: 10px;
   border-style: ridge;
   border-width: 1.5px;
-
-  height: 100%;
-  padding: 12px;
-
-  flex-basis: 35%;
 }
 
 #prod-top-dx-info {
@@ -103,27 +104,32 @@
   font-size: 1.75em;
 }
 
-#bp-right {
-  margin-left: -6px;
-  padding: 1em;
-  margin-top: 3em;
+.tab-attiva {
+  background-color: #e0e0e0;
+  border: 0.5px solid #ac9898;
+  cursor: pointer;
+  font-weight: bold;
   margin-bottom: 1em;
+  margin-top: 3em;
+  padding: 1em;
+}
+
+.tab-inattiva {
   background-color: white;
   border: none;
-  font-weight: bold;
   cursor: pointer;
-}
-
-#bp-right:hover {
-  border: 0.5px solid #ac9898;
-}
-
-.button-prodotto {
-  padding: 1em;
-  margin-top: 3em;
+  font-weight: bold;
   margin-bottom: 1em;
-  background-color: #e0e0e0;
-  font-weight: bold;
+  margin-top: 3em;
+  padding: 1em;
+}
+
+.tab-inattiva:hover {
   border: 0.5px solid #ac9898;
-  cursor: pointer;
+}
+
+.stellina {
+  text-decoration: none;
+  color: #ffbd17;
+  text-shadow: 1px 1px grey;
 }
