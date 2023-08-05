@@ -5,7 +5,7 @@
     <nome>BLP99.9 8:1:1 Pure Professional</nome>
     <descrizione>Descrizione</descrizione>
     <costo>39.95</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="2">
@@ -13,7 +13,7 @@
     <nome>Omega Pure</nome>
     <descrizione>Descrizione</descrizione>
     <costo>19.99</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="3">
@@ -21,7 +21,7 @@
     <nome>100% Whey 2,28kg</nome>
     <descrizione>Descrizione</descrizione>
     <costo>100.99</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="4">
@@ -29,7 +29,7 @@
     <nome>Isolate-pro grass-fed 700g</nome>
     <descrizione>Descrizione</descrizione>
     <costo>52.00</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="5">
@@ -45,7 +45,7 @@
     <nome>Iso Whey Zero</nome>
     <descrizione>Descrizione</descrizione>
     <costo>49.87</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="7">
@@ -61,7 +61,7 @@
     <nome>Vb whey 104 9.8 - 450g</nome>
     <descrizione>Descrizione</descrizione>
     <costo>46.00</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="9">
@@ -69,7 +69,7 @@
     <nome>Vb whey 104 9.8 - 900g</nome>
     <descrizione>Descrizione</descrizione>
     <costo>76.00</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="10">
@@ -77,7 +77,7 @@
     <nome>Whey 80 professional 2000g</nome>
     <descrizione>Descrizione</descrizione>
     <costo>70.99</costo>
-    <categoria>2</categoria>
+    <categoria>1</categoria>
     <quantita>0</quantita>
   </prodotto>
   <prodotto id="11">
@@ -113,11 +113,68 @@
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="15">
-    <marca>Marca</marca>
-    <nome>Peanut Butter 495g</nome>
-    <descrizione>Descrizione</descrizione>
-    <costo>9.99</costo>
+    <marca>Tsunami Nutrition</marca>
+    <nome>CASEIN Pure 900 g</nome>
+    <descrizione>Integratore a base di Caseina Micellare per sostenere la crescita muscolare anche nel sonno.</descrizione>
+    <costo>69.99</costo>
+    <categoria>1</categoria>
+    <quantita>40</quantita>
+  </prodotto>
+  <prodotto id="16">
+    <marca>+Watt</marca>
+    <nome>Barrettone 2.0 70 g</nome>
+    <descrizione>Barretta ad alto contenuto di proteine arricchito con fiocchi di soia croccanti.</descrizione>
+    <costo>4.30</costo>
     <categoria>2</categoria>
-    <quantita>54</quantita>
+    <quantita>41</quantita>
+  </prodotto>
+  <prodotto id="17">
+    <marca>Why Sport</marca>
+    <nome>Protein break 30 g</nome>
+    <descrizione>Why Sport Protein Break 30 g, Barretta ad alto contenuto proteico arricchite con creatina Creapure® e glutammina Kyowa Quality®. GLUTEN FREE </descrizione>
+    <costo>2.30</costo>
+    <categoria>2</categoria>
+    <quantita>20</quantita>
+  </prodotto>
+  <prodotto id="18">
+    <marca>+Watt</marca>
+    <nome>Tasty Bar 40 g</nome>
+    <descrizione>Deliziosa barretta proteica doppio strato ad elevato titolo proteico, pari al 25%, da gustare.</descrizione>
+    <costo>2.80</costo>
+    <categoria>2</categoria>
+    <quantita>25</quantita>
+  </prodotto>
+  <prodotto id="19">
+    <marca>Tsunami Nutrition</marca>
+    <nome>Hydro Pure Professional 900 g</nome>
+    <descrizione>Proteine idrolizzate del siero del latte certificate Carbery® per favorire la crescita muscolare!</descrizione>
+    <costo>119.80</costo>
+    <categoria>1</categoria>
+    <quantita>30</quantita>
+  </prodotto>
+  <prodotto id="20">
+    <marca>Scientiffic Nutrition</marca>
+    <nome>ISOLAT 908g - 100% Proteine Isolate Isolac®</nome>
+    <descrizione>Isolac® contiene almeno il 90% di proteine, compresi tutti gli aminoacidi a catena ramificata (BCAA) necessari per lo sviluppo muscolare. Isolac Whey è una fonte di proteine ​​pure di alta qualità.</descrizione>
+    <costo>68.80</costo>
+    <categoria>1</categoria>
+    <quantita>15</quantita>
+  </prodotto>
+  <prodotto id="21">  <!-- PROBLEMA -->
+    <marca>Scientiffic Nutrition</marca>
+    <nome>SEQUENTIAL WHEY 1800g</nome>
+    <descrizione>Mix di proteine del siero del latte e caseinato MPI.
+    Concentrato di proteine del siero di latte 80% Latte scremato in polvere, Proteine del latte isolate MPI 90% Cacao naturale in polvere.</descrizione>
+    <costo>79.99</costo>
+    <categoria>1</categoria>
+    <quantita>6</quantita>
+  </prodotto>
+  <prodotto id="22">
+    <marca>Scientiffic Nutrition</marca>
+    <nome>Whey protein Go 500g.</nome>
+    <descrizione>Proteine del siero di latte con enzimi digestivi Arla® Lacprodan®</descrizione>
+    <costo>29.80</costo>
+    <categoria>1</categoria>
+    <quantita>30</quantita>
   </prodotto>
 </prodotti>
