@@ -103,7 +103,8 @@ if ($id_valido) {
             </form>
         </div>
       </div>
-      <hr class="my-32" />
+      <button id="bp-left" class="button-prodotto"> Recensioni</button>
+      <button id="bp-right"> Domande e Risposte</button>
       <div>
         <h3>Recensioni</h3>
         <p>E' buono.</p>

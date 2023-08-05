@@ -102,3 +102,28 @@
 #prezzo-finale {
   font-size: 1.75em;
 }
+
+#bp-right {
+  margin-left: -6px;
+  padding: 1em;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#bp-right:hover {
+  border: 0.5px solid #ac9898;
+}
+
+.button-prodotto {
+  padding: 1em;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  border: 0.5px solid #ac9898;
+  cursor: pointer;
+}
