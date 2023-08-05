@@ -155,7 +155,9 @@
   <prodotto id="20">
     <marca>Scientiffic Nutrition</marca>
     <nome>ISOLAT 908g - 100% Proteine Isolate Isolac®</nome>
-    <descrizione>Isolac® contiene almeno il 90% di proteine, compresi tutti gli aminoacidi a catena ramificata (BCAA) necessari per lo sviluppo muscolare. Isolac Whey è una fonte di proteine ​​pure di alta qualità.</descrizione>
+    <descrizione>
+    Isolac® contiene almeno il 90% di proteine, compresi tutti gli aminoacidi a catena ramificata (BCAA) necessari per lo sviluppo muscolare. Isolac Whey è una fonte di proteine ​​pure di alta qualità.
+    </descrizione>
     <costo>68.80</costo>
     <categoria>1</categoria>
     <quantita>15</quantita>
@@ -163,8 +165,10 @@
   <prodotto id="21">  <!-- PROBLEMA -->
     <marca>Scientiffic Nutrition</marca>
     <nome>SEQUENTIAL WHEY 1800g</nome>
-    <descrizione>Mix di proteine del siero del latte e caseinato MPI.
-    Concentrato di proteine del siero di latte 80% Latte scremato in polvere, Proteine del latte isolate MPI 90% Cacao naturale in polvere.</descrizione>
+    <descrizione>
+    Mix di proteine del siero del latte e caseinato MPI.
+    Concentrato di proteine del siero di latte 80% Latte scremato in polvere, Proteine del latte isolate MPI 90% Cacao naturale in polvere.
+    </descrizione>
     <costo>79.99</costo>
     <categoria>1</categoria>
     <quantita>6</quantita>
@@ -176,5 +180,34 @@
     <costo>29.80</costo>
     <categoria>1</categoria>
     <quantita>30</quantita>
+  </prodotto>
+  <prodotto id="23">
+    <marca>Scientiffic Nutrition</marca>
+    <nome>Vitamine E Minerali - 60 Cps.</nome>
+    <descrizione>
+    Daily Vit è un integratore alimentare con una speciale formula di vitamine e minerali. Particolarmente efficace grazie alle quantità che contiene e che si adatta alle maggiori esigenze delle persone fisicamente attive.
+    </descrizione>
+    <costo>15.99</costo>
+    <categoria>3</categoria>
+    <quantita>16</quantita>
+  </prodotto>
+  <prodotto id="24">
+    <marca>Scientiffic Nutrition</marca>
+    <nome>Vitamina B-Complex - 100 Cps</nome>
+    <descrizione>
+    Complesso di vitamine del gruppo B.
+    La vitamina B1 e la vitamina B2 contribuiscono alla sintesi dei processi energetici: sono dunque importantissime per consentirci il normale svolgimento delle nostre attività quotidiane ma anche per mantenere un buon tono dell’umore.
+    </descrizione>
+    <costo>52.99</costo>
+    <categoria>3</categoria>
+    <quantita>12</quantita>
+  </prodotto>
+  <prodotto id="25">
+    <marca>Tsunami Nutrition</marca>
+    <nome>Vitamin pure 100cps</nome>
+    <descrizione>Integratore Multivitaminico naturale e Multiminerale. VEGAN, SENZA GLUTINE, SENZA LATTOSIO</descrizione>
+    <costo>16.99</costo>
+    <categoria>3</categoria>
+    <quantita>25</quantita>
   </prodotto>
 </prodotti>
