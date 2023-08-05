@@ -51,12 +51,13 @@
   margin-right: 8px;
 }
 
-#prod-top-dx-info > div {
-  flex-basis: 50%;
+#prod-top-dx-info > #col1 {
+  flex-basis: 55%;
 }
 
 #prod-top-dx-info > #col-2 {
   text-align: right;
+  flex-basis: 45%;
 }
 
 #prod-top-dx-action {
