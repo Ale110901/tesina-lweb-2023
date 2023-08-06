@@ -23,7 +23,11 @@ require_once(RC_ROOT . '/lib/start.php');
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto">
     <h2>Accesso negato</h2>
-    <p class="py-1em">Per accedere a questa pagina &egrave; bisogna essere autenticati e disporre delle autorizzazioni necessarie.</p>
+    <p class="centrato py-1em">
+      Per accedere a questa pagina bisogna essere autenticati e disporre delle autorizzazioni necessarie.<br /><br />
+      <img src="<?php echo(RC_SUBDIR); ?>/res/img/divieto.png" alt="Icona divieto" /><br /><br />
+      <a href="<?php echo(RC_SUBDIR); ?>/index.php">Torna alla home</a>
+    </p>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
