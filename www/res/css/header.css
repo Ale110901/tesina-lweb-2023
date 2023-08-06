@@ -18,25 +18,9 @@
   padding: 0.5em 0px;
 }
 
-#header > #icone > a {
-  text-decoration: none;
-  font-size: 1.4em;
+#header > #icone > span {
+  font-size: 1.25em;
   padding-left: 0.7em;
-}
-
-#header > #icone > #numero-item-carrello {
-  background-color: rgb(255, 0, 0);
-  color: white;
-  height: 1.2em;
-  font-size: 0.5em;
-  position: absolute;
-  font-size: 0.6em;
-  border-radius: 50%;
-  right: 23.8em;
-  text-align: center;
-  vertical-align: 1em;
-  width: 1.2em;
-  line-height: 1.2em;
 }
 
 #header > #menu {

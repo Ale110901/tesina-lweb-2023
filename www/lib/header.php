@@ -5,9 +5,13 @@ $qta_carrello = conta_carrello();
 ?>
 <div id="header">
   <div id="icone">
-    <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" title="Profilo">&#x01F464</a>
-    <a href="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" title="carrello">&#x01F6D2</a>
-    <span id="numero-item-carrello"><?php echo($qta_carrello); ?></span>
+    <span>
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php" title="Profilo">&#x01F464</a>
+    </span>
+    <span class="icona-con-notifica">
+      <a href="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" title="Carrello">&#x01F6D2</a>
+      <span><?php echo($qta_carrello); ?></span>
+    </span>
   </div>
   <h1 id="titolo">
     <a href="<?php echo(RC_SUBDIR); ?>/index.php">
