@@ -5,9 +5,12 @@
 }
 
 #header > #titolo > a {
-  font-family: 'Rampart One', cursive;
   color: darkred;
   text-decoration: none;
+}
+
+#header > #titolo > a > img {
+  height: 0.85em;
 }
 
 #header > #icone {

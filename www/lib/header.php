@@ -9,7 +9,11 @@ $qta_carrello = conta_carrello();
     <a href="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" title="carrello">&#x01F6D2</a>
     <span id="numero-item-carrello"><?php echo($qta_carrello); ?></span>
   </div>
-  <h1 id="titolo"><a href="<?php echo(RC_SUBDIR); ?>/index.php">R&amp;C store</a></h1>
+  <h1 id="titolo">
+    <a href="<?php echo(RC_SUBDIR); ?>/index.php">
+      <img src="<?php echo(RC_SUBDIR); ?>/res/img/title.svg" alt="R&C store" />
+    </a>
+  </h1>
   <ul id="menu">
     <li><a href="<?php echo(RC_SUBDIR); ?>/index.php">Homepage</a></li>
     <li><a href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Catalogo</a></li>
