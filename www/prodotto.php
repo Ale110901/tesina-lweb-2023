@@ -188,8 +188,8 @@ if ($id_valido) {
       tabRec.classList.add('tab-attiva');
       tabRec.classList.remove('tab-inattiva');
 
-      divRec.classList.toggle('nascosto');
-      divDR.classList.toggle('nascosto');
+      divRec.classList.remove('nascosto');
+      divDR.classList.add('nascosto');
     }
 
     function mostraDR() {
@@ -204,8 +204,8 @@ if ($id_valido) {
       tabDR.classList.add('tab-attiva');
       tabDR.classList.remove('tab-inattiva');
 
-      divRec.classList.toggle('nascosto');
-      divDR.classList.toggle('nascosto');
+      divRec.classList.add('nascosto');
+      divDR.classList.remove('nascosto');
     }
 
     function setSupporto(id, valore) {
