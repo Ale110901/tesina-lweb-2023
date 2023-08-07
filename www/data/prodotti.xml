@@ -3,111 +3,113 @@
   <prodotto id="1">
     <marca>Tsunami Nutrition</marca>
     <nome>BLP99.9 8:1:1 Pure Professional</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Pool di aminoacidi essenziali in rapporto 8:1:1 brevetto Sustamine® e qualità certificata Kyowa Quality®.</descrizione>
     <costo>39.95</costo>
     <categoria>1</categoria>
-    <quantita>54</quantita>
+    <quantita>9</quantita>
   </prodotto>
   <prodotto id="2">
-    <marca>Marca</marca>
+    <marca>Tsunami Nutrition</marca>
     <nome>Omega Pure</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Integratore alimentare di Omega 3 per fornire acidi grassi per la salute di pelle, ossa e cardiovascolare.</descrizione>
     <costo>19.99</costo>
     <categoria>1</categoria>
-    <quantita>54</quantita>
+    <quantita>26</quantita>
   </prodotto>
   <prodotto id="3">
-    <marca>Marca</marca>
+    <marca>Optimum Nutrition</marca>
     <nome>100% Whey 2,28kg</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Proteine del Siero del latte per il supporto e recupero muscolare post-allenamento. </descrizione>
     <costo>100.99</costo>
     <categoria>1</categoria>
-    <quantita>54</quantita>
+    <quantita>7</quantita>
   </prodotto>
   <prodotto id="4">
-    <marca>Marca</marca>
+    <marca>Net integratori</marca>
     <nome>Isolate-pro grass-fed 700g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Proteine isolate del siero di latte certificate Grass-Fed Isolac®.</descrizione>
     <costo>52.00</costo>
     <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="5">
-    <marca>Marca</marca>
+    <marca>Mars Protein</marca>
     <nome>Snickers hi protein 62g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Snickers Hi Protein 62 grammi, Barretta Proteica con la consistenza e il gusto del classico Snickers.</descrizione>
     <costo>2.70</costo>
     <categoria>2</categoria>
-    <quantita>54</quantita>
+    <quantita>31</quantita>
   </prodotto>
   <prodotto id="6">
-    <marca>Marca</marca>
+    <marca>BioTechUSA</marca>
     <nome>Iso Whey Zero</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Proteine Isolate del Siero del Latte per favorire la crescita muscolare.</descrizione>
     <costo>49.87</costo>
     <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="7">
-    <marca>Marca</marca>
+    <marca>+Watt</marca>
     <nome>Choco Egg 40gg</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Deliziosa barretta ricoperta di cioccolato fondente con elevato contenuto di proteine dell'uovo.</descrizione>
     <costo>2.40</costo>
     <categoria>2</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="8">
-    <marca>Marca</marca>
+    <marca>Net integratori</marca>
     <nome>Vb whey 104 9.8 - 450g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>
+    integratore alimentare di proteine in polvere, formulato per un rapido assorbimento. Favorisce il recupero post workout e la crescita della massa muscolare. Con Optipep® 90 Pro, dolcificato con Citrosa®.
+    </descrizione>
     <costo>46.00</costo>
     <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="9">
-    <marca>Marca</marca>
+    <marca>Net integratori</marca>
     <nome>Vb whey 104 9.8 - 900g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Proteine del siero del latte Idrolizzate. GLUTEN FREE</descrizione>
     <costo>76.00</costo>
     <categoria>1</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="10">
-    <marca>Marca</marca>
+    <marca>Tsunami Nutrition</marca>
     <nome>Whey 80 professional 2000g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Proteine del siero del latte concentrate LACTOMIN®. SENZA GLUTINE, SENZA LATTOSIO.</descrizione>
     <costo>70.99</costo>
     <categoria>1</categoria>
     <quantita>0</quantita>
   </prodotto>
   <prodotto id="11">
-    <marca>Marca</marca>
+    <marca>Mars protein</marca>
     <nome>Mars protein 57g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Barretta proteica con l'inconfondibile gusto Mars.</descrizione>
     <costo>2.99</costo>
     <categoria>2</categoria>
-    <quantita>54</quantita>
+    <quantita>14</quantita>
   </prodotto>
   <prodotto id="12">
-    <marca>Marca</marca>
+    <marca>Tsunami Nutrition</marca>
     <nome>Hydro Purebar 55g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Barrette proteiche a base di proteine del siero del latte idrolizzate con BCAA 8:1:1 e ZMA.</descrizione>
     <costo>5.00</costo>
     <categoria>2</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="13">
-    <marca>Marca</marca>
+    <marca>Grenade</marca>
     <nome>Grenade Carb Killa 60g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Barretta proteica con pochi carboidrati e ricca di amminoacidi essenziali per la crescita muscolare.</descrizione>
     <costo>3.95</costo>
     <categoria>2</categoria>
     <quantita>54</quantita>
   </prodotto>
   <prodotto id="14">
-    <marca>Marca</marca>
+    <marca>Body Attack</marca>
     <nome>CarbControl Bar 100g</nome>
-    <descrizione>Descrizione</descrizione>
+    <descrizione>Barretta ad alto contenuto proteico arricchita con vitamine morbida e gustosa per la crescita muscolare</descrizione>
     <costo>5.70</costo>
     <categoria>2</categoria>
     <quantita>54</quantita>
@@ -162,7 +164,7 @@
     <categoria>1</categoria>
     <quantita>15</quantita>
   </prodotto>
-  <prodotto id="21">  <!-- PROBLEMA -->
+  <prodotto id="21">
     <marca>Scientiffic Nutrition</marca>
     <nome>SEQUENTIAL WHEY 1800g</nome>
     <descrizione>
