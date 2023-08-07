@@ -190,7 +190,7 @@ if ($id_valido) {
         <div class="flex-col mb-32 mt-32">
           <div class="fb-20">
             Supporto <?php echo(number_format($rating_medio['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rating_medio['utilita'], 1)); ?>
-            <p>da <?php echo($nome_ut . ' ' . $cognome_ut); ?></p>
+            <p>da <i><?php echo($nome_ut . ' ' . $cognome_ut); ?></i> </p>
 <?php if ($loggato) { ?>
             <div class="riquadro pa-8 mt-8 mr-32">
               <p id="supporto_<?php echo($id_recensione); ?>">Supporto:
