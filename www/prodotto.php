@@ -160,24 +160,21 @@ if ($id_valido) {
     $rating_pers = [];
 
     if($loggato){
-      $id_ut_corr = $_SESSION['id_utente'];
-      $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
-      if ($result->length === 0) {
-        $rating_pers['supporto'] = 0;
-        $rating_pers['utilita'] = 0;
-        $rated = false;
-      } else {
-        $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
-        $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
-        $rated = true;
-      }
+      $ut = $_SESSION['id_utente'];
     } else {
-      $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_utente']");
+      $ut = $id_utente;
+    }
+
+    $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$ut']");
+    if ($result->length === 0) {
+      $rating_pers['supporto'] = 0;
+      $rating_pers['utilita'] = 0;
+      $rated = false;
+    } else {
       $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
       $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
       $rated = true;
     }
-  
 
     $rs = [];
     $ru = [];
@@ -189,10 +186,12 @@ if ($id_valido) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
 ?>
+
         <div class="flex-col mb-32 mt-32">
           <div class="fb-20">
             Supporto <?php echo(number_format($rating_medio['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rating_medio['utilita'], 1)); ?>
             <p>da <?php echo($nome_ut . ' ' . $cognome_ut); ?></p>
+<?php if ($loggato) { ?>
             <div class="riquadro pa-8 mt-8 mr-32">
               <p id="supporto_<?php echo($id_recensione); ?>">Supporto:
                 <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -213,6 +212,7 @@ if ($id_valido) {
                 <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
               </p>
             </div>
+<?php } ?>
           </div>
           <div class="fb-80">
             <p class="giustificato"><?php echo($contenuto); ?></p>
