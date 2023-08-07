@@ -168,6 +168,11 @@ div > h2 {
   flex-basis: 80%;
 }
 
+.my-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .my-32 {
   margin-top: 32px;
   margin-bottom: 32px;
