@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <recensioni xmlns="http://www.lweb.uni/tesina-rcstore/recensioni/">
-  <recensione id="1" idProdotto="21">
-    <idUtente>12</idUtente>
+  <recensione id="1" idProdotto="1">
+    <idUtente>1</idUtente>
     <contenuto>Recensione di prova</contenuto>
     <ratings>
       <rating>
