@@ -11,7 +11,19 @@ require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/rating.php');
 
+$doc_utenti = load_xml('utenti');
+
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
+$nuova_recensione = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
+var_dump($_SESSION);
+
+if ($nuova_recensione && $id_valido) {
+  $id_prodotto = $_GET['id'];
+  $id_utente = $_SESSION['id_utente'];
+  $recensione_nuova = $_POST['recensione_nuova'];
+  aggiungi_recensione($id_prodotto, $id_utente, $recensione_nuova);
+}
+
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
 
@@ -43,7 +55,7 @@ if ($id_valido) {
     $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
 
-    $doc_utenti = load_xml('utenti');
+    
   }
 }
 ?>
@@ -111,7 +123,14 @@ if ($id_valido) {
       </div>
       <button id="tab-rec" class="tab-attiva" onclick="mostraRecensioni()"> Recensioni</button><button id="tab-dr" class="tab-inattiva" onclick="mostraDR()"> Domande e Risposte</button>
       <div id="recensioni">
-        <h3>Recensioni</h3>
+        <h3 class="mb-16">Recensioni</h3>
+          <button id="button-recensione" onclick="mostraAggiuntaRecensione()">&#x1F4DD Scrivi una nuova recensione</button><br />
+          <form method="post" id="recensione_nuova" class="nascosto mt-16">
+            <input type="text" class="input-flat" name="recensione_nuova" />
+            <button type="submit" onclick="mostraAggiuntaRecensione()" name="azione" value="aggiungi_recensione" class="ml-8" title="Invia recensione">&#x2714</button>
+          </form>
+          
+
 <?php
   foreach ($recensioni as $recensione) {
     $id_recensione = $recensione->getAttribute('id');
@@ -126,7 +145,7 @@ if ($id_valido) {
     $ratings = $recensione->getElementsByTagName('ratings')[0]->childNodes;
     $rating_medio = calcola_rating_medio($ratings);
 ?>
-        <div class="flex-col mb-32 mt-16">
+        <div class="flex-col mb-32 mt-32">
           <div class="fb-20">
             Supporto <?php echo($rating_medio['supporto']); ?>, utilit&agrave; <?php echo($rating_medio['utilita']); ?>
             <p>da <?php echo($nome_ut . ' ' . $cognome_ut); ?></p>
@@ -232,6 +251,10 @@ if ($id_valido) {
           stelline[i].textContent = '\u2606';
         }
       }
+    }
+
+    function mostraAggiuntaRecensione(){
+      document.getElementById('recensione_nuova').classList.toggle("nascosto");;
     }
   </script>
 

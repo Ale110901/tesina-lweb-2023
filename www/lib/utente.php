@@ -88,4 +88,30 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
 
   return true;
 }
+
+function aggiungi_recensione($id_prodotto, $id_utente, $recensione_nuova) {
+  $doc_recensioni = load_xml('recensioni');
+
+  $root = $doc_recensioni->documentElement;
+  $recensioni = $root->childNodes;
+
+  $nuova_recensione = $doc_recensioni->createElement('recensione');
+
+  $id_recensione = get_next_id($recensioni);
+
+  $nuova_recensione->setAttribute('id', $id_recensione);
+  $nuova_recensione->setAttribute('idProdotto', $id_prodotto);
+
+  $el_idUt = $doc_recensioni->createElement('idUtente', $id_utente);
+  $nuova_recensione->appendChild($el_idUt);
+
+  $el_contenuto = $doc_recensioni->createElement('contenuto', $recensione_nuova);
+  $nuova_recensione->appendChild($el_contenuto);
+
+  $root->appendChild($nuova_recensione);
+
+  save_xml($doc_recensioni, 'recensioni');
+
+  return true;
+}
 ?>
