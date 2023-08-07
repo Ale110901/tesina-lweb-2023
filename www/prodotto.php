@@ -157,23 +157,22 @@ if ($id_valido) {
     $ratings = $recensione->getElementsByTagName('ratings')[0]->childNodes;
     $rating_medio = calcola_rating_medio($ratings);
 
-    $rating_pers = [];
+    $rating_pers = [
+      'supporto' => 0,
+      'utilita' => 0
+    ];
+    $rated = false;
 
-    if($loggato){
-      $ut = $_SESSION['id_utente'];
-    } else {
-      $ut = $id_utente;
-    }
+    if ($loggato) {
+      $id_ut_corr = $_SESSION['id_utente'];
 
-    $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$ut']");
-    if ($result->length === 0) {
-      $rating_pers['supporto'] = 0;
-      $rating_pers['utilita'] = 0;
-      $rated = false;
-    } else {
-      $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
-      $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
-      $rated = true;
+      $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
+
+      if ($result->length === 0) {
+        $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
+        $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
+        $rated = true;
+      }
     }
 
     $rs = [];
