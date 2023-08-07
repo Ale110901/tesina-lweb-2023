@@ -4,8 +4,7 @@
     <idUtente>1</idUtente>
     <contenuto>Recensione di prova</contenuto>
     <ratings>
-      <rating>
-        <idUtente>37</idUtente>
+      <rating idUtente="1">
         <supporto>1</supporto>
         <utilita>4</utilita>
       </rating>

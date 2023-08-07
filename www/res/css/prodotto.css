@@ -52,7 +52,7 @@
   margin-right: 8px;
 }
 
-#prod-top-dx-info > #col1 {
+#prod-top-dx-info > #col-1 {
   flex-basis: 55%;
 }
 
@@ -120,6 +120,10 @@
   background-color: white;
 }
 
+#recensione_nuova > textarea {
+  width: 50%;
+}
+
 .tab-attiva {
   background-color: #e0e0e0;
   border: 0.5px solid #ac9898;
@@ -145,7 +149,8 @@
 }
 
 .stellina {
-  text-decoration: none;
   color: #ffbd17;
+  cursor: pointer;
+  text-decoration: none;
   text-shadow: 1px 1px grey;
 }

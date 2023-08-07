@@ -10,19 +10,11 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/rating.php');
-
-$doc_utenti = load_xml('utenti');
+require_once(RC_ROOT . '/lib/recensioni.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
-$nuova_recensione = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
-var_dump($_SESSION);
-
-if ($nuova_recensione && $id_valido) {
-  $id_prodotto = $_GET['id'];
-  $id_utente = $_SESSION['id_utente'];
-  $recensione_nuova = $_POST['recensione_nuova'];
-  aggiungi_recensione($id_prodotto, $id_utente, $recensione_nuova);
-}
+$aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
+$rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione';
 
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
@@ -41,6 +33,7 @@ if ($id_valido) {
     $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
     $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
+
     $doc_offerte = load_xml('offerte');
     $off_app = offerte_applicabili($doc_offerte, $prodotto);
     $sconto = calcola_sconto($off_app);
@@ -49,13 +42,30 @@ if ($id_valido) {
 
     $disponibile = $quantita > 0;
 
+
+    if ($aggiungi_rec) {
+      $contenuto = $_POST['contenuto'];
+
+      aggiungi_recensione($id_prodotto, $contenuto);
+    }
+
+    if ($rating_rec) {
+      $id_recensione = $_POST['id_recensione'];
+      $supporto = $_POST['supporto'];
+      $utilita = $_POST['utilita'];
+
+      aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
+    }
+
     $doc_recensioni = load_xml('recensioni');
     $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
+
 
     $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
 
-    
+
+    $doc_utenti = load_xml('utenti');
   }
 }
 ?>
@@ -124,14 +134,16 @@ if ($id_valido) {
       <button id="tab-rec" class="tab-attiva" onclick="mostraRecensioni()"> Recensioni</button><button id="tab-dr" class="tab-inattiva" onclick="mostraDR()"> Domande e Risposte</button>
       <div id="recensioni">
         <h3 class="mb-16">Recensioni</h3>
+<?php
+  if ($loggato) {
+?>
           <button id="button-recensione" onclick="mostraAggiuntaRecensione()">&#x1F4DD Scrivi una nuova recensione</button><br />
           <form method="post" id="recensione_nuova" class="nascosto mt-16">
-            <input type="text" class="input-flat" name="recensione_nuova" />
+            <textarea id="input-recensione" class="input-flat" name="contenuto" rows="6"></textarea>
             <button type="submit" onclick="mostraAggiuntaRecensione()" name="azione" value="aggiungi_recensione" class="ml-8" title="Invia recensione">&#x2714</button>
           </form>
-          
-
 <?php
+  }
   foreach ($recensioni as $recensione) {
     $id_recensione = $recensione->getAttribute('id');
     $id_utente = $recensione->getElementsByTagName('idUtente')[0]->textContent;
@@ -144,29 +156,54 @@ if ($id_valido) {
 
     $ratings = $recensione->getElementsByTagName('ratings')[0]->childNodes;
     $rating_medio = calcola_rating_medio($ratings);
+
+
+    $id_ut_corr = $_SESSION['id_utente'];
+    $rating_pers = [];
+    $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
+    if ($result->length === 0) {
+      $rating_pers['supporto'] = 0;
+      $rating_pers['utilita'] = 0;
+      $rated = false;
+    } else {
+      $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
+      $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
+      $rated = true;
+    }
+
+
+    $rs = [];
+    $ru = [];
+
+    for ($i = 0; $i < 5; $i++) {
+      $rs[$i] = $i < $rating_pers['supporto'] ? '&#x2605' : '&#x2606';
+    }
+    for ($i = 0; $i < 3; $i++) {
+      $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
+    }
 ?>
         <div class="flex-col mb-32 mt-32">
           <div class="fb-20">
-            Supporto <?php echo($rating_medio['supporto']); ?>, utilit&agrave; <?php echo($rating_medio['utilita']); ?>
+            Supporto <?php echo(number_format($rating_medio['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rating_medio['utilita'], 1)); ?>
             <p>da <?php echo($nome_ut . ' ' . $cognome_ut); ?></p>
             <div class="riquadro pa-8 mt-8 mr-32">
               <p id="supporto_<?php echo($id_recensione); ?>">Supporto:
-                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 1)">&#x2606</a>
-                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 2)">&#x2606</a>
-                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 3)">&#x2606</a>
-                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 4)">&#x2606</a>
-                <a class="stellina" href="#" onclick="setSupporto(<?php echo($id_recensione); ?>, 5)">&#x2606</a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 4)"<?php } ?>><?php echo($rs[3]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 5)"<?php } ?>><?php echo($rs[4]); ?></a>
               </p>
               <form id="rating_<?php echo($id_recensione); ?>" method="post">
                 <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
                 <input type="hidden" name="supporto" value="0" />
                 <input type="hidden" name="utilita" value="0" />
-                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4">Invia</button>
+                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4" <?php if ($rated) echo ('disabled'); ?>>Invia</button>
               </form>
               <p id="utilita_<?php echo($id_recensione); ?>">Utilit&agrave;:
-                <a class="stellina" href="#1" onclick="setUtilita(<?php echo($id_recensione); ?>, 1)">&#x2606</a>
-                <a class="stellina" href="#2" onclick="setUtilita(<?php echo($id_recensione); ?>, 2)">&#x2606</a>
-                <a class="stellina" href="#3" onclick="setUtilita(<?php echo($id_recensione); ?>, 3)">&#x2606</a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
+                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
               </p>
             </div>
           </div>
@@ -227,23 +264,10 @@ if ($id_valido) {
       divDR.classList.remove('nascosto');
     }
 
-    function setSupporto(id, valore) {
-      document.forms['rating_' + id].elements.supporto.value = valore;
+    function setCampo(prefisso, id, campo, valore) {
+      document.forms[prefisso + '_' + id].elements[campo].value = valore;
 
-      var stelline = document.querySelectorAll('#supporto_' + id + ' > a');
-      for (var i = 0; i < stelline.length; i++) {
-        if (i < valore) {
-          stelline[i].textContent = '\u2605';
-        } else {
-          stelline[i].textContent = '\u2606';
-        }
-      }
-    }
-
-    function setUtilita(id, valore) {
-      document.forms['rating_' + id].elements.utilita.value = valore;
-
-      var stelline = document.querySelectorAll('#utilita_' + id + ' > a');
+      var stelline = document.querySelectorAll('#' + campo + '_' + id + ' > a');
       for (var i = 0; i < stelline.length; i++) {
         if (i < valore) {
           stelline[i].textContent = '\u2605';

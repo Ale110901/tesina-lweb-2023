@@ -28,17 +28,45 @@ function calcola_rating_medio($ratings) {
 
 function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
   $id_utente = $_SESSION['id_utente'];
-  
-  $rating = $doc_utenti->createElement('rating');
+
+  $rating = $doc->createElement('rating');
 
   $rating->setAttribute('idUtente', $id_utente);
 
-  $el_supporto = $doc_utenti->createElement('supporto', $supporto);
+  $el_supporto = $doc->createElement('supporto', $supporto);
   $rating->appendChild($el_supporto);
 
-  $el_utilita = $doc_utenti->createElement('utilita', $utilita);
+  $el_utilita = $doc->createElement('utilita', $utilita);
   $rating->appendChild($el_utilita);
 
   $ratings->appendChild($rating);
 }
+
+function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
+  $doc_recensioni = load_xml('recensioni');
+
+  $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings");
+  $ratings = $result[0];
+
+  aggiungi_rating($doc_recensioni, $ratings, $supporto, $utilita);
+
+  save_xml($doc_recensioni, 'recensioni');
+
+  return true;
+}
+
+/*
+function ottieni_rating_personale($ratings) {
+  foreach ($ratings as $rating) {
+    if ($rating->getAttribute('id') == $id_utente) {
+
+    }
+  }
+
+  return [
+    'supporto' => 3,
+    'utilita' => 2
+  ];
+}
+*/
 ?>
