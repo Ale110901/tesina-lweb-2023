@@ -27,4 +27,21 @@
     <cognome>Marroni</cognome>
     <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
   </utente>
+  <utente id="4" tipo="cliente" email="marco.verdi@gmail.com">
+  <attivo>true</attivo>
+  <nome>Marco</nome>
+  <cognome>Verdi</cognome>
+  <telefono>+390773123456</telefono>
+  <indirizzo>Via Isonzo, 104, Latina, Italia</indirizzo>
+  <codiceFiscale>RSSMRA83P12E472K</codiceFiscale>
+  <credito>120.00</credito>
+  <reputazione>100</reputazione>
+  <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+  <dataRegistrazione>2022-10-27</dataRegistrazione>
+    <carrello>
+      <prodotto id="3" quantita="2"/>
+      <prodotto id="6" quantita="2"/>
+      <prodotto id="11" quantita="1"/>
+    </carrello>
+  </utente>
 </utenti>
