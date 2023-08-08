@@ -138,6 +138,7 @@ if ($id_valido) {
         <h3 class="mb-16">Recensioni</h3>
 <?php
   if ($loggato) {
+    $id_ut_corr = $_SESSION['id_utente'];
 ?>
           <button id="button-recensione" onclick="mostraAggiuntaRecensione()">&#x1F4DD Scrivi una nuova recensione</button><br />
           <form method="post" id="recensione_nuova" class="nascosto mt-16">
@@ -156,7 +157,6 @@ if ($id_valido) {
     $ratings_rec = $recensione->getElementsByTagName('ratings')[0]->childNodes;
     $rat_med_rec = calcola_rating_medio($ratings_rec);
 
-    $id_ut_corr = $_SESSION['id_utente'];
 
     $rating_pers = [
       'supporto' => 0,
