@@ -26,8 +26,57 @@ function calcola_rating_medio($ratings) {
   ];
 }
 
+function aggiorna_reputazione($doc, $id_utente, $supporto, $utilita){
+  $reputazione = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione")[0]->textContent;
+
+  $result_u = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
+  $utente = $result_u[0];
+  
+  if($reputazione == 0){
+    return;
+  }
+
+  if($supporto == 1){
+    $aggiorna_supporto = -2;
+  }
+  if($supporto == 2){
+    $aggiorna_supporto = 0;
+  }
+  if($supporto == 3){
+    $aggiorna_supporto = 2;
+  }
+  if($utilita == 1){
+    $aggiorna_utilita = -4;
+  }
+  if($utilita == 2){
+    $aggiorna_utilita = -2;
+  }
+  if($utilita == 3){
+    $aggiorna_utilita = 0;
+  }
+  if($utilita == 4){
+    $aggiorna_utilita = 2;
+  }
+  if($utilita == 5){
+    $aggiorna_utilita = 4;
+  }
+
+  $variazione_reputazione = $aggiorna_utilita + $aggiorna_supporto;
+
+  if($reputazione <= abs($variazione_reputazione)) {
+    $utente->getElementsByTagName('reputazione')[0]->textContent = 0;
+  } else {
+    $reputazione  += $variazione_reputazione;
+    $utente->getElementsByTagName('reputazione')[0]->textContent = $reputazione;
+  }
+
+  save_xml($doc, 'utenti');
+  
+  return;
+}
+
 function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
-  $id_utente = $_SESSION['id_utente'];
+  $id_utente = $_SESSION['id_utente'];  
 
   $rating = $doc->createElement('rating');
 

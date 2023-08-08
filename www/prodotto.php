@@ -43,6 +43,8 @@ if ($id_valido) {
 
     $disponibile = $quantita > 0;
 
+    $doc_utenti = load_xml('utenti');
+
 
     if ($aggiungi_rec) {
       $contenuto = $_POST['contenuto'];
@@ -54,6 +56,9 @@ if ($id_valido) {
       $id_recensione = $_POST['id_recensione'];
       $supporto = $_POST['rec_supp'];
       $utilita = $_POST['rec_util'];
+      $id_ut_rec_agg = $_POST['utente_recensione'];
+    
+      aggiorna_reputazione($doc_utenti, $id_ut_rec_agg, $supporto, $utilita);
 
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
     }
@@ -64,9 +69,6 @@ if ($id_valido) {
 
     $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
-
-
-    $doc_utenti = load_xml('utenti');
   }
 }
 ?>
@@ -200,6 +202,7 @@ if ($id_valido) {
               </p>
               <form id="rec_rat_<?php echo($id_recensione); ?>" method="post">
                 <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
+                <input type="hidden" name="utente_recensione" value="<?php echo($id_ut_rec); ?>" />
                 <input type="hidden" name="rec_supp" value="0" />
                 <input type="hidden" name="rec_util" value="0" />
                 <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>

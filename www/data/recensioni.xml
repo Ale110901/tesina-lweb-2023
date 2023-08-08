@@ -4,24 +4,12 @@
     <idUtente>1</idUtente>
     <contenuto>Recensione di prova</contenuto>
     <ratings>
-      <rating idUtente="1">
-        <supporto>1</supporto>
-        <utilita>4</utilita>
-      </rating>
     </ratings>
   </recensione>
   <recensione id="2" idProdotto="1">
     <idUtente>4</idUtente>
     <contenuto>Recensione di prova</contenuto>
     <ratings>
-      <rating idUtente="4">
-        <supporto>5</supporto>
-        <utilita>1</utilita>
-      </rating>
-      <rating idUtente="1">
-        <supporto>4</supporto>
-        <utilita>2</utilita>
-      </rating>
     </ratings>
   </recensione>
 </recensioni>
