@@ -79,6 +79,7 @@ if ($id_valido) {
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotto.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/faq.css" />
 </head>
 
 <body>
@@ -228,7 +229,7 @@ if ($id_valido) {
     $contenuto = $domanda->getElementsByTagName('contenuto')[0]->textContent;
     $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;
 ?>
-        <h4><?php echo($contenuto); ?></h4>
+        <button class="btn-domanda mt-32" onclick="mostra_risposte()"><?php echo($contenuto); ?></button>
 
 <?php
     for ($i = 0; $i < $risposte->length; $i++) {
