@@ -15,20 +15,18 @@ if (isset($_SESSION['agg_carr_id_prod'])) {
   unset($_SESSION['agg_carr_qta']);
 }
 
-/*
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'modifica') {
-  $id_articolo = $_POST['id_articolo'];
+  $id_prodotto = $_POST['id_prodotto'];
   $quantita = $_POST['quantita'];
 
   modifica_carrello($id_prodotto, $quantita);
 } else if ($_POST['azione'] === 'rimuovi') {
-  $id_articolo = $_POST['id_articolo'];
+  $id_prodotto = $_POST['id_prodotto'];
 
   modifica_carrello($id_prodotto, 0);
 }
-*/
 
 $id_utente = $_SESSION['id_utente'];
 

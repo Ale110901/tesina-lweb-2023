@@ -52,4 +52,23 @@ function conta_carrello() {
 
   return $somma;
 }
+
+function modifica_carrello($id_prodotto, $quantita) {
+  $id_utente = $_SESSION['id_utente'];
+
+  $doc_utenti = load_xml('utenti');
+  $result = xpath($doc_utenti, 'utenti',
+    "/ns:utenti/ns:utente[@id='$id_utente']/ns:carrello/ns:prodotto[@id='$id_prodotto']"
+  );
+
+  $prodotto = $result[0];
+  if ($quantita == 0) {
+    $carrello = $prodotto->parentNode;
+    $carrello->removeChild($prodotto);
+  } else {
+    $prodotto->setAttribute('quantita', $quantita);
+  }
+
+  save_xml($doc_utenti, 'utenti');
+}
 ?>
