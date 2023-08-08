@@ -226,10 +226,26 @@ if ($id_valido) {
 <?php
   foreach ($domande as $domanda) {
     $contenuto = $domanda->getElementsByTagName('contenuto')[0]->textContent;
+    $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;
 ?>
         <h4><?php echo($contenuto); ?></h4>
-        <p>Ciao.</p>
+
 <?php
+    for ($i = 0; $i < $risposte->length; $i++) {
+      $risposta = $risposte[$i];
+
+      $contenuto_r = $risposta->getElementsByTagName('contenuto')[0]->textContent;
+      $id_utente = $risposta->getElementsByTagName('idUtente')[0]->textContent;
+
+      $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
+      $utente = $result[0];
+      $nome_ut = $utente->getElementsByTagName('nome')[0]->textContent;
+      $cognome_ut = $utente->getElementsByTagName('cognome')[0]->textContent;
+
+?>
+        <p>[ <i><?php echo($nome_ut . ' ' . $cognome_ut); ?></i> ] <?php echo($contenuto_r); ?></p>
+<?php
+    }
   }
 ?>
       </div>

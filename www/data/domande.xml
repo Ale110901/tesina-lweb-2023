@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domande xmlns="http://www.lweb.uni/tesina-rcstore/domande/">
-  <domanda id="1" idProdotto="14">
+  <domanda id="1" idProdotto="1">
     <idUtente>24</idUtente>
     <contenuto>Quali gusti sono disponibili?</contenuto>
     <ratings>
@@ -12,11 +12,22 @@
     </ratings>
     <risposte>
       <risposta id="1">
-        <idUtente>51</idUtente>
+        <idUtente>1</idUtente>
         <contenuto>Cioccolata e lampone</contenuto>
         <ratings>
           <rating>
             <idUtente>29</idUtente>
+            <supporto>3</supporto>
+            <utilita>5</utilita>
+          </rating>
+        </ratings>
+      </risposta>
+      <risposta id="2">
+        <idUtente>1</idUtente>
+        <contenuto>Cioccolata e mango</contenuto>
+        <ratings>
+          <rating>
+            <idUtente>1</idUtente>
             <supporto>3</supporto>
             <utilita>5</utilita>
           </rating>
