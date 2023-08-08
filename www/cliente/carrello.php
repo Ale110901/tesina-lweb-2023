@@ -51,7 +51,7 @@ $doc_prodotti = load_xml('prodotti');
 
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
+  <div id="contenuto" class="centrato">
     <h2>CARRELLO</h2>
     <ul>
 <?php
@@ -78,6 +78,7 @@ foreach ($prodotti as $prodotto) {
 }
 ?>
     </ul>
+    <a class="button"> Termina acquisto </a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
