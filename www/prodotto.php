@@ -254,56 +254,7 @@ if ($id_valido) {
 <?php } ?>
   </div>
 
-  <script type="text/javascript">
-    function mostraRecensioni() {
-      var tabRec = document.getElementById('tab-rec');
-      var tabDR = document.getElementById('tab-dr');
-      var divRec = document.getElementById('recensioni');
-      var divDR = document.getElementById('dr');
-
-      tabDR.classList.add('tab-inattiva');
-      tabDR.classList.remove('tab-attiva');
-
-      tabRec.classList.add('tab-attiva');
-      tabRec.classList.remove('tab-inattiva');
-
-      divRec.classList.remove('nascosto');
-      divDR.classList.add('nascosto');
-    }
-
-    function mostraDR() {
-      var tabRec = document.getElementById('tab-rec');
-      var tabDR = document.getElementById('tab-dr');
-      var divRec = document.getElementById('recensioni');
-      var divDR = document.getElementById('dr');
-
-      tabRec.classList.add('tab-inattiva');
-      tabRec.classList.remove('tab-attiva');
-
-      tabDR.classList.add('tab-attiva');
-      tabDR.classList.remove('tab-inattiva');
-
-      divRec.classList.add('nascosto');
-      divDR.classList.remove('nascosto');
-    }
-
-    function setCampo(prefisso, id, campo, valore) {
-      document.forms[prefisso + '_' + id].elements[campo].value = valore;
-
-      var stelline = document.querySelectorAll('#' + campo + '_' + id + ' > a');
-      for (var i = 0; i < stelline.length; i++) {
-        if (i < valore) {
-          stelline[i].textContent = '\u2605';
-        } else {
-          stelline[i].textContent = '\u2606';
-        }
-      }
-    }
-
-    function mostraAggiuntaRecensione(){
-      document.getElementById('recensione_nuova').classList.toggle("nascosto");;
-    }
-  </script>
+  <script type="text/javascript" src="<?php echo(RC_SUBDIR); ?>/res/js/prodotto.js"></script>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
