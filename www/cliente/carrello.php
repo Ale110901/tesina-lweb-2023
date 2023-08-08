@@ -69,8 +69,8 @@ foreach ($prodotti as $prodotto) {
         <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
           <input type="hidden" name="id_prodotto" value="<?php echo ($id_prod); ?>" />
           <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="99" />
-          <button type="submit" name="azione" class="ml-8" value="modifica" title="Modifica quantita">&#x01F4DD</button>
-          <button type="submit" name="azione" class="ml-8" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
+          <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
+          <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
         </form>
         <hr class="my-8" />
       </li>

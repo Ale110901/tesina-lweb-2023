@@ -51,6 +51,12 @@ div > h2 {
 }
 
 
+.button-icona {
+  border: none;
+  background: transparent;
+  font-size: 1.2em;
+  cursor: pointer;
+}
 
 .button {
   font-size: 0.85em;
