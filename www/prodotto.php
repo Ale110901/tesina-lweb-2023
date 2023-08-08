@@ -169,7 +169,7 @@ if ($id_valido) {
 
       $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
 
-      if ($result->length === 0) {
+      if ($result->length !== 0) {
         $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
         $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
         $rated = true;
