@@ -155,13 +155,25 @@ div > h2 {
 }
 
 
-.flex-col {
+.flex-row {
   display: flex;
-  flex-direction: col;
+  flex-direction: row;
+}
+
+.fb-5 {
+  flex-basis: 5%;
 }
 
 .fb-20 {
   flex-basis: 20%;
+}
+
+.fb-55 {
+  flex-basis: 55%;
+}
+
+.fb-60 {
+  flex-basis: 60%;
 }
 
 .fb-80 {
@@ -171,6 +183,11 @@ div > h2 {
 .my-8 {
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .my-32 {
@@ -200,6 +217,10 @@ div > h2 {
 
 .mb-32 {
   margin-bottom: 32px;
+}
+
+.ml-10p {
+  margin-left: 10%;
 }
 
 .ml-8 {

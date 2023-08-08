@@ -7,10 +7,11 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/rating.php');
 require_once(RC_ROOT . '/lib/recensioni.php');
+require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/xml.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 $aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
@@ -51,8 +52,8 @@ if ($id_valido) {
 
     if ($rating_rec) {
       $id_recensione = $_POST['id_recensione'];
-      $supporto = $_POST['supporto'];
-      $utilita = $_POST['utilita'];
+      $supporto = $_POST['rec_supp'];
+      $utilita = $_POST['rec_util'];
 
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
     }
@@ -147,32 +148,30 @@ if ($id_valido) {
   }
   foreach ($recensioni as $recensione) {
     $id_recensione = $recensione->getAttribute('id');
-    $id_utente = $recensione->getElementsByTagName('idUtente')[0]->textContent;
+    $id_ut_rec = $recensione->getElementsByTagName('idUtente')[0]->textContent;
     $contenuto = $recensione->getElementsByTagName('contenuto')[0]->textContent;
 
-    $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
-    $utente = $result[0];
-    $nome_ut = $utente->getElementsByTagName('nome')[0]->textContent;
-    $cognome_ut = $utente->getElementsByTagName('cognome')[0]->textContent;
+    $info_ut_rec = ottieni_info_utente($doc_utenti, $id_ut_rec);
 
-    $ratings = $recensione->getElementsByTagName('ratings')[0]->childNodes;
-    $rating_medio = calcola_rating_medio($ratings);
+    $ratings_rec = $recensione->getElementsByTagName('ratings')[0]->childNodes;
+    $rat_med_rec = calcola_rating_medio($ratings_rec);
+
+    $id_ut_corr = $_SESSION['id_utente'];
 
     $rating_pers = [
       'supporto' => 0,
       'utilita' => 0
     ];
-    $rated = false;
+    $rating_abilitato = false;
 
-    if ($loggato) {
-      $id_ut_corr = $_SESSION['id_utente'];
-
+    if ($loggato && $id_ut_rec !== $id_ut_corr) {
       $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
 
       if ($result->length !== 0) {
         $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
         $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
-        $rated = true;
+      } else {
+        $rating_abilitato = true;
       }
     }
 
@@ -186,30 +185,29 @@ if ($id_valido) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
 ?>
-
-        <div class="flex-col mb-32 mt-32">
+        <div class="flex-row my-32">
           <div class="fb-20">
-            Supporto <?php echo(number_format($rating_medio['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rating_medio['utilita'], 1)); ?>
-            <p>da <i><?php echo($nome_ut . ' ' . $cognome_ut); ?></i> </p>
+            Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
+            <p>da <i><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> </p>
 <?php if ($loggato) { ?>
             <div class="riquadro pa-8 mt-8 mr-32">
-              <p id="supporto_<?php echo($id_recensione); ?>">Supporto:
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 4)"<?php } ?>><?php echo($rs[3]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'supporto', 5)"<?php } ?>><?php echo($rs[4]); ?></a>
+              <p id="rec_supp_<?php echo($id_recensione); ?>">Supporto:
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 4)"<?php } ?>><?php echo($rs[3]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 5)"<?php } ?>><?php echo($rs[4]); ?></a>
               </p>
-              <form id="rating_<?php echo($id_recensione); ?>" method="post">
+              <form id="rec_rat_<?php echo($id_recensione); ?>" method="post">
                 <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
-                <input type="hidden" name="supporto" value="0" />
-                <input type="hidden" name="utilita" value="0" />
-                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4" <?php if ($rated) echo ('disabled'); ?>>Invia</button>
+                <input type="hidden" name="rec_supp" value="0" />
+                <input type="hidden" name="rec_util" value="0" />
+                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
               </form>
-              <p id="utilita_<?php echo($id_recensione); ?>">Utilit&agrave;:
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
-                <a class="stellina" <?php if (!$rated) { ?>onclick="setCampo('rating', <?php echo($id_recensione); ?>, 'utilita', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
+              <p id="rec_util_<?php echo($id_recensione); ?>">Utilit&agrave;:
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
               </p>
             </div>
 <?php } ?>
@@ -226,27 +224,59 @@ if ($id_valido) {
         <h3>Domande e risposte</h3>
 <?php
   foreach ($domande as $domanda) {
-    $contenuto = $domanda->getElementsByTagName('contenuto')[0]->textContent;
+    $id_domanda = $domanda->getAttribute('id');
+    $contenuto_d = $domanda->getElementsByTagName('contenuto')[0]->textContent;
     $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;
-?>
-        <button class="btn-domanda mt-32" onclick="mostra_risposte()"><?php echo($contenuto); ?></button>
+    $id_ut_d = $domanda->getElementsByTagName('idUtente')[0]->textContent;
 
+    $ratings_d = $domanda->getElementsByTagName('ratings')[0]->childNodes;
+    $rat_med_d = calcola_rating_medio($ratings_d);
+
+    $info_ut_d = ottieni_info_utente($doc_utenti, $id_ut_d);
+?>
+        <div class="my-32">
+          <div class="flex-row">
+            <div class="fb-60" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
+              <?php echo($contenuto_d); ?>
+            </div>
+            <div class="fb-20">
+              Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
+              <p>da <i><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> </p>
+            </div>
+            <div class="fb-20">
+              Form rating
+            </div>
+          </div>
+          <div id="risp_<?php echo($id_domanda); ?>" class="nascosto">
 <?php
-    for ($i = 0; $i < $risposte->length; $i++) {
-      $risposta = $risposte[$i];
-
+    foreach ($risposte as $risposta) {
       $contenuto_r = $risposta->getElementsByTagName('contenuto')[0]->textContent;
-      $id_utente = $risposta->getElementsByTagName('idUtente')[0]->textContent;
+      $id_ut_r = $risposta->getElementsByTagName('idUtente')[0]->textContent;
 
-      $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
-      $utente = $result[0];
-      $nome_ut = $utente->getElementsByTagName('nome')[0]->textContent;
-      $cognome_ut = $utente->getElementsByTagName('cognome')[0]->textContent;
+      $ratings_r = $domanda->getElementsByTagName('ratings')[0]->childNodes;
+      $rat_med_r = calcola_rating_medio($ratings_r);
 
+      $info_ut_r = ottieni_info_utente($doc_utenti, $id_ut_r);
 ?>
-        <p>[ <i><?php echo($nome_ut . ' ' . $cognome_ut); ?></i> ] <?php echo($contenuto_r); ?></p>
+          <div class="flex-row my-16">
+            <div class="fb-5"></div>
+            <div class="fb-55">
+              <?php echo($contenuto_r); ?>
+            </div>
+            <div class="fb-20">
+              Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
+              <p>da <i><?php echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']); ?></i> </p>
+            </div>
+            <div class="fb-20">
+              Form rating
+            </div>
+          </div>
 <?php
     }
+?>
+        </div>
+      </div>
+<?php
   }
 ?>
       </div>
