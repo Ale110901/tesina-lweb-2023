@@ -124,6 +124,20 @@
   width: 50%;
 }
 
+#box-dom {
+  border-radius: 4px;
+  border: 1px solid cadetblue;
+  padding: 0.5em;
+}
+
+#box-dom > .fb-60{
+  cursor: pointer;
+}
+
+#separa-risp{
+  border-top: 1.5px dotted red;
+}
+
 .tab-attiva {
   background-color: #e0e0e0;
   border: 0.5px solid #ac9898;

@@ -235,7 +235,7 @@ if ($id_valido) {
     $info_ut_d = ottieni_info_utente($doc_utenti, $id_ut_d);
 ?>
         <div class="my-32">
-          <div class="flex-row">
+          <div class="flex-row" id="box-dom">
             <div class="fb-60" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
               <?php echo($contenuto_d); ?>
             </div>
@@ -271,6 +271,7 @@ if ($id_valido) {
               Form rating
             </div>
           </div>
+          <hr id="separa-risp"/>
 <?php
     }
 ?>
