@@ -88,4 +88,17 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
 
   return true;
 }
+
+function ottieni_info_utente($doc_utenti, $id_utente) {
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
+  $utente = $result[0];
+
+  $nome = $utente->getElementsByTagName('nome')[0]->textContent;
+  $cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
+
+  return [
+    'nome' => $nome,
+    'cognome' => $cognome
+  ];
+}
 ?>
