@@ -26,8 +26,8 @@ function calcola_rating_medio($ratings) {
   ];
 }
 
-function aggiorna_reputazione($doc, $id_utente, $supporto, $utilita) {
-  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione");
+function aggiorna_reputazione($doc_utenti, $id_ut_dest, $supporto, $utilita) {
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_dest']/ns:reputazione");
   $rep_el = $result[0];
   $rep_num = $rep_el->textContent;
 
@@ -35,19 +35,42 @@ function aggiorna_reputazione($doc, $id_utente, $supporto, $utilita) {
     return;
   }
 
-  $var_supporto = 2 * $supporto - 4;  // (1, 2, 3) => (-2, 0, +2)
-  $var_utilita =  2 * $supporto - 6;  // (1, 2, 3, 4, 5) => (-4, -2, 0, +2, +4)
+
+  $k_funzione = 1;
+
+  switch ($_SESSION['tipo_utente']) {
+    case 'cliente':
+      $id_ut_mitt = $_SESSION['id_utente'];
+
+      $doc_ordini = load_xml('ordini');
+
+      $result = xpath($doc_ordini, 'ordini',
+        "/ns:ordini/ns:ordine[@idUtente='$id_ut_mitt']/ns:prodotti/ns:prodotto[@id='$id_prod']");
+
+      if ($result->length !== 0) {
+        $k_funzione = 2;
+      }
+
+      break;
+    case 'gestore':
+      $k_funzione = 3;
+      break;
+  }
+
+
+  $var_supporto = $k_funzione * (2 * $supporto - 4);  // (1..3) => k * (-2, 0, +2)
+  $var_utilita =  $k_funzione * (2 * $supporto - 6);  // (1..5) => k * (-4, -2, 0, +2, +4)
 
   $var_tot = $var_utilita + $var_supporto;
-
   $rep_num += $var_tot;
+
   if ($rep_num < 0) {
     $rep_el->textContent = 0;
   } else {
     $rep_el->textContent = $rep_num;
   }
 
-  save_xml($doc, 'utenti');
+  save_xml($doc_utenti, 'utenti');
 
   return;
 }
