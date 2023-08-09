@@ -26,57 +26,34 @@ function calcola_rating_medio($ratings) {
   ];
 }
 
-function aggiorna_reputazione($doc, $id_utente, $supporto, $utilita){
-  $reputazione = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione")[0]->textContent;
+function aggiorna_reputazione($doc, $id_utente, $supporto, $utilita) {
+  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione");
+  $rep_el = $result[0];
+  $rep_num = $rep_el->textContent;
 
-  $result_u = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
-  $utente = $result_u[0];
-  
-  if($reputazione == 0){
+  if ($rep_num == 0) {
     return;
   }
 
-  if($supporto == 1){
-    $aggiorna_supporto = -2;
-  }
-  if($supporto == 2){
-    $aggiorna_supporto = 0;
-  }
-  if($supporto == 3){
-    $aggiorna_supporto = 2;
-  }
-  if($utilita == 1){
-    $aggiorna_utilita = -4;
-  }
-  if($utilita == 2){
-    $aggiorna_utilita = -2;
-  }
-  if($utilita == 3){
-    $aggiorna_utilita = 0;
-  }
-  if($utilita == 4){
-    $aggiorna_utilita = 2;
-  }
-  if($utilita == 5){
-    $aggiorna_utilita = 4;
-  }
+  $var_supporto = 2 * $supporto - 4;  // (1, 2, 3) => (-2, 0, +2)
+  $var_utilita =  2 * $supporto - 6;  // (1, 2, 3, 4, 5) => (-4, -2, 0, +2, +4)
 
-  $variazione_reputazione = $aggiorna_utilita + $aggiorna_supporto;
+  $var_tot = $var_utilita + $var_supporto;
 
-  if($reputazione <= abs($variazione_reputazione)) {
-    $utente->getElementsByTagName('reputazione')[0]->textContent = 0;
+  $rep_num += $var_tot;
+  if ($rep_num < 0) {
+    $rep_el->textContent = 0;
   } else {
-    $reputazione  += $variazione_reputazione;
-    $utente->getElementsByTagName('reputazione')[0]->textContent = $reputazione;
+    $rep_el->textContent = $rep_num;
   }
 
   save_xml($doc, 'utenti');
-  
+
   return;
 }
 
 function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
-  $id_utente = $_SESSION['id_utente'];  
+  $id_utente = $_SESSION['id_utente'];
 
   $rating = $doc->createElement('rating');
 
