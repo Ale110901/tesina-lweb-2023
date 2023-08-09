@@ -78,7 +78,8 @@ foreach ($prodotti as $prodotto) {
 }
 ?>
     </ul>
-    <a class="button"> Termina acquisto </a>
+    <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
+    <a class="button" href=""> Termina acquisto </a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
