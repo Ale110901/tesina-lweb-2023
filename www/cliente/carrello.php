@@ -35,6 +35,8 @@ $prodotti = xpath($doc_utenti, 'utenti',
   '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto'
 );
 
+$credito_utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:credito')[0]->textContent;
+
 $doc_prodotti = load_xml('prodotti');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -55,6 +57,7 @@ $doc_prodotti = load_xml('prodotti');
     <h2>CARRELLO</h2>
     <ul>
 <?php
+$totale = 0;
 foreach ($prodotti as $prodotto) {
   $id_prod = $prodotto->getAttribute('id');
   $qta_prod = $prodotto->getAttribute('quantita');
@@ -64,6 +67,8 @@ foreach ($prodotti as $prodotto) {
 
   $nome_prod = $prodotto->getElementsByTagName('nome')[0]->textContent;
   $prezzo_prod = $prodotto->getElementsByTagName('costo')[0]->textContent;
+  $totale += ($prezzo_prod * $qta_prod);
+
 ?>
       <li><?php echo($nome_prod); ?>, <?php echo(number_format($prezzo_prod, 2)); ?> &euro;
         <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
@@ -78,9 +83,26 @@ foreach ($prodotti as $prodotto) {
 }
 ?>
     </ul>
-    <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
-    <a class="button" href=""> Termina acquisto </a>
+
+    <p>Totale: <?php echo($totale); ?>&euro;</p> <br />
+
+    <div class="mt-32">
+      <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
+      <a class="button" href="" <?php if($totale === 0 || $credito_utente < $totale) { ?> style="pointer-events: none;" onclick="creditoInsufficiente();" <?php } ?>> Termina acquisto </a>
+      <a class="link pl-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php"> <span>Ricarica</span> </a>
+    </div>
+    
+    
   </div>
+
+  <script type="text/javascript" >
+
+    function reditoInsufficiente(){
+
+
+    }
+  </script>
+
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
 

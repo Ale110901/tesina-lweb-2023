@@ -3,6 +3,16 @@
     margin-bottom: 32px;
 }
 
+#contenuto > ul > li{
+    list-style-type: "\1F6D2";
+}
+
+#contenuto > p {
+    font-weight: bold;
+    word-spacing: 1em;
+    float: left;
+}
+
 #indietro-carrello{
     float: left;
 }

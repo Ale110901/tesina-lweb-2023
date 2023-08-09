@@ -27,15 +27,3 @@
 #info-profilo > tbody > tr > td:nth-child(1) {
   padding-right: 1.7em;
 }
-
-.link {
-  text-decoration: none;
-}
-
-.link > span {
-  border-radius: 5px;
-  border: 1px solid red;
-  padding: 0.2em;
-  color: black;
-  background-color: floralwhite;
-}
