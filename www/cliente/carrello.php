@@ -81,6 +81,8 @@ foreach ($prodotti as $prodotto) {
       </li>
 <?php
 }
+
+$credito_mancante = $totale === 0 || $credito_utente < $totale;
 ?>
     </ul>
 
@@ -88,9 +90,14 @@ foreach ($prodotti as $prodotto) {
 
     <div class="mt-32">
       <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
-      <a class="button" id="termina-acquisto"<?php if($totale === 0 || $credito_utente < $totale) { ?> 
-        onclick="creditoInsufficiente();" <?php } else { ?>
-        href="" <?php } ?> > Termina acquisto </a>
+      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
+<?php if(!$credito_mancante) { ?>
+        <button type="submit" class="button" id="button-acquista"> Termina acquisto </button>
+        <input type="hidden" name="totale-ordine" value="<?php echo($totale); ?>"/>
+<?php } else { ?>
+        <a class="button" id="button-acquista" onclick="creditoInsufficiente();">Termina acquisto</a>
+<?php } ?>
+      </form>
     </div>
 
     <div class="mt-32 nascosto" id="credito-insufficiente">
