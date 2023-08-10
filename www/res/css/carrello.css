@@ -16,3 +16,15 @@
 #indietro-carrello{
     float: left;
 }
+
+#termina-acquisto {
+    margin-left: -90px;
+}
+
+#credito-insufficiente > p {
+    font-weight: bold;
+}
+
+#credito-insufficiente > p > a {
+    margin-left: -20px;
+}

@@ -88,18 +88,25 @@ foreach ($prodotti as $prodotto) {
 
     <div class="mt-32">
       <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
-      <a class="button" href="" <?php if($totale === 0 || $credito_utente < $totale) { ?> style="pointer-events: none;" onclick="creditoInsufficiente();" <?php } ?>> Termina acquisto </a>
-      <a class="link pl-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php"> <span>Ricarica</span> </a>
+      <a class="button" id="termina-acquisto"<?php if($totale === 0 || $credito_utente < $totale) { ?> 
+        onclick="creditoInsufficiente();" <?php } else { ?>
+        href="" <?php } ?> > Termina acquisto </a>
+    </div>
+
+    <div class="mt-32 nascosto" id="credito-insufficiente">
+      <p>Credito insufficiente!</p>
+        <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
+          <input type="hidden" name="azione" value="carrello" />
+          <button class="button mt-8"> <span>Ricarica!</span> </a>
+        </form>
     </div>
     
     
   </div>
 
   <script type="text/javascript" >
-
-    function reditoInsufficiente(){
-
-
+    function creditoInsufficiente(){
+      document.getElementById('credito-insufficiente').classList.remove('nascosto');
     }
   </script>
 

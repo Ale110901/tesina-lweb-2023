@@ -47,8 +47,17 @@ if ($ricarica && $qta_valida) {
     <div class="pt-16 mb-8">
       <p>Errore nella creazione della richiesta...</p>
     </div>
-<?php } ?>
-    <a class="button" href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
+<?php } 
+$redirect_carrello = isset($_POST['azione']) && ($_POST['azione'] === 'carrello');
+$path_carrello = '/cliente/carrello.php';
+$path_profilo = '/utente/profilo.php';
+?>
+    <a class="button" href="<?php echo(RC_SUBDIR); 
+      if($redirect_carrello) { 
+        echo($path_carrello); 
+      } else { 
+        echo($path_profilo); 
+      }?>" >Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
