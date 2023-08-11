@@ -15,17 +15,18 @@ require_once(RC_ROOT . '/lib/xml.php');
 $id_utente = $_SESSION['id_utente'];
 $doc_utenti = load_xml('utenti');
 
-$err_ind = false;
-$ordine_creato = false;
-
 if (!isset($_POST['azione'])) {
   $param_validi = false;
+
 } else if ($_POST['azione'] === 'modifica-indirizzo') {
   $param_validi = true;
+  $ordine_creato = false;
+  $err_ind = false;
 
   $indirizzo = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:indirizzo')[0]->textContent;
 
   $totale = $_POST['totale'];
+
 } else if ($_POST['azione'] === 'crea') {
   $param_validi = true;
 
@@ -35,17 +36,20 @@ if (!isset($_POST['azione'])) {
   if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
     $err_ind = true;
     $indirizzo = '';
+    
+    $ordine_creato = false;
   } else {
+    $err_ind = false;
+
     $prodotti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto');
-    $result = crea_ordine($indirizzo, $totale, $prodotti);
+    $ordine_creato = crea_ordine($indirizzo, $totale, $prodotti);
 
-    if ($result) {
-      $ordine_creato = true;
-
+    if ($ordine_creato) {
       scala_credito($totale);
       svuota_carrello();
     }
   }
+
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -64,7 +68,12 @@ if (!isset($_POST['azione'])) {
 
   <div id="pagina-form" class="centrato">
     <h2>ORDINE</h2>
-<?php if ($param_validi && !$ordine_creato) { ?>
+<?php if (!$param_validi) { ?>
+      <p class="mt-32">Non si pu&ograve; accedere a questa pagina senza aver seguito il flusso dell'ordine...</p>
+<?php } else if ($ordine_creato) { ?>
+      <h4 class="mt-32">Ordine creato con successo!, verrai reindirizzato al catalogo...</h4>
+      <meta http-equiv="refresh" content="3; <?php echo(RC_SUBDIR); ?>/catalogo.php">
+<?php } else { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <label for="indirizzo">Indirizzo di spedizione:</label>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>" />
@@ -74,11 +83,6 @@ if (!isset($_POST['azione'])) {
 <?php   if ($err_ind) { ?>
       <p class="mt-32">L'indirizzo deve essere nel formato: VIA CIVICO, CITTA, PAESE</p>
 <?php   } ?>
-<?php } else if ($param_validi && $ordine_creato) { ?>
-      <h4 class="mt-32">Ordine creato con successo!, verrai reindirizzato al catalogo...</h4>
-      <meta http-equiv="refresh" content="3; <?php echo(RC_SUBDIR); ?>/catalogo.php">
-<?php } else { ?>
-      <p class="mt-32">Non si pu&ograve; accedere a questa pagina senza aver seguito il flusso dell'ordine...</p>
 <?php } ?>
   </div>
 

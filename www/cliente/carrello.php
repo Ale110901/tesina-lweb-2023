@@ -86,26 +86,27 @@ foreach ($prodotti as $prodotto) {
 ?>
     </ul>
 
-    <p>Totale: <?php echo($totale); ?>&euro;</p> <br />
+    <p>Totale: <?php echo(number_format($totale, 2)); ?>&euro;</p> <br />
 
     <div class="mt-32">
-      <a class="button" <?php if ($totale > 0) { ?> id="indietro-carrello" <?php } ?> href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
-<?php if ($credito_utente >= $totale && $totale > 0) { ?>
+      <a class="button <?php if ($totale > 0) echo('sinistra'); ?>" href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Indietro</a>
+<?php if ($totale > 0) { ?>
+<?php   if ($credito_utente >= $totale) { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>"/>
       </form>
-<?php } else if ($totale > 0) { ?>
+<?php   } else { ?>
       <a class="button" id="button-acquista" onclick="creditoInsufficiente();">Termina acquisto</a>
+      <div class="mt-32 nascosto" id="credito-insufficiente">
+        <p>Credito insufficiente!</p>
+        <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
+          <input type="hidden" name="azione" value="carrello" />
+          <button class="button mt-8"> <span>Ricarica!</span> </a>
+          </form>
+        </div>
+<?php   } ?>
 <?php } ?>
-    </div>
-
-    <div class="mt-32 nascosto" id="credito-insufficiente">
-      <p>Credito insufficiente!</p>
-      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
-        <input type="hidden" name="azione" value="carrello" />
-        <button class="button mt-8"> <span>Ricarica!</span> </a>
-      </form>
     </div>
 
   </div>

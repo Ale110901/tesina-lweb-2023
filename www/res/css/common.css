@@ -164,6 +164,10 @@ div > h2 {
   float: right;
 }
 
+.sinistra {
+  float: left;
+}
+
 .barrato {
   text-decoration: line-through;
 }
