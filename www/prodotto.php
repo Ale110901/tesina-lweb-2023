@@ -34,16 +34,15 @@ if ($id_valido) {
     $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
     $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
-
     $doc_offerte = load_xml('offerte');
-    $off_app = offerte_applicabili($doc_offerte, $prodotto);
+    $doc_utenti = load_xml('utenti');
+
+    $off_app = offerte_applicabili($doc_offerte, $doc_utenti, $prodotto);
     $sconto = calcola_sconto($off_app);
     $bonus = calcola_bonus($off_app);
     $costo_finale = round($costo_orig * (1 - $sconto), 2);
 
     $disponibile = $quantita > 0;
-
-    $doc_utenti = load_xml('utenti');
 
 
     if ($aggiungi_rec) {

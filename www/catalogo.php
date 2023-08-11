@@ -36,6 +36,7 @@ switch ($ord_type) {
 
 $doc_categorie = load_xml('categorie');
 $doc_offerte = load_xml('offerte');
+$doc_utenti = load_xml('utenti');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -84,7 +85,7 @@ $doc_offerte = load_xml('offerte');
     $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
     $p_categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
 
-    $off_app = offerte_applicabili($doc_offerte, $prodotto);
+    $off_app = offerte_applicabili($doc_offerte, $doc_utenti, $prodotto);
     $sconto = calcola_sconto($off_app);
     $costo_finale = round($p_costo * (1 - $sconto), 2);
 ?>

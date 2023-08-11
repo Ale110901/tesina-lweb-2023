@@ -31,10 +31,10 @@ function calcola_bonus($offerte) {
   return $bonus_tot;
 }
 
-function offerte_applicabili($doc, $prodotto) {
+function offerte_applicabili($doc_offerte, $doc_utenti, $prodotto) {
   $id_utente = isset($_SESSION['id_utente']) ? $_SESSION['id_utente'] : 0;
 
-  $root = $doc->documentElement;
+  $root = $doc_offerte->documentElement;
   $offerte = $root->childNodes;
 
   $off_app = [];
@@ -99,7 +99,7 @@ function offerte_applicabili($doc, $prodotto) {
         }
         break;
       case 'eccMag':
-        // "è presente in magazzino un’eccedenza del prodotto"
+        // "e' presente in magazzino un’eccedenza del prodotto"
         $qta_prod = $prodotto->getElementsByTagName('quantita')[0]->textContent;
         $qta_off = $offerta->getElementsByTagName('quantitaMin')[0]->textContent;
         if ($qta_prod >= $qta_off) {
