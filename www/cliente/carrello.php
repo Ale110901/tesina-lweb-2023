@@ -8,6 +8,7 @@ $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/carrello.php');
+require_once(RC_ROOT . '/lib/offerte.php');
 
 if (isset($_SESSION['agg_carr_id_prod'])) {
   aggiungi_carrello($_SESSION['agg_carr_id_prod'], $_SESSION['agg_carr_qta']);
@@ -38,6 +39,7 @@ $prodotti = xpath($doc_utenti, 'utenti',
 $credito_utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:credito')[0]->textContent;
 
 $doc_prodotti = load_xml('prodotti');
+$doc_offerte = load_xml('offerte');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -63,6 +65,12 @@ foreach ($prodotti as $prodotto) {
   $id_prod = $prodotto->getAttribute('id');
   $qta_prod = $prodotto->getAttribute('quantita');
 
+  $offerte = offerte_applicabili($doc_offerte, $prodotto);
+  $sconto = calcola_sconto($offerte);
+  $bonus = calcola_bonus($offerte);
+  var_dump($sconto);
+  var_dump($bonus);
+
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$id_prod']");
   $prodotto = $result[0];
 
@@ -77,6 +85,7 @@ foreach ($prodotti as $prodotto) {
           <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="99" />
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
+          <label class="ml-32">Sconto: </label>
         </form>
         <hr class="my-8" />
       </li>

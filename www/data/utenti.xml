@@ -15,6 +15,7 @@
       <prodotto id="3" quantita="2"/>
       <prodotto id="6" quantita="2"/>
       <prodotto id="11" quantita="1"/>
+      <prodotto id="1" quantita="1"/>
     </carrello>
   </utente>
   <utente id="2" tipo="gestore" email="luigi.bianchi@gmail.com">

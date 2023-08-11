@@ -11,7 +11,7 @@
     <tipo>bonus</tipo>
     <numCrediti>3</numCrediti>
     <target>eccMag</target>
-    <idProdotto>51</idProdotto>
+    <idProdotto>1</idProdotto>
     <quantitaMin>100</quantitaMin>
   </offerta>
 </offerte>
