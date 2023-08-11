@@ -26,14 +26,14 @@ if (!isset($_POST['azione'])) {
   $indirizzo = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:indirizzo')[0]->textContent;
 
   $totale = $_POST['totale'];
-  $bonus = $_POST['bonus-totali'];
+  $bonus = $_POST['bonus'];
 
 } else if ($_POST['azione'] === 'crea') {
   $param_validi = true;
 
-  $bonus = $_POST['bonus-totali'];
+  $bonus = floatval($_POST['bonus']);
+  $totale = floatval($_POST['totale']);
   $indirizzo = $_POST['indirizzo'];
-  $totale = $_POST['totale'];
 
   if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
     $err_ind = true;
@@ -80,7 +80,7 @@ if (!isset($_POST['azione'])) {
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <label for="indirizzo">Indirizzo di spedizione:</label>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>" />
-        <input type="hidden" name="bonus-totali" value="<?php echo($bonus); ?>" />
+        <input type="hidden" name="bonus" value="<?php echo($bonus); ?>" />
         <input type="text" class="ma-32 input-flat" name="indirizzo" value="<?php echo($indirizzo); ?>" /><br />
         <button type="submit" class="button" name="azione" value="crea">Conferma ordine</button>
       </form>

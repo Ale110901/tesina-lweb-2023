@@ -125,7 +125,7 @@ foreach ($prodotti as $prod_carrello) {
 <?php   if ($credito_utente >= $totale) { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
-        <input type="hidden" name="bonus-totali" value="<?php echo($bonus_totali); ?>"/>
+        <input type="hidden" name="bonus" value="<?php echo($bonus_totali); ?>"/>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>"/>
       </form>
 <?php   } else { ?>
