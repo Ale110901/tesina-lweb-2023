@@ -58,6 +58,7 @@ $doc_prodotti = load_xml('prodotti');
     <ul>
 <?php
 $totale = 0;
+
 foreach ($prodotti as $prodotto) {
   $id_prod = $prodotto->getAttribute('id');
   $qta_prod = $prodotto->getAttribute('quantita');
@@ -82,7 +83,6 @@ foreach ($prodotti as $prodotto) {
 <?php
 }
 
-$credito_mancante = $totale === 0 || $credito_utente < $totale;
 ?>
     </ul>
 
@@ -90,29 +90,28 @@ $credito_mancante = $totale === 0 || $credito_utente < $totale;
 
     <div class="mt-32">
       <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
+<?php if ($credito_utente >= $totale && $totale > 0) { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
-<?php if(!$credito_mancante) { ?>
-        <button type="submit" class="button" id="button-acquista"> Termina acquisto </button>
-        <input type="hidden" name="totale-ordine" value="<?php echo($totale); ?>"/>
-<?php } else { ?>
-        <a class="button" id="button-acquista" onclick="creditoInsufficiente();">Termina acquisto</a>
-<?php } ?>
+        <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
+        <input type="hidden" name="totale" value="<?php echo($totale); ?>"/>
       </form>
+<?php } else if ($totale > 0) { ?>
+      <a class="button" id="button-acquista" onclick="creditoInsufficiente();">Termina acquisto</a>
+<?php } ?>
     </div>
 
     <div class="mt-32 nascosto" id="credito-insufficiente">
       <p>Credito insufficiente!</p>
-        <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
-          <input type="hidden" name="azione" value="carrello" />
-          <button class="button mt-8"> <span>Ricarica!</span> </a>
-        </form>
+      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
+        <input type="hidden" name="azione" value="carrello" />
+        <button class="button mt-8"> <span>Ricarica!</span> </a>
+      </form>
     </div>
-    
-    
+
   </div>
 
   <script type="text/javascript" >
-    function creditoInsufficiente(){
+    function creditoInsufficiente() {
       document.getElementById('credito-insufficiente').classList.remove('nascosto');
     }
   </script>
