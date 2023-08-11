@@ -19,14 +19,17 @@ $err_ind = false;
 $ordine_creato = false;
 
 if (!isset($_POST['azione'])) {
-  //
+  $param_validi = false;
 } else if ($_POST['azione'] === 'modifica-indirizzo') {
+  $param_validi = true;
+
   $indirizzo = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:indirizzo')[0]->textContent;
 
   $totale = $_POST['totale'];
 } else if ($_POST['azione'] === 'crea') {
-  $indirizzo = $_POST['indirizzo'];
+  $param_validi = true;
 
+  $indirizzo = $_POST['indirizzo'];
   $totale = $_POST['totale'];
 
   if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
@@ -61,17 +64,21 @@ if (!isset($_POST['azione'])) {
 
   <div id="pagina-form" class="centrato">
     <h2>ORDINE</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
-      <label for="indirizzo">Indirizzo di spedizione:</label>
-      <input type="hidden" name="totale" value="<?php echo($totale); ?>" />
-      <input type="text" class="ma-32 input-flat" name="indirizzo" value="<?php echo($indirizzo); ?>" /><br />
-      <button type="submit" class="button" name="azione" value="crea">Conferma ordine</button>
-    </form>
-<?php if ($ordine_creato) { ?>
-    <h4 class="mt-32">Ordine creato con successo!, verrai reindirizzato al catalogo...</h4>
-    <meta http-equiv="refresh" content="3;../catalogo.php">
-<?php } else if ($err_ind) {?>
-    <p class="mt-32">L'indirizzo deve essere nel formato: VIA CIVICO, CITTA, PAESE</p>
+<?php if ($param_validi && !$ordine_creato) { ?>
+      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
+        <label for="indirizzo">Indirizzo di spedizione:</label>
+        <input type="hidden" name="totale" value="<?php echo($totale); ?>" />
+        <input type="text" class="ma-32 input-flat" name="indirizzo" value="<?php echo($indirizzo); ?>" /><br />
+        <button type="submit" class="button" name="azione" value="crea">Conferma ordine</button>
+      </form>
+<?php   if ($err_ind) { ?>
+      <p class="mt-32">L'indirizzo deve essere nel formato: VIA CIVICO, CITTA, PAESE</p>
+<?php   } ?>
+<?php } else if ($param_validi && $ordine_creato) { ?>
+      <h4 class="mt-32">Ordine creato con successo!, verrai reindirizzato al catalogo...</h4>
+      <meta http-equiv="refresh" content="3; <?php echo(RC_SUBDIR); ?>/catalogo.php">
+<?php } else { ?>
+      <p class="mt-32">Non si pu&ograve; accedere a questa pagina senza aver seguito il flusso dell'ordine...</p>
 <?php } ?>
   </div>
 
