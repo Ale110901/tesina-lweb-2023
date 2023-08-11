@@ -89,7 +89,7 @@ foreach ($prodotti as $prodotto) {
     <p>Totale: <?php echo($totale); ?>&euro;</p> <br />
 
     <div class="mt-32">
-      <a class="button" id="indietro-carrello" href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
+      <a class="button" <?php if ($totale > 0) { ?> id="indietro-carrello" <?php } ?> href="<?php echo(RC_SUBDIR); ?>/catalogo.php";> Indietro </a>
 <?php if ($credito_utente >= $totale && $totale > 0) { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
