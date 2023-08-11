@@ -62,47 +62,37 @@ $doc_offerte = load_xml('offerte');
 $totale = 0;
 $bonus_totali = 0;
 
-foreach ($prodotti as $prodotto) {
-  $id_prod = $prodotto->getAttribute('id');
-  $qta_prod = $prodotto->getAttribute('quantita');
-
-  $prodotto_offerta = xpath($doc_prodotti, 'prodotti',
-  '/ns:prodotti/ns:prodotto[@id=' . $id_prod . ']'
-  )[0];
-
-  $offerte = offerte_applicabili($doc_offerte, $prodotto_offerta);
-  $sconto = calcola_sconto($offerte);
-  $bonus = calcola_bonus($offerte);
-
-  if ($bonus > 0) {
-    $bonus_totali += $bonus;
-  }
+foreach ($prodotti as $prod_carrello) {
+  $id_prod = $prod_carrello->getAttribute('id');
+  $qta_prod = $prod_carrello->getAttribute('quantita');
 
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$id_prod']");
-  $prodotto = $result[0];
+  $prod_info = $result[0];
 
-  $nome_prod = $prodotto->getElementsByTagName('nome')[0]->textContent;
-  $prezzo_prod_or = $prodotto->getElementsByTagName('costo')[0]->textContent;
+  $nome_prod = $prod_info->getElementsByTagName('nome')[0]->textContent;
+  $prezzo_prod_or = $prod_info->getElementsByTagName('costo')[0]->textContent;
 
-  $prezzo_prod_sc = 0;
+  $offerte = offerte_applicabili($doc_offerte, $doc_utenti, $prod_info);
 
-  if ($sconto > 0) {
-    $prezzo_prod_sc = $prezzo_prod_or * (1 - $sconto);
-    $totale += ($prezzo_prod_sc * $qta_prod);
-  } else {
-    $totale += ($prezzo_prod_or * $qta_prod);
-  }
 
+  $sconto = calcola_sconto($offerte);
+  $prezzo_prod_sc = $prezzo_prod_or * (1 - $sconto);
+  $totale += ($prezzo_prod_sc * $qta_prod);
+
+
+  $bonus = calcola_bonus($offerte);
+  $bonus_totali += $bonus;
 ?>
       <li>
         <p>
         <?php echo($nome_prod); ?>,
-<?php if ($prezzo_prod_sc > 0) { ?>
+<?php if ($prezzo_prod_or - $prezzo_prod_sc >= 0.01) { ?>
           <span id="valore-barrato" class="mr-16">
-<?php  echo(number_format($prezzo_prod_or, 2)); ?> &euro;
+            <?php echo(number_format($prezzo_prod_or, 2)); ?> &euro;
           </span>
-<?php echo(number_format($prezzo_prod_sc, 2)); ?> &euro;
-<?php } else { echo(number_format($prezzo_prod_or, 2)); ?> &euro;
+          <?php echo(number_format($prezzo_prod_sc, 2)); ?> &euro;
+<?php } else { ?>
+          <?php echo(number_format($prezzo_prod_or, 2)); ?> &euro;
 <?php } ?>
         </p>
         <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
@@ -111,12 +101,12 @@ foreach ($prodotti as $prodotto) {
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
 <?php if ($sconto > 0) { ?>
-          <label class="ml-32 bold">&#x1F4B2; Sconto applicato: <?php echo($sconto*100); ?>&percnt; </label>
+          <label class="ml-32 bold">&#x1F4B2; Sconto applicato: <?php echo ($sconto * 100); ?>&percnt; </label>
 <?php } ?>
 <?php if ($bonus > 0.0) { ?>
-          <label class="ml-32 bold">&#x1F4B2;Bonus: &plus;<?php echo($bonus); ?> crediti!</label>
+          <label class="ml-32 bold">&#x1F4B2;Bonus: &plus;<?php echo ($bonus); ?> crediti</label>
 <?php } ?>
-          
+
         </form>
         <hr class="my-8" />
       </li>
@@ -126,7 +116,8 @@ foreach ($prodotti as $prodotto) {
 ?>
     </ul>
 
-    <p>Totale: <?php echo(number_format($totale, 2)); ?>&euro;</p> <br />
+    <p>Totale: <?php echo(number_format($totale, 2)); ?>&euro;</p><br />
+    <p>Bonus: &plus;<?php echo($bonus_totali); ?> crediti</p><br />
 
     <div class="mt-32">
       <a class="button <?php if ($totale > 0) echo('sinistra'); ?>" href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Indietro</a>
@@ -144,8 +135,8 @@ foreach ($prodotti as $prodotto) {
         <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
           <input type="hidden" name="azione" value="carrello" />
           <button class="button mt-8"> <span>Ricarica!</span> </a>
-          </form>
-        </div>
+        </form>
+      </div>
 <?php   } ?>
 <?php } ?>
     </div>
