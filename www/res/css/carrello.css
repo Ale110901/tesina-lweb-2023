@@ -28,3 +28,9 @@
 #button-acquista {
     margin-left: -94.8px;
 }
+
+#valore-barrato {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    font-size: 0.8em;
+}

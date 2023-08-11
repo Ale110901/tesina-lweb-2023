@@ -77,20 +77,38 @@ foreach ($prodotti as $prodotto) {
   $prodotto = $result[0];
 
   $nome_prod = $prodotto->getElementsByTagName('nome')[0]->textContent;
-  $prezzo_prod = $prodotto->getElementsByTagName('costo')[0]->textContent;
-  $totale += ($prezzo_prod * $qta_prod);
+  $prezzo_prod_or = $prodotto->getElementsByTagName('costo')[0]->textContent;
+
+  $prezzo_prod_sc = 0;
+
+  if ($sconto > 0) {
+    $prezzo_prod_sc = $prezzo_prod_or * (1 - $sconto);
+    $totale += ($prezzo_prod_sc * $qta_prod);
+  } else {
+    $totale += ($prezzo_prod_or * $qta_prod);
+  }
 
 ?>
-      <li><?php echo($nome_prod); ?>, <?php echo(number_format($prezzo_prod, 2)); ?> &euro;
+      <li>
+        <p>
+        <?php echo($nome_prod); ?>,
+<?php if ($prezzo_prod_sc > 0) { ?>
+          <span id="valore-barrato" class="mr-16">
+<?php  echo(number_format($prezzo_prod_or, 2)); ?> &euro;
+          </span>
+<?php echo(number_format($prezzo_prod_sc, 2)); ?> &euro;
+<?php } else { echo(number_format($prezzo_prod_or, 2)); ?> &euro;
+<?php } ?>
+        </p>
         <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
           <input type="hidden" name="id_prodotto" value="<?php echo ($id_prod); ?>" />
           <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="99" />
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
-<?php if($sconto > 0){ ?>
-          <label class="ml-32 bold">&#x1F4B2; Sconto: <?php echo($sconto*100); ?>&percnt; </label>
+<?php if ($sconto > 0) { ?>
+          <label class="ml-32 bold">&#x1F4B2; Sconto applicato: <?php echo($sconto*100); ?>&percnt; </label>
 <?php } ?>
-<?php if($bonus > 0.0){ ?>
+<?php if ($bonus > 0.0) { ?>
           <label class="ml-32 bold">&#x1F4B2;Bonus: &plus;<?php echo($bonus); ?> crediti!</label>
 <?php } ?>
           
