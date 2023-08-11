@@ -266,6 +266,10 @@ div > h2 {
   margin: 8px;
 }
 
+.ma-32 {
+  margin: 32px;
+}
+
 .py-1em {
   padding-top: 1em;
   padding-bottom: 1em;
