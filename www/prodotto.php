@@ -57,7 +57,7 @@ if ($id_valido) {
       $supporto = $_POST['rec_supp'];
       $utilita = $_POST['rec_util'];
       $id_ut_rec_agg = $_POST['utente_recensione'];
-    
+
       aggiorna_reputazione($doc_utenti, $id_ut_rec_agg, $supporto, $utilita);
 
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
@@ -93,7 +93,7 @@ if ($id_valido) {
     <p>Prodotto non trovato.</p>
 <?php } else { ?>
     <div id="pag-prodotto">
-    <a href="<?php echo(RC_SUBDIR); ?>/catalogo.php"; title="Indietro">&#x2190;</a>
+    <a href="<?php echo(RC_SUBDIR); ?>/catalogo.php" title="Indietro">&#x2190;</a>
       <div id="prod-top">
         <div id="prod-top-sx">
           <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>

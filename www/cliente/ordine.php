@@ -36,7 +36,7 @@ if (!isset($_POST['azione'])) {
   if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
     $err_ind = true;
     $indirizzo = '';
-    
+
     $ordine_creato = false;
   } else {
     $err_ind = false;
