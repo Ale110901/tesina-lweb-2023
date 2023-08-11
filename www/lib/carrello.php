@@ -71,4 +71,22 @@ function modifica_carrello($id_prodotto, $quantita) {
 
   save_xml($doc_utenti, 'utenti');
 }
+
+function svuota_carrello() {
+  $id_utente = $_SESSION['id_utente'];
+
+  $doc_utenti = load_xml('utenti');
+  $result = xpath($doc_utenti, 'utenti',
+    "/ns:utenti/ns:utente[@id='$id_utente']/ns:carrello"
+  );
+
+  $carrello = $result[0];
+  $utente = $carrello->parentNode;
+  $utente->removeChild($carrello);
+
+  $carrello = $doc_utenti->createElement('carrello');
+  $utente->appendChild($carrello);
+
+  save_xml($doc_utenti, 'utenti');
+}
 ?>
