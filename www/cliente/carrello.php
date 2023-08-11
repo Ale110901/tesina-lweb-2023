@@ -60,6 +60,7 @@ $doc_offerte = load_xml('offerte');
     <ul>
 <?php
 $totale = 0;
+$bonus_totali = 0;
 
 foreach ($prodotti as $prodotto) {
   $id_prod = $prodotto->getAttribute('id');
@@ -72,6 +73,10 @@ foreach ($prodotti as $prodotto) {
   $offerte = offerte_applicabili($doc_offerte, $prodotto_offerta);
   $sconto = calcola_sconto($offerte);
   $bonus = calcola_bonus($offerte);
+
+  if ($bonus > 0) {
+    $bonus_totali += $bonus;
+  }
 
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$id_prod']");
   $prodotto = $result[0];
@@ -129,6 +134,7 @@ foreach ($prodotti as $prodotto) {
 <?php   if ($credito_utente >= $totale) { ?>
       <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
         <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
+        <input type="hidden" name="bonus-totali" value="<?php echo($bonus_totali); ?>"/>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>"/>
       </form>
 <?php   } else { ?>

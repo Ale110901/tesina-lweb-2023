@@ -112,4 +112,15 @@ function scala_credito($totale) {
 
   save_xml($doc_utenti, 'utenti');
 }
+
+function aggiungi_bonus($bonus) {
+  $id_utente = $_SESSION['id_utente'];
+
+  $doc_utenti = load_xml('utenti');
+
+  $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
+  $credito->textContent += $bonus;
+
+  save_xml($doc_utenti, 'utenti');
+}
 ?>
