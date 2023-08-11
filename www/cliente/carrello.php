@@ -91,7 +91,7 @@ foreach ($prodotti as $prodotto) {
           <label class="ml-32 bold">&#x1F4B2; Sconto: <?php echo($sconto*100); ?>&percnt; </label>
 <?php } ?>
 <?php if($bonus > 0.0){ ?>
-          <label class="ml-32 bold">&#x1F4B2;Bonus: +<?php echo($bonus); ?> crediti!</label>
+          <label class="ml-32 bold">&#x1F4B2;Bonus: &plus;<?php echo($bonus); ?> crediti!</label>
 <?php } ?>
           
         </form>
