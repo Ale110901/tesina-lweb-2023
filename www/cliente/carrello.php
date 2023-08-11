@@ -65,11 +65,13 @@ foreach ($prodotti as $prodotto) {
   $id_prod = $prodotto->getAttribute('id');
   $qta_prod = $prodotto->getAttribute('quantita');
 
-  $offerte = offerte_applicabili($doc_offerte, $prodotto);
+  $prodotto_offerta = xpath($doc_prodotti, 'prodotti',
+  '/ns:prodotti/ns:prodotto[@id=' . $id_prod . ']'
+  )[0];
+
+  $offerte = offerte_applicabili($doc_offerte, $prodotto_offerta);
   $sconto = calcola_sconto($offerte);
   $bonus = calcola_bonus($offerte);
-  var_dump($sconto);
-  var_dump($bonus);
 
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$id_prod']");
   $prodotto = $result[0];
@@ -85,7 +87,13 @@ foreach ($prodotti as $prodotto) {
           <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="99" />
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
-          <label class="ml-32">Sconto: </label>
+<?php if($sconto > 0){ ?>
+          <label class="ml-32 bold">&#x1F4B2; Sconto: <?php echo($sconto*100); ?>&percnt; </label>
+<?php } ?>
+<?php if($bonus > 0.0){ ?>
+          <label class="ml-32 bold">&#x1F4B2;Bonus: +<?php echo($bonus); ?> crediti!</label>
+<?php } ?>
+          
         </form>
         <hr class="my-8" />
       </li>

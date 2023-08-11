@@ -332,3 +332,7 @@ div > h2 {
 .pa-16 {
   padding: 16px;
 }
+
+.bold {
+  font-weight: bold;
+}

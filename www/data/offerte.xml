@@ -14,4 +14,11 @@
     <idProdotto>1</idProdotto>
     <quantitaMin>100</quantitaMin>
   </offerta>
+  <offerta id="3">
+    <tipo>sconto</tipo>
+    <percentuale>20</percentuale>
+    <target>eccMag</target>
+    <idProdotto>1</idProdotto>
+    <quantitaMin>100</quantitaMin>
+  </offerta>
 </offerte>
