@@ -101,4 +101,15 @@ function ottieni_info_utente($doc_utenti, $id_utente) {
     'cognome' => $cognome
   ];
 }
+
+function scala_credito($totale) {
+  $id_utente = $_SESSION['id_utente'];
+
+  $doc_utenti = load_xml('utenti');
+
+  $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
+  $credito->textContent -= $totale;
+
+  save_xml($doc_utenti, 'utenti');
+}
 ?>
