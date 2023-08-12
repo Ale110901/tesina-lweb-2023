@@ -50,7 +50,7 @@ if ($ricarica && $qta_valida) {
 <?php }
 $redirect_carrello = isset($_POST['azione']) && ($_POST['azione'] === 'carrello');
 $path_carrello = '/cliente/carrello.php';
-$path_profilo = '/utente/profilo.php';
+$path_profilo = '/cliente/profilo.php';
 ?>
     <a class="button" href="<?php echo(RC_SUBDIR);
       if($redirect_carrello) {

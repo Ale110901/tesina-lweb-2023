@@ -70,7 +70,7 @@ foreach ($ordini as $ordine) {
 <?php } ?>
       </tbody>
     </table>
-    <a class="button" href="<?php echo(RC_SUBDIR); ?>/utente/profilo.php">Torna indietro</a>
+    <a class="button" href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php">Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
