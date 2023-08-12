@@ -182,6 +182,10 @@ div > h2 {
   display: table-row;
 }
 
+.thg {
+  display: table-header-group;
+}
+
 .td {
   display: table-cell;
   padding: 10px;

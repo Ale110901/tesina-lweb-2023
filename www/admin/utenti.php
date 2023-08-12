@@ -61,14 +61,16 @@ if ($modifica) {
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/utenti-admin.css" />
+
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
 
   <div id="contenuto">
     <h2>GESTIONE UTENTI</h2>
-    <div class="table">
-        <div class="tr">
+    <div class="table mt-32">
+        <div id="intestazione" class="thg">
           <div class="td">Email</div>
           <div class="td">Nome</div>
           <div class="td">Cognome</div>
