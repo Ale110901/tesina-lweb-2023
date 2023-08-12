@@ -20,8 +20,13 @@ require_once(RC_ROOT . '/lib/start.php');
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
+  <div id="pagina-form">
     <h2>DASHBOARD ADMIN</h2>
+    <ul>
+      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/utenti.php">Gestione utenti</a></li>
+      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/accrediti.php">Gestione accrediti</a></li>
+      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
+    </ul>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
