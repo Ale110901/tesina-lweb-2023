@@ -1,3 +1,8 @@
 Caratteri:
 - ' => &#39;
 - ? => &#63;
+
+Da fare:
+- Aggiungere form rating a domande/risposte
+- Aggiungere form invio domande e risposte
+- Sistemare bug quantita carrello
