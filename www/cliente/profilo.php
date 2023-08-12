@@ -3,8 +3,8 @@ require_once('../config.php');
 
 $perm_visitatore = false;
 $perm_cliente = true;
-$perm_gestore = true;
-$perm_admin = true;
+$perm_gestore = false;
+$perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/utente.php');
@@ -111,7 +111,7 @@ $data_reg = date_format(date_create($data_reg), 'd F Y');
             <td><b>Credito:</b></td>
             <td>
               <span><?php echo (number_format($credito, 2)); ?> &euro;</span>
-              <a class="link pl-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php"> <span>Ricarica</span> </a>
+              <a class="link ml-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
             </td>
           </tr>
           <tr>
@@ -129,7 +129,7 @@ $data_reg = date_format(date_create($data_reg), 'd F Y');
           <tr>
             <td><b>Storico acquisti:</b></td>
             <td>
-              <a class="link" href="<?php echo(RC_SUBDIR); ?>/cliente/storico.php"><span>Visualizza</span></a>
+              <a class="link" href="<?php echo(RC_SUBDIR); ?>/cliente/storico.php">Visualizza</a>
             </td>
           </tr>
         </table>

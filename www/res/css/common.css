@@ -45,9 +45,6 @@ div > h2 {
 
 .link {
   text-decoration: none;
-}
-
-.link > span {
   border-radius: 5px;
   border: 1px solid red;
   padding: 0.2em;
@@ -251,6 +248,10 @@ div > h2 {
 
 .ml-32 {
   margin-left: 32px;
+}
+
+.ml-2em {
+  margin-left: 2em;
 }
 
 .mr-4 {
