@@ -1,0 +1,22 @@
+#utenti{
+    list-style-type: "\01F464";
+}
+
+#accrediti {
+    list-style-type: "\1F4B2";
+}
+
+#faq {
+    list-style-type: "\2753";
+}
+
+ul {
+    display: inline-block;
+    text-align: left;
+}
+
+#pagina-form > ul > li > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

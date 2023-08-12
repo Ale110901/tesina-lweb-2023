@@ -17,15 +17,16 @@ require_once(RC_ROOT . '/lib/start.php');
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/admin.css" />
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="pagina-form">
-    <h2>DASHBOARD ADMIN</h2>
+  <div id="pagina-form" class="centrato">
+    <h2 class="mb-32">DASHBOARD ADMIN</h2>
     <ul>
-      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/utenti.php">Gestione utenti</a></li>
-      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/accrediti.php">Gestione accrediti</a></li>
-      <li><a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
+      <li id="utenti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/admin/utenti.php">Gestione utenti</a></li>
+      <li id="accrediti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/admin/accrediti.php">Gestione accrediti</a></li>
+      <li id="faq"  class="mb-16"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
     </ul>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
