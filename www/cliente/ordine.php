@@ -9,6 +9,7 @@ $perm_admin = false;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/carrello.php');
 require_once(RC_ROOT . '/lib/ordine.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/utente.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
@@ -47,6 +48,13 @@ if (!isset($_POST['azione'])) {
     $ordine_creato = crea_ordine($indirizzo, $totale, $prodotti);
 
     if ($ordine_creato) {
+      foreach ($prodotti as $prodotto) {
+        $id_prod = $prodotto->getAttribute('id');
+        $qta_diff = $prodotto->getAttribute('quantita');
+
+        scala_qta_prodotto($id_prod, $qta_diff);
+      }
+
       scala_credito($totale);
       aggiungi_bonus($bonus);
       svuota_carrello();
