@@ -24,5 +24,5 @@ switch ($_SESSION['tipo_utente']) {
     break;
 }
 
-redirect(307, $home_page, false);
+redirect(307, RC_SUBDIR . $home_page, false);
 ?>

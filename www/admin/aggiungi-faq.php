@@ -14,7 +14,7 @@ $aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
 
 if ($aggiungi) {
   aggiungi_faq($_POST['domanda'], $_POST['risposta']);
-  redirect(307, '/faq.php', false);
+  redirect(307, RC_SUBDIR . '/faq.php', false);
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>

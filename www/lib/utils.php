@@ -4,12 +4,12 @@ function redirect($code, $page, $use_dest) {
 
   if ($use_dest) {
     $cur_page = $_SERVER['REQUEST_URI'];
-    $suffix .= '?redirect=' . $cur_page;
+    $suffix = '?redirect=' . $cur_page;
   } else {
     $suffix = '';
   }
 
-  header('Location: ' . RC_SUBDIR . $page . $suffix);
+  header('Location: ' . $page . $suffix);
   exit();
 }
 ?>
