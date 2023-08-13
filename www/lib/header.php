@@ -6,12 +6,14 @@ $qta_carrello = conta_carrello();
 <div id="header">
   <div id="icone">
     <span>
-      <a href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php" title="Profilo">&#x01F464</a>
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/index.php" title="Dashboard">&#x01F464</a>
     </span>
+<?php if (!isset($_SESSION['tipo_utente']) || $_SESSION['tipo_utente'] === 'cliente') { ?>
     <span class="icona-con-notifica">
       <a href="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" title="Carrello">&#x01F6D2</a>
       <span><?php echo($qta_carrello); ?></span>
     </span>
+<?php } ?>
   </div>
   <h1 id="titolo">
     <a href="<?php echo(RC_SUBDIR); ?>/index.php">
