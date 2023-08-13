@@ -51,6 +51,13 @@ foreach ($faqs as $faq) {
 <?php
 }
 ?>
+
+<?php if (
+  isset($_SESSION['tipo_utente']) &&
+  ($_SESSION['tipo_utente'] === 'gestore' || $_SESSION['tipo_utente'] === 'admin')
+) { ?>
+      <a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php" class="button">Aggiungi FAQ</a>
+<?php } ?>
     </div>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
