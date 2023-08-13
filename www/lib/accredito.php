@@ -28,4 +28,46 @@ function crea_accredito($quantita) {
 
   return true;
 }
+
+function accetta_accredito($id_accredito) {
+  $doc_accrediti = load_xml('accrediti');
+
+  $result = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito[@id=' . $id_accredito . ']');
+  $accredito = $result[0];
+
+  $ac_id_utente = $accredito->getElementsByTagName('idUtente')[0]->textContent;
+  $ac_quantita = $accredito->getElementsByTagName('quantita')[0]->textContent;
+
+  $accrediti = $accredito->parentNode;
+  $accrediti->removeChild($accredito);
+
+  save_xml($doc_accrediti, 'accrediti');
+
+
+  $doc_utenti = load_xml('utenti');
+
+  $result = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $ac_id_utente . ']');
+  $utente = $result[0];
+
+  $ut_credito = $utente->getElementsByTagName('credito')[0];
+  $ut_credito->textContent += floatval($ac_quantita);
+
+  save_xml($doc_utenti, 'utenti');
+
+  return true;
+}
+
+function rifiuta_accredito($id_accredito) {
+  $doc_accrediti = load_xml('accrediti');
+
+  $result = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito[@id=' . $id_accredito . ']');
+  $accredito = $result[0];
+
+  $accrediti = $accredito->parentNode;
+  $accrediti->removeChild($accredito);
+
+  save_xml($doc_accrediti, 'accrediti');
+
+  return true;
+}
 ?>
