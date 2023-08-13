@@ -1,8 +1,15 @@
 <?php
-function redirect_login() {
-  $pag_corr = $_SERVER['REQUEST_URI'];
-  http_response_code(401);
-  header('Location: ' . RC_SUBDIR . '/utente/login.php?redirect=' . $pag_corr);
+function redirect($code, $page, $use_dest) {
+  http_response_code($code);
+
+  if ($use_dest) {
+    $cur_page = $_SERVER['REQUEST_URI'];
+    $suffix .= '?redirect=' . $cur_page;
+  } else {
+    $suffix = '';
+  }
+
+  header('Location: ' . RC_SUBDIR . $page . $suffix);
   exit();
 }
 ?>

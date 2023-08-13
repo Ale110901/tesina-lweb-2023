@@ -29,7 +29,7 @@ $loggato = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
 
 if (!$perm_visitatore) {
   if (!$loggato) {
-    redirect_login();
+    redirect(401, '/utente/login.php', true);
   }
 
   if (
@@ -37,9 +37,7 @@ if (!$perm_visitatore) {
     ($_SESSION['tipo_utente'] === 'gestore' && !$perm_gestore) ||
     ($_SESSION['tipo_utente'] === 'admin' && !$perm_admin)
   ) {
-    http_response_code(403);
-    header('Location: ' . RC_SUBDIR . '/accesso_negato.php');
-    exit();
+    redirect(403, '/accesso_negato.php', false);
   }
 }
 ?>

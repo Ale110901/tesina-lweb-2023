@@ -60,7 +60,7 @@ if ($registrazione) {
     $registrato = registra_utente($nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale);
   }
 
-  $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : '';
+  $redir_dest = isset($_POST['redirect']) ? $_POST['redirect'] : '';
 } else {
   $nome = '';
   $cognome = '';
@@ -70,12 +70,12 @@ if ($registrazione) {
   $indirizzo = '';
   $codice_fiscale = '';
 
-  $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
+  $redir_dest = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 }
 
 $link_log = RC_SUBDIR . '/utente/login.php';
-if ($redirect !== '') {
-  $link_log .= '?redirect=' . $redirect;
+if ($redir_dest !== '') {
+  $link_log .= '?redirect=' . $redir_dest;
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -118,7 +118,7 @@ if ($redirect !== '') {
 
       <button type="submit" name="azione" value="registrazione" class="button mt-32">Registrati!</button>
 
-      <input type="hidden" name="redirect" value="<?php echo($redirect); ?>"></input>
+      <input type="hidden" name="redirect" value="<?php echo($redir_dest); ?>"></input>
     </form>
 
     <div class="pt-16 mb-8">

@@ -8,38 +8,39 @@ $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utils.php');
 
 $sessione = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
 $login = isset($_POST['azione']) && $_POST['azione'] === 'accedi';
 
 if ($sessione) {
   $loggato = true;
-  $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
+  $redir_dest = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 
 } else if (!$login) {
   $loggato = false;
-  $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
+  $redir_dest = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 
 } else {
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $redirect = isset($_POST['redirect']) ? $_POST['redirect'] : '';
+  $redir_dest = isset($_POST['redirect']) ? $_POST['redirect'] : '';
 
   $result = login_utente($username, $password);
   $loggato = $result === 'Ok';
 }
 
 if ($loggato) {
-  if ($redirect === '') {
-    $redirect = RC_SUBDIR . '/index.php';
+  if ($redir_dest === '') {
+    $redir_dest = RC_SUBDIR . '/index.php';
   }
-  header('Location: ' . $redirect);
-  exit();
+
+  redirect(307, $redir_dest, false);
 }
 
 $link_reg = RC_SUBDIR . '/utente/registrazione.php';
-if ($redirect !== '') {
-  $link_reg .= '?redirect=' . $redirect;
+if ($redir_dest !== '') {
+  $link_reg .= '?redirect=' . $redir_dest;
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -66,7 +67,7 @@ if ($redirect !== '') {
 
       <button type="submit" name="azione" value="accedi" class="button">Accedi</button>
 
-      <input type="hidden" name="redirect" value="<?php echo($redirect); ?>"></input>
+      <input type="hidden" name="redirect" value="<?php echo($redir_dest); ?>"></input>
     </form>
     <div class="pt-16 mb-8">
       <a href="<?php echo($link_reg); ?>">Registra un nuovo account</a>
