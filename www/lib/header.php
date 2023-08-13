@@ -6,7 +6,7 @@ $qta_carrello = conta_carrello();
 <div id="header">
   <div id="icone">
     <span>
-      <a href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php" title="Profilo">&#x01F464</a>
+      <a href="<?php echo(RC_SUBDIR); ?>/utente/index.php" title="Dashboard">&#x01F464</a>
     </span>
     <span class="icona-con-notifica">
       <a href="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" title="Carrello">&#x01F6D2</a>
