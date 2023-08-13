@@ -1,4 +1,4 @@
 #intestazione {
-    background-color: aquamarine;
-    /*da modificare*/
+    display: table-row;
+    border: 3px solid black;
 }

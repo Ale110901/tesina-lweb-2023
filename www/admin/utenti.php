@@ -70,7 +70,7 @@ if ($modifica) {
   <div id="contenuto">
     <h2>GESTIONE UTENTI</h2>
     <div class="table mt-32">
-        <div id="intestazione" class="thg">
+        <div id="intestazione" class="thg bold">
           <div class="td">Email</div>
           <div class="td">Nome</div>
           <div class="td">Cognome</div>
