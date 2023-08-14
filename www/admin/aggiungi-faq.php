@@ -18,7 +18,7 @@ if (!isset($_POST['azione'])) {
 } else if ($_POST['azione'] === 'precompila') {
   $faq_domanda =  $_POST['domanda'];
   $faq_risposta = $_POST['risposta'];
-} else if ($_POST['azione'] === 'aggiungi') {
+} else if ($_POST['azione'] === 'aggiungi' && $_POST['domanda'] !== '' && $_POST['risposta'] !== '') {
   aggiungi_faq($_POST['domanda'], $_POST['risposta']);
   redirect(307, RC_SUBDIR . '/faq.php', false);
 }
