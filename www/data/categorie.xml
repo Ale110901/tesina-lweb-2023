@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <categorie xmlns="http://www.lweb.uni/tesina-rcstore/categorie/">
   <categoria id="1">
-    <nome>Proteine</nome>
+    <nome>Proteine in polvere</nome>
   </categoria>
   <categoria id="2">
-    <nome>Barrette</nome>
+    <nome>Barrette proteiche</nome>
   </categoria>
   <categoria id="3">
     <nome>Vitamine</nome>
+  </categoria>
+  <categoria id="4">
+    <nome>Abbigliamento</nome>
+  </categoria>
+  <categoria id="5">
+    <nome>Accessori</nome>
   </categoria>
 </categorie>
