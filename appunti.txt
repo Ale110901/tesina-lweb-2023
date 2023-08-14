@@ -5,4 +5,6 @@ Caratteri:
 Da fare:
 - Aggiungere form rating a domande/risposte
 - Aggiungere form invio domande e risposte
-- da sistemare redirect login nel caso in cui a loggarsi sia un admin/gestore
+- Aggiungere eliminazione domande, risposte e recensioni da gestore
+- Aggiungere nella gestione del prodotto l'upload dell'immagine
+- Aggiungere nella gestione del prodotto l'aggiunta del prodotto
