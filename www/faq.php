@@ -7,13 +7,20 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/faq.php');
 require_once(RC_ROOT . '/lib/xml.php');
-
-$doc_faq = load_xml('faq');
-$faqs = $doc_faq->documentElement->childNodes;
 
 $perm_modifica = isset($_SESSION['tipo_utente']) &&
   ($_SESSION['tipo_utente'] === 'gestore' || $_SESSION['tipo_utente'] === 'admin');
+
+$elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
+
+if ($perm_modifica && $elimina) {
+  elimina_faq($_POST['id']);
+}
+
+$doc_faq = load_xml('faq');
+$faqs = $doc_faq->documentElement->childNodes;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -49,7 +56,10 @@ foreach ($faqs as $faq) {
         <span class="btn-freccia">&#x21D3;</span>
 <?php if ($perm_modifica) { ?>
       <a href="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" class="button">E</a>
-      <a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php" class="button">D</a>
+      <form method="post" action="<?php echo(RC_SUBDIR); ?>/faq.php">
+        <input type="hidden" name="id" value="<?php echo($id); ?>" />
+        <button type="submit" class="button" name="azione" value="elimina">D</button>
+      </form>
 <?php } ?>
 
       </div>

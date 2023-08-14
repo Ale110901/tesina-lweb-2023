@@ -23,6 +23,18 @@ function aggiungi_faq($domanda, $risposta) {
   save_xml($doc_faq, 'faq');
 }
 
+function elimina_faq($id) {
+  $doc_faq = load_xml('faq');
+
+  $result = xpath($doc_faq, 'faq', '/ns:faqs/ns:faq[@id=' . $id . ']');
+  $faq = $result[0];
+
+  $faqs = $faq->parentNode;
+  $faqs->removeChild($faq);
+
+  save_xml($doc_faq, 'faq');
+}
+
 function modifica_faq($doc_faq, $id, $domanda, $risposta) {
   $result = xpath($doc_faq, 'faq', '/ns:faqs/ns:faq[@id=' . $id . ']');
   $faq = $result[0];
