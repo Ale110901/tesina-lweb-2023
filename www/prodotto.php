@@ -283,7 +283,7 @@ if ($id_valido) {
 ?>
           <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
             <input type="hidden" name="domanda" value="<?php echo($contenuto_d); ?>"></input>
-            <button type="submit" name="azione" value="precompila">Eleva</button>
+            <button type="submit" class="button mt-16" name="azione" value="precompila">Eleva</button>
           </form>
         </div>
       </div>
