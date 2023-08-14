@@ -17,11 +17,19 @@ require_once(RC_ROOT . '/lib/start.php');
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/gestore.css" />
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
-    <h2>DASHBOARD GESTORE</h2>
+  <div id="pagina-form" class="centrato">
+    <h2 class="mb-32">DASHBOARD GESTORE</h2>
+    <ul>
+      <li id="prodotti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php">Gestione prodotti</a></li>
+      <li id="offerte" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php">Gestione offerte</a></li>
+      <li id="utenti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/utenti.php">Consulta clienti</a></li>
+      <li id="faq"  class="mb-16"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
+    </ul><br />
+    <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button con-toggle" title="Logout">Logout</a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
