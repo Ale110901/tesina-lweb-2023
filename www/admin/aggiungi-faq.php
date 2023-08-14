@@ -35,12 +35,18 @@ if (!isset($_POST['azione'])) {
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
+  <div id="pagina-form" class="centrato">
     <h2>AGGIUNGI FAQ</h2>
     <form method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
-      <textarea class="input-flat" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"><?php echo($faq_domanda); ?></textarea>
-      <textarea class="input-flat" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
-      <button type="submit" name="azione" value="aggiungi">Aggiungi</button>
+      <div class="my-32">
+        <label for="domanda">Domanda:</label><br />
+        <textarea class="input-flat w-50p" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"><?php echo($faq_domanda); ?></textarea>
+      </div>
+      <div class="my-32">
+        <label for="risposta">Risposta:</label><br />
+        <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
+      </div>
+      <button type="submit" class="button" name="azione" value="aggiungi">Aggiungi</button>
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>

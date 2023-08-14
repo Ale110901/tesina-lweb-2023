@@ -364,3 +364,7 @@ div > h2 {
 .bold {
   font-weight: bold;
 }
+
+.w-50p {
+  width: 50%;
+}
