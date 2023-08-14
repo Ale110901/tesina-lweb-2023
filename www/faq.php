@@ -10,8 +10,7 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/faq.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-$perm_modifica = isset($_SESSION['tipo_utente']) &&
-  ($_SESSION['tipo_utente'] === 'gestore' || $_SESSION['tipo_utente'] === 'admin');
+$perm_modifica = $e_gestore || $e_admin;
 
 $elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
