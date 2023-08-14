@@ -38,8 +38,8 @@ $doc_utenti = load_xml('utenti');
 
   <div id="contenuto">
     <h2>GESTIONE ACCREDITI</h2>
-    <div class="table mt-32">
-      <div id="intestazione" class="thg">
+    <div class="table mt-32 mb-32 mx-auto centrato">
+      <div id="intestazione" class="thg grassetto">
         <div class="td">Data</div>
         <div class="td">Utente</div>
         <div class="td">Quantita</div>
