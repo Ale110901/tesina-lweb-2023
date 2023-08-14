@@ -23,9 +23,7 @@ function aggiungi_faq($domanda, $risposta) {
   save_xml($doc_faq, 'faq');
 }
 
-function modifica_faq($id, $domanda, $risposta) {
-  $doc_faq = load_xml('faq');
-
+function modifica_faq($doc_faq, $id, $domanda, $risposta) {
   $result = xpath($doc_faq, 'faq', '/ns:faqs/ns:faq[@id=' . $id . ']');
   $faq = $result[0];
 

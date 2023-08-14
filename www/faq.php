@@ -11,6 +11,9 @@ require_once(RC_ROOT . '/lib/xml.php');
 
 $doc_faq = load_xml('faq');
 $faqs = $doc_faq->documentElement->childNodes;
+
+$perm_modifica = isset($_SESSION['tipo_utente']) &&
+  ($_SESSION['tipo_utente'] === 'gestore' || $_SESSION['tipo_utente'] === 'admin');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -44,6 +47,11 @@ foreach ($faqs as $faq) {
       <div>
         <button class="btn-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
         <span class="btn-freccia">&#x21D3;</span>
+<?php if ($perm_modifica) { ?>
+      <a href="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" class="button">E</a>
+      <a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php" class="button">D</a>
+<?php } ?>
+
       </div>
       <div id="risposta<?php echo($id); ?>" class="nascosto">
         <p><?php echo($risposta); ?></p>
@@ -52,10 +60,7 @@ foreach ($faqs as $faq) {
 }
 ?>
 
-<?php if (
-  isset($_SESSION['tipo_utente']) &&
-  ($_SESSION['tipo_utente'] === 'gestore' || $_SESSION['tipo_utente'] === 'admin')
-) { ?>
+<?php if ($perm_modifica) { ?>
       <a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php" class="button">Aggiungi FAQ</a>
 <?php } ?>
     </div>
