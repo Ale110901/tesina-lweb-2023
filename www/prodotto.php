@@ -253,6 +253,7 @@ if ($id_valido) {
           <div id="risp_<?php echo($id_domanda); ?>" class="nascosto">
 <?php
     foreach ($risposte as $risposta) {
+      $id_risposta = $risposta->getAttribute('id');
       $contenuto_r = $risposta->getElementsByTagName('contenuto')[0]->textContent;
       $id_ut_r = $risposta->getElementsByTagName('idUtente')[0]->textContent;
 
@@ -262,7 +263,9 @@ if ($id_valido) {
       $info_ut_r = ottieni_info_utente($doc_utenti, $id_ut_r);
 ?>
           <div class="flex-row my-16">
-            <div class="fb-5"></div>
+            <div class="fb-5">
+              <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" />
+            </div>
             <div class="fb-55">
               <?php echo($contenuto_r); ?>
             </div>
@@ -278,6 +281,10 @@ if ($id_valido) {
 <?php
     }
 ?>
+          <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
+            <input type="hidden" name="domanda" value="<?php echo($contenuto_d); ?>"></input>
+            <button type="submit" name="azione" value="precompila">Eleva</button>
+          </form>
         </div>
       </div>
 <?php

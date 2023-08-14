@@ -10,9 +10,15 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/faq.php');
 require_once(RC_ROOT . '/lib/utils.php');
 
-$aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
+$faq_domanda = '';
+$faq_risposta = '';
 
-if ($aggiungi) {
+if (!isset($_POST['azione'])) {
+  // Non fa niente
+} else if ($_POST['azione'] === 'precompila') {
+  $faq_domanda =  $_POST['domanda'];
+  $faq_risposta = $_POST['risposta'];
+} else if ($_POST['azione'] === 'aggiungi') {
   aggiungi_faq($_POST['domanda'], $_POST['risposta']);
   redirect(307, RC_SUBDIR . '/faq.php', false);
 }
@@ -21,7 +27,7 @@ if ($aggiungi) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Dashboard admin &ndash; R&amp;C store</title>
+  <title>Aggiungi FAQ &ndash; R&amp;C store</title>
 
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
@@ -32,8 +38,8 @@ if ($aggiungi) {
   <div id="contenuto">
     <h2>AGGIUNGI FAQ</h2>
     <form method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
-      <textarea class="input-flat" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"></textarea>
-      <textarea class="input-flat" name="risposta" rows="6" placeholder="Inserisci la risposta qui"></textarea>
+      <textarea class="input-flat" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"><?php echo($faq_domanda); ?></textarea>
+      <textarea class="input-flat" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       <button type="submit" name="azione" value="aggiungi">Aggiungi</button>
     </form>
   </div>
