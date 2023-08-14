@@ -22,8 +22,15 @@ require_once(RC_ROOT . '/lib/start.php');
 
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
-    <h2>BENVENUTI!</h2>
+  <div id="homepage" class="centrato">
+    <h1 class="my-32">BENVENUTO IN R&amp;C STORE</h1>
+    <h2 class="corsivo my-32">Il tuo negozio di fiducia per prodotti sportivi</h2>
+    <a class="button my-32" href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Vai al catalogo</a>
+<?php if ($e_gestore) { ?>
+    <p class="my-32"><a class="link my-32" href="<?php echo(RC_SUBDIR); ?>/gestore/index.php">Dashboard gestore</a></p>
+<?php } else if ($e_admin) { ?>
+    <p class="my-32"><a class="link my-32" href="<?php echo(RC_SUBDIR); ?>/admin/index.php">Dashboard admin</a></p>
+<?php } ?>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>

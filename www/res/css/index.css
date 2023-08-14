@@ -1,3 +1,12 @@
-#empty {
+#homepage {
+  color: white;
 
+  background-image: url("../img/homepage.png");
+  background-size: 100% auto;
+  opacity: 0.9;
+
+  min-height: 50%;
+
+  padding-bottom: 15%;
+  padding-top: 15%;
 }

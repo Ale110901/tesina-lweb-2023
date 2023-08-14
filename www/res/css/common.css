@@ -149,6 +149,10 @@ div > h2 {
   text-align: center;
 }
 
+.corsivo {
+  font-style: italic;
+}
+
 .giustificato {
   text-align: justify;
 }
