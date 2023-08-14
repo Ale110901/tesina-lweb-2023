@@ -71,10 +71,10 @@ foreach ($accrediti as $accredito) {
           <span><?php echo(number_format($ac_quantita, 2)); ?> &euro;</span>
         </div>
         <div class="td">
-          <button type="submit" name="azione" value="accetta" class="button">V</button>
+          <button type="submit" name="azione" value="accetta" class="button-icona">&#x2705</button>
         </div>
         <div class="td">
-          <button type="submit" name="azione" value="rifiuta" class="button">X</button>
+          <button type="submit" name="azione" value="rifiuta" class="button-icona">&#x274C</button>
         </div>
       </form>
 <?php
