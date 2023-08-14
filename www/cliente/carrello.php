@@ -71,6 +71,7 @@ foreach ($prodotti as $prod_carrello) {
 
   $nome_prod = $prod_info->getElementsByTagName('nome')[0]->textContent;
   $prezzo_prod_or = $prod_info->getElementsByTagName('costo')[0]->textContent;
+  $qta_mag = $prod_info->getElementsByTagName('quantita')[0]->textContent;
 
   $offerte = offerte_applicabili($doc_offerte, $doc_utenti, $prod_info);
 
@@ -97,7 +98,7 @@ foreach ($prodotti as $prod_carrello) {
         </p>
         <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
           <input type="hidden" name="id_prodotto" value="<?php echo ($id_prod); ?>" />
-          <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="99" />
+          <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="<?php echo($qta_mag); ?>" />
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
 <?php if ($sconto > 0) { ?>
