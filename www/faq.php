@@ -52,13 +52,14 @@ foreach ($faqs as $faq) {
 ?>
       <div>
         <button class="btn-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
-        <span class="btn-freccia">&#x21D3;</span>
+        <span class="btn-freccia">&#x21D3;</span><br />
 <?php if ($perm_modifica) { ?>
-      <a href="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" class="button">E</a>
-      <form method="post" action="<?php echo(RC_SUBDIR); ?>/faq.php">
-        <input type="hidden" name="id" value="<?php echo($id); ?>" />
-        <button type="submit" class="button" name="azione" value="elimina">D</button>
-      </form>
+        <a href="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" id="posizione-modifica"  class="button-icona" title="modifica">&#x01F4DD</a>
+        <form method="post" action="<?php echo(RC_SUBDIR); ?>/faq.php">
+          <input type="hidden" name="id" value="<?php echo($id); ?>" />
+          <button type="submit" id="posizione-elimina" class="button-icona" name="azione" value="elimina" title="elimina">&#x01F5D1</button>
+        </form>
+      
 <?php } ?>
 
       </div>
