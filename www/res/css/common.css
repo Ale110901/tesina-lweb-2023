@@ -145,12 +145,16 @@ div > h2 {
   border-width: 6px;
 }
 
-.centrato {
-  text-align: center;
-}
-
 .corsivo {
   font-style: italic;
+}
+
+.grassetto {
+  font-weight: bold;
+}
+
+.centrato {
+  text-align: center;
 }
 
 .giustificato {
@@ -363,10 +367,6 @@ div > h2 {
 
 .pa-16 {
   padding: 16px;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 .w-50p {

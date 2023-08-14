@@ -102,10 +102,10 @@ foreach ($prodotti as $prod_carrello) {
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
           <button type="submit" name="azione" class="ml-8 button-icona" value="rimuovi"  title="Rimuovi elemento">&#x01F5D1</button>
 <?php if ($sconto > 0) { ?>
-          <label class="ml-32 bold">&#x1F4B2; Sconto applicato: <?php echo ($sconto * 100); ?>&percnt; </label>
+          <label class="ml-32 grassetto">&#x1F4B2; Sconto applicato: <?php echo ($sconto * 100); ?>&percnt; </label>
 <?php } ?>
 <?php if ($bonus > 0.0) { ?>
-          <label class="ml-32 bold">&#x1F4B2;Bonus: &plus;<?php echo ($bonus); ?> crediti</label>
+          <label class="ml-32 grassetto">&#x1F4B2;Bonus: &plus;<?php echo ($bonus); ?> crediti</label>
 <?php } ?>
 
         </form>

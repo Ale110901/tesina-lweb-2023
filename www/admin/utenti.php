@@ -70,7 +70,7 @@ if ($modifica) {
   <div id="contenuto">
     <h2>GESTIONE UTENTI</h2>
     <div class="table mt-32">
-        <div id="intestazione" class="thg bold">
+        <div id="intestazione" class="thg grassetto">
           <div class="td">Email</div>
           <div class="td">Nome</div>
           <div class="td">Cognome</div>
@@ -119,7 +119,7 @@ foreach ($utenti as $utente) {
             <input type="text" class="input-flat con-toggle nascosto" name="codice-fiscale" value="<?php echo($ut_codice_fiscale); ?>" />
           </div>
           <div class="td">
-            <span class="con-toggle"><?php echo('&ndash;'); ?></span>
+            <span class="con-toggle">&ndash;</span>
             <input type="password" class="input-flat con-toggle nascosto" name="password" />
           </div>
           <div class="td">
