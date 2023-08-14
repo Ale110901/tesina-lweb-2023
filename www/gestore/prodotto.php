@@ -39,6 +39,14 @@ if ($id_valido) {
       $prodotto->getElementsByTagName('quantita')[0]->textContent = $_POST['quantita'];
 
       save_xml($doc_prodotti, 'prodotti');
+
+
+      $img_path_old = RC_ROOT . '/res/img/prodotti/' . $p_id . '.png';
+      $img_path_new = RC_ROOT . '/res/img/prodotti/' . $_POST['immagine'];
+
+      file_put_contents($img_path_old, $_POST['immagine']);
+
+      rename($img_path_new, $img_path_old);
     }
 
     $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
@@ -61,6 +69,7 @@ $da_modificare = $id_valido;
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/gestore-prodotto.css" />
 </head>
 
 <body>
@@ -71,39 +80,43 @@ $da_modificare = $id_valido;
       <table class="py-1em giustificato">
         <tr>
           <td><b>Immagine:</b></td>
-          <td class="w-100p">Da fare l'upload</td>
+          <td class="w-100p pb-16">
+            <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+            <input type="file" id="immagine" name="immagine" accept="image/png" />
+          </td>
         </tr>
         <tr>
           <td><b>Marca:</b></td>
-          <td class="w-100p"><input type="text" class="input-flat w-100p" name="marca" value="<?php echo ($p_marca); ?>" /></td>
+          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="marca" value="<?php echo ($p_marca); ?>" /></td>
         </tr>
         <tr>
           <td><b>Nome:</b></td>
-          <td class="w-100p"><input type="text" class="input-flat w-100p" name="nome" value="<?php echo ($p_nome); ?>" /></td>
+          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="nome" value="<?php echo ($p_nome); ?>" /></td>
         </tr>
         <tr>
           <td><b>Descrizione:</b></td>
-          <td class="w-100p"><textarea class="input-flat w-100p" name="descrizione" rows="6" placeholder="Inserisci la descrizione qui"><?php echo($p_descrizione); ?></textarea></td>
+          <td class="w-100p pb-16"><textarea class="input-flat w-100p" name="descrizione" rows="6" placeholder="Inserisci la descrizione qui"><?php echo($p_descrizione); ?></textarea></td>
         </tr>
         <tr>
           <td><b>Costo:</b></td>
-          <td class="w-100p"><input type="number" class="input-flat" name="costo" value="<?php echo ($p_costo); ?>" min="0.00" step="0.01" size="7" /></td>
+          <td class="w-100p pb-16"><input type="number" class="input-flat" name="costo" value="<?php echo ($p_costo); ?>" min="0.00" step="0.01" size="7" /></td>
         </tr>
         <tr>
           <td><b>Categoria:</b></td>
-          <td class="w-100p"><input type="text" class="input-flat w-100p" name="categoria" value="<?php echo ($p_categoria); ?>" /></td>
+          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="categoria" value="<?php echo ($p_categoria); ?>" /></td>
         </tr>
         <tr>
           <td><b>Quantita:</b></td>
-          <td class="w-100p"><input type="number" class="input-flat" name="quantita" value="<?php echo ($p_quantita); ?>" min="0" step="1" size="5" /></td>
+          <td class="w-100p pb-16"><input type="number" class="input-flat" name="quantita" value="<?php echo ($p_quantita); ?>" min="0" step="1" size="5" /></td>
         </tr>
       </table>
 <?php if ($da_modificare) { ?>
       <input type="hidden" name="id" value="<?php echo ($p_id); ?>" />
-      <button type="submit" name="azione" value="modifica" class="button" title="Conferma modifiche">Modifica</button>
+      <button type="submit" name="azione" value="modifica" class="button mb-16" title="Conferma modifiche">Modifica</button><br />
 <?php } else { ?>
-      <button type="submit" name="azione" value="aggiungi" class="button" title="Aggiungi">Aggiungi</button>
+      <button type="submit" name="azione" value="aggiungi" class="button mb-16" title="Aggiungi">Aggiungi</button><br />
 <?php } ?>
+      <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/prodotti.php" >Torna indietro</a>
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
