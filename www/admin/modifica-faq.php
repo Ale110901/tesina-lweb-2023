@@ -68,7 +68,8 @@ if ($id_valido) {
         <label for="risposta">Risposta:</label><br />
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
-      <button type="submit" class="button" name="azione" value="modifica">Modifica</button>
+      <button type="submit" class="button mb-16" name="azione" value="modifica">Modifica</button><br />
+      <a class="button" href="<?php echo(RC_SUBDIR);?>/faq.php" >Torna indietro</a>
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
