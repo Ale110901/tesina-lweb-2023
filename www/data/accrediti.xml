@@ -2,7 +2,12 @@
 <accrediti xmlns="http://www.lweb.uni/tesina-rcstore/accrediti/">
   <accredito id="1">
     <data>2023-07-10T17:29:56</data>
-    <idUtente>7</idUtente>
+    <idUtente>4</idUtente>
     <quantita>20.00</quantita>
+  </accredito>
+  <accredito id="2">
+    <data>2023-08-14T10:23:58</data>
+    <idUtente>1</idUtente>
+    <quantita>150</quantita>
   </accredito>
 </accrediti>
