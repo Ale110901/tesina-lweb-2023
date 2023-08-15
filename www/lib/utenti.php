@@ -91,6 +91,39 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
   return true;
 }
 
+function modifica_utente($id_utente, $attivo, $nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale) {
+  global $doc_utenti;
+
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
+  $utente = $result[0];
+
+  $utente->getElementsByTagName('attivo')[0]->textContent = $attivo ? 'true' : 'false';
+  $utente->getElementsByTagName('nome')[0]->textContent = $nome;
+  $utente->getElementsByTagName('cognome')[0]->textContent = $cognome;
+
+  if (preg_match('/^[A-Za-z0-9._\-]+@[A-Za-zA0-9._\-]+\.[A-Za-z]+$/', $email)) {
+    $utente->setAttribute('email', $email);
+  }
+
+  if ($password !== '') {
+    $utente->getElementsByTagName('password')[0]->textContent = md5($password);
+  }
+
+  if (preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
+    $utente->getElementsByTagName('telefono')[0]->textContent = $telefono;
+  }
+
+  if (preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
+    $utente->getElementsByTagName('indirizzo')[0]->textContent = $indirizzo;
+  }
+
+  if (preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
+    $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $codice_fiscale;
+  }
+
+  save_xml($doc_utenti, 'utenti');
+}
+
 function ottieni_info_utente($id_utente) {
   global $doc_utenti;
 

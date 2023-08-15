@@ -16,13 +16,9 @@ $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
 $utente = $result[0];
 
 if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
-  $utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
-  $utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
-  $utente->getElementsByTagName('telefono')[0]->textContent = $_POST['telefono'];
-  $utente->getElementsByTagName('indirizzo')[0]->textContent = $_POST['indirizzo'];
-  $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $_POST['codice_fiscale'];
-
-  save_xml($doc_utenti, 'utenti');
+  modifica_utente($id_utente, true,
+    $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
+    $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
 }
 
 $nome = $utente->getElementsByTagName('nome')[0]->textContent;

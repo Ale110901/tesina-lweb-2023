@@ -10,46 +10,18 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-$utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
-
 $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
 if ($modifica) {
   $id_utente = $_POST['id'];
-
-  $result = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']');
-  $utente = $result[0];
-
-  $utente->setAttribute('email', $_POST['email']);
-
   $attivo = isset($_POST['attivo']) && $_POST['attivo'] === 'on';
-  $utente->getElementsByTagName('attivo')[0]->textContent = $attivo ? 'true' : 'false';
 
-  $utente->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
-  $utente->getElementsByTagName('cognome')[0]->textContent = $_POST['cognome'];
-
-  $telefono = $_POST['telefono'];
-  if (preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
-    $utente->getElementsByTagName('telefono')[0]->textContent = $telefono;
-  }
-
-  $indirizzo = $_POST['indirizzo'];
-  if (preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
-    $utente->getElementsByTagName('indirizzo')[0]->textContent = $indirizzo;
-  }
-
-  $codice_fiscale = $_POST['codice-fiscale'];
-  if (preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
-    $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $codice_fiscale;
-  }
-
-  $password = $_POST['password'];
-  if ($password !== '') {
-    $utente->getElementsByTagName('password')[0]->textContent = md5($password);
-  }
-
-  save_xml($doc_utenti, 'utenti');
+  modifica_utente($id_utente, $attivo,
+    $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
+    $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
 }
+
+$utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
