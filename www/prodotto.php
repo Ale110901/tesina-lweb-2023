@@ -54,7 +54,7 @@ if ($id_valido) {
       $utilita = $_POST['rec_util'];
       $id_ut_rec_agg = $_POST['utente_recensione'];
 
-      aggiorna_reputazione($id_ut_rec_agg, $supporto, $utilita);
+      aggiorna_reputazione($id_ut_rec_agg, $id_prodotto, $supporto, $utilita);
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
     }
 

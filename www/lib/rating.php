@@ -30,7 +30,7 @@ function calcola_rating_medio($ratings) {
   ];
 }
 
-function aggiorna_reputazione($id_ut_dest, $supporto, $utilita) {
+function aggiorna_reputazione($id_ut_dest, $id_prod, $supporto, $utilita) {
   global $doc_ordini;
   global $doc_utenti;
 
@@ -64,7 +64,7 @@ function aggiorna_reputazione($id_ut_dest, $supporto, $utilita) {
 
 
   $var_supporto = $k_funzione * (2 * $supporto - 4);  // (1..3) => k * (-2, 0, +2)
-  $var_utilita =  $k_funzione * (2 * $supporto - 6);  // (1..5) => k * (-4, -2, 0, +2, +4)
+  $var_utilita =  $k_funzione * (2 * $utilita - 6);   // (1..5) => k * (-4, -2, 0, +2, +4)
 
   $var_tot = $var_utilita + $var_supporto;
   $rep_num += $var_tot;
