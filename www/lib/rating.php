@@ -1,6 +1,5 @@
 <?php
 require_once(RC_ROOT . '/lib/ordini.php');
-require_once(RC_ROOT . '/lib/recensioni.php');
 require_once(RC_ROOT . '/lib/utenti.php');
 
 function calcola_rating_medio($ratings) {
@@ -94,22 +93,6 @@ function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
   $rating->appendChild($el_utilita);
 
   $ratings->appendChild($rating);
-
-  return true;
-}
-
-function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
-  global $doc_recensioni;
-
-  $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings");
-  $ratings = $result[0];
-
-  aggiungi_rating($doc_recensioni, $ratings, $supporto, $utilita);
-
-  save_xml($doc_recensioni, 'recensioni');
-
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
-  $doc_recensioni = load_xml('recensioni');
 
   return true;
 }

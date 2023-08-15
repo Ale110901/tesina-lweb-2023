@@ -1,11 +1,12 @@
 <?php
+require_once(RC_ROOT . '/lib/rating.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $doc_recensioni = load_xml('recensioni');
 
 function aggiungi_recensione($id_prodotto, $contenuto) {
   global $doc_recensioni;
-  
+
   $id_utente = $_SESSION['id_utente'];
 
   $root = $doc_recensioni->documentElement;
@@ -30,6 +31,22 @@ function aggiungi_recensione($id_prodotto, $contenuto) {
   $root->appendChild($nuova_recensione);
 
   save_xml($doc_recensioni, 'recensioni');
+
+  return true;
+}
+
+function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
+  global $doc_recensioni;
+
+  $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings");
+  $ratings = $result[0];
+
+  aggiungi_rating($doc_recensioni, $ratings, $supporto, $utilita);
+
+  save_xml($doc_recensioni, 'recensioni');
+
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  $doc_recensioni = load_xml('recensioni');
 
   return true;
 }
