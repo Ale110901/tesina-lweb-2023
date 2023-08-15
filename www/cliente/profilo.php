@@ -12,26 +12,14 @@ require_once(RC_ROOT . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
 
-$result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
-$utente = $result[0];
-
 if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
   modifica_utente($id_utente, true,
     $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
     $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
 }
 
-$nome = $utente->getElementsByTagName('nome')[0]->textContent;
-$cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
-$email = $utente->getAttribute('email');
-$telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
-$indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
-$codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
-$credito = $utente->getElementsByTagName('credito')[0]->textContent;
-$reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
-
-$data_reg = $utente->getElementsByTagName('dataRegistrazione')[0]->textContent;
-$data_reg = date_format(date_create($data_reg), 'd F Y');
+$info_utente = ottieni_info_utente($id_utente);
+$data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -64,55 +52,63 @@ $data_reg = date_format(date_create($data_reg), 'd F Y');
           <tr>
             <td><b>Nome:</b></td>
             <td>
-              <span class="con-toggle"><?php echo ($nome); ?></span>
-              <input type="text" class="input-flat con-toggle nascosto" name="nome" value="<?php echo ($nome); ?>" />
+              <span class="con-toggle"><?php echo($info_utente['nome']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="nome" value="<?php echo($info_utente['nome']); ?>" />
             </td>
           </tr>
           <tr>
             <td><b>Cognome:</b></td>
             <td>
-              <span class="con-toggle"><?php echo ($cognome); ?></span>
-              <input type="text" class="input-flat con-toggle nascosto" name="cognome" value="<?php echo ($cognome); ?>" />
+              <span class="con-toggle"><?php echo($info_utente['cognome']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="cognome" value="<?php echo($info_utente['cognome']); ?>" />
             </td>
           </tr>
           <tr>
             <td><b>Email:</b></td>
             <td>
-              <span><?php echo ($email); ?></span>
+              <span class="con-toggle"><?php echo($info_utente['email']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="email" value="<?php echo($info_utente['email']); ?>" />
+            </td>
+          </tr>
+          <tr>
+            <td><b>Password:</b></td>
+            <td>
+              <span class="con-toggle">&ndash;</span>
+              <input type="password" class="input-flat con-toggle nascosto" name="password" />
             </td>
           </tr>
           <tr>
             <td><b>Telefono:</b></td>
             <td>
-              <span class="con-toggle"><?php echo ($telefono); ?></span>
-              <input type="text" class="input-flat con-toggle nascosto" name="telefono" value="<?php echo ($telefono); ?>" />
+              <span class="con-toggle"><?php echo($info_utente['telefono']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="telefono" value="<?php echo($info_utente['telefono']); ?>" />
             </td>
           </tr>
           <tr>
             <td><b>Indirizzo:</b></td>
             <td>
-              <span class="con-toggle"><?php echo ($indirizzo); ?></span>
-              <input type="text" class="input-flat con-toggle nascosto" name="indirizzo" value="<?php echo ($indirizzo); ?>" />
+              <span class="con-toggle"><?php echo ($info_utente['indirizzo']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="indirizzo" value="<?php echo ($info_utente['indirizzo']); ?>" />
             </td>
           </tr>
           <tr>
             <td><b>Codice fiscale:</b></td>
             <td>
-              <span class="con-toggle"><?php echo ($codice_fiscale); ?></span>
-              <input type="text" class="input-flat con-toggle nascosto" name="codice_fiscale" value="<?php echo ($codice_fiscale); ?>" />
+              <span class="con-toggle"><?php echo ($info_utente['codice_fiscale']); ?></span>
+              <input type="text" class="input-flat con-toggle nascosto" name="codice_fiscale" value="<?php echo ($info_utente['codice_fiscale']); ?>" />
             </td>
           </tr>
           <tr>
             <td><b>Credito:</b></td>
             <td>
-              <span><?php echo (number_format($credito, 2)); ?> &euro;</span>
+              <span><?php echo (number_format($info_utente['credito'], 2)); ?> &euro;</span>
               <a class="link ml-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
             </td>
           </tr>
           <tr>
             <td><b>Reputazione:</b></td>
             <td>
-              <span><?php echo ($reputazione); ?> punti</span>
+              <span><?php echo ($info_utente['reputazione']); ?> punti</span>
             </td>
           </tr>
           <tr>

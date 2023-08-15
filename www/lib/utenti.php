@@ -132,10 +132,24 @@ function ottieni_info_utente($id_utente) {
 
   $nome = $utente->getElementsByTagName('nome')[0]->textContent;
   $cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
+  $email = $utente->getAttribute('email');
+  $telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
+  $indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
+  $codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
+  $credito = $utente->getElementsByTagName('credito')[0]->textContent;
+  $reputazione = $utente->getElementsByTagName('reputazione')[0]->textContent;
+  $data_reg = $utente->getElementsByTagName('dataRegistrazione')[0]->textContent;
 
   return [
     'nome' => $nome,
-    'cognome' => $cognome
+    'cognome' => $cognome,
+    'email' => $email,
+    'telefono' => $telefono,
+    'indirizzo' => $indirizzo,
+    'codice_fiscale' => $codice_fiscale,
+    'credito' => $credito,
+    'reputazione' => $reputazione,
+    'data_reg' => $data_reg,
   ];
 }
 
