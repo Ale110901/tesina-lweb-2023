@@ -7,7 +7,7 @@ $perm_gestore = true;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categoria.php');
+require_once(RC_ROOT . '/lib/categorie.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 

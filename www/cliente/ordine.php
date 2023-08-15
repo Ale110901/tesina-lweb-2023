@@ -8,9 +8,9 @@ $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/carrello.php');
-require_once(RC_ROOT . '/lib/ordine.php');
+require_once(RC_ROOT . '/lib/ordini.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];

@@ -7,7 +7,7 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/utils.php');
 
 $sessione = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);

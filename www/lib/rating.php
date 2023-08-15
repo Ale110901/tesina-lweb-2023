@@ -1,7 +1,7 @@
 <?php
-require_once(RC_ROOT . '/lib/ordine.php');
+require_once(RC_ROOT . '/lib/ordini.php');
 require_once(RC_ROOT . '/lib/recensioni.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 
 function calcola_rating_medio($ratings) {
   if ($ratings->length === 0) {

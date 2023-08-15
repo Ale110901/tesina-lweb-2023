@@ -7,7 +7,7 @@ $perm_gestore = false;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 
 $err_vuoto = false;
 $err_pwd = false;

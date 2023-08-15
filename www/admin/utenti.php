@@ -7,7 +7,7 @@ $perm_gestore = false;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');

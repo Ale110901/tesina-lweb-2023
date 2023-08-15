@@ -1,5 +1,5 @@
 <?php
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 function aggiungi_carrello($id_prodotto, $qta_diff) {

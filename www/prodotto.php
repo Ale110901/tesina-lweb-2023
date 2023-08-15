@@ -11,7 +11,7 @@ require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/rating.php');
 require_once(RC_ROOT . '/lib/recensioni.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);

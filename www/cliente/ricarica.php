@@ -7,7 +7,7 @@ $perm_gestore = false;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/accredito.php');
+require_once(RC_ROOT . '/lib/accrediti.php');
 
 $ricarica = isset($_POST['azione']) && $_POST['azione'] === 'ricarica';
 $qta_valida = isset($_POST['quantita']) && !is_nan($_POST['quantita']);

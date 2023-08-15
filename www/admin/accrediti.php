@@ -7,8 +7,8 @@ $perm_gestore = false;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/accredito.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/accrediti.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 if (!isset($_POST['azione'])) {

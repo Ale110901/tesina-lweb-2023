@@ -10,7 +10,7 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/carrello.php');
 require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/utenti.php');
 
 if (isset($_SESSION['agg_carr_id_prod'])) {
   aggiungi_carrello($_SESSION['agg_carr_id_prod'], $_SESSION['agg_carr_qta']);
