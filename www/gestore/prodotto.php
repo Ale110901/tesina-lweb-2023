@@ -40,13 +40,13 @@ if ($id_valido) {
 
       save_xml($doc_prodotti, 'prodotti');
 
-
-      $img_path_old = RC_ROOT . '/res/img/prodotti/' . $p_id . '.png';
-      $img_path_new = RC_ROOT . '/res/img/prodotti/' . $_POST['immagine'];
-
-      file_put_contents($img_path_old, $_POST['immagine']);
-
-      rename($img_path_new, $img_path_old);
+      $upload_ok = isset($_FILES['immagine']['error']) &&
+        $_FILES['immagine']['error'] === UPLOAD_ERR_OK;
+      if ($upload_ok) {
+        $nome_temp = $_FILES['immagine']['tmp_name'];
+        $nome_finale = RC_ROOT . '/res/img/prodotti/' . $p_id . '.png';
+        move_uploaded_file($nome_temp, $nome_finale);
+      }
     }
 
     $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
@@ -76,13 +76,13 @@ $da_modificare = $id_valido;
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2>GESTIONE PRODOTTO</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>" method="post">
+    <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>" method="post" enctype="multipart/form-data">
       <table class="py-1em giustificato">
         <tr>
           <td><b>Immagine:</b></td>
           <td class="w-100p pb-16">
-            <input type="file" id="immagine" name="immagine" accept="image/png" />
             <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+            <input type="file" name="immagine" accept="image/png" />
           </td>
         </tr>
         <tr>
