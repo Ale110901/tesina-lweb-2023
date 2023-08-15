@@ -14,8 +14,6 @@ require_once(RC_ROOT . '/lib/xml.php');
 $faq_domanda = '';
 $faq_risposta = '';
 
-$doc_faq = load_xml('faq');
-
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 
 if ($id_valido) {
@@ -34,7 +32,7 @@ if ($id_valido) {
       $faq_domanda =  $_POST['domanda'];
       $faq_risposta = $_POST['risposta'];
 
-      modifica_faq($doc_faq, $faq_id, $_POST['domanda'], $_POST['risposta']);
+      modifica_faq($faq_id, $_POST['domanda'], $_POST['risposta']);
 
       redirect(307, RC_SUBDIR . '/faq.php', false);
     } else {

@@ -12,7 +12,6 @@ require_once(RC_ROOT . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
 
-$doc_utenti = load_xml('utenti');
 $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
 $utente = $result[0];
 

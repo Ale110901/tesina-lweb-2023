@@ -1,10 +1,12 @@
 <?php
 require_once(RC_ROOT . '/lib/xml.php');
 
-function login_utente($email, $password) {
-  $doc = load_xml('utenti');
+$doc_utenti = load_xml('utenti');
 
-  $result = xpath($doc, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
+function login_utente($email, $password) {
+  global $doc_utenti;
+
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
   if ($result->length !== 1) {
     return "Errore email";
   }
@@ -32,7 +34,7 @@ function login_utente($email, $password) {
 }
 
 function registra_utente($nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale) {
-  $doc_utenti = load_xml('utenti');
+  global $doc_utenti;
 
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@email='$email']");
   if ($result->length !== 0) {
@@ -89,7 +91,9 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
   return true;
 }
 
-function ottieni_info_utente($doc_utenti, $id_utente) {
+function ottieni_info_utente($id_utente) {
+  global $doc_utenti;
+
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
   $utente = $result[0];
 
@@ -103,9 +107,9 @@ function ottieni_info_utente($doc_utenti, $id_utente) {
 }
 
 function scala_credito($totale) {
-  $id_utente = $_SESSION['id_utente'];
+  global $doc_utenti;
 
-  $doc_utenti = load_xml('utenti');
+  $id_utente = $_SESSION['id_utente'];
 
   $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
   $credito->textContent -= $totale;
@@ -114,9 +118,9 @@ function scala_credito($totale) {
 }
 
 function aggiungi_bonus($bonus) {
-  $id_utente = $_SESSION['id_utente'];
+  global $doc_utenti;
 
-  $doc_utenti = load_xml('utenti');
+  $id_utente = $_SESSION['id_utente'];
 
   $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
   $credito->textContent += $bonus;

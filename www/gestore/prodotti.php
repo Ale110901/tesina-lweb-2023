@@ -8,14 +8,11 @@ $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/categoria.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
-
-$doc_prodotti = load_xml('prodotti');
 
 $root = $doc_prodotti->documentElement;
 $prodotti = $root->childNodes;
-
-$doc_categorie = load_xml('categorie');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -49,7 +46,7 @@ foreach ($prodotti as $prodotto) {
   $p_cat_id = $prodotto->getElementsByTagName('categoria')[0]->textContent;
   $p_quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
-  $p_categoria = ottieni_categoria($doc_categorie, $p_cat_id);
+  $p_categoria = ottieni_categoria($p_cat_id);
 ?>
       <div class="tr">
         <div class="td"><?php echo($p_marca); ?></div>

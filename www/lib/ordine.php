@@ -1,10 +1,12 @@
 <?php
 require_once(RC_ROOT . '/lib/xml.php');
 
-function crea_ordine($indirizzo, $prezzo, $prodotti) {
-  $id_utente = $_SESSION['id_utente'];
+$doc_ordini = load_xml('ordini');
 
-  $doc_ordini = load_xml('ordini');
+function crea_ordine($indirizzo, $prezzo, $prodotti) {
+  global $doc_ordini;
+
+  $id_utente = $_SESSION['id_utente'];
 
   $root = $doc_ordini->documentElement;
   $ordini = $root->childNodes;

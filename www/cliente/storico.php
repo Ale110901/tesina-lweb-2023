@@ -7,14 +7,13 @@ $perm_gestore = false;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/ordine.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
 
-$doc_ordini = load_xml('ordini');
 $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_utente']");
-
-$doc_prodotti = load_xml('prodotti');
 ?>
 
 <?xml version="1.0" encoding="UTF-8" ?>

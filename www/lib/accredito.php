@@ -1,10 +1,13 @@
 <?php
 require_once(RC_ROOT . '/lib/xml.php');
 
+$doc_accrediti = load_xml('accrediti');
+
 function crea_accredito($quantita) {
+  global $doc_accrediti;
+
   $id_utente = $_SESSION['id_utente'];
 
-  $doc_accrediti = load_xml('accrediti');
   $root = $doc_accrediti->documentElement;
   $accrediti = $root->childNodes;
 
@@ -30,7 +33,7 @@ function crea_accredito($quantita) {
 }
 
 function accetta_accredito($id_accredito) {
-  $doc_accrediti = load_xml('accrediti');
+  global $doc_accrediti;
 
   $result = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito[@id=' . $id_accredito . ']');
   $accredito = $result[0];
@@ -44,8 +47,6 @@ function accetta_accredito($id_accredito) {
   save_xml($doc_accrediti, 'accrediti');
 
 
-  $doc_utenti = load_xml('utenti');
-
   $result = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $ac_id_utente . ']');
   $utente = $result[0];
 
@@ -58,7 +59,7 @@ function accetta_accredito($id_accredito) {
 }
 
 function rifiuta_accredito($id_accredito) {
-  $doc_accrediti = load_xml('accrediti');
+  global $doc_accrediti;
 
   $result = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito[@id=' . $id_accredito . ']');
   $accredito = $result[0];

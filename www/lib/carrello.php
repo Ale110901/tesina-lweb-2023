@@ -1,10 +1,12 @@
 <?php
+require_once(RC_ROOT . '/lib/utente.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 function aggiungi_carrello($id_prodotto, $qta_diff) {
+  global $doc_utenti;
+
   $id_utente = $_SESSION['id_utente'];
 
-  $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
     '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto[@id= ' . $id_prodotto . ']'
   );
@@ -27,16 +29,22 @@ function aggiungi_carrello($id_prodotto, $qta_diff) {
   }
 
   save_xml($doc_utenti, 'utenti');
+
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  $doc_utenti = load_xml('utenti');
+
+  return true;
 }
 
 function conta_carrello() {
+  global $doc_utenti;
+
   if (!isset($_SESSION['id_utente'])) {
     return 0;
   }
 
   $id_utente = $_SESSION['id_utente'];
 
-  $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
     '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto'
   );
@@ -54,9 +62,10 @@ function conta_carrello() {
 }
 
 function modifica_carrello($id_prodotto, $quantita) {
+  global $doc_utenti;
+
   $id_utente = $_SESSION['id_utente'];
 
-  $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
     "/ns:utenti/ns:utente[@id='$id_utente']/ns:carrello/ns:prodotto[@id='$id_prodotto']"
   );
@@ -70,12 +79,15 @@ function modifica_carrello($id_prodotto, $quantita) {
   }
 
   save_xml($doc_utenti, 'utenti');
+
+  return true;
 }
 
 function svuota_carrello() {
+  global $doc_utenti;
+
   $id_utente = $_SESSION['id_utente'];
 
-  $doc_utenti = load_xml('utenti');
   $result = xpath($doc_utenti, 'utenti',
     "/ns:utenti/ns:utente[@id='$id_utente']/ns:carrello"
   );
@@ -88,5 +100,7 @@ function svuota_carrello() {
   $utente->appendChild($carrello);
 
   save_xml($doc_utenti, 'utenti');
+
+  return true;
 }
 ?>

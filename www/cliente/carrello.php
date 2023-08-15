@@ -9,6 +9,8 @@ $perm_admin = false;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/carrello.php');
 require_once(RC_ROOT . '/lib/offerte.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
+require_once(RC_ROOT . '/lib/utente.php');
 
 if (isset($_SESSION['agg_carr_id_prod'])) {
   aggiungi_carrello($_SESSION['agg_carr_id_prod'], $_SESSION['agg_carr_qta']);
@@ -31,15 +33,11 @@ if (!isset($_POST['azione'])) {
 
 $id_utente = $_SESSION['id_utente'];
 
-$doc_utenti = load_xml('utenti');
 $prodotti = xpath($doc_utenti, 'utenti',
   '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:carrello/ns:prodotto'
 );
 
 $credito_utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id_utente . ']/ns:credito')[0]->textContent;
-
-$doc_prodotti = load_xml('prodotti');
-$doc_offerte = load_xml('offerte');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -73,7 +71,7 @@ foreach ($prodotti as $prod_carrello) {
   $prezzo_prod_or = $prod_info->getElementsByTagName('costo')[0]->textContent;
   $qta_mag = $prod_info->getElementsByTagName('quantita')[0]->textContent;
 
-  $offerte = offerte_applicabili($doc_offerte, $doc_utenti, $prod_info);
+  $offerte = offerte_applicabili($prod_info);
 
 
   $sconto = calcola_sconto($offerte);

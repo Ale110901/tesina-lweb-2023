@@ -10,7 +10,6 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/utente.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-$doc_utenti = load_xml('utenti');
 $utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
 
 $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';

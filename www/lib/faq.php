@@ -1,8 +1,10 @@
 <?php
 require_once(RC_ROOT . '/lib/xml.php');
 
+$doc_faq = load_xml('faq');
+
 function aggiungi_faq($domanda, $risposta) {
-  $doc_faq = load_xml('faq');
+  global $doc_faq;
 
   $root = $doc_faq->documentElement;
   $faqs = $root->childNodes;
@@ -24,7 +26,7 @@ function aggiungi_faq($domanda, $risposta) {
 }
 
 function elimina_faq($id) {
-  $doc_faq = load_xml('faq');
+  global $doc_faq;
 
   $result = xpath($doc_faq, 'faq', '/ns:faqs/ns:faq[@id=' . $id . ']');
   $faq = $result[0];
@@ -35,7 +37,9 @@ function elimina_faq($id) {
   save_xml($doc_faq, 'faq');
 }
 
-function modifica_faq($doc_faq, $id, $domanda, $risposta) {
+function modifica_faq($id, $domanda, $risposta) {
+  global $doc_faq;
+
   $result = xpath($doc_faq, 'faq', '/ns:faqs/ns:faq[@id=' . $id . ']');
   $faq = $result[0];
 

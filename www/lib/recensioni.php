@@ -1,8 +1,12 @@
 <?php
-function aggiungi_recensione($id_prodotto, $contenuto) {
-  $id_utente = $_SESSION['id_utente'];
+require_once(RC_ROOT . '/lib/xml.php');
 
-  $doc_recensioni = load_xml('recensioni');
+$doc_recensioni = load_xml('recensioni');
+
+function aggiungi_recensione($id_prodotto, $contenuto) {
+  global $doc_recensioni;
+  
+  $id_utente = $_SESSION['id_utente'];
 
   $root = $doc_recensioni->documentElement;
   $recensioni = $root->childNodes;

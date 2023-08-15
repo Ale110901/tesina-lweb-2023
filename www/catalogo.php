@@ -7,12 +7,13 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/xml.php');
 require_once(RC_ROOT . '/lib/categoria.php');
 require_once(RC_ROOT . '/lib/offerte.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
+require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/xml.php');
 
-$doc_prod = load_xml('prodotti');
-$prodotti = $doc_prod->documentElement->childNodes;
+$prodotti = $doc_prodotti->documentElement->childNodes;
 $prodotti = domlist_to_array($prodotti);
 
 $ord_type = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
@@ -33,10 +34,6 @@ switch ($ord_type) {
     $prodotti = sort_by_element_dec($prodotti, 'costo', $ord_desc);
     break;
 }
-
-$doc_categorie = load_xml('categorie');
-$doc_offerte = load_xml('offerte');
-$doc_utenti = load_xml('utenti');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -85,7 +82,7 @@ $doc_utenti = load_xml('utenti');
     $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
     $p_categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
 
-    $off_app = offerte_applicabili($doc_offerte, $doc_utenti, $prodotto);
+    $off_app = offerte_applicabili($prodotto);
     $sconto = calcola_sconto($off_app);
     $costo_finale = round($p_costo * (1 - $sconto), 2);
 ?>
@@ -93,7 +90,7 @@ $doc_utenti = load_xml('utenti');
         <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
           <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           <div class="overlay">terminato</div>
-          <p><i><?php echo(ottieni_categoria($doc_categorie, $p_categoria)); ?></i></p>
+          <p><i><?php echo(ottieni_categoria($p_categoria)); ?></i></p>
           <p><i><?php echo($p_marca); ?></i></p>
           <p><b><?php echo($p_nome); ?></b></p>
           <p>

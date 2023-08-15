@@ -1,4 +1,9 @@
 <?php
+require_once(RC_ROOT . '/lib/utente.php');
+require_once(RC_ROOT . '/lib/xml.php');
+
+$doc_offerte = load_xml('offerte');
+
 function calcola_sconto($offerte) {
   $sconto_tot = 0.00;
 
@@ -31,7 +36,10 @@ function calcola_bonus($offerte) {
   return $bonus_tot;
 }
 
-function offerte_applicabili($doc_offerte, $doc_utenti, $prodotto) {
+function offerte_applicabili($prodotto) {
+  global $doc_offerte;
+  global $doc_utenti;
+
   $id_utente = isset($_SESSION['id_utente']) ? $_SESSION['id_utente'] : 0;
 
   $root = $doc_offerte->documentElement;

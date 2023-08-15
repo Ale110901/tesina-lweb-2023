@@ -7,6 +7,7 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
@@ -21,7 +22,6 @@ $p_quantita = '';
 if ($id_valido) {
   $p_id = $_GET['id'];
 
-  $doc_prodotti = load_xml('prodotti');
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$p_id]");
   if ($result->length !== 1) {
     $id_valido = false;

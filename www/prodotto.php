@@ -8,6 +8,7 @@ $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/offerte.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/rating.php');
 require_once(RC_ROOT . '/lib/recensioni.php');
 require_once(RC_ROOT . '/lib/utente.php');
@@ -20,7 +21,6 @@ $rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
 
-  $doc_prodotti = load_xml('prodotti');
   $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$id_prodotto]");
   if ($result->length !== 1) {
     $id_valido = false;
@@ -34,10 +34,7 @@ if ($id_valido) {
     $categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
     $quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
-    $doc_offerte = load_xml('offerte');
-    $doc_utenti = load_xml('utenti');
-
-    $off_app = offerte_applicabili($doc_offerte, $doc_utenti, $prodotto);
+    $off_app = offerte_applicabili($prodotto);
     $sconto = calcola_sconto($off_app);
     $bonus = calcola_bonus($off_app);
     $costo_finale = round($costo_orig * (1 - $sconto), 2);
@@ -57,12 +54,10 @@ if ($id_valido) {
       $utilita = $_POST['rec_util'];
       $id_ut_rec_agg = $_POST['utente_recensione'];
 
-      aggiorna_reputazione($doc_utenti, $id_ut_rec_agg, $supporto, $utilita);
-
+      aggiorna_reputazione($id_ut_rec_agg, $supporto, $utilita);
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
     }
 
-    $doc_recensioni = load_xml('recensioni');
     $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
 
 
@@ -154,7 +149,7 @@ if ($id_valido) {
     $id_ut_rec = $recensione->getElementsByTagName('idUtente')[0]->textContent;
     $contenuto = $recensione->getElementsByTagName('contenuto')[0]->textContent;
 
-    $info_ut_rec = ottieni_info_utente($doc_utenti, $id_ut_rec);
+    $info_ut_rec = ottieni_info_utente($id_ut_rec);
 
     $ratings_rec = $recensione->getElementsByTagName('ratings')[0]->childNodes;
     $rat_med_rec = calcola_rating_medio($ratings_rec);
@@ -235,7 +230,7 @@ if ($id_valido) {
     $ratings_d = $domanda->getElementsByTagName('ratings')[0]->childNodes;
     $rat_med_d = calcola_rating_medio($ratings_d);
 
-    $info_ut_d = ottieni_info_utente($doc_utenti, $id_ut_d);
+    $info_ut_d = ottieni_info_utente($id_ut_d);
 ?>
         <div class="my-32">
           <div class="flex-row" id="box-dom">
@@ -260,7 +255,7 @@ if ($id_valido) {
       $ratings_r = $domanda->getElementsByTagName('ratings')[0]->childNodes;
       $rat_med_r = calcola_rating_medio($ratings_r);
 
-      $info_ut_r = ottieni_info_utente($doc_utenti, $id_ut_r);
+      $info_ut_r = ottieni_info_utente($id_ut_r);
 ?>
           <div class="flex-row my-16">
             <div class="fb-5">

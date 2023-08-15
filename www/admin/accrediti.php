@@ -8,6 +8,7 @@ $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/accredito.php');
+require_once(RC_ROOT . '/lib/utente.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 if (!isset($_POST['azione'])) {
@@ -18,10 +19,7 @@ if (!isset($_POST['azione'])) {
   rifiuta_accredito($_POST['id']);
 }
 
-$doc_accrediti = load_xml('accrediti');
 $accrediti = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito');
-
-$doc_utenti = load_xml('utenti');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

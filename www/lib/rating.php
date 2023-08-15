@@ -1,4 +1,8 @@
 <?php
+require_once(RC_ROOT . '/lib/ordine.php');
+require_once(RC_ROOT . '/lib/recensioni.php');
+require_once(RC_ROOT . '/lib/utente.php');
+
 function calcola_rating_medio($ratings) {
   if ($ratings->length === 0) {
     return [
@@ -26,7 +30,10 @@ function calcola_rating_medio($ratings) {
   ];
 }
 
-function aggiorna_reputazione($doc_utenti, $id_ut_dest, $supporto, $utilita) {
+function aggiorna_reputazione($id_ut_dest, $supporto, $utilita) {
+  global $doc_ordini;
+  global $doc_utenti;
+
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_dest']/ns:reputazione");
   $rep_el = $result[0];
   $rep_num = $rep_el->textContent;
@@ -41,8 +48,6 @@ function aggiorna_reputazione($doc_utenti, $id_ut_dest, $supporto, $utilita) {
   switch ($_SESSION['tipo_utente']) {
     case 'cliente':
       $id_ut_mitt = $_SESSION['id_utente'];
-
-      $doc_ordini = load_xml('ordini');
 
       $result = xpath($doc_ordini, 'ordini',
         "/ns:ordini/ns:ordine[@idUtente='$id_ut_mitt']/ns:prodotti/ns:prodotto[@id='$id_prod']");
@@ -72,7 +77,7 @@ function aggiorna_reputazione($doc_utenti, $id_ut_dest, $supporto, $utilita) {
 
   save_xml($doc_utenti, 'utenti');
 
-  return;
+  return true;
 }
 
 function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
@@ -89,10 +94,12 @@ function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
   $rating->appendChild($el_utilita);
 
   $ratings->appendChild($rating);
+
+  return true;
 }
 
 function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
-  $doc_recensioni = load_xml('recensioni');
+  global $doc_recensioni;
 
   $result = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@id='$id_recensione']/ns:ratings");
   $ratings = $result[0];
@@ -100,6 +107,9 @@ function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
   aggiungi_rating($doc_recensioni, $ratings, $supporto, $utilita);
 
   save_xml($doc_recensioni, 'recensioni');
+
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  $doc_recensioni = load_xml('recensioni');
 
   return true;
 }

@@ -18,7 +18,6 @@ if ($perm_modifica && $elimina) {
   elimina_faq($_POST['id']);
 }
 
-$doc_faq = load_xml('faq');
 $faqs = $doc_faq->documentElement->childNodes;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -59,7 +58,7 @@ foreach ($faqs as $faq) {
           <input type="hidden" name="id" value="<?php echo($id); ?>" />
           <button type="submit" id="posizione-elimina" class="button-icona" name="azione" value="elimina" title="elimina">&#x01F5D1</button>
         </form>
-      
+
 <?php } ?>
 
       </div>

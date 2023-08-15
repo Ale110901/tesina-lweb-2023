@@ -14,7 +14,6 @@ require_once(RC_ROOT . '/lib/utente.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
-$doc_utenti = load_xml('utenti');
 
 if (!isset($_POST['azione'])) {
   $param_validi = false;
