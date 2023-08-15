@@ -35,6 +35,7 @@ $prodotti = $root->childNodes;
         <div class="td">Costo</div>
         <div class="td">Categoria</div>
         <div class="td">Quantita</div>
+        <div class="td">Visualizza</div>
         <div class="td">Modifica</div>
       </div>
 <?php
@@ -54,6 +55,7 @@ foreach ($prodotti as $prodotto) {
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
         <div class="td"><?php echo($p_categoria); ?></div>
         <div class="td"><?php echo($p_quantita); ?></div>
+        <div class="td"><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x01F400</a></div>
         <div class="td"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
       </div>
 <?php
