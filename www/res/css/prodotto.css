@@ -26,13 +26,6 @@
   flex-basis: 20%;
 }
 
-#prod-top-sx > img {
-  border-color: #e04336;
-  border-radius: 10px;
-  border-style: ridge;
-  border-width: 1.5px;
-}
-
 #prod-top-mid {
   flex-basis: 45%;
 }

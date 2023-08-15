@@ -95,7 +95,7 @@ if ($id_valido) {
     <a href="<?php echo(RC_SUBDIR); ?>/catalogo.php" title="Indietro">&#x2190;</a>
       <div id="prod-top">
         <div id="prod-top-sx">
-          <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>
+          <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>
         </div>
         <div id="prod-top-mid">
           <p id="marca"><?php echo($marca); ?></p>

@@ -81,8 +81,8 @@ $da_modificare = $id_valido;
         <tr>
           <td><b>Immagine:</b></td>
           <td class="w-100p pb-16">
-            <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
             <input type="file" id="immagine" name="immagine" accept="image/png" />
+            <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           </td>
         </tr>
         <tr>

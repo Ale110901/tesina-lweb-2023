@@ -145,6 +145,16 @@ div > h2 {
   border-width: 6px;
 }
 
+.img-prodotto {
+  height: 256px;
+  width: 256px;
+
+  border-color: #e04336;
+  border-radius: 10px;
+  border-style: ridge;
+  border-width: 1.5px;
+}
+
 .corsivo {
   font-style: italic;
 }
@@ -369,10 +379,18 @@ div > h2 {
   padding: 16px;
 }
 
+.h-256 {
+  height: 256px;
+}
+
 .w-50p {
   width: 50%;
 }
 
 .w-100p {
   width: 100%;
+}
+
+.w-256 {
+  width: 256px;
 }

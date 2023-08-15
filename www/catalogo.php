@@ -91,7 +91,7 @@ $doc_utenti = load_xml('utenti');
 ?>
       <div class="card-prodotto <?php if ($p_quantita === '0') echo('out-of-stock'); ?>">
         <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
-          <img src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+          <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           <div class="overlay">terminato</div>
           <p><i><?php echo(ottieni_categoria($doc_categorie, $p_categoria)); ?></i></p>
           <p><i><?php echo($p_marca); ?></i></p>
