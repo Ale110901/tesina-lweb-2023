@@ -48,6 +48,7 @@ $accrediti = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito');
 foreach ($accrediti as $accredito) {
   $ac_id = $accredito->getAttribute('id');
   $ac_data = $accredito->getElementsByTagName('data')[0]->textContent;
+  $ac_data = date_format(date_create($ac_data), 'Y-m-d H:i');
   $ac_id_utente = $accredito->getElementsByTagName('idUtente')[0]->textContent;
   $ac_quantita = $accredito->getElementsByTagName('quantita')[0]->textContent;
 
