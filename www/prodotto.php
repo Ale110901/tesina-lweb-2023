@@ -175,10 +175,10 @@ if ($id_valido) {
     $rs = [];
     $ru = [];
 
-    for ($i = 0; $i < 5; $i++) {
+    for ($i = 0; $i < 3; $i++) {
       $rs[$i] = $i < $rating_pers['supporto'] ? '&#x2605' : '&#x2606';
     }
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < 5; $i++) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
 ?>
@@ -192,8 +192,6 @@ if ($id_valido) {
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
-                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 4)"<?php } ?>><?php echo($rs[3]); ?></a>
-                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 5)"<?php } ?>><?php echo($rs[4]); ?></a>
               </p>
               <form id="rec_rat_<?php echo($id_recensione); ?>" method="post">
                 <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
@@ -206,6 +204,8 @@ if ($id_valido) {
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 4)"<?php } ?>><?php echo($ru[3]); ?></a>
+                <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
               </p>
             </div>
 <?php } ?>
