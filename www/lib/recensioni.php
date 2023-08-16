@@ -50,4 +50,29 @@ function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
 
   return true;
 }
+
+function elimina_recensione($id) {
+  global $doc_recensioni;
+
+  $result = xpath($doc_recensioni, 'recensioni', '/ns:recensioni/ns:recensione[@id=' . $id . ']');
+  $recensione = $result[0];
+
+  $recensioni = $recensione->parentNode;
+  $recensioni->removeChild($recensione);
+
+  save_xml($doc_recensioni, 'recensioni');
+}
+
+function elimina_recensioni($id_prodotto) {
+  global $doc_recensioni;
+
+  $recensioni = xpath($doc_recensioni, 'recensioni', '/ns:recensioni/ns:recensione[@idProdotto=' . $id_prodotto . ']');
+  $root = $doc_recensioni->documentElement;
+
+  foreach ($recensioni as $recensione) {
+    $root->removeChild($recensione);
+  }
+
+  save_xml($doc_recensioni, 'recensioni');
+}
 ?>
