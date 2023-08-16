@@ -7,59 +7,54 @@ $perm_gestore = true;
 $perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/categorie.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
-require_once(RC_ROOT . '/lib/categorie.php');
+
+$aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
+
+if ($aggiungi) {
+  aggiungi_prodotto($_POST['nome'], $_POST['marca'],
+    $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
+    $_POST['quantita'], $_FILES['immagine']);
+
+  redirect(307, RC_SUBDIR . '/gestore/prodotti.php', false);
+}
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
-
-$p_nome = '';
-$p_marca = '';
-$p_descrizione = '';
-$p_costo = 0.00;
-$p_categoria = '';
-$p_quantita = '';
 
 if ($id_valido) {
   $p_id = $_GET['id'];
 
-  $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id=$p_id]");
-  if ($result->length !== 1) {
+  $p_info = ottieni_info_prodotto($p_id);
+  if (!$p_info) {
     $id_valido = false;
-  } else {
-    $prodotto = $result[0];
 
+    $p_info = [
+      'nome' => '',
+      'marca' => '',
+      'descrizione' => '',
+      'costo' => 0.01,
+      'categoria' => 1,
+      'quantita' => 0,
+    ];
+  } else {
     $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
     if ($modifica) {
-      $prodotto->getElementsByTagName('nome')[0]->textContent = $_POST['nome'];
-      $prodotto->getElementsByTagName('marca')[0]->textContent = $_POST['marca'];
-      $prodotto->getElementsByTagName('descrizione')[0]->textContent = $_POST['descrizione'];
-      $prodotto->getElementsByTagName('costo')[0]->textContent = $_POST['costo'];
-      $prodotto->getElementsByTagName('categoria')[0]->textContent = $_POST['categoria'];
-      $prodotto->getElementsByTagName('quantita')[0]->textContent = $_POST['quantita'];
+      modifica_prodotto($p_id, $_POST['nome'], $_POST['marca'],
+        $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
+        $_POST['quantita'], $_FILES['immagine']);
 
-      save_xml($doc_prodotti, 'prodotti');
-
-      $upload_ok = isset($_FILES['immagine']['error']) &&
-        $_FILES['immagine']['error'] === UPLOAD_ERR_OK;
-      if ($upload_ok) {
-        $nome_temp = $_FILES['immagine']['tmp_name'];
-        $nome_finale = RC_ROOT . '/res/img/prodotti/' . $p_id . '.png';
-        move_uploaded_file($nome_temp, $nome_finale);
-      }
+      $p_info = ottieni_info_prodotto($p_id);
     }
-
-    $p_nome = $prodotto->getElementsByTagName('nome')[0]->textContent;
-    $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
-    $p_descrizione = $prodotto->getElementsByTagName('descrizione')[0]->textContent;
-    $p_costo = $prodotto->getElementsByTagName('costo')[0]->textContent;
-    $p_categoria = $prodotto->getElementsByTagName('categoria')[0]->textContent;
-    $p_quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
   }
 }
 
 $da_modificare = $id_valido;
+
+$root_cat = $doc_categorie->documentElement;
+$categorie = $root_cat->childNodes;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -77,54 +72,69 @@ $da_modificare = $id_valido;
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2>GESTIONE PRODOTTO</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>" method="post" enctype="multipart/form-data">
+<?php
+$a_id = $da_modificare ? '?id=' . $p_id : '';
+?>
+    <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php<?php echo($a_id); ?>" method="post" enctype="multipart/form-data">
       <table class="py-1em giustificato">
         <tr>
           <td class="grassetto">Immagine:</td>
           <td class="w-100p pb-16">
+<?php
+if ($da_modificare) {
+?>
             <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+<?php
+}
+?>
             <input type="file" name="immagine" accept="image/png" />
           </td>
         </tr>
         <tr>
           <td class="grassetto">Marca:</td>
-          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="marca" value="<?php echo ($p_marca); ?>" /></td>
+          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="marca" value="<?php echo ($p_info['marca']); ?>" /></td>
         </tr>
         <tr>
           <td class="grassetto">Nome:</td>
-          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="nome" value="<?php echo ($p_nome); ?>" /></td>
+          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="nome" value="<?php echo ($p_info['nome']); ?>" /></td>
         </tr>
         <tr>
           <td class="grassetto">Descrizione:</td>
-          <td class="w-100p pb-16"><textarea class="input-flat w-100p" name="descrizione" rows="6" placeholder="Inserisci la descrizione qui"><?php echo($p_descrizione); ?></textarea></td>
+          <td class="w-100p pb-16"><textarea class="input-flat w-100p" name="descrizione" rows="6" placeholder="Inserisci la descrizione qui"><?php echo($p_info['descrizione']); ?></textarea></td>
         </tr>
         <tr>
           <td class="grassetto">Costo:</td>
-          <td class="w-100p pb-16"><input type="number" class="input-flat" name="costo" value="<?php echo ($p_costo); ?>" min="0.00" step="0.01" size="7" /></td>
+          <td class="w-100p pb-16"><input type="number" class="input-flat" name="costo" value="<?php echo ($p_info['costo']); ?>" min="0.01" step="0.01" size="7" /></td>
         </tr>
         <tr>
           <td class="grassetto">Categoria:</td>
           <td class="w-100p">
             <select name="categoria">
-              <option value="" disabled selected hidden><?php echo(ottieni_categoria($p_categoria)); ?></option>
-              <option value="1">Proteine in polvere</option>
-              <option value="2">Barrette proteiche</option>
-              <option value="3">Vitamine</option>
+<?php
+foreach ($categorie as $categoria) {
+  $c_id = $categoria->getAttribute('id');
+  $c_nome = $categoria->getElementsByTagName('nome')[0]->textContent;
+  $c_sel = $c_id === $p_info['categoria'] ? 'selected' : '';
+?>
+              <option value="<?php echo ($c_id); ?>" <?php echo ($c_sel); ?>><?php echo ($c_nome); ?></option>
+<?php
+}
+?>
             </select>
           </td>
         </tr>
         <tr>
           <td><b>Quantita:</b></td>
-          <td class="w-100p pb-16"><input type="number" class="input-flat" name="quantita" value="<?php echo ($p_quantita); ?>" min="0" step="1" size="5" /></td>
+          <td class="w-100p pb-16"><input type="number" class="input-flat" name="quantita" value="<?php echo ($p_info['quantita']); ?>" min="0" step="1" size="5" /></td>
         </tr>
       </table>
 <?php if ($da_modificare) { ?>
       <input type="hidden" name="id" value="<?php echo ($p_id); ?>" />
-      <button type="submit" name="azione" value="modifica" class="button mb-16" title="Conferma modifiche">Modifica</button><br />
+      <button type="submit" name="azione" value="modifica" class="button mb-16" title="Modifica">Modifica</button><br />
 <?php } else { ?>
       <button type="submit" name="azione" value="aggiungi" class="button mb-16" title="Aggiungi">Aggiungi</button><br />
 <?php } ?>
-      <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/prodotti.php" >Torna indietro</a>
+      <a class="button" onclick="history.back();">Torna indietro</a>
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
