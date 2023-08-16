@@ -11,6 +11,12 @@ require_once(RC_ROOT . '/lib/categorie.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
+$elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
+
+if ($elimina) {
+  elimina_prodotto($_POST['id']);
+}
+
 $root = $doc_prodotti->documentElement;
 $prodotti = $root->childNodes;
 ?>
@@ -39,6 +45,7 @@ $prodotti = $root->childNodes;
         <div class="td">Quantita</div>
         <div class="td">Visualizza</div>
         <div class="td">Modifica</div>
+        <div class="td">Elimina</div>
       </div>
 <?php
 foreach ($prodotti as $prodotto) {
@@ -57,8 +64,12 @@ foreach ($prodotti as $prodotto) {
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
         <div class="td"><?php echo($p_categoria); ?></div>
         <div class="td"><?php echo($p_quantita); ?></div>
-        <div class="td centrato" ><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
+        <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
         <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
+        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php" method="post">
+          <input type="hidden" name="id" value="<?php echo($p_id); ?>" />
+          <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
+        </form>
       </div>
 <?php
 }
