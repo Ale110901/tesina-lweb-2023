@@ -49,6 +49,15 @@ if ($id_valido) {
       $p_info = ottieni_info_prodotto($p_id);
     }
   }
+} else {
+  $p_info = [
+    'nome' => '',
+    'marca' => '',
+    'descrizione' => '',
+    'costo' => 0.01,
+    'categoria' => 1,
+    'quantita' => 0,
+  ];
 }
 
 $da_modificare = $id_valido;

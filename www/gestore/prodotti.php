@@ -34,9 +34,9 @@ $prodotti = $root->childNodes;
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
-  <div id="contenuto">
+  <div id="contenuto" class="centrato">
     <h2 class="mb-32">GESTIONE PRODOTTI</h2>
-    <div class="table mt-32 mx-auto mb-32">
+    <div class="table mt-32 mx-auto mb-32 giustificato">
       <div class="thg grassetto">
         <div class="td">Marca</div>
         <div class="td">Nome</div>
@@ -75,7 +75,11 @@ foreach ($prodotti as $prodotto) {
 }
 ?>
     </div>
-    <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
+      <p id="button">
+        <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/prodotto.php">Aggiungi prodotto</a><br />
+        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
+      </p>
+    
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
