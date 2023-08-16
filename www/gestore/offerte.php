@@ -92,6 +92,7 @@ foreach ($offerte as $offerta) {
 }
 ?>
     </div>
+    <a class="button" onclick="history.back();">Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>

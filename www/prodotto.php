@@ -95,7 +95,7 @@ if ($id_valido) {
         <div id="prod-top-mid">
           <p id="marca"><?php echo($marca); ?></p>
           <p id="nome"><?php echo($nome); ?></p>
-          <p id="descrizione"><?php echo($descrizione); ?></p>
+          <p class="mb-16" id="descrizione"><?php echo($descrizione); ?></p>
 <?php if ($e_gestore || $e_admin) { ?>
           <a class="button" href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($id_prodotto); ?>">Modifica info</a>
 <?php } ?>
