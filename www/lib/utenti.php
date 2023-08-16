@@ -94,6 +94,8 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
 function modifica_utente($id_utente, $attivo, $nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale) {
   global $doc_utenti;
 
+  $successo = true;
+
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
   $utente = $result[0];
 
@@ -103,25 +105,32 @@ function modifica_utente($id_utente, $attivo, $nome, $cognome, $email, $password
 
   if (preg_match('/^[A-Za-z0-9._\-]+@[A-Za-zA0-9._\-]+\.[A-Za-z]+$/', $email)) {
     $utente->setAttribute('email', $email);
+    $successo = false;
   }
 
   if ($password !== '') {
     $utente->getElementsByTagName('password')[0]->textContent = md5($password);
+    $successo = false;
   }
 
   if (preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
     $utente->getElementsByTagName('telefono')[0]->textContent = $telefono;
+    $successo = false;
   }
 
   if (preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
     $utente->getElementsByTagName('indirizzo')[0]->textContent = $indirizzo;
+    $successo = false;
   }
 
   if (preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
     $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $codice_fiscale;
+    $successo = false;
   }
 
   save_xml($doc_utenti, 'utenti');
+
+  return $successo;
 }
 
 function ottieni_info_utente($id_utente) {
@@ -162,6 +171,8 @@ function scala_credito($totale) {
   $credito->textContent -= $totale;
 
   save_xml($doc_utenti, 'utenti');
+
+  return true;
 }
 
 function aggiungi_bonus($bonus) {
@@ -173,5 +184,7 @@ function aggiungi_bonus($bonus) {
   $credito->textContent += $bonus;
 
   save_xml($doc_utenti, 'utenti');
+
+  return true;
 }
 ?>
