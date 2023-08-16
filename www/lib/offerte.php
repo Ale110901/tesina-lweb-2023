@@ -130,6 +130,8 @@ function elimina_offerte_prodotto($id_prodotto) {
   $root = $doc_offerte->documentElement;
   $offerte = $root->childNodes;
 
+  $da_eliminare = [];
+
   foreach ($offerte as $offerta) {
     $target = $offerta->getElementsByTagName('target')[0]->textContent;
 
@@ -140,8 +142,12 @@ function elimina_offerte_prodotto($id_prodotto) {
     $id_prod_off = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
 
     if ($id_prod_off == $id_prodotto) {
-      $root->removeChild($offerta);
+      array_push($da_eliminare, $offerta);
     }
+  }
+
+  foreach ($da_eliminare as $offerta) {
+    $root->removeChild($offerta);
   }
 
   save_xml($doc_offerte, 'offerte');
