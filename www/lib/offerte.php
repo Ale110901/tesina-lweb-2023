@@ -94,7 +94,7 @@ function offerte_applicabili($prodotto) {
         // "e' un prodotto particolare"
         $id_prod_prod = $prodotto->getAttribute('id');
         $id_prod_off = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
-        if ($id_prod_off === $id_prod_prod) {
+        if ($id_prod_off == $id_prod_prod) {
           array_push($off_app, $offerta);
         }
         break;
@@ -102,15 +102,19 @@ function offerte_applicabili($prodotto) {
         // "il prodotto e' di una determinata categoria"
         $id_cat_prod = $prodotto->getElementsByTagName('categoria')[0]->textContent;
         $id_cat_off = $offerta->getElementsByTagName('idCategoria')[0]->textContent;
-        if ($id_cat_off === $id_cat_prod) {
+        if ($id_cat_off == $id_cat_prod) {
           array_push($off_app, $offerta);
         }
         break;
       case 'eccMag':
         // "e' presente in magazzino un’eccedenza del prodotto"
+        $id_prod_prod = $prodotto->getAttribute('id');
         $qta_prod = $prodotto->getElementsByTagName('quantita')[0]->textContent;
+
+        $id_prod_off = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
         $qta_off = $offerta->getElementsByTagName('quantitaMin')[0]->textContent;
-        if ($qta_prod >= $qta_off) {
+
+        if ($id_prod_off == $id_prod_prod && $qta_prod >= $qta_off) {
           array_push($off_app, $offerta);
         }
         break;
