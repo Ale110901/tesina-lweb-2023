@@ -2,3 +2,10 @@
     display: inherit;
     padding-top: 8px;
 }
+
+select {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: azure;
+}

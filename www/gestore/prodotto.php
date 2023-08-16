@@ -9,6 +9,7 @@ $perm_admin = true;
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
+require_once(RC_ROOT . '/lib/categorie.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 
@@ -79,31 +80,38 @@ $da_modificare = $id_valido;
     <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>" method="post" enctype="multipart/form-data">
       <table class="py-1em giustificato">
         <tr>
-          <td><b>Immagine:</b></td>
+          <td class="grassetto">Immagine:</td>
           <td class="w-100p pb-16">
             <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
             <input type="file" name="immagine" accept="image/png" />
           </td>
         </tr>
         <tr>
-          <td><b>Marca:</b></td>
+          <td class="grassetto">Marca:</td>
           <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="marca" value="<?php echo ($p_marca); ?>" /></td>
         </tr>
         <tr>
-          <td><b>Nome:</b></td>
+          <td class="grassetto">Nome:</td>
           <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="nome" value="<?php echo ($p_nome); ?>" /></td>
         </tr>
         <tr>
-          <td><b>Descrizione:</b></td>
+          <td class="grassetto">Descrizione:</td>
           <td class="w-100p pb-16"><textarea class="input-flat w-100p" name="descrizione" rows="6" placeholder="Inserisci la descrizione qui"><?php echo($p_descrizione); ?></textarea></td>
         </tr>
         <tr>
-          <td><b>Costo:</b></td>
+          <td class="grassetto">Costo:</td>
           <td class="w-100p pb-16"><input type="number" class="input-flat" name="costo" value="<?php echo ($p_costo); ?>" min="0.00" step="0.01" size="7" /></td>
         </tr>
         <tr>
-          <td><b>Categoria:</b></td>
-          <td class="w-100p pb-16"><input type="text" class="input-flat w-100p" name="categoria" value="<?php echo ($p_categoria); ?>" /></td>
+          <td class="grassetto">Categoria:</td>
+          <td class="w-100p">
+            <select name="categoria">
+              <option value="" disabled selected hidden><?php echo(ottieni_categoria($p_categoria)); ?></option>
+              <option value="1">Proteine in polvere</option>
+              <option value="2">Barrette proteiche</option>
+              <option value="3">Vitamine</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td><b>Quantita:</b></td>
