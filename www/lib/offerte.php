@@ -123,4 +123,27 @@ function offerte_applicabili($prodotto) {
 
   return $off_app;
 }
+
+function elimina_offerte_prodotto($id_prodotto) {
+  global $doc_offerte;
+
+  $root = $doc_offerte->documentElement;
+  $offerte = $root->childNodes;
+
+  foreach ($offerte as $offerta) {
+    $target = $offerta->getElementsByTagName('target')[0]->textContent;
+
+    if ($target !== 'prodSpec' && $target !== 'eccMag') {
+      continue;
+    }
+
+    $id_prod_off = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
+
+    if ($id_prod_off == $id_prodotto) {
+      $root->removeChild($offerta);
+    }
+  }
+
+  save_xml($doc_offerte, 'offerte');
+}
 ?>
