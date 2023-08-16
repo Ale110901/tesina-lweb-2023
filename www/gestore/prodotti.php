@@ -23,12 +23,14 @@ $prodotti = $root->childNodes;
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotti-gestore.css" />
+
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto">
     <h2 class="mb-32">GESTIONE PRODOTTI</h2>
-    <div class="table mt-32">
+    <div class="table mt-32 mx-auto mb-32">
       <div class="thg grassetto">
         <div class="td">Marca</div>
         <div class="td">Nome</div>
@@ -55,13 +57,14 @@ foreach ($prodotti as $prodotto) {
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
         <div class="td"><?php echo($p_categoria); ?></div>
         <div class="td"><?php echo($p_quantita); ?></div>
-        <div class="td"><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x01F400</a></div>
-        <div class="td"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
+        <div class="td centrato" ><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
+        <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
       </div>
 <?php
 }
 ?>
     </div>
+    <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
