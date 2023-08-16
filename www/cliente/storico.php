@@ -3,7 +3,7 @@ require_once('../config.php');
 
 $perm_visitatore = false;
 $perm_cliente = true;
-$perm_gestore = false;
+$perm_gestore = true;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
@@ -11,7 +11,11 @@ require_once(RC_ROOT . '/lib/ordini.php');
 require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-$id_utente = $_SESSION['id_utente'];
+if ($e_cliente) {
+  $id_utente = $_SESSION['id_utente'];
+} else if ($e_gestore) {
+  $id_utente = $_GET['id'];
+}
 
 $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_utente']");
 ?>
