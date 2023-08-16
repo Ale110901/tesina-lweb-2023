@@ -15,7 +15,6 @@ $id_utente = $_SESSION['id_utente'];
 
 $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_utente']");
 ?>
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -51,6 +50,7 @@ foreach ($ordini as $ordine) {
 
   $o_prodotti = $ordine->getElementsByTagName('prodotti')[0]->childNodes;
   $o_articoli = '';
+
   foreach ($o_prodotti as $prodotto) {
     $p_id = $prodotto->getAttribute('id');
     $p_quantita = $prodotto->getAttribute('quantita');
@@ -69,7 +69,7 @@ foreach ($ordini as $ordine) {
 <?php } ?>
       </tbody>
     </table>
-    <a class="button" href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php">Torna indietro</a>
+    <a class="button" onclick="history.back();">Torna indietro</a>
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
