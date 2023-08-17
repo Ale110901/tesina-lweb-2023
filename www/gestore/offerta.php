@@ -22,16 +22,16 @@ if ($aggiungi) {
 
 $o_info = [
   'tipo' => 'sconto',
-  'percentuale' => '5',
-  'numCrediti' => '25',
-  'target' => 'eccMag',
-  'creditiSpesi' => '30',
-  'dataInizio' => '2022-05-30',
-  'reputazione' => '40',
-  'anni' => '2',
-  'idProdotto' => '4',
-  'idCategoria' => '4',
-  'quantitaMin' => '150',
+  'percentuale' => '0',
+  'numCrediti' => '0',
+  'target' => 'credData',
+  'creditiSpesi' => '0',
+  'dataInizio' => '1970-01-01',
+  'reputazione' => '0',
+  'anni' => '0',
+  'idProdotto' => '1',
+  'idCategoria' => '1',
+  'quantitaMin' => '0',
 ];
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
