@@ -13,6 +13,13 @@ div > h2 {
   text-align: center;
 }
 
+select {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: azure;
+}
+
 
 #contenuto {
   background-color: #f0d3d6;

@@ -32,6 +32,8 @@ $offerte = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta');
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/offerte-gestore.css" />
+
 </head>
 <body>
   <?php require(RC_ROOT . '/lib/header.php'); ?>
@@ -46,6 +48,7 @@ $offerte = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta');
         <div class="td">X</div>
         <div class="td">Y</div>
         <div class="td">Modifica</div>
+        <div class="td">Elimina</div>
       </div>
 <?php
 foreach ($offerte as $offerta) {
@@ -77,22 +80,28 @@ foreach ($offerte as $offerta) {
   $of_val_x = $offerta->getElementsByTagName($of_key_x)[0]->textContent;
   $of_val_y = $offerta->getElementsByTagName($of_key_y)[0]->textContent;
 ?>
-      <form class="tr" id="offerta-<?php echo($of_id); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/accesso_negato.php">
-        <input type="hidden" name="id" value="<?php echo($of_id); ?>"></input>
+      <div class="tr">
         <div class="td"><span><?php echo($of_tipo); ?></span></div>
         <div class="td"><span><?php echo($of_quantita); ?></span></div>
         <div class="td"><span><?php echo($of_target_str); ?></span></div>
         <div class="td"><span><?php echo($of_val_x); ?></span></div>
         <div class="td"><span><?php echo($of_val_y); ?></span></div>
-        <div class="td">
-          <button type="submit" name="azione" value="accetta" class="button-icona">&#x2705</button>
-        </div>
-      </form>
+        <div class="td"><a class="button-icona" href="<?php echo(RC_SUBDIR); ?>/gestore/modifica-offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
+        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.phpmodifica-offerta.php?id=<?php echo($of_id); ?>" method="post">
+          <input type="hidden" name="id" value="<?php echo($of_id); ?>" />
+          <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
+        </form>
+      </div>
 <?php
 }
 ?>
     </div>
-    <a class="button" onclick="history.back();">Torna indietro</a>
+
+    <p id="button" class="centrato">
+        <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-offerta.php">Aggiungi offerta</a><br />
+        <a class="button" onclick="history.back();">Torna indietro</a>
+    </p>
+
   </div>
 
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
