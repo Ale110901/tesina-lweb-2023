@@ -124,13 +124,15 @@ function offerte_applicabili($prodotto) {
   return $off_app;
 }
 
-function aggiungi_offerta($campi) {
+function aggiungi_offerta($id, $campi) {
   global $doc_offerte;
 
   $root = $doc_offerte->documentElement;
 
   $offerte = $root->childNodes;
-  $id = get_next_id($offerte);
+  if ($id == 0) {
+    $id = get_next_id($offerte);
+  }
 
   $offerta = $doc_offerte->createElement('offerta');
   $offerta->setAttribute('id', $id);
@@ -192,15 +194,9 @@ function aggiungi_offerta($campi) {
   save_xml($doc_offerte, 'offerte');
 }
 
-function modifica_offerta($id, $CAMPO) {
-  global $doc_offerte;
-
-  $result = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta[@id=' . $id . ']');
-  $offerta = $result[0];
-
-  $offerta->getElementsByTagName('CAMPO')[0]->textContent = $CAMPO;
-
-  save_xml($doc_offerte, 'offerte');
+function modifica_offerta($id, $campi) {
+  elimina_offerta($id);
+  aggiungi_offerta($id, $campi);
 }
 
 function elimina_offerta($id) {
