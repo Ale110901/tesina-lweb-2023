@@ -12,6 +12,7 @@ require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
+$modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
 if ($aggiungi) {
   aggiungi_prodotto($_POST['nome'], $_POST['marca'],
@@ -21,49 +22,37 @@ if ($aggiungi) {
   redirect(307, RC_SUBDIR . '/gestore/prodotti.php', false);
 }
 
+$p_info = [
+  'nome' => '',
+  'marca' => '',
+  'descrizione' => '',
+  'costo' => 0.01,
+  'categoria' => 1,
+  'quantita' => 0,
+];
+
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 
 if ($id_valido) {
   $p_id = $_GET['id'];
 
-  $p_info = ottieni_info_prodotto($p_id);
-  if (!$p_info) {
+  $p_info_t = ottieni_info_prodotto($p_id);
+  if (!$p_info_t) {
     $id_valido = false;
+  } else if ($modifica) {
+    modifica_prodotto($p_id, $_POST['nome'], $_POST['marca'],
+      $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
+      $_POST['quantita'], $_FILES['immagine']);
 
-    $p_info = [
-      'nome' => '',
-      'marca' => '',
-      'descrizione' => '',
-      'costo' => 0.01,
-      'categoria' => 1,
-      'quantita' => 0,
-    ];
+    redirect(307, RC_SUBDIR . '/gestore/prodotti.php', false);
   } else {
-    $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
-
-    if ($modifica) {
-      modifica_prodotto($p_id, $_POST['nome'], $_POST['marca'],
-        $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
-        $_POST['quantita'], $_FILES['immagine']);
-
-      $p_info = ottieni_info_prodotto($p_id);
-    }
+    $p_info = $p_info_t;
   }
-} else {
-  $p_info = [
-    'nome' => '',
-    'marca' => '',
-    'descrizione' => '',
-    'costo' => 0.01,
-    'categoria' => 1,
-    'quantita' => 0,
-  ];
 }
 
 $da_modificare = $id_valido;
 
-$root_cat = $doc_categorie->documentElement;
-$categorie = $root_cat->childNodes;
+$categorie = $doc_categorie->documentElement->childNodes;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
