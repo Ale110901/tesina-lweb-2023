@@ -23,7 +23,7 @@ require_once(RC_ROOT . '/lib/start.php');
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2 class="mb-32">DASHBOARD GESTORE</h2>
-    <ul>
+    <ul class="mb-16">
       <li id="prodotti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php">Gestione prodotti</a></li>
       <li id="offerte" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php">Gestione offerte</a></li>
       <li id="categorie" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/categorie.php">Gestione categorie</a></li>
