@@ -70,7 +70,9 @@ if (!isset($_POST['azione'])) {
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
 
+<?php if ($back_prod) { ?>
       <input type="hidden" name="id" value="<?php echo($id_prodotto); ?>" ></input>
+<?php } ?>
       <input type="hidden" name="domanda" value="<?php echo($faq_domanda); ?>" ></input>
       <input type="hidden" name="risposta" value="<?php echo($faq_risposta); ?>" ></input>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />

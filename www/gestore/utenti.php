@@ -21,6 +21,7 @@ $clienti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]')
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/utenti-gestore.css" />
 
 </head>
 <body>
@@ -44,8 +45,8 @@ foreach ($clienti as $cliente) {
       <div class="tr">
         <div class="td"><?php echo($c_nome); ?></div>
         <div class="td"><?php echo($c_cognome); ?></div>
-        <div class="td"><?php echo($c_reputazione); ?></div>
-        <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/cliente/storico.php?id=<?php echo($c_id); ?>">&#x01F000</a></div>
+        <div class="td centrato"><?php echo($c_reputazione); ?></div>
+        <div class="td centrato"><a id="icona" href="<?php echo(RC_SUBDIR); ?>/cliente/storico.php?id=<?php echo($c_id); ?>">&#x1F441</a></div>
       </div>
 <?php
 }
