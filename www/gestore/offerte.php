@@ -7,18 +7,15 @@ $perm_gestore = true;
 $perm_admin = false;
 
 require_once(RC_ROOT . '/lib/start.php');
+require_once(RC_ROOT . '/lib/categorie.php');
+require_once(RC_ROOT . '/lib/prodotti.php');
 require_once(RC_ROOT . '/lib/offerte.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
-const STR_TARGET = [
-  'credData' => 'spesi crediti X da data Y',
-  'eccMag' => 'quantita di X >= Y',
-];
+$elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
-if (!isset($_POST['azione'])) {
-  // Non fa niente
-} else if ($_POST['azione'] === 'niente') {
-  // Non fa niente nemmeno qua
+if ($elimina) {
+  elimina_offerta($_POST['id']);
 }
 
 $offerte = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta');
@@ -64,30 +61,67 @@ foreach ($offerte as $offerta) {
   }
 
   $of_target = $offerta->getElementsByTagName('target')[0]->textContent;
-  $of_target_str = STR_TARGET[$of_target];
 
   switch ($of_target) {
     case 'credData':
+      $of_desc = 'spesi crediti X da data Y';
       $of_key_x = 'creditiSpesi';
       $of_key_y = 'dataInizio';
       break;
+
+    case 'reputazione':
+      $of_desc = "reputazione >= X";
+      $of_key_x = "reputazione";
+      $of_key_y = null;
+      break;
+
+    case 'dataReg':
+      $of_desc = "cliente da X anni";
+      $of_key_x = "anni";
+      $of_key_y = null;
+      break;
+
+    case 'prodSpec':
+      $of_desc = "prodotto == X";
+      $of_key_x = "idProdotto";
+      $of_key_y = null;
+      break;
+
+    case 'categoria':
+      $of_desc = "categoria == X";
+      $of_key_x = "idCategoria";
+      $of_key_y = null;
+      break;
+
     case 'eccMag':
+      $of_desc = 'quantita di prodotto X >= Y';
       $of_key_x = 'idProdotto';
       $of_key_y = 'quantitaMin';
       break;
   }
 
   $of_val_x = $offerta->getElementsByTagName($of_key_x)[0]->textContent;
-  $of_val_y = $offerta->getElementsByTagName($of_key_y)[0]->textContent;
+
+  if ($of_key_y === null) {
+    $of_val_y = '&ndash;';
+  } else {
+    $of_val_y = $offerta->getElementsByTagName($of_key_y)[0]->textContent;
+  }
+
+  if ($of_key_x === 'idCategoria') {
+    $of_val_x = ottieni_categoria($of_val_x);
+  } else if ($of_key_x === 'idProdotto') {
+    $of_val_x = ottieni_info_prodotto($of_val_x)['nome'];
+  }
 ?>
       <div class="tr">
         <div class="td"><span><?php echo($of_tipo); ?></span></div>
         <div class="td"><span><?php echo($of_quantita); ?></span></div>
-        <div class="td"><span><?php echo($of_target_str); ?></span></div>
+        <div class="td"><span><?php echo($of_desc); ?></span></div>
         <div class="td"><span><?php echo($of_val_x); ?></span></div>
         <div class="td"><span><?php echo($of_val_y); ?></span></div>
         <div class="td"><a class="button-icona" href="<?php echo(RC_SUBDIR); ?>/gestore/modifica-offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
-        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.phpmodifica-offerta.php?id=<?php echo($of_id); ?>" method="post">
+        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php" method="post">
           <input type="hidden" name="id" value="<?php echo($of_id); ?>" />
           <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
         </form>
@@ -98,7 +132,7 @@ foreach ($offerte as $offerta) {
     </div>
 
     <p id="button" class="centrato">
-        <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-offerta.php">Aggiungi offerta</a><br />
+        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-offerta.php">Aggiungi offerta</a><br />
         <a class="button" onclick="history.back();">Torna indietro</a>
     </p>
 
