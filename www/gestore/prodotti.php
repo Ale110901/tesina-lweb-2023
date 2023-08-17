@@ -75,7 +75,7 @@ foreach ($prodotti as $prodotto) {
 }
 ?>
     </div>
-      <p id="button">
+      <p class="l-h3em">
         <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/prodotto.php">Aggiungi prodotto</a><br />
         <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
       </p>
