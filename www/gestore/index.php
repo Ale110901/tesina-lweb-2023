@@ -26,6 +26,7 @@ require_once(RC_ROOT . '/lib/start.php');
     <ul>
       <li id="prodotti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php">Gestione prodotti</a></li>
       <li id="offerte" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php">Gestione offerte</a></li>
+      <li id="categorie" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/categorie.php">Gestione categorie</a></li>
       <li id="utenti" class="mb-8"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/gestore/utenti.php">Consulta clienti</a></li>
       <li id="faq"  class="mb-16"><a class="ml-8 scelta" href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
     </ul><br />
