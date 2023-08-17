@@ -12,25 +12,39 @@ require_once(RC_ROOT . '/lib/utils.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
-$id_prodotto = 0; /* DA ULTIMARE IL RITORNA INDIETRO */
+
+$back_prod = isset($_POST['id']) && $_POST['id'] !== 0;
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'precompila') {
-  $id_prodotto = $_POST['id'];
+  if ($back_prod) {
+    $id_prodotto = $_POST['id'];
+  }
   $faq_domanda =  $_POST['domanda'];
   if(isset($_POST['risposta']) && isset($_POST['risposta']) !== '') {
     $faq_risposta = $_POST['risposta'];
   } else {
     $faq_risposta = '';
   }
+
 } else if ($_POST['azione'] === 'aggiungi' && $_POST['domanda'] !== '' && $_POST['risposta'] !== '') {
+  if ($back_prod) {
+    $id_prodotto = $_POST['id'];
+  }
+
   aggiungi_faq($_POST['domanda'], $_POST['risposta']);
   redirect(307, RC_SUBDIR . '/faq.php', false);
 } else {
+  if ($back_prod) {
+    $id_prodotto = $_POST['id'];
+  }
+
   $faq_domanda = $_POST['domanda'];
   $faq_risposta = $_POST['risposta'];
 }
+
+
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -56,10 +70,16 @@ if (!isset($_POST['azione'])) {
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
 
+      <input type="hidden" name="id" value="<?php echo($id_prodotto); ?>" ></input>
       <input type="hidden" name="domanda" value="<?php echo($faq_domanda); ?>" ></input>
       <input type="hidden" name="risposta" value="<?php echo($faq_risposta); ?>" ></input>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
-      <a class="button" href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">Torna indietro</a>
+
+<?php 
+$redirect = $back_prod ? 'href="' . RC_SUBDIR. '/prodotto.php?id=' . $id_prodotto . '"' : 'onclick="history.back();"';
+?>
+
+      <a class="button" <?php echo($redirect); ?>>Torna indietro</a>
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
