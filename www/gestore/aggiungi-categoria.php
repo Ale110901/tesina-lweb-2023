@@ -12,7 +12,7 @@ require_once(RC_ROOT . '/lib/utils.php');
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
-} else if ($_POST['azione'] === 'aggiungi') {
+} else if ($_POST['azione'] === 'aggiungi' && $_POST['nome'] !==  '') {
     aggiungi_categoria($_POST['nome']);
     redirect(307, RC_SUBDIR . '/gestore/categorie.php', false);
 }
@@ -40,7 +40,7 @@ if (!isset($_POST['azione'])) {
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
     </form>
 
-    <a class="button" onclick="history.back()">Torna indietro</a>
+    <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/categorie.php">Torna indietro</a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
