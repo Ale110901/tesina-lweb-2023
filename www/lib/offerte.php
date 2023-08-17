@@ -124,6 +124,97 @@ function offerte_applicabili($prodotto) {
   return $off_app;
 }
 
+function aggiungi_offerta($campi) {
+  global $doc_offerte;
+
+  $root = $doc_offerte->documentElement;
+
+  $offerte = $root->childNodes;
+  $id = get_next_id($offerte);
+
+  $offerta = $doc_offerte->createElement('offerta');
+  $offerta->setAttribute('id', $id);
+
+
+  $tipo = $doc_offerte->createElement('tipo', $campi['tipo']);
+  $offerta->appendChild($tipo);
+
+  if ($campi['tipo'] === 'sconto') {
+    $percentuale = $doc_offerte->createElement('percentuale', $campi['percentuale']);
+    $offerta->appendChild($percentuale);
+  } else if ($campi['tipo'] === 'bonus') {
+    $numCrediti = $doc_offerte->createElement('numCrediti', $campi['numCrediti']);
+    $offerta->appendChild($numCrediti);
+  }
+
+
+  $target = $doc_offerte->createElement('target', $campi['target']);
+  $offerta->appendChild($target);
+
+  switch ($campi['target']) {
+    case 'credData':
+      $creditiSpesi = $doc_offerte->createElement('creditiSpesi', $campi['creditiSpesi']);
+      $offerta->appendChild($creditiSpesi);
+      $dataInizio = $doc_offerte->createElement('dataInizio', $campi['dataInizio']);
+      $offerta->appendChild($dataInizio);
+      break;
+
+    case 'reputazione':
+      $reputazione = $doc_offerte->createElement('reputazione', $campi['reputazione']);
+      $offerta->appendChild($reputazione);
+      break;
+
+    case 'dataReg':
+      $anni = $doc_offerte->createElement('anni', $campi['anni']);
+      $offerta->appendChild($anni);
+      break;
+
+    case 'prodSpec':
+      $idProdotto = $doc_offerte->createElement('idProdotto', $campi['idProdotto']);
+      $offerta->appendChild($idProdotto);
+      break;
+
+    case 'categoria':
+      $idCategoria = $doc_offerte->createElement('idCategoria', $campi['idCategoria']);
+      $offerta->appendChild($idCategoria);
+      break;
+
+    case 'eccMag':
+      $idProdotto = $doc_offerte->createElement('idProdotto', $campi['idProdotto']);
+      $offerta->appendChild($idProdotto);
+      $quantitaMin = $doc_offerte->createElement('quantitaMin', $campi['quantitaMin']);
+      $offerta->appendChild($quantitaMin);
+      break;
+  }
+
+  $root->appendChild($offerta);
+
+  save_xml($doc_offerte, 'offerte');
+}
+
+function modifica_offerta($id, $CAMPO) {
+  global $doc_offerte;
+
+  $result = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta[@id=' . $id . ']');
+  $offerta = $result[0];
+
+  $offerta->getElementsByTagName('CAMPO')[0]->textContent = $CAMPO;
+
+  save_xml($doc_offerte, 'offerte');
+}
+
+function elimina_offerta($id) {
+  global $doc_offerte;
+
+  $result = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta[@id=' . $id . ']');
+  $offerta = $result[0];
+
+  $offerte = $offerta->parentNode;
+  $offerte->removeChild($offerta);
+
+  save_xml($doc_offerte, 'offerte');
+}
+
 function elimina_offerte_prodotto($id_prodotto) {
   global $doc_offerte;
 
