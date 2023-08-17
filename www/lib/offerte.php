@@ -243,4 +243,68 @@ function elimina_offerte_prodotto($id_prodotto) {
 
   save_xml($doc_offerte, 'offerte');
 }
+
+function ottieni_info_offerta($id) {
+  global $doc_offerte;
+
+  $result = xpath($doc_offerte, 'offerte', "/ns:offerte/ns:offerta[@id=$id]");
+  if ($result->length !== 1) {
+    return null;
+  }
+
+  $offerta = $result[0];
+
+  $result = [
+    'percentuale' => 0,
+    'numCrediti' => 0,
+    'creditiSpesi' => 0,
+    'dataInizio' => '1970-01-01',
+    'reputazione' => 0,
+    'anni' => 0,
+    'idProdotto' => 1,
+    'idCategoria' => 1,
+    'quantitaMin' => 0,
+  ];
+
+  $result['tipo'] = $offerta->getElementsByTagName('tipo')[0]->textContent;
+
+  if ($result['tipo'] === 'sconto') {
+    $result['percentuale'] = $offerta->getElementsByTagName('percentuale')[0]->textContent;
+  } else if ($result['tipo'] === 'bonus') {
+    $result['numCrediti'] = $offerta->getElementsByTagName('numCrediti')[0]->textContent;
+  }
+
+  $result['target'] = $offerta->getElementsByTagName('target')[0]->textContent;
+
+  switch ($result['target']) {
+    case 'credData':
+      $result['creditiSpesi'] = $offerta->getElementsByTagName('creditiSpesi')[0]->textContent;
+      $result['dataInizio'] = $offerta->getElementsByTagName('dataInizio')[0]->textContent;
+      break;
+
+    case 'reputazione':
+      $result['reputazione'] = $offerta->getElementsByTagName('reputazione')[0]->textContent;
+      break;
+
+    case 'dataReg':
+      $result['anni'] = $offerta->getElementsByTagName('anni')[0]->textContent;
+      break;
+
+    case 'prodSpec':
+      $result['idProdotto'] = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
+      break;
+
+    case 'categoria':
+      $result['idCategoria'] = $offerta->getElementsByTagName('idCategoria')[0]->textContent;
+      break;
+
+    case 'eccMag':
+      $result['idProdotto'] = $offerta->getElementsByTagName('idProdotto')[0]->textContent;
+      $result['quantitaMin'] = $offerta->getElementsByTagName('quantitaMin')[0]->textContent;
+      break;
+  }
+
+
+  return $result;
+}
 ?>
