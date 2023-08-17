@@ -120,7 +120,7 @@ foreach ($offerte as $offerta) {
         <div class="td"><span><?php echo($of_desc); ?></span></div>
         <div class="td"><span><?php echo($of_val_x); ?></span></div>
         <div class="td"><span><?php echo($of_val_y); ?></span></div>
-        <div class="td"><a class="button-icona" href="<?php echo(RC_SUBDIR); ?>/gestore/modifica-offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
+        <div class="td"><a class="button-icona" href="<?php echo(RC_SUBDIR); ?>/gestore/offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
         <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php" method="post">
           <input type="hidden" name="id" value="<?php echo($of_id); ?>" />
           <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
@@ -132,7 +132,7 @@ foreach ($offerte as $offerta) {
     </div>
 
     <p id="button" class="centrato">
-        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-offerta.php">Aggiungi offerta</a><br />
+        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/offerta.php">Aggiungi offerta</a><br />
         <a class="button" onclick="history.back();">Torna indietro</a>
     </p>
 
