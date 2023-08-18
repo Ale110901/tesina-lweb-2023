@@ -27,9 +27,9 @@ require_once(RC_ROOT . '/lib/start.php');
     <h2 class="corsivo my-32">Il tuo negozio di fiducia per prodotti sportivi</h2>
     <a class="button my-32" href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Vai al catalogo</a>
 <?php if ($e_gestore) { ?>
-    <p class="my-32"><a class="link my-32" href="<?php echo(RC_SUBDIR); ?>/gestore/index.php">Dashboard gestore</a></p>
+    <p class="my-32"><a class="link" href="<?php echo(RC_SUBDIR); ?>/gestore/index.php">Vai alla dashboard</a></p>
 <?php } else if ($e_admin) { ?>
-    <p class="my-32"><a class="link my-32" href="<?php echo(RC_SUBDIR); ?>/admin/index.php">Dashboard admin</a></p>
+    <p class="my-32"><a class="link" href="<?php echo(RC_SUBDIR); ?>/admin/index.php">Vai alla dashboard</a></p>
 <?php } ?>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
