@@ -139,9 +139,20 @@ function ottieni_info_utente($id_utente) {
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']");
   $utente = $result[0];
 
+  $tipo = $utente->getAttribute('tipo');
+
   $nome = $utente->getElementsByTagName('nome')[0]->textContent;
   $cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
   $email = $utente->getAttribute('email');
+
+  if ($tipo === 'gestore' || $tipo === 'admin') {
+    return [
+      'nome' => $nome,
+      'cognome' => $cognome,
+      'email' => $email
+    ];
+  }
+
   $telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
   $indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
   $codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
@@ -158,7 +169,7 @@ function ottieni_info_utente($id_utente) {
     'codice_fiscale' => $codice_fiscale,
     'credito' => $credito,
     'reputazione' => $reputazione,
-    'data_reg' => $data_reg,
+    'data_reg' => $data_reg
   ];
 }
 
@@ -186,5 +197,18 @@ function aggiungi_bonus($bonus) {
   save_xml($doc_utenti, 'utenti');
 
   return true;
+}
+
+function trova_gestore($id) {
+  global $doc_utenti;
+
+  $utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id . ']')[0];
+
+  $tipo_ut = $utente->getAttribute('tipo');
+    if ($tipo_ut === 'gestore') {
+      return true;
+    }
+
+  return false;
 }
 ?>
