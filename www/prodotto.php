@@ -17,6 +17,7 @@ require_once(RC_ROOT . '/lib/xml.php');
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 $aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
 $rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione';
+$elimina_rec = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
@@ -46,6 +47,12 @@ if ($id_valido) {
       $contenuto = $_POST['contenuto'];
 
       aggiungi_recensione($id_prodotto, $contenuto);
+    }
+
+    if ($elimina_rec) {
+      $id_recensione = $_POST['id_recensione'];
+
+      elimina_recensione($id_recensione);
     }
 
     if ($rating_rec) {
@@ -211,6 +218,9 @@ if ($id_valido) {
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
               </p>
             </div>
+<?php if ($e_gestore) { ?>
+            <button type="submit" form="rec_rat_<?php echo($id_recensione); ?>" class="button-icona" name="azione" value="elimina" title="elimina recensione">&#x01F5D1</button>
+<?php } ?>
 <?php } ?>
           </div>
           <div class="fb-80">
