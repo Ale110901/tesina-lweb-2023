@@ -45,7 +45,11 @@ function setCampo(prefisso, id, campo, valore) {
 }
 
 function mostraAggiuntaRecensione(){
-  document.getElementById('recensione_nuova').classList.toggle("nascosto");;
+  document.getElementById('recensione_nuova').classList.toggle("nascosto");
+}
+
+function mostraAggiuntaRisposta(id){
+  document.getElementById('form-risposta-' + id).classList.toggle("nascosto");
 }
 
 function mostraRisposte(id) {

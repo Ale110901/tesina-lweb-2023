@@ -281,7 +281,15 @@ if ($id_valido) {
             </div>
             <div class="fb-20">
               Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
-              <p>da <i><?php echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']); ?></i> </p>
+              <p>da <i>
+<?php echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']); 
+  if(trova_gestore($id_ut_r)) { ?>
+                        <span class="grassetto">
+                          [GESTORE]
+                        </span>
+<?php } ?>
+                    </i> 
+              </p>
             </div>
             <div class="fb-20">
               Form rating
@@ -289,8 +297,19 @@ if ($id_valido) {
           </div>
           <hr id="separa-risp"/>
 <?php
-    }
+    }                 /* da implementare funzione di aggiunta (eliminazione?) */
+$controllo_r = presenza_gestore_risposta($id_domanda, $id_prodotto) ? 'disabled' : '';
 ?>
+          <button type="submit" class="button mt-16" name="azione" value="nuova_risposta" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);" <?php echo($controllo_r); ?>>Rispondi</button>
+          <div id="form-risposta-<?php echo($id_domanda); ?>" class="nascosto">
+            <form method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php">
+              <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+              <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
+              <textarea class="input-flat w-50p mt-16" name="valore_risposta_nuova"  rows="6" placeholder="Inserisci la tua risposta"></textarea>
+              <button type="submit" class="button ml-8" name="azione" value="nuova_risposta">Invia</button>
+            </form>
+          </div>
+
 <?php if ($e_gestore || $e_admin) { ?>
           <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
             <input type="hidden" name="domanda" value="<?php echo($contenuto_d); ?>"></input>

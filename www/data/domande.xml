@@ -33,6 +33,17 @@
           </rating>
         </ratings>
       </risposta>
+      <risposta id="3">
+        <idUtente>2</idUtente>
+        <contenuto>Risposta gestore</contenuto>
+        <ratings>
+          <rating>
+            <idUtente>1</idUtente>
+            <supporto>3</supporto>
+            <utilita>5</utilita>
+          </rating>
+        </ratings>
+      </risposta>
     </risposte>
   </domanda>
   <domanda id="2" idProdotto="1">

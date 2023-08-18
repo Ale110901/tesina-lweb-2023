@@ -27,4 +27,24 @@ function elimina_domande($id_prodotto) {
 
   save_xml($doc_domande, 'domande');
 }
+
+function presenza_gestore_risposta($id_domanda, $id_prodotto) {
+  global $doc_domande;
+  $trovato = false;
+
+  $domande = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@id='. $id_domanda .' and @idProdotto='. $id_prodotto .']');
+
+  foreach ($domande as $domanda) {
+    $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;
+    foreach ($risposte as $risposta) {
+      $id_ut_r = $risposta->getElementsByTagName('idUtente')[0]->textContent;
+      $trovato = trova_gestore($id_ut_r);
+      if ($trovato) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
 ?>
