@@ -12,6 +12,7 @@ require_once(RC_ROOT . '/lib/utils.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
+$errore = true;
 
 $back_prod = isset($_POST['id']) && $_POST['id'] !== 0;
 
@@ -36,10 +37,10 @@ if (!isset($_POST['azione'])) {
   aggiungi_faq($_POST['domanda'], $_POST['risposta']);
   redirect(307, RC_SUBDIR . '/faq.php', false);
 } else {
+  $errore = false;
   if ($back_prod) {
     $id_prodotto = $_POST['id'];
   }
-
   $faq_domanda = $_POST['domanda'];
   $faq_risposta = $_POST['risposta'];
 }
@@ -73,8 +74,6 @@ if (!isset($_POST['azione'])) {
 <?php if ($back_prod) { ?>
       <input type="hidden" name="id" value="<?php echo($id_prodotto); ?>" ></input>
 <?php } ?>
-      <input type="hidden" name="domanda" value="<?php echo($faq_domanda); ?>" ></input>
-      <input type="hidden" name="risposta" value="<?php echo($faq_risposta); ?>" ></input>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
 
 <?php 
@@ -82,6 +81,13 @@ $redirect = $back_prod ? 'href="' . RC_SUBDIR. '/prodotto.php?id=' . $id_prodott
 ?>
 
       <a class="button" <?php echo($redirect); ?>>Torna indietro</a>
+
+<?php if(!$errore) { ?>
+  <p class="mt-32 grassetto">
+    &#x26a0; inserire tutti i campi!
+  </p>
+<?php } ?>
+
     </form>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
