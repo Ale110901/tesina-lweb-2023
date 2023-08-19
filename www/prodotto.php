@@ -18,6 +18,7 @@ $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 $aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
 $rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione';
 $elimina_rec = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
+$aggiungi_risp = isset($_POST['azione']) && $_POST['azione'] === 'nuova_risposta';
 
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
@@ -44,15 +45,22 @@ if ($id_valido) {
 
 
     if ($aggiungi_rec) {
-      $contenuto = $_POST['contenuto'];
+      $contenuto_re = $_POST['contenuto'];
 
-      aggiungi_recensione($id_prodotto, $contenuto);
+      aggiungi_recensione($id_prodotto, $contenuto_re);
     }
 
     if ($elimina_rec) {
       $id_recensione = $_POST['id_recensione'];
 
       elimina_recensione($id_recensione);
+    }
+
+    if ($aggiungi_risp && isset($_POST['valore_risposta_nuova'])) {
+      $id_domanda = $_POST['id_domanda'];
+      $contenuto_r = $_POST['valore_risposta_nuova'];
+
+      aggiungi_risposta($id_prodotto, $id_domanda, $contenuto_r);
     }
 
     if ($rating_rec) {
@@ -300,13 +308,14 @@ if ($id_valido) {
     }                 /* da implementare funzione di aggiunta (eliminazione?) */
 $controllo_r = presenza_gestore_risposta($id_domanda, $id_prodotto) ? 'disabled' : '';
 ?>
-          <button type="submit" class="button mt-16" name="azione" value="nuova_risposta" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);" <?php echo($controllo_r); ?>>Rispondi</button>
+          <button type="submit" class="button mt-16" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);" <?php echo($controllo_r); ?>>Rispondi</button>
           <div id="form-risposta-<?php echo($id_domanda); ?>" class="nascosto">
-            <form method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php">
+            <form method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
-              <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
               <textarea class="input-flat w-50p mt-16" name="valore_risposta_nuova"  rows="6" placeholder="Inserisci la tua risposta"></textarea>
+
               <button type="submit" class="button ml-8" name="azione" value="nuova_risposta">Invia</button>
+              <p class="grassetto nascosto">&#x26a0; Inserire la risposta!</p>
             </form>
           </div>
 
