@@ -48,8 +48,26 @@ function mostraAggiuntaRecensione(){
   document.getElementById('recensione_nuova').classList.toggle("nascosto");
 }
 
+function mostraAggiuntaDomande(){
+  document.getElementById('domanda_nuova').classList.toggle("nascosto");
+}
+
 function mostraAggiuntaRisposta(id){
   document.getElementById('form-risposta-' + id).classList.toggle("nascosto");
+}
+
+function gestisciTextarea() {   /* NON FUNZIONA */
+  var valoreRispostaTextarea = document.getElementById('valore_risposta');
+  var inviaRispostaButton = document.getElementById('invia_risposta');
+  var avvisoMessaggio = document.getElementById('messaggio');
+
+  console.log(valoreRispostaTextarea.textContent);
+
+  if (valoreRispostaTextarea.textContent.trim() === "") {
+    avvisoMessaggio.classList.remove('nascosto');
+  } else {
+    inviaRispostaButton.disabled = false;
+  }
 }
 
 function mostraRisposte(id) {
