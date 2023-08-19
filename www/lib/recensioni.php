@@ -32,6 +32,8 @@ function aggiungi_recensione($id_prodotto, $contenuto) {
 
   save_xml($doc_recensioni, 'recensioni');
 
+  $doc_recensioni = load_xml('recensioni');
+
   return true;
 }
 
