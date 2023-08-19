@@ -28,6 +28,32 @@ function elimina_domande($id_prodotto) {
   save_xml($doc_domande, 'domande');
 }
 
+function aggiungi_domanda($id_prodotto, $contenuto_dom) {
+  global $doc_domande;
+  $id_ut = $_SESSION['id_utente'];
+
+  $root = $doc_domande->documentElement;
+  $domande = $root->childNodes;
+
+  $nuova_domanda = $doc_domande->createElement('domanda');
+
+  $id = get_next_id($domande);
+  $nuova_domanda->setAttribute('id', $id);
+  $nuova_domanda->setAttribute('idProdotto', $id_prodotto);
+
+  $id_d = $doc_domande->createElement('idUtente', $id_ut);
+  $nuova_domanda->appendChild($id_d);
+  
+  $contenuto = $doc_domande->createElement('contenuto', $contenuto_dom);
+  $nuova_domanda->appendChild($contenuto);
+
+  $root->appendChild($nuova_domanda);
+
+  save_xml($doc_domande, 'domande');
+
+  return true;
+}
+
 function aggiungi_risposta($id_prodotto, $id_domanda, $contenuto_r) {
   global $doc_domande;
   $id_ut = $_SESSION['id_utente'];
