@@ -10,13 +10,18 @@ require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/categorie.php');
 require_once(RC_ROOT . '/lib/utils.php');
 
+$errore = false;
+
 if (!isset($_POST['azione'])) {
   // Non fa niente
-} else if ($_POST['azione'] === 'aggiungi' && $_POST['nome'] !==  '') {
+} else if ($_POST['azione'] === 'aggiungi') {
+  if ($_POST['nome'] !==  '') {
     aggiungi_categoria($_POST['nome']);
     redirect(307, RC_SUBDIR . '/gestore/categorie.php', false);
+  } else {
+    $errore = true;
+  }
 }
-
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -39,7 +44,11 @@ if (!isset($_POST['azione'])) {
       </div>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
     </form>
-
+<?php if ($errore) { ?>
+    <p class="mb-32 grassetto">
+      &#x26a0; inserire tutti i campi!
+    </p>
+<?php } ?>
     <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/categorie.php">Torna indietro</a>
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>

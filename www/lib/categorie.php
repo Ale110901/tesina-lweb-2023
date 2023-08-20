@@ -14,7 +14,7 @@ function ottieni_categoria($id_categoria) {
   }
 }
 
-function elimina_categoria ($id) {
+function elimina_categoria($id) {
   global $doc_categorie;
 
   $result = xpath($doc_categorie, 'categorie', '/ns:categorie/ns:categoria[@id=' . $id . ']');
@@ -24,6 +24,8 @@ function elimina_categoria ($id) {
   $categorie->removeChild($categoria);
 
   save_xml($doc_categorie, 'categorie');
+
+  return true;
 }
 
 function aggiungi_categoria($nome) {
@@ -43,5 +45,7 @@ function aggiungi_categoria($nome) {
   $root->appendChild($categoria);
 
   save_xml($doc_categorie, 'categorie');
+
+  return true;
 }
 ?>
