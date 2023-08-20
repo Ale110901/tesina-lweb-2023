@@ -13,7 +13,7 @@ require_once(RC_ROOT . '/lib/xml.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
-$errore = true;
+$errore = false;
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 
@@ -26,15 +26,18 @@ if ($id_valido) {
     $id_valido = false;
   } else {
     $faq = $result[0];
-   
+
     $faq_domanda = $faq->getElementsByTagName('domanda')[0]->textContent;
     $faq_risposta = $faq->getElementsByTagName('risposta')[0]->textContent;
 
     $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
     if ($modifica) {
-      $errore = isset($_POST['domanda']) && $_POST['domanda'] !== '' && isset($_POST['risposta']) && $_POST['risposta'] !== '';
-      if ($errore) {
+      $ce_domanda = isset($_POST['domanda']) && $_POST['domanda'] !== '';
+      $ce_risposta = isset($_POST['risposta']) && $_POST['risposta'] !== '';
+      $errore = !$ce_domanda || !$ce_risposta;
+
+      if (!$errore) {
         $faq_id = $_POST['id'];
         $faq_domanda =  $_POST['domanda'];
         $faq_risposta = $_POST['risposta'];
@@ -42,9 +45,14 @@ if ($id_valido) {
         modifica_faq($faq_id, $_POST['domanda'], $_POST['risposta']);
 
         redirect(307, RC_SUBDIR . '/faq.php', false);
-      } else if (isset($_POST['domanda']) || isset($_POST['risposta'])) {
-        $faq_domanda = $_POST['domanda'];
-        $faq_risposta = $_POST['risposta'];
+      } else {
+        if (isset($_POST['domanda'])) {
+          $faq_domanda = $_POST['domanda'];
+        }
+
+        if (isset($_POST['risposta'])) {
+          $faq_risposta = $_POST['risposta'];
+        }
       }
     }
   }
@@ -77,7 +85,7 @@ if ($id_valido) {
       <button type="submit" class="button mb-16" name="azione" value="modifica">Modifica</button><br />
       <a class="button" href="<?php echo(RC_SUBDIR);?>/faq.php" >Torna indietro</a>
 
-<?php if(!$errore) { ?>
+<?php if ($errore) { ?>
       <p class="mt-32 grassetto">
         &#x26a0; inserire tutti i campi!
       </p>

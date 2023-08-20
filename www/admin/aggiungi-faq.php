@@ -12,40 +12,33 @@ require_once(RC_ROOT . '/lib/utils.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
-$errore = true;
+$errore = false;
 
 $back_prod = isset($_POST['id']) && $_POST['id'] !== 0;
+if ($back_prod) {
+  $id_prodotto = $_POST['id'];
+}
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'precompila') {
-  if ($back_prod) {
-    $id_prodotto = $_POST['id'];
-  }
   $faq_domanda =  $_POST['domanda'];
-  if(isset($_POST['risposta']) && isset($_POST['risposta']) !== '') {
+
+  if (isset($_POST['risposta']) && $_POST['risposta'] !== '') {
     $faq_risposta = $_POST['risposta'];
   } else {
     $faq_risposta = '';
   }
-
-} else if ($_POST['azione'] === 'aggiungi' && $_POST['domanda'] !== '' && $_POST['risposta'] !== '') {
-  if ($back_prod) {
-    $id_prodotto = $_POST['id'];
+} else if ($_POST['azione'] === 'aggiungi') {
+  if ($_POST['domanda'] !== '' && $_POST['risposta'] !== '') {
+    aggiungi_faq($_POST['domanda'], $_POST['risposta']);
+    redirect(307, RC_SUBDIR . '/faq.php', false);
+  } else {
+    $errore = true;
+    $faq_domanda = $_POST['domanda'];
+    $faq_risposta = $_POST['risposta'];
   }
-
-  aggiungi_faq($_POST['domanda'], $_POST['risposta']);
-  redirect(307, RC_SUBDIR . '/faq.php', false);
-} else {
-  $errore = false;
-  if ($back_prod) {
-    $id_prodotto = $_POST['id'];
-  }
-  $faq_domanda = $_POST['domanda'];
-  $faq_risposta = $_POST['risposta'];
 }
-
-
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -76,16 +69,15 @@ if (!isset($_POST['azione'])) {
 <?php } ?>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
 
-<?php 
-$redirect = $back_prod ? 'href="' . RC_SUBDIR. '/prodotto.php?id=' . $id_prodotto . '"' : 'onclick="history.back();"';
+<?php
+$a_href = 'href="' . RC_SUBDIR . '/prodotto.php?id=' . $id_prodotto . '"';
+$a_redir = $back_prod ? $a_href : 'onclick="history.back();"';
 ?>
-
-      <a class="button" <?php echo($redirect); ?>>Torna indietro</a>
-
-<?php if(!$errore) { ?>
-  <p class="mt-32 grassetto">
-    &#x26a0; inserire tutti i campi!
-  </p>
+      <a class="button" <?php echo($a_redir); ?>>Torna indietro</a>
+<?php if ($errore) { ?>
+      <p class="mt-32 grassetto">
+        &#x26a0; inserire tutti i campi!
+      </p>
 <?php } ?>
 
     </form>
