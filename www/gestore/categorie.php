@@ -59,7 +59,7 @@ foreach ($categorie as $categoria) {
         <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-categoria.php">Aggiungi categoria</a><br />
         <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
       </p>
-    
+
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>

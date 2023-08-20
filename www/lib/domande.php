@@ -47,7 +47,7 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
 
   $id_d = $doc_domande->createElement('idUtente', $id_ut);
   $nuova_domanda->appendChild($id_d);
-  
+
   $contenuto = $doc_domande->createElement('contenuto', $contenuto_dom);
   $nuova_domanda->appendChild($contenuto);
 

@@ -79,7 +79,7 @@ foreach ($prodotti as $prodotto) {
         <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/prodotto.php">Aggiungi prodotto</a><br />
         <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
       </p>
-    
+
   </div>
   <?php require(RC_ROOT . '/lib/footer.php'); ?>
 </body>
