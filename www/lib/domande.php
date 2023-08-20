@@ -13,6 +13,8 @@ function elimina_domanda($id) {
   $domande->removeChild($domanda);
 
   save_xml($doc_domande, 'domande');
+
+  return true;
 }
 
 function elimina_domande($id_prodotto) {
@@ -26,6 +28,8 @@ function elimina_domande($id_prodotto) {
   }
 
   save_xml($doc_domande, 'domande');
+
+  return true;
 }
 
 function aggiungi_domanda($id_prodotto, $contenuto_dom) {

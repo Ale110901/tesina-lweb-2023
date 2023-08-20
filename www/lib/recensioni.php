@@ -63,6 +63,8 @@ function elimina_recensione($id) {
   $recensioni->removeChild($recensione);
 
   save_xml($doc_recensioni, 'recensioni');
+
+  return true;
 }
 
 function elimina_recensioni($id_prodotto) {
@@ -76,5 +78,7 @@ function elimina_recensioni($id_prodotto) {
   }
 
   save_xml($doc_recensioni, 'recensioni');
+
+  return true;
 }
 ?>
