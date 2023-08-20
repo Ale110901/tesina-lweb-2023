@@ -189,13 +189,8 @@ function modifica_credito($diff) {
 function trova_gestore($id) {
   global $doc_utenti;
 
-  $utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id . ']')[0];
+  $result = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id . ' and @tipo="gestore"]');
 
-  $tipo_ut = $utente->getAttribute('tipo');
-    if ($tipo_ut === 'gestore') {
-      return true;
-    }
-
-  return false;
+  return $result->length > 0;
 }
 ?>
