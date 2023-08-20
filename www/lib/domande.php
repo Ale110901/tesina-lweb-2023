@@ -58,18 +58,18 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   return true;
 }
 
-function aggiungi_risposta($id_prodotto, $id_domanda, $contenuto_r) {
+function aggiungi_risposta($id_domanda, $contenuto_r) {
   global $doc_domande;
-  $id_ut = $_SESSION['id_utente'];
 
-  $arr_risposte = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@idProdotto=' . $id_prodotto . ' and @id='. $id_domanda .']/ns:risposte/ns:risposta');
-  $risposte = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@idProdotto=' . $id_prodotto . ' and @id='. $id_domanda .']/ns:risposte')[0];
-  
+  $risposte = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@id=' . $id_domanda . ']/ns:risposte')[0];
+
   $nuova_risposta = $doc_domande->createElement('risposta');
 
+  $arr_risposte = $risposte->childNodes;
   $id = get_next_id($arr_risposte);
   $nuova_risposta->setAttribute('id', $id);
 
+  $id_ut = $_SESSION['id_utente'];
   $el_id_ut = $doc_domande->createElement('idUtente', $id_ut);
   $nuova_risposta->appendChild($el_id_ut);
 

@@ -15,10 +15,12 @@ require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
+
 $aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recensione';
+$elimina_rec = isset($_POST['azione']) && $_POST['azione'] === 'elimina_recensione';
 $rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione';
-$elimina_rec = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
-$aggiungi_risp = isset($_POST['azione']) && $_POST['azione'] === 'nuova_risposta';
+
+$aggiungi_risp = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_risposta';
 $aggiungi_dom = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_domanda';
 
 if ($id_valido) {
@@ -46,15 +48,15 @@ if ($id_valido) {
 
 
     if ($aggiungi_rec) {
-      $contenuto_re = $_POST['contenuto'];
+      $contenuto = $_POST['recensione'];
 
-      aggiungi_recensione($id_prodotto, $contenuto_re);
+      aggiungi_recensione($id_prodotto, $contenuto);
     }
 
     if ($aggiungi_dom) {
-      $contenuto_dom = $_POST['contenuto'];
+      $contenuto = $_POST['domanda'];
 
-      aggiungi_domanda($id_prodotto, $contenuto_dom);
+      aggiungi_domanda($id_prodotto, $contenuto);
     }
 
     if ($elimina_rec) {
@@ -63,11 +65,11 @@ if ($id_valido) {
       elimina_recensione($id_recensione);
     }
 
-    if ($aggiungi_risp && isset($_POST['valore_risposta_nuova'])) {
+    if ($aggiungi_risp) {
       $id_domanda = $_POST['id_domanda'];
-      $contenuto_r = $_POST['valore_risposta_nuova'];
+      $contenuto = $_POST['risposta'];
 
-      aggiungi_risposta($id_prodotto, $id_domanda, $contenuto_r);
+      aggiungi_risposta($id_domanda, $contenuto);
     }
 
     if ($rating_rec) {
@@ -76,12 +78,11 @@ if ($id_valido) {
       $utilita = $_POST['rec_util'];
       $id_ut_rec_agg = $_POST['utente_recensione'];
 
-      aggiorna_reputazione($id_ut_rec_agg, $id_prodotto, $supporto, $utilita);
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
+      aggiorna_reputazione($id_ut_rec_agg, $id_prodotto, $supporto, $utilita);
     }
 
     $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
-
 
     $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
@@ -164,7 +165,7 @@ if ($id_valido) {
 ?>
           <button id="button-recensione" onclick="mostraAggiuntaRecensione()">&#x1F4DD Scrivi una nuova recensione</button><br />
           <form method="post" id="recensione_nuova" class="nascosto mt-16">
-            <textarea id="input-recensione" class="input-flat" name="contenuto" rows="6"></textarea>
+            <textarea id="input-recensione" class="input-flat" name="recensione" rows="6"></textarea>
             <button type="submit" onclick="mostraAggiuntaRecensione()" name="azione" value="aggiungi_recensione" class="ml-8" title="Invia recensione">&#x2714</button>
           </form>
 <?php
@@ -234,7 +235,7 @@ if ($id_valido) {
               </p>
             </div>
 <?php if ($e_gestore) { ?>
-            <button type="submit" form="rec_rat_<?php echo($id_recensione); ?>" class="button-icona" name="azione" value="elimina" title="elimina recensione">&#x01F5D1</button>
+            <button type="submit" form="rec_rat_<?php echo($id_recensione); ?>" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
 <?php } ?>
 <?php } ?>
           </div>
@@ -251,7 +252,7 @@ if ($id_valido) {
 
         <button id="button-recensione" class="mt-16" onclick="mostraAggiuntaDomande()">&#x1F4DD Scrivi una nuova domanda</button><br />
           <form method="post" id="domanda_nuova" class="nascosto mt-16">
-            <textarea class="input-flat" name="contenuto" rows="6"></textarea>
+            <textarea class="input-flat" name="domanda" rows="6"></textarea>
             <button type="submit" onclick="mostraAggiuntaDomande()" name="azione" value="aggiungi_domanda" class="ml-8" title="Invia domanda">&#x2714</button>
           </form>
 
@@ -334,7 +335,7 @@ if ($id_valido) {
           <form id="risp-dom-<?php echo($id_domanda); ?>" class="nascosto" method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
             <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
             <textarea class="input-flat w-50p mt-16" name="risposta" rows="6" placeholder="Inserisci la tua risposta" oninput="gestisciTextarea(<?php echo($id_domanda); ?>);"></textarea>
-            <button type="submit" class="button ml-8" name="azione" value="nuova_risposta" disabled>Invia</button>
+            <button type="submit" class="button ml-8" name="azione" value="aggiungi_risposta" disabled>Invia</button>
             <p id="msg-risp-<?php echo($id_domanda); ?>" class="grassetto nascosto">&#x26a0; Inserire la risposta!</p>
           </form>
 
