@@ -320,17 +320,18 @@ if ($id_valido) {
           <hr id="separa-risp"/>
 <?php
     }
-$controllo_r = presenza_gestore_risposta($id_domanda, $id_prodotto) ? 'disabled' : '';
+    if (!presenza_gestore_risposta($id_domanda)) {
 ?>
-          <button type="submit" class="button mt-16" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);" <?php echo($controllo_r); ?>>Rispondi</button>
-          <div id="form-risposta-<?php echo($id_domanda); ?>" class="nascosto">
-            <form method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
-              <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
-              <textarea id="valore_risposta" class="input-flat w-50p mt-16" name="valore_risposta_nuova" rows="6" placeholder="Inserisci la tua risposta" oninput="gestisciTextarea();"></textarea>
-              <button id="invia_risposta" type="submit" class="button ml-8" name="azione" value="nuova_risposta" disabled>Invia</button>
-              <p id="messaggio" class="grassetto nascosto">&#x26a0; Inserire la risposta!</p>
-            </form>
-          </div>
+          <button type="submit" class="button mt-16" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);">Rispondi</button>
+<?php
+}
+?>
+          <form id="risp-dom-<?php echo($id_domanda); ?>" class="nascosto" method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
+            <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+            <textarea class="input-flat w-50p mt-16" name="risposta" rows="6" placeholder="Inserisci la tua risposta" oninput="gestisciTextarea(<?php echo($id_domanda); ?>);"></textarea>
+            <button type="submit" class="button ml-8" name="azione" value="nuova_risposta" disabled>Invia</button>
+            <p id="msg-risp-<?php echo($id_domanda); ?>" class="grassetto nascosto">&#x26a0; Inserire la risposta!</p>
+          </form>
 
 <?php if ($e_gestore || $e_admin) { ?>
           <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">

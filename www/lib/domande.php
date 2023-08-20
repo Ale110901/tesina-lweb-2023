@@ -79,11 +79,11 @@ function aggiungi_risposta($id_prodotto, $id_domanda, $contenuto_r) {
   return true;
 }
 
-function presenza_gestore_risposta($id_domanda, $id_prodotto) {
+function presenza_gestore_risposta($id_domanda) {
   global $doc_domande;
   $trovato = false;
 
-  $domande = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@id='. $id_domanda .' and @idProdotto='. $id_prodotto .']');
+  $domande = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@id=' . $id_domanda . ']');
 
   foreach ($domande as $domanda) {
     $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;

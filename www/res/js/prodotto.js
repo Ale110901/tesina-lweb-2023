@@ -44,29 +44,29 @@ function setCampo(prefisso, id, campo, valore) {
   }
 }
 
-function mostraAggiuntaRecensione(){
+function mostraAggiuntaRecensione() {
   document.getElementById('recensione_nuova').classList.toggle("nascosto");
 }
 
-function mostraAggiuntaDomande(){
+function mostraAggiuntaDomande() {
   document.getElementById('domanda_nuova').classList.toggle("nascosto");
 }
 
-function mostraAggiuntaRisposta(id){
-  document.getElementById('form-risposta-' + id).classList.toggle("nascosto");
+function mostraAggiuntaRisposta(id) {
+  document.getElementById('risp-dom-' + id).classList.toggle("nascosto");
 }
 
-function gestisciTextarea() {   /* NON FUNZIONA */
-  var valoreRispostaTextarea = document.getElementById('valore_risposta');
-  var inviaRispostaButton = document.getElementById('invia_risposta');
-  var avvisoMessaggio = document.getElementById('messaggio');
+function gestisciTextarea(id) {
+  var form = document.forms['risp-dom-' + id];
+  var messaggio = document.getElementById('msg-risp-' + id);
+  var risposta = form.risposta.value;
 
-  console.log(valoreRispostaTextarea.textContent);
-
-  if (valoreRispostaTextarea.textContent.trim() === "") {
-    avvisoMessaggio.classList.remove('nascosto');
+  if (risposta.trim() === "") {
+    messaggio.classList.remove('nascosto');
+    form.azione.disabled = true;
   } else {
-    inviaRispostaButton.disabled = false;
+    messaggio.classList.add('nascosto');
+    form.azione.disabled = false;
   }
 }
 
