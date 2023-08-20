@@ -291,11 +291,14 @@ if ($id_valido) {
       $rat_med_r = calcola_rating_medio($ratings_r);
 
       $info_ut_r = ottieni_info_utente($id_ut_r);
+
+      $e_risp_gestore = trova_gestore($id_ut_r);
+      $r_sel = $e_risp_gestore ? 'checked' : '';
 ?>
           <div class="flex-row my-16">
             <div class="fb-5">
 <?php if ($e_gestore || $e_admin) { ?>
-              <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" />
+              <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" <?php echo($r_sel); ?> />
 <?php } ?>
             </div>
             <div class="fb-55">
@@ -304,13 +307,15 @@ if ($id_valido) {
             <div class="fb-20">
               Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
               <p>da <i>
-<?php echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']); 
-  if(trova_gestore($id_ut_r)) { ?>
-                        <span class="grassetto">
-                          [GESTORE]
-                        </span>
+<?php
+      echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']);
+      if ($e_risp_gestore) {
+?>
+                  <span class="grassetto">
+                    [GESTORE]
+                  </span>
 <?php } ?>
-                    </i> 
+                </i>
               </p>
             </div>
             <div class="fb-20">
