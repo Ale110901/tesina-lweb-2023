@@ -54,8 +54,9 @@ if (!isset($_POST['azione'])) {
         scala_qta_prodotto($id_prod, $qta_diff);
       }
 
-      scala_credito($totale);
-      aggiungi_bonus($bonus);
+      $diff = -$totale + $bonus;
+
+      modifica_credito($diff);
       svuota_carrello();
     }
   }

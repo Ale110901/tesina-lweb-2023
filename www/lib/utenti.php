@@ -173,26 +173,13 @@ function ottieni_info_utente($id_utente) {
   ];
 }
 
-function scala_credito($totale) {
+function modifica_credito($diff) {
   global $doc_utenti;
 
   $id_utente = $_SESSION['id_utente'];
 
   $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
-  $credito->textContent -= $totale;
-
-  save_xml($doc_utenti, 'utenti');
-
-  return true;
-}
-
-function aggiungi_bonus($bonus) {
-  global $doc_utenti;
-
-  $id_utente = $_SESSION['id_utente'];
-
-  $credito = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:credito")[0];
-  $credito->textContent += $bonus;
+  $credito->textContent += $diff;
 
   save_xml($doc_utenti, 'utenti');
 
