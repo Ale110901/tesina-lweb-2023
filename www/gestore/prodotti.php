@@ -36,7 +36,7 @@ $prodotti = $root->childNodes;
   <?php require(RC_ROOT . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="mb-32">GESTIONE PRODOTTI</h2>
-    <div class="table mt-32 mx-auto mb-32 giustificato">
+    <div class="table mt-32 mx-auto mb-32 text-left">
       <div class="thg grassetto">
         <div class="td">Marca</div>
         <div class="td">Nome</div>
@@ -48,6 +48,8 @@ $prodotti = $root->childNodes;
         <div class="td">Elimina</div>
       </div>
 <?php
+$prodotti = domlist_to_array($prodotti);
+$prodotti = sort_by_element_txt($prodotti,'categoria', true);
 foreach ($prodotti as $prodotto) {
   $p_id = $prodotto->getAttribute('id');
   $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
@@ -63,7 +65,7 @@ foreach ($prodotti as $prodotto) {
         <div class="td"><?php echo($p_nome); ?></div>
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
         <div class="td"><?php echo($p_categoria); ?></div>
-        <div class="td"><?php echo($p_quantita); ?></div>
+        <div class="td centrato"><?php echo($p_quantita); ?></div>
         <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
         <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
         <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php" method="post">

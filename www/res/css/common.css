@@ -409,3 +409,7 @@ select {
 .l-h3em{
   line-height: 3em;
 }
+
+.text-left {
+  text-align: left;
+}
