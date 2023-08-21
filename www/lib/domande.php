@@ -1,4 +1,5 @@
 <?php
+require_once(RC_ROOT . '/lib/rating.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $doc_domande = load_xml('domande');
@@ -67,6 +68,37 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   return true;
 }
 
+function aggiungi_rating_domanda($id_domanda, $supporto, $utilita) {
+  global $doc_domande;
+
+  $result = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@id='$id_domanda']/ns:ratings");
+  $ratings = $result[0];
+
+  aggiungi_rating($doc_domande, $ratings, $supporto, $utilita);
+
+  save_xml($doc_domande, 'domande');
+
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  $doc_domande = load_xml('domande');
+
+  return true;
+}
+
+
+function elimina_risposta($id_domanda, $id_risposta) {
+  global $doc_domande;
+
+  $result = xpath($doc_domande, 'domande', '/ns:domande/ns:domanda[@id=' . $id_domanda . ']/ns:risposte/ns:risposta[@id=' . $id_risposta . ']');
+  $risposta = $result[0];
+
+  $risposte = $risposta->parentNode;
+  $risposte->removeChild($risposta);
+
+  save_xml($doc_domande, 'domande');
+
+  return true;
+}
+
 function aggiungi_risposta($id_domanda, $contenuto_r) {
   global $doc_domande;
 
@@ -85,12 +117,32 @@ function aggiungi_risposta($id_domanda, $contenuto_r) {
   $el_contenuto = $doc_domande->createElement('contenuto', $contenuto_r);
   $nuova_risposta->appendChild($el_contenuto);
 
+  $el_ratings = $doc_domande->createElement('ratings');
+  $nuova_risposta->appendChild($el_ratings);
+
   $risposte->appendChild($nuova_risposta);
 
   save_xml($doc_domande, 'domande');
 
   return true;
 }
+
+function aggiungi_rating_risposta($id_domanda, $id_risposta, $supporto, $utilita) {
+  global $doc_domande;
+
+  $result = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@id='$id_domanda']/ns:risposte/ns:risposta[@id='$id_risposta']/ns:ratings");
+  $ratings = $result[0];
+
+  aggiungi_rating($doc_domande, $ratings, $supporto, $utilita);
+
+  save_xml($doc_domande, 'domande');
+
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  $doc_domande = load_xml('domande');
+
+  return true;
+}
+
 
 function presenza_gestore_risposta($id_domanda) {
   global $doc_domande;
