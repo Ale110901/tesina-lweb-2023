@@ -38,6 +38,7 @@ $prodotti = $root->childNodes;
     <h2 class="mb-32">GESTIONE PRODOTTI</h2>
     <div class="table mt-32 mx-auto mb-32 text-left">
       <div class="thg grassetto">
+        <div class="td"></div>
         <div class="td">Marca</div>
         <div class="td">Nome</div>
         <div class="td">Costo</div>
@@ -59,8 +60,10 @@ foreach ($prodotti as $prodotto) {
   $p_quantita = $prodotto->getElementsByTagName('quantita')[0]->textContent;
 
   $p_categoria = ottieni_categoria($p_cat_id);
+  $p_icona = $p_quantita == 0 ? '&#x26a0;' : '';
 ?>
       <div class="tr">
+        <p class="td grassetto"><?php echo($p_icona); ?></p>
         <div class="td"><?php echo($p_marca); ?></div>
         <div class="td"><?php echo($p_nome); ?></div>
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
