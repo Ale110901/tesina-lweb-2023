@@ -9,9 +9,10 @@
 
 <!ELEMENT ratings (rating*)>
 
-<!ELEMENT rating (idUtente, supporto, utilita)>
+<!ELEMENT rating (supporto, utilita)>
+<!ATTLIST rating
+    idUtente ID #REQUIRED>
 
-<!ELEMENT idUtente    (#PCDATA)>
 <!ELEMENT contenuto   (#PCDATA)>
 <!ELEMENT supporto    (#PCDATA)>
 <!ELEMENT utilita     (#PCDATA)>

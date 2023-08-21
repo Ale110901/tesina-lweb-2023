@@ -14,7 +14,9 @@
 
 <!ELEMENT ratings (rating*)>
 
-<!ELEMENT rating (idUtente, supporto, utilita)>
+<!ELEMENT rating (supporto, utilita)>
+<!ATTLIST rating
+    idUtente ID #REQUIRED>
 
 <!ELEMENT idUtente    (#PCDATA)>
 <!ELEMENT idProdotto  (#PCDATA)>
