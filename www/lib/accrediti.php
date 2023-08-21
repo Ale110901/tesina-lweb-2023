@@ -1,4 +1,5 @@
 <?php
+require_once(RC_ROOT . '/lib/utenti.php');
 require_once(RC_ROOT . '/lib/xml.php');
 
 $doc_accrediti = load_xml('accrediti');
@@ -46,6 +47,8 @@ function accetta_accredito($id_accredito) {
 
   save_xml($doc_accrediti, 'accrediti');
 
+
+  global $doc_utenti;
 
   $result = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $ac_id_utente . ']');
   $utente = $result[0];
