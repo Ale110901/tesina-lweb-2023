@@ -70,8 +70,11 @@ if (!isset($_POST['azione'])) {
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
 
 <?php
-$a_href = 'href="' . RC_SUBDIR . '/prodotto.php?id=' . $id_prodotto . '"';
-$a_redir = $back_prod ? $a_href : 'onclick="history.back();"';
+if ($back_prod) {
+  $a_redir = 'href="' . RC_SUBDIR . '/prodotto.php?id=' . $id_prodotto . '"';
+} else {
+  $a_redir = 'onclick="history.back();"';
+}
 ?>
       <a class="button" <?php echo($a_redir); ?>>Torna indietro</a>
 <?php if ($errore) { ?>
