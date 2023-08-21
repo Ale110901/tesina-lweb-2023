@@ -121,6 +121,18 @@ if ($id_valido) {
 
     $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
+
+    $qta_max = $quantita;
+
+    if ($loggato) {
+      $id_ut_corr = $_SESSION['id_utente'];
+
+      $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='" . $id_ut_corr . "']/ns:carrello/ns:prodotto[@id='" . $id_prodotto . "']");
+      if ($result[0] !== null) {
+        $qta_carrello = $result[0]->getAttribute('quantita');
+        $qta_max -= $qta_carrello;
+      }
+    }
   }
 }
 ?>
@@ -183,10 +195,10 @@ if ($id_valido) {
             <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
               <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
               <div id="input-qta">
-                <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($quantita); ?>" <?php if (!$disponibile) echo ('disabled'); ?>/>
+                <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($qta_max); ?>" <?php if (!$disponibile || $qta_max === 0) echo ('disabled'); ?>/>
               </div>
               <div id="btn-aggiungi">
-                <button type="submit" name="azione" value="aggiungi" class="button ml-8" <?php if (!$disponibile) echo ('disabled'); ?>>Aggiungi al carrello</button>
+                <button type="submit" name="azione" value="aggiungi" class="button ml-8" <?php if (!$disponibile || $qta_max === 0) echo ('disabled'); ?>>Aggiungi al carrello</button>
               </div>
             </form>
         </div>
