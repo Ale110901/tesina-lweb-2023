@@ -51,10 +51,17 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   $contenuto = $doc_domande->createElement('contenuto', $contenuto_dom);
   $nuova_domanda->appendChild($contenuto);
 
+  $el_ratings = $doc_domande->createElement('ratings');
+  $nuova_domanda->appendChild($el_ratings);
+
+  $el_risposte = $doc_domande->createElement('risposte');
+  $nuova_domanda->appendChild($el_risposte);
+
   $root->appendChild($nuova_domanda);
 
   save_xml($doc_domande, 'domande');
 
+  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
   load_xml('domande');
 
   return true;

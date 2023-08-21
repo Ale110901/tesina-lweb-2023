@@ -17,8 +17,8 @@
     <xsd:sequence>
       <xsd:element ref="dom:idUtente"    minOccurs="1" maxOccurs="1" />
       <xsd:element ref="dom:contenuto"   minOccurs="1" maxOccurs="1" />
-      <xsd:element ref="dom:ratings"     minOccurs="0" maxOccurs="1" />
-      <xsd:element ref="dom:risposte"    minOccurs="0" maxOccurs="1" />
+      <xsd:element ref="dom:ratings"     minOccurs="1" maxOccurs="1" />
+      <xsd:element ref="dom:risposte"    minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id"         type="xsd:positiveInteger" use="required" />
     <xsd:attribute name="idProdotto" type="xsd:positiveInteger" use="required" />
