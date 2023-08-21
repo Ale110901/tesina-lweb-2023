@@ -17,11 +17,11 @@ function aggiungi_prodotto($nome, $marca, $descrizione, $costo, $categoria, $qua
   $id = get_next_id($prodotti);
   $nuovo_prodotto->setAttribute('id', $id);
 
-  $el_nome = $doc_prodotti->createElement('nome', $nome);
-  $nuovo_prodotto->appendChild($el_nome);
-
   $el_marca = $doc_prodotti->createElement('marca', $marca);
   $nuovo_prodotto->appendChild($el_marca);
+
+  $el_nome = $doc_prodotti->createElement('nome', $nome);
+  $nuovo_prodotto->appendChild($el_nome);
 
   $el_descrizione = $doc_prodotti->createElement('descrizione', $descrizione);
   $nuovo_prodotto->appendChild($el_descrizione);
