@@ -20,8 +20,13 @@ $aggiungi_rec = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_recens
 $elimina_rec = isset($_POST['azione']) && $_POST['azione'] === 'elimina_recensione';
 $rating_rec = isset($_POST['azione']) && $_POST['azione'] === 'rating_recensione';
 
-$aggiungi_risp = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_risposta';
 $aggiungi_dom = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_domanda';
+$elimina_dom = isset($_POST['azione']) && $_POST['azione'] === 'elimina_domanda';
+$rating_dom = isset($_POST['azione']) && $_POST['azione'] === 'rating_domanda';
+
+$aggiungi_risp = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_risposta';
+$elimina_risp = isset($_POST['azione']) && $_POST['azione'] === 'elimina_risposta';
+$rating_risp = isset($_POST['azione']) && $_POST['azione'] === 'rating_risposta';
 
 if ($id_valido) {
   $id_prodotto = $_GET['id'];
@@ -49,27 +54,12 @@ if ($id_valido) {
 
     if ($aggiungi_rec) {
       $contenuto = $_POST['recensione'];
-
       aggiungi_recensione($id_prodotto, $contenuto);
-    }
-
-    if ($aggiungi_dom) {
-      $contenuto = $_POST['domanda'];
-
-      aggiungi_domanda($id_prodotto, $contenuto); /* CONTROLLARE */
     }
 
     if ($elimina_rec) {
       $id_recensione = $_POST['id_recensione'];
-
       elimina_recensione($id_recensione);
-    }
-
-    if ($aggiungi_risp) {
-      $id_domanda = $_POST['id_domanda'];
-      $contenuto = $_POST['risposta'];
-
-      aggiungi_risposta($id_domanda, $contenuto);
     }
 
     if ($rating_rec) {
@@ -80,6 +70,51 @@ if ($id_valido) {
 
       aggiungi_rating_recensione($id_recensione, $supporto, $utilita);
       aggiorna_reputazione($id_ut_rec_agg, $id_prodotto, $supporto, $utilita);
+    }
+
+
+    if ($aggiungi_dom) {
+      $contenuto = $_POST['domanda'];
+      aggiungi_domanda($id_prodotto, $contenuto); /* CONTROLLARE */
+    }
+
+    if ($elimina_dom) {
+      $id_domanda = $_POST['id_domanda'];
+      elimina_domanda($id_domanda);
+    }
+
+    if ($rating_dom) {
+      $id_domanda = $_POST['id_domanda'];
+      $supporto = $_POST['dom_supp'];
+      $utilita = $_POST['dom_util'];
+      $id_ut_dom_agg = $_POST['utente_domanda'];
+
+      aggiungi_rating_domanda($id_domanda, $supporto, $utilita);
+      aggiorna_reputazione($id_ut_dom_agg, $id_prodotto, $supporto, $utilita);
+    }
+
+
+    if ($aggiungi_risp) {
+      $id_domanda = $_POST['id_domanda'];
+      $contenuto = $_POST['risposta'];
+      aggiungi_risposta($id_domanda, $contenuto);
+    }
+
+    if ($elimina_risp) {
+      $id_domanda = $_POST['id_domanda'];
+      $id_risposta = $_POST['id_risposta'];
+      elimina_risposta($id_domanda, $id_risposta);
+    }
+
+    if ($rating_risp) {
+      $id_domanda = $_POST['id_domanda'];
+      $id_risposta = $_POST['id_risposta'];
+      $supporto = $_POST['risp_supp'];
+      $utilita = $_POST['risp_util'];
+      $id_ut_risp_agg = $_POST['utente_risposta'];
+
+      aggiungi_rating_risposta($id_domanda, $id_risposta, $supporto, $utilita);
+      aggiorna_reputazione($id_ut_risp_agg, $id_prodotto, $supporto, $utilita);
     }
 
     $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
@@ -234,13 +269,16 @@ if ($id_valido) {
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
               </p>
             </div>
-<?php if ($e_gestore) { ?>
-            <button type="submit" form="rec_rat_<?php echo($id_recensione); ?>" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
-<?php } ?>
 <?php } ?>
           </div>
           <div class="fb-80">
-            <p class="giustificato"><?php echo($contenuto); ?></p>
+<?php if ($e_gestore) { ?>
+            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+              <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
+                <button type="submit" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
+            </form>
+<?php } ?>
+            <p class="giustificato inline"><?php echo($contenuto); ?></p>
           </div>
         </div>
 <?php
@@ -267,18 +305,73 @@ if ($id_valido) {
     $rat_med_d = calcola_rating_medio($ratings_d);
 
     $info_ut_d = ottieni_info_utente($id_ut_d);
+
+    $rating_pers = [
+      'supporto' => 0,
+      'utilita' => 0
+    ];
+    $rating_abilitato = false;
+
+    if ($loggato && $id_ut_d !== $id_ut_corr) {
+      $result = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@id='$id_domanda']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
+
+      if ($result->length !== 0) {
+        $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
+        $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
+      } else {
+        $rating_abilitato = true;
+      }
+    }
+
+    $rs = [];
+    $ru = [];
+
+    for ($i = 0; $i < 3; $i++) {
+      $rs[$i] = $i < $rating_pers['supporto'] ? '&#x2605' : '&#x2606';
+    }
+    for ($i = 0; $i < 5; $i++) {
+      $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
+    }
 ?>
         <div class="my-32">
           <div class="flex-row" id="box-dom">
             <div class="fb-60" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
-              <?php echo($contenuto_d); ?>
+<?php if ($e_gestore) { ?>
+            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+              <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+              <button type="submit" class="button-icona" name="azione" value="elimina_domanda" title="elimina domanda">&#x01F5D1</button>
+            </form>
+<?php } ?>
+              <p class="giustificato inline"><?php echo($contenuto_d); ?></p>
             </div>
             <div class="fb-20">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
               <p>da <i><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> </p>
             </div>
             <div class="fb-20">
-              Form rating
+<?php if ($loggato) { ?>
+              <div class="riquadro pa-8 mt-8 mr-32">
+                <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
+                </p>
+                <form id="dom_rat_<?php echo($id_domanda); ?>" method="post">
+                  <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+                  <input type="hidden" name="utente_domanda" value="<?php echo($id_ut_d); ?>" />
+                  <input type="hidden" name="dom_supp" value="0" />
+                  <input type="hidden" name="dom_util" value="0" />
+                  <button type="submit" name="azione" value="rating_domanda" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
+                </form>
+                <p id="dom_util_<?php echo($id_domanda); ?>">Utilit&agrave;:
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 4)"<?php } ?>><?php echo($ru[3]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
+                </p>
+              </div>
+<?php } ?>
             </div>
           </div>
           <div id="risp_<?php echo($id_domanda); ?>" class="nascosto">
@@ -288,16 +381,50 @@ if ($id_valido) {
       $contenuto_r = $risposta->getElementsByTagName('contenuto')[0]->textContent;
       $id_ut_r = $risposta->getElementsByTagName('idUtente')[0]->textContent;
 
-      $ratings_r = $domanda->getElementsByTagName('ratings')[0]->childNodes;
+      $ratings_r = $risposta->getElementsByTagName('ratings')[0]->childNodes;
       $rat_med_r = calcola_rating_medio($ratings_r);
 
       $info_ut_r = ottieni_info_utente($id_ut_r);
 
       $e_risp_gestore = trova_gestore($id_ut_r);
       $r_sel = $e_risp_gestore ? 'checked' : '';
+
+      $rating_pers = [
+        'supporto' => 0,
+        'utilita' => 0
+      ];
+      $rating_abilitato = false;
+
+      if ($loggato && $id_ut_r !== $id_ut_corr) {
+        $result = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@id='$id_domanda']/ns:risposte/ns:risposta[@id='$id_risposta']/ns:ratings/ns:rating[@idUtente='$id_ut_corr']");
+
+        if ($result->length !== 0) {
+          $rating_pers['supporto'] = $result[0]->getElementsByTagName('supporto')[0]->textContent;
+          $rating_pers['utilita'] = $result[0]->getElementsByTagName('utilita')[0]->textContent;
+        } else {
+          $rating_abilitato = true;
+        }
+      }
+
+      $rs = [];
+      $ru = [];
+
+      for ($i = 0; $i < 3; $i++) {
+        $rs[$i] = $i < $rating_pers['supporto'] ? '&#x2605' : '&#x2606';
+      }
+      for ($i = 0; $i < 5; $i++) {
+        $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
+      }
 ?>
           <div class="flex-row my-16">
             <div class="fb-5">
+<?php if ($e_gestore) { ?>
+            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
+              <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+              <input type="hidden" name="id_risposta" value="<?php echo($id_risposta); ?>" />
+              <button type="submit" class="button-icona" name="azione" value="elimina_risposta" title="elimina risposta">&#x01F5D1</button>
+            </form>
+<?php } ?>
 <?php if ($e_gestore || $e_admin) { ?>
               <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" <?php echo($r_sel); ?> />
 <?php } ?>
@@ -320,7 +447,30 @@ if ($id_valido) {
               </p>
             </div>
             <div class="fb-20">
-              Form rating
+<?php if ($loggato) { ?>
+              <div class="riquadro pa-8 mt-8 mr-32">
+                <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 3)"<?php } ?>><?php echo($rs[2]); ?></a>
+                </p>
+                <form id="risp_rat_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>" method="post">
+                  <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+                  <input type="hidden" name="id_risposta" value="<?php echo($id_risposta); ?>" />
+                  <input type="hidden" name="utente_risposta" value="<?php echo($id_ut_r); ?>" />
+                  <input type="hidden" name="risp_supp" value="0" />
+                  <input type="hidden" name="risp_util" value="0" />
+                  <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
+                </form>
+                <p id="risp_util_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Utilit&agrave;:
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 2)"<?php } ?>><?php echo($ru[1]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 3)"<?php } ?>><?php echo($ru[2]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 4)"<?php } ?>><?php echo($ru[3]); ?></a>
+                  <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
+                </p>
+              </div>
+<?php } ?>
             </div>
           </div>
           <hr id="separa-risp"/>
