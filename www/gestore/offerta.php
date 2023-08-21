@@ -4,7 +4,7 @@ require_once('../config.php');
 $perm_visitatore = false;
 $perm_cliente = false;
 $perm_gestore = true;
-$perm_admin = false;
+$perm_admin = true;
 
 require_once(RC_ROOT . '/lib/start.php');
 require_once(RC_ROOT . '/lib/categorie.php');
