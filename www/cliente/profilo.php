@@ -124,7 +124,10 @@ $data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
             </td>
           </tr>
         </table>
-        <button type="submit" name="azione" value="modifica" class="button con-toggle nascosto" title="Conferma modifiche">Conferma modifiche</button>
+        <p class="con-toggle nascosto">
+          <button type="submit" name="azione" value="modifica" class="button" title="Conferma modifiche">Conferma modifiche</button><br /><br />
+          <a class="button" href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php" title="Torna indietro">Torna indietro</a>
+        </p>
       </form>
       <button class="button con-toggle mt-8 mb-16" title="Modifica profilo" onclick="visibilita()">Modifica profilo</button>
       <br />
