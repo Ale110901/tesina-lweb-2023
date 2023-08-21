@@ -3,81 +3,39 @@
   <domanda id="1" idProdotto="1">
     <idUtente>4</idUtente>
     <contenuto>Quali gusti sono disponibili?</contenuto>
-    <ratings>
-      <rating>
-        <idUtente>37</idUtente>
-        <supporto>1</supporto>
-        <utilita>4</utilita>
-      </rating>
-    </ratings>
+    <ratings/>
     <risposte>
       <risposta id="1">
         <idUtente>1</idUtente>
         <contenuto>Cioccolata e lampone</contenuto>
-        <ratings>
-          <rating>
-            <idUtente>29</idUtente>
-            <supporto>3</supporto>
-            <utilita>5</utilita>
-          </rating>
-        </ratings>
+        <ratings/>
       </risposta>
       <risposta id="2">
         <idUtente>1</idUtente>
         <contenuto>Cioccolata e mango</contenuto>
-        <ratings>
-          <rating>
-            <idUtente>1</idUtente>
-            <supporto>3</supporto>
-            <utilita>5</utilita>
-          </rating>
-        </ratings>
+        <ratings/>
       </risposta>
       <risposta id="3">
         <idUtente>2</idUtente>
         <contenuto>Risposta gestore</contenuto>
-        <ratings>
-          <rating>
-            <idUtente>1</idUtente>
-            <supporto>3</supporto>
-            <utilita>5</utilita>
-          </rating>
-        </ratings>
+        <ratings/>
       </risposta>
     </risposte>
   </domanda>
   <domanda id="2" idProdotto="1">
     <idUtente>1</idUtente>
     <contenuto>Quanto costa?</contenuto>
-    <ratings>
-      <rating>
-        <idUtente>37</idUtente>
-        <supporto>1</supporto>
-        <utilita>4</utilita>
-      </rating>
-    </ratings>
+    <ratings/>
     <risposte>
       <risposta id="1">
         <idUtente>1</idUtente>
         <contenuto>10 euro</contenuto>
-        <ratings>
-          <rating>
-            <idUtente>29</idUtente>
-            <supporto>3</supporto>
-            <utilita>5</utilita>
-          </rating>
-        </ratings>
+        <ratings/>
       </risposta>
       <risposta id="2">
         <idUtente>1</idUtente>
         <contenuto>20 euro</contenuto>
-        <ratings>
-          <rating>
-            <idUtente>1</idUtente>
-            <supporto>3</supporto>
-            <utilita>5</utilita>
-          </rating>
-        </ratings>
+        <ratings/>
       </risposta>
     </risposte>
   </domanda>
