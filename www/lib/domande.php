@@ -45,8 +45,8 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   $nuova_domanda->setAttribute('id', $id);
   $nuova_domanda->setAttribute('idProdotto', $id_prodotto);
 
-  $id_d = $doc_domande->createElement('idUtente', $id_ut);
-  $nuova_domanda->appendChild($id_d);
+  $el_u = $doc_domande->createElement('idUtente', $id_ut);
+  $nuova_domanda->appendChild($el_u);
 
   $contenuto = $doc_domande->createElement('contenuto', $contenuto_dom);
   $nuova_domanda->appendChild($contenuto);
@@ -54,6 +54,8 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   $root->appendChild($nuova_domanda);
 
   save_xml($doc_domande, 'domande');
+
+  load_xml('domande');
 
   return true;
 }

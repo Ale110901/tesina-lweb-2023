@@ -56,7 +56,7 @@ if ($id_valido) {
     if ($aggiungi_dom) {
       $contenuto = $_POST['domanda'];
 
-      aggiungi_domanda($id_prodotto, $contenuto);
+      aggiungi_domanda($id_prodotto, $contenuto); /* CONTROLLARE */
     }
 
     if ($elimina_rec) {
