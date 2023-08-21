@@ -75,11 +75,11 @@ if ($id_valido) {
     <form method="post" action="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($faq_id); ?>">
       <input type="hidden" name="id" value="<?php echo($faq_id); ?>"></input>
       <div class="my-32">
-        <label for="domanda">Domanda:</label><br />
+        <label for="domanda" class="grassetto">Domanda:</label><br />
         <textarea class="input-flat w-50p" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"><?php echo($faq_domanda); ?></textarea>
       </div>
       <div class="my-32">
-        <label for="risposta">Risposta:</label><br />
+        <label for="risposta" class="grassetto">Risposta:</label><br />
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
       <button type="submit" class="button mb-16" name="azione" value="modifica">Modifica</button><br />
