@@ -126,7 +126,7 @@ if ($redir_dest !== '') {
       <div class="giustificato px-16">
 <?php
   if ($err_vuoto) {
-    ?><p>Tutti i campi devono essere compilati!</p><?php
+    ?><p class="centrato grassetto mt-16">Tutti i campi devono essere compilati!</p><?php
   }
   if ($err_pwd) {
 ?>
