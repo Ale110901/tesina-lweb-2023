@@ -3,7 +3,3 @@ Caratteri:
 - ? => &#63;
 
 Da fare:
-- Aggiungere form rating a domande/risposte
-- Aggiungere form invio domande e risposte
-- Aggiungere eliminazione domande, risposte e recensioni da gestore
-- Aggiungere pagina gestione categorie
