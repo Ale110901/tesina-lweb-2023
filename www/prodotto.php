@@ -207,7 +207,7 @@ if ($id_valido) {
       <div id="recensioni">
         <h3 class="mb-16">Recensioni</h3>
 <?php
-  if ($loggato) {
+  if ($loggato && ($e_cliente || $e_gestore)) {
     $id_ut_corr = $_SESSION['id_utente'];
 ?>
           <button id="button-recensione" onclick="mostraAggiuntaRecensione()">&#x1F4DD Scrivi una nuova recensione</button><br />
@@ -259,7 +259,7 @@ if ($id_valido) {
           <div class="fb-20">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
             <p>da <i><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> </p>
-<?php if ($loggato) { ?>
+<?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
             <div class="riquadro pa-8 mt-8 mr-32">
               <p id="rec_supp_<?php echo($id_recensione); ?>">Supporto:
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -299,13 +299,13 @@ if ($id_valido) {
       </div>
       <div id="dr" class="nascosto">
         <h3>Domande e risposte</h3>
-
+<?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
         <button id="button-recensione" class="mt-16" onclick="mostraAggiuntaDomande()">&#x1F4DD Scrivi una nuova domanda</button><br />
-          <form method="post" id="domanda_nuova" class="nascosto mt-16">
-            <textarea class="input-flat" name="domanda" rows="6"></textarea>
-            <button type="submit" onclick="mostraAggiuntaDomande()" name="azione" value="aggiungi_domanda" class="ml-8" title="Invia domanda">&#x2714</button>
-          </form>
-
+        <form method="post" id="domanda_nuova" class="nascosto mt-16">
+          <textarea class="input-flat" name="domanda" rows="6"></textarea>
+          <button type="submit" onclick="mostraAggiuntaDomande()" name="azione" value="aggiungi_domanda" class="ml-8" title="Invia domanda">&#x2714</button>
+        </form>
+<?php } ?>
 <?php
   foreach ($domande as $domanda) {
     $id_domanda = $domanda->getAttribute('id');
@@ -361,7 +361,7 @@ if ($id_valido) {
               <p>da <i><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> </p>
             </div>
             <div class="fb-20">
-<?php if ($loggato) { ?>
+<?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
               <div class="riquadro pa-8 mt-8 mr-32">
                 <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -454,7 +454,7 @@ if ($id_valido) {
               </p>
             </div>
             <div class="fb-20">
-<?php if ($loggato && !$e_risp_gestore) { ?>
+<?php if ($loggato && ($e_cliente || $e_gestore) && !$e_risp_gestore) { ?>
               <div class="riquadro pa-8 mt-8 mr-32">
                 <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -485,19 +485,16 @@ if ($id_valido) {
           <hr id="separa-risp"/>
 <?php
     }
-    if (!presenza_gestore_risposta($id_domanda)) {
 ?>
+<?php if ($loggato && ($e_cliente || $e_gestore) && !presenza_gestore_risposta($id_domanda)) { ?>
           <button type="submit" class="button mt-16" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);">Rispondi</button>
-<?php
-}
-?>
           <form id="risp-dom-<?php echo($id_domanda); ?>" class="nascosto" method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
             <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
             <textarea class="input-flat w-50p mt-16" name="risposta" rows="6" placeholder="Inserisci la tua risposta" oninput="gestisciTextarea(<?php echo($id_domanda); ?>);"></textarea>
             <button type="submit" class="button ml-8" name="azione" value="aggiungi_risposta" disabled>Invia</button>
             <p id="msg-risp-<?php echo($id_domanda); ?>" class="grassetto nascosto">&#x26a0; Inserire la risposta!</p>
           </form>
-
+<?php } ?>
 <?php if ($e_gestore || $e_admin) { ?>
           <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
             <input type="hidden" name="domanda" value="<?php echo($contenuto_d); ?>"></input>
