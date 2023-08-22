@@ -449,17 +449,12 @@ if ($id_valido) {
               <p>da <i>
 <?php
       echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']);
-      if ($e_risp_gestore) {
 ?>
-                  <span class="grassetto">
-                    [GESTORE]
-                  </span>
-<?php } ?>
                 </i>
               </p>
             </div>
             <div class="fb-20">
-<?php if ($loggato) { ?>
+<?php if ($loggato && !$e_risp_gestore) { ?>
               <div class="riquadro pa-8 mt-8 mr-32">
                 <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -482,6 +477,8 @@ if ($id_valido) {
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 5)"<?php } ?>><?php echo($ru[4]); ?></a>
                 </p>
               </div>
+<?php } else if ($e_risp_gestore) { ?>
+              <span class="grassetto"> RISPOSTA DEL GESTORE </span>
 <?php } ?>
             </div>
           </div>
