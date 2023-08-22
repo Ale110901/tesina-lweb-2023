@@ -2,6 +2,12 @@
 require_once(RC_ROOT . '/lib/ordini.php');
 require_once(RC_ROOT . '/lib/utenti.php');
 
+const K_CLIENTE = 1;
+const K_ACQUIRENTE = 2;
+const K_GESTORE = 3;
+
+const SCALA_EXP = 1 / 1390;
+
 function calcola_rating_medio($ratings) {
   if ($ratings->length === 0) {
     return [
@@ -34,30 +40,36 @@ function aggiorna_reputazione($id_ut_dest, $id_prod, $supporto, $utilita) {
   global $doc_utenti;
 
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_dest']/ns:reputazione");
-  $rep_el = $result[0];
-  $rep_num = $rep_el->textContent;
+  $rep_dest = $result[0]->textContent;
 
-  if ($rep_num == 0) {
+  if ($rep_dest == 0) {
     return;
   }
 
 
-  $k_funzione = 1;
+  $k_funzione = K_CLIENTE;
 
   switch ($_SESSION['tipo_utente']) {
     case 'cliente':
       $id_ut_mitt = $_SESSION['id_utente'];
 
+
       $result = xpath($doc_ordini, 'ordini',
         "/ns:ordini/ns:ordine[@idUtente='$id_ut_mitt']/ns:prodotti/ns:prodotto[@id='$id_prod']");
 
       if ($result->length !== 0) {
-        $k_funzione = 2;
+        $k_funzione = K_ACQUIRENTE;
       }
+
+
+      $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_mitt']/ns:reputazione");
+      $rep_mitt = $result[0]->textContent;
+
+      $k_funzione = $k_funzione + (K_GESTORE - $k_funzione) * (1 - exp(-$rep_mitt / SCALA_EXP));
 
       break;
     case 'gestore':
-      $k_funzione = 3;
+      $k_funzione = K_GESTORE;
       break;
   }
 
@@ -66,12 +78,12 @@ function aggiorna_reputazione($id_ut_dest, $id_prod, $supporto, $utilita) {
   $var_utilita =  $k_funzione * (2 * $utilita - 6);   // (1..5) => k * (-4, -2, 0, +2, +4)
 
   $var_tot = $var_utilita + $var_supporto;
-  $rep_num += $var_tot;
+  $rep_dest += $var_tot;
 
-  if ($rep_num < 0) {
+  if ($rep_dest < 0) {
     $rep_el->textContent = 0;
   } else {
-    $rep_el->textContent = $rep_num;
+    $rep_el->textContent = $rep_dest;
   }
 
   save_xml($doc_utenti, 'utenti');
