@@ -6,7 +6,8 @@ const K_CLIENTE = 1;
 const K_ACQUIRENTE = 2;
 const K_GESTORE = 3;
 
-const SCALA_EXP = 1 / 1390;
+// m = 1000 / ln(4)
+const SCALA_EXP = 721.35;
 
 function calcola_rating_medio($ratings) {
   if ($ratings->length === 0) {
@@ -65,7 +66,8 @@ function aggiorna_reputazione($id_ut_dest, $id_prod, $supporto, $utilita) {
       $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_mitt']/ns:reputazione");
       $rep_mitt = $result[0]->textContent;
 
-      $k_funzione = $k_funzione + (K_GESTORE - $k_funzione) * (1 - exp(-$rep_mitt / SCALA_EXP));
+      $k_funzione = K_GESTORE - (K_GESTORE - $k_funzione) * exp(-$rep_mitt / SCALA_EXP);
+      $k_funzione = round($k_funzione, 2);
 
       break;
     case 'gestore':
