@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: text/plain');
+
 if (isset($_GET['subdir'])) {
   $subdir = rtrim($_GET['subdir'], '/');
 } else {

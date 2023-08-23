@@ -1,7 +1,7 @@
 <?php
 require_once(RC_ROOT . '/lib/utils.php');
 
-if (RC_ROOT === null) {
+if (!defined('RC_SUBDIR')) {
   header('Content-Type: text/plain');
 
   echo ('Il sito non e\' stato installato. Procedere con l\'installazione prima.');
