@@ -58,7 +58,7 @@
       <xsd:element ref="dom:supporto"  minOccurs="1" maxOccurs="1" />
       <xsd:element ref="dom:utilita"   minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
-    <xsd:attribute name="idUtente" type="xsd:positiveInteger" />
+    <xsd:attribute name="idUtente" type="xsd:positiveInteger" use="required" />
   </xsd:complexType>
 </xsd:element>
 
