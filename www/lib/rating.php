@@ -41,7 +41,8 @@ function aggiorna_reputazione($id_ut_dest, $id_prod, $supporto, $utilita) {
   global $doc_utenti;
 
   $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_ut_dest']/ns:reputazione");
-  $rep_dest = $result[0]->textContent;
+  $rep_el = $result[0];
+  $rep_dest = $rep_el->textContent;
 
   if ($rep_dest == 0) {
     return;
