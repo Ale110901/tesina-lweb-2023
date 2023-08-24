@@ -5,13 +5,6 @@ require_once($rc_root . '/lib/utils.php');
 
 $rc_subdir = make_subdir($rc_level + 1);
 
-if (!isset($rc_subdir)) {
-  header('Content-Type: text/plain');
-
-  echo ('Il sito non e\' stato installato. Procedere con l\'installazione prima.');
-  exit ();
-}
-
 session_start();
 
 // Caso particolare
