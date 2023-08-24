@@ -275,7 +275,7 @@ if ($id_valido) {
                 <input type="hidden" name="utente_recensione" value="<?php echo($id_ut_rec); ?>" />
                 <input type="hidden" name="rec_supp" value="0" />
                 <input type="hidden" name="rec_util" value="0" />
-                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
+                <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>" >Invia</button>
               </form>
               <p id="rec_util_<?php echo($id_recensione); ?>">Utilit&agrave;:
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
@@ -381,7 +381,7 @@ if ($id_valido) {
                   <input type="hidden" name="utente_domanda" value="<?php echo($id_ut_d); ?>" />
                   <input type="hidden" name="dom_supp" value="0" />
                   <input type="hidden" name="dom_util" value="0" />
-                  <button type="submit" name="azione" value="rating_domanda" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
+                  <button type="submit" name="azione" value="rating_domanda" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>">Invia</button>
                 </form>
                 <p id="dom_util_<?php echo($id_domanda); ?>">Utilit&agrave;:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
@@ -470,9 +470,6 @@ if ($id_valido) {
             </div>
             <div class="fb-20">
 <?php if ($loggato && ($e_cliente || $e_gestore) && !$e_risp_gestore) { ?>
-<?php 
-  $rating_abilitato = (!$rating_abilitato) ? 'nascosto' : '';
-?>
               <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_risp); ?>">
                 <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
@@ -485,7 +482,7 @@ if ($id_valido) {
                   <input type="hidden" name="utente_risposta" value="<?php echo($id_ut_r); ?>" />
                   <input type="hidden" name="risp_supp" value="0" />
                   <input type="hidden" name="risp_util" value="0" />
-                  <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4 <?php echo($rating_abilitato); ?>">Invia</button>
+                  <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>">Invia</button>
                 </form>
                 <p id="risp_util_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Utilit&agrave;:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
