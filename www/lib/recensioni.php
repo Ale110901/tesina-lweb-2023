@@ -25,6 +25,9 @@ function aggiungi_recensione($id_prodotto, $contenuto) {
   $el_contenuto = $doc_recensioni->createElement('contenuto', $contenuto);
   $nuova_recensione->appendChild($el_contenuto);
 
+  $el_data = $doc_recensioni->createElement('data', date('Y-m-d'));
+  $nuova_recensione->appendChild($el_data);
+
   $el_ratings = $doc_recensioni->createElement('ratings');
   $nuova_recensione->appendChild($el_ratings);
 

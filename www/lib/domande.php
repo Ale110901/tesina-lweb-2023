@@ -52,6 +52,9 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
   $contenuto = $doc_domande->createElement('contenuto', $contenuto_dom);
   $nuova_domanda->appendChild($contenuto);
 
+  $data = $doc_domande->createElement('data', date('Y-m-d'));
+  $nuova_domanda->appendChild($data);
+
   $el_ratings = $doc_domande->createElement('ratings');
   $nuova_domanda->appendChild($el_ratings);
 
@@ -117,12 +120,17 @@ function aggiungi_risposta($id_domanda, $contenuto_r) {
   $el_contenuto = $doc_domande->createElement('contenuto', $contenuto_r);
   $nuova_risposta->appendChild($el_contenuto);
 
+  $el_data = $doc_domande->createElement('data', date('Y-m-d'));
+  $nuova_risposta->appendChild($el_data);
+
   $el_ratings = $doc_domande->createElement('ratings');
   $nuova_risposta->appendChild($el_ratings);
 
   $risposte->appendChild($nuova_risposta);
 
   save_xml($doc_domande, 'domande');
+
+  load_xml('domande');
 
   return true;
 }
