@@ -372,7 +372,7 @@ if ($id_valido) {
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
               <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>"><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> <?php if ($controllo_dom) echo(" &#x01F464;"); ?> </p>
             </div>
-            <div class="fb-20 ml-8">
+            <div class="fb-20 ml-32">
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
               <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_dom); ?>">
                 <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
