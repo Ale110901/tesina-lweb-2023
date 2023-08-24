@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT domande (domanda*)>
 
-<!ELEMENT domanda (idProdotto, contenuto, ratings, risposte)>
+<!ELEMENT domanda (idProdotto, contenuto, ratings, risposte, data)>
 <!ATTLIST domanda
     id       ID #REQUIRED
     idUtente ID #REQUIRED>
 
 <!ELEMENT risposte (risposta*)>
 
-<!ELEMENT risposta (idUtente, contenuto, ratings)>
+<!ELEMENT risposta (idUtente, contenuto, ratings, data)>
 <!ATTLIST risposta
     id ID #REQUIRED>
 
@@ -21,5 +21,6 @@
 <!ELEMENT idUtente    (#PCDATA)>
 <!ELEMENT idProdotto  (#PCDATA)>
 <!ELEMENT contenuto   (#PCDATA)>
+<!ELEMENT data        (#PCDATA)>
 <!ELEMENT supporto    (#PCDATA)>
 <!ELEMENT utilita     (#PCDATA)>

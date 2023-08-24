@@ -3,11 +3,13 @@
   <recensione id="1" idProdotto="1">
     <idUtente>1</idUtente>
     <contenuto>Recensione di prova</contenuto>
+    <data>2022-10-27</data>
     <ratings/>
   </recensione>
   <recensione id="2" idProdotto="1">
     <idUtente>4</idUtente>
     <contenuto>Recensione di prova</contenuto>
+    <data>2022-10-27</data>
     <ratings/>
   </recensione>
 </recensioni>

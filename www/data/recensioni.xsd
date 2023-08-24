@@ -17,6 +17,7 @@
     <xsd:sequence>
         <xsd:element ref="rec:idUtente"   minOccurs="1" maxOccurs="1" />
         <xsd:element ref="rec:contenuto"  minOccurs="1" maxOccurs="1" />
+        <xsd:element ref="rec:data"       minOccurs="1" maxOccurs="1" />
         <xsd:element ref="rec:ratings"    minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
     <xsd:attribute name="id"          type="xsd:positiveInteger" use="required" />
@@ -43,6 +44,7 @@
 </xsd:element>
 
 <xsd:element name="idUtente"   type="xsd:positiveInteger" />
+<xsd:element name="data"       type="xsd:dateTime" />
 <xsd:element name="contenuto"  type="xsd:string" />
 <xsd:element name="supporto"   type="xsd:integer" />
 <xsd:element name="utilita"    type="xsd:integer" />

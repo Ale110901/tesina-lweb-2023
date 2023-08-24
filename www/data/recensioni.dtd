@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT recensioni (recensione*)>
 
-<!ELEMENT recensione (idUtente, contenuto, ratings)>
+<!ELEMENT recensione (idUtente, contenuto, ratings, data)>
 <!ATTLIST recensione
     id         ID #REQUIRED
     idProdotto ID #REQUIRED>
@@ -14,5 +14,6 @@
     idUtente ID #REQUIRED>
 
 <!ELEMENT contenuto   (#PCDATA)>
+<!ELEMENT data        (#PCDATA)>
 <!ELEMENT supporto    (#PCDATA)>
 <!ELEMENT utilita     (#PCDATA)>

@@ -3,21 +3,25 @@
   <domanda id="1" idProdotto="1">
     <idUtente>4</idUtente>
     <contenuto>Quali gusti sono disponibili?</contenuto>
+    <data>2022-10-27</data>
     <ratings/>
     <risposte>
       <risposta id="1">
         <idUtente>1</idUtente>
         <contenuto>Cioccolata e lampone</contenuto>
+        <data>2022-10-27</data>
         <ratings/>
       </risposta>
       <risposta id="2">
         <idUtente>1</idUtente>
         <contenuto>Cioccolata e mango</contenuto>
+        <data>2022-10-27</data>
         <ratings/>
       </risposta>
       <risposta id="3">
         <idUtente>2</idUtente>
         <contenuto>Risposta gestore</contenuto>
+        <data>2022-10-27</data>
         <ratings/>
       </risposta>
     </risposte>
@@ -25,16 +29,19 @@
   <domanda id="2" idProdotto="1">
     <idUtente>1</idUtente>
     <contenuto>Quanto costa?</contenuto>
+    <data>2022-10-27</data>
     <ratings/>
     <risposte>
       <risposta id="1">
         <idUtente>1</idUtente>
         <contenuto>10 euro</contenuto>
+        <data>2022-10-27</data>
         <ratings/>
       </risposta>
       <risposta id="2">
         <idUtente>1</idUtente>
         <contenuto>20 euro</contenuto>
+        <data>2022-10-27</data>
         <ratings/>
       </risposta>
     </risposte>
