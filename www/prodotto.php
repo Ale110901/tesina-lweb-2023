@@ -221,6 +221,7 @@ if ($id_valido) {
     $id_recensione = $recensione->getAttribute('id');
     $id_ut_rec = $recensione->getElementsByTagName('idUtente')[0]->textContent;
     $contenuto = $recensione->getElementsByTagName('contenuto')[0]->textContent;
+    $data_r = $recensione->getElementsByTagName('data')[0]->textContent;
 
     $info_ut_rec = ottieni_info_utente($id_ut_rec);
 
@@ -260,7 +261,8 @@ if ($id_valido) {
     $form_abilitato_rec = ($controllo_rec) ? 'nascosto' : '';
 ?>
         <div class="flex-row my-32 <?php echo($evidenzia_contributo_rec); ?>">
-          <div class="fb-20">
+          <i><?php echo($data_r); ?></i>
+          <div class="fb-20 ml-32">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
             <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>"><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> <?php if ($controllo_rec) echo(" &#x01F464;"); ?></p>
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
@@ -287,7 +289,7 @@ if ($id_valido) {
             </div>
 <?php } ?>
           </div>
-          <div class="fb-80">
+          <div class="fb-65 ml-32">
 <?php if ($e_gestore) { ?>
             <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
               <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
@@ -315,6 +317,7 @@ if ($id_valido) {
     $id_domanda = $domanda->getAttribute('id');
     $contenuto_d = $domanda->getElementsByTagName('contenuto')[0]->textContent;
     $risposte = $domanda->getElementsByTagName('risposte')[0]->childNodes;
+    $data_d = $domanda->getElementsByTagName('data')[0]->textContent;
     $id_ut_d = $domanda->getElementsByTagName('idUtente')[0]->textContent;
 
     $ratings_d = $domanda->getElementsByTagName('ratings')[0]->childNodes;
@@ -355,7 +358,8 @@ if ($id_valido) {
 ?>
         <div class="my-32">
           <div class="flex-row <?php echo($evidenzia_contributo_dom); ?>" id="box-dom">
-            <div class="fb-60" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
+            <i><?php echo($data_d); ?></i>
+            <div class="fb-55 ml-32 cp" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
 <?php if ($e_gestore) { ?>
             <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
@@ -364,11 +368,11 @@ if ($id_valido) {
 <?php } ?>
               <p class="giustificato inline"><?php echo($contenuto_d); ?></p>
             </div>
-            <div class="fb-20">
+            <div class="fb-15">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
               <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>"><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> <?php if ($controllo_dom) echo(" &#x01F464;"); ?> </p>
             </div>
-            <div class="fb-20">
+            <div class="fb-20 ml-8">
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
               <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_dom); ?>">
                 <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
@@ -399,6 +403,7 @@ if ($id_valido) {
     foreach ($risposte as $risposta) {
       $id_risposta = $risposta->getAttribute('id');
       $contenuto_r = $risposta->getElementsByTagName('contenuto')[0]->textContent;
+      $data_risp = $risposta->getElementsByTagName('data')[0]->textContent;
       $id_ut_r = $risposta->getElementsByTagName('idUtente')[0]->textContent;
 
       $ratings_r = $risposta->getElementsByTagName('ratings')[0]->childNodes;
@@ -441,7 +446,8 @@ if ($id_valido) {
       $form_abilitato_risp = ($controllo_risp) ? 'nascosto' : '';
 ?>
           <div class="flex-row my-16 <?php echo($evidenzia_contributo_risp); ?>">
-            <div class="fb-5">
+            <div class="fb-13">
+              <i><?php echo($data_risp); ?></i>
 <?php if ($e_gestore) { ?>
             <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
@@ -453,7 +459,7 @@ if ($id_valido) {
               <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" <?php echo($r_sel); ?> />
 <?php } ?>
             </div>
-            <div class="fb-55">
+            <div class="fb-47">
               <?php echo($contenuto_r); ?>
             </div>
             <div class="fb-20">
@@ -497,7 +503,13 @@ if ($id_valido) {
 <?php } ?>
             </div>
           </div>
+
+<?php if (!$controllo_risp) { ?>
           <hr id="separa-risp"/>
+<?php
+      }
+?>
+
 <?php
     }
 ?>

@@ -239,12 +239,24 @@ select {
   flex-basis: 20%;
 }
 
+.fb-13 {
+  flex-basis: 13%;
+}
+
+.fb-47 {
+  flex-basis: 47%;
+}
+
 .fb-55 {
   flex-basis: 55%;
 }
 
 .fb-60 {
   flex-basis: 60%;
+}
+
+.fb-65 {
+  flex-basis: 65%;
 }
 
 .fb-80 {
@@ -416,4 +428,8 @@ select {
 
 .text-left {
   text-align: left;
+}
+
+.cp {
+  cursor: pointer;
 }
