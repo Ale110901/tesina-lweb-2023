@@ -6,10 +6,10 @@ $perm_cliente = false;
 $perm_gestore = false;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/accrediti.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/accrediti.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 if (!isset($_POST['azione'])) {
   // Non fa niente
@@ -27,12 +27,12 @@ $accrediti = xpath($doc_accrediti, 'accrediti', '/ns:accrediti/ns:accredito');
 <head>
   <title>Dashboard admin &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="contenuto">
     <h2>GESTIONE ACCREDITI</h2>
@@ -58,7 +58,7 @@ foreach ($accrediti as $accredito) {
   $ut_nome = $utente->getElementsByTagName('nome')[0]->textContent;
   $ut_cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
 ?>
-      <form class="tr" id="accredito-<?php echo($ac_id); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/accrediti.php">
+      <form class="tr" id="accredito-<?php echo($ac_id); ?>" method="post" action="<?php echo($rc_subdir); ?>/admin/accrediti.php">
         <input type="hidden" name="id" value="<?php echo($ac_id); ?>"></input>
         <div class="td">
           <span><?php echo($ac_data); ?></span>
@@ -82,6 +82,6 @@ foreach ($accrediti as $accredito) {
     </div>
   </div>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

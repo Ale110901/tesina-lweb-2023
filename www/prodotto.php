@@ -6,13 +6,13 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/rating.php');
-require_once(RC_ROOT . '/lib/recensioni.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/rating.php');
+require_once($rc_root . '/lib/recensioni.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $id_valido = isset($_GET['id']) && !is_nan($_GET['id']);
 
@@ -142,32 +142,32 @@ if ($id_valido) {
 <head>
   <title><?php echo($nome); ?> &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotto.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/faq.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/prodotto.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/faq.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="contenuto">
 <?php if (!$id_valido) { ?>
     <p>Prodotto non trovato.</p>
 <?php } else { ?>
     <div id="pag-prodotto">
-    <a href="<?php echo(RC_SUBDIR); ?>/catalogo.php" title="Indietro">&#x2190;</a>
+    <a href="<?php echo($rc_subdir); ?>/catalogo.php" title="Indietro">&#x2190;</a>
       <div id="prod-top">
         <div id="prod-top-sx">
-          <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>
+          <img class="img-prodotto" src="<?php echo($rc_subdir); ?>/res/img/prodotti/<?php echo($id_prodotto); ?>.png" alt="Immagine prodotto <?php echo($id_prodotto); ?>" ></img>
         </div>
         <div id="prod-top-mid">
           <p id="marca"><?php echo($marca); ?></p>
           <p id="nome"><?php echo($nome); ?></p>
           <p class="mb-16" id="descrizione"><?php echo($descrizione); ?></p>
 <?php if ($e_gestore) { ?>
-          <a class="button" href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($id_prodotto); ?>">Modifica info</a>
+          <a class="button" href="<?php echo($rc_subdir); ?>/gestore/prodotto.php?id=<?php echo($id_prodotto); ?>">Modifica info</a>
 <?php } ?>
         </div>
         <div id="prod-top-dx" class="riquadro">
@@ -192,7 +192,7 @@ if ($id_valido) {
               <span id='prezzo-finale'><?php echo(number_format($costo_finale, 2)); ?> &euro;</span>
             </div>
           </div>
-            <form id="prod-top-dx-action" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
+            <form id="prod-top-dx-action" action="<?php echo($rc_subdir); ?>/cliente/carrello.php" method="post">
               <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
               <div id="input-qta">
                 <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($qta_max); ?>" <?php if (!$disponibile || $qta_max === 0) echo ('disabled'); ?>/>
@@ -291,7 +291,7 @@ if ($id_valido) {
           </div>
           <div class="fb-65 ml-32">
 <?php if ($e_gestore) { ?>
-            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
               <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
                 <button type="submit" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
             </form>
@@ -361,7 +361,7 @@ if ($id_valido) {
             <i><?php echo($data_d); ?></i>
             <div class="fb-55 ml-32 cp" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
 <?php if ($e_gestore) { ?>
-            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
               <button type="submit" class="button-icona" name="azione" value="elimina_domanda" title="elimina domanda">&#x01F5D1</button>
             </form>
@@ -449,7 +449,7 @@ if ($id_valido) {
             <div class="fb-13">
               <i><?php echo($data_risp); ?></i>
 <?php if ($e_gestore) { ?>
-            <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
+            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
               <input type="hidden" name="id_risposta" value="<?php echo($id_risposta); ?>" />
               <button type="submit" class="button-icona" name="azione" value="elimina_risposta" title="elimina risposta">&#x01F5D1</button>
@@ -515,7 +515,7 @@ if ($id_valido) {
 ?>
 <?php if ($loggato && ($e_cliente || $e_gestore) && !presenza_gestore_risposta($id_domanda)) { ?>
           <button type="submit" class="button mt-16" onclick="mostraAggiuntaRisposta(<?php echo($id_domanda); ?>);">Rispondi</button>
-          <form id="risp-dom-<?php echo($id_domanda); ?>" class="nascosto" method="post" action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
+          <form id="risp-dom-<?php echo($id_domanda); ?>" class="nascosto" method="post" action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>">
             <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
             <textarea class="input-flat w-50p mt-16" name="risposta" rows="6" placeholder="Inserisci la tua risposta" oninput="gestisciTextarea(<?php echo($id_domanda); ?>);"></textarea>
             <button type="submit" class="button ml-8" name="azione" value="aggiungi_risposta" disabled>Invia</button>
@@ -523,7 +523,7 @@ if ($id_valido) {
           </form>
 <?php } ?>
 <?php if ($e_gestore || $e_admin) { ?>
-          <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
+          <form id="eleva-<?php echo($id_domanda); ?>" method="post" action="<?php echo($rc_subdir); ?>/admin/aggiungi-faq.php">
             <input type="hidden" name="domanda" value="<?php echo($contenuto_d); ?>"></input>
             <input type="hidden" name="id" value="<?php echo($id_prodotto); ?>"></input>
             <button type="submit" class="button mt-16" name="azione" value="precompila">Eleva</button>
@@ -539,9 +539,9 @@ if ($id_valido) {
 <?php } ?>
   </div>
 
-  <script type="text/javascript" src="<?php echo(RC_SUBDIR); ?>/res/js/prodotto.js"></script>
+  <script type="text/javascript" src="<?php echo($rc_subdir); ?>/res/js/prodotto.js"></script>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

@@ -6,12 +6,12 @@ $perm_cliente = true;
 $perm_gestore = false;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/carrello.php');
-require_once(RC_ROOT . '/lib/ordini.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/carrello.php');
+require_once($rc_root . '/lib/ordini.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
 
@@ -69,13 +69,13 @@ if (!isset($_POST['azione'])) {
 <head>
   <title>Carrello &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="pagina-form" class="centrato">
     <h2>ORDINE</h2>
@@ -83,9 +83,9 @@ if (!isset($_POST['azione'])) {
       <p class="mt-32">Non si pu&ograve; accedere a questa pagina senza aver seguito il flusso dell'ordine...</p>
 <?php } else if ($ordine_creato) { ?>
       <h4 class="mt-32">Ordine creato con successo!, verrai reindirizzato al catalogo...</h4>
-      <meta http-equiv="refresh" content="3; <?php echo(RC_SUBDIR); ?>/catalogo.php">
+      <meta http-equiv="refresh" content="3; <?php echo($rc_subdir); ?>/catalogo.php">
 <?php } else { ?>
-      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
+      <form action="<?php echo($rc_subdir); ?>/cliente/ordine.php" method="post">
         <label for="indirizzo">Indirizzo di spedizione:</label>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>" />
         <input type="hidden" name="bonus" value="<?php echo($bonus); ?>" />
@@ -98,7 +98,7 @@ if (!isset($_POST['azione'])) {
 <?php } ?>
   </div>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

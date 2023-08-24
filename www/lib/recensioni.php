@@ -1,6 +1,6 @@
 <?php
-require_once(RC_ROOT . '/lib/rating.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/rating.php');
+require_once($rc_root . '/lib/xml.php');
 
 $doc_recensioni = load_xml('recensioni');
 

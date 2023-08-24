@@ -6,8 +6,8 @@ $perm_cliente = false;
 $perm_gestore = false;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utenti.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/utenti.php');
 
 $err_vuoto = false;
 $err_pwd = false;
@@ -73,7 +73,7 @@ if ($registrazione) {
   $redir_dest = isset($_GET['redirect']) ? $_GET['redirect'] : '';
 }
 
-$link_log = RC_SUBDIR . '/utente/login.php';
+$link_log = $rc_subdir . '/utente/login.php';
 if ($redir_dest !== '') {
   $link_log .= '?redirect=' . $redir_dest;
 }
@@ -84,17 +84,17 @@ if ($redir_dest !== '') {
 <head>
   <title>Registrazione &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2 class="py-16">REGISTRAZIONE</h2>
 <?php if (!$registrazione || $errore) { ?>
-    <form action="<?php echo(RC_SUBDIR); ?>/utente/registrazione.php" method="post">
+    <form action="<?php echo($rc_subdir); ?>/utente/registrazione.php" method="post">
       <label for="nome">Nome:</label><br>
       <input type="text" class="input-box" name="nome" value="<?php echo($nome); ?>"><br>
 
@@ -163,7 +163,7 @@ if ($redir_dest !== '') {
       </div>
     </div>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

@@ -6,10 +6,10 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/faq.php');
-require_once(RC_ROOT . '/lib/utils.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/faq.php');
+require_once($rc_root . '/lib/utils.php');
+require_once($rc_root . '/lib/xml.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
@@ -44,7 +44,7 @@ if ($id_valido) {
 
         modifica_faq($faq_id, $_POST['domanda'], $_POST['risposta']);
 
-        redirect(307, RC_SUBDIR . '/faq.php', false);
+        redirect(307, $rc_subdir . '/faq.php', false);
       } else {
         if (isset($_POST['domanda'])) {
           $faq_domanda = $_POST['domanda'];
@@ -64,15 +64,15 @@ if ($id_valido) {
 <head>
   <title>Modifica FAQ &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2>MODIFICA FAQ</h2>
-    <form method="post" action="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($faq_id); ?>">
+    <form method="post" action="<?php echo($rc_subdir); ?>/admin/modifica-faq.php?id=<?php echo($faq_id); ?>">
       <input type="hidden" name="id" value="<?php echo($faq_id); ?>"></input>
       <div class="my-32">
         <label for="domanda" class="grassetto">Domanda:</label><br />
@@ -83,7 +83,7 @@ if ($id_valido) {
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
       <button type="submit" class="button mb-16" name="azione" value="modifica">Modifica</button><br />
-      <a class="button" href="<?php echo(RC_SUBDIR);?>/faq.php" >Torna indietro</a>
+      <a class="button" href="<?php echo($rc_subdir);?>/faq.php" >Torna indietro</a>
 
 <?php if ($errore) { ?>
       <p class="mt-32 grassetto">
@@ -93,6 +93,6 @@ if ($id_valido) {
 
     </form>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

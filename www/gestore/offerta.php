@@ -6,18 +6,18 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utils.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/utils.php');
 
 $aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
 $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
 if ($aggiungi) {
   aggiungi_offerta(0, $_POST);
-  redirect(307, RC_SUBDIR . '/gestore/offerte.php', false);
+  redirect(307, $rc_subdir . '/gestore/offerte.php', false);
 }
 
 $o_info = [
@@ -44,7 +44,7 @@ if ($id_valido) {
     $id_valido = false;
   } else if ($modifica) {
     modifica_offerta($o_id, $_POST);
-    redirect(307, RC_SUBDIR . '/gestore/offerte.php', false);
+    redirect(307, $rc_subdir . '/gestore/offerte.php', false);
   } else {
     $o_info = $o_info_t;
   }
@@ -69,19 +69,19 @@ $prodotti =  $doc_prodotti->documentElement->childNodes;
 <head>
   <title>Aggiungi offerta &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/aggiungi-offerta.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/aggiungi-offerta.css" />
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2>GESTIONE OFFERTA</h2>
 <?php
 $a_id = $da_modificare ? '?id=' . $o_id : '';
 ?>
-    <form id="offerta" class="mb-32" method="post" action="<?php echo(RC_SUBDIR); ?>/gestore/offerta.php<?php echo($a_id); ?>">
+    <form id="offerta" class="mb-32" method="post" action="<?php echo($rc_subdir); ?>/gestore/offerta.php<?php echo($a_id); ?>">
         <div class="my-32">
           <div id="input-tipo" class="my-16">
             <label for="tipo" class="grassetto mr-8">Tipo di offerta:</label>
@@ -191,8 +191,8 @@ foreach ($categorie as $categoria) {
     <a class="button" onclick="history.back();">Torna indietro</a>
   </div>
 
-  <script type="text/javascript" src="<?php echo(RC_SUBDIR); ?>/res/js/offerta.js">
+  <script type="text/javascript" src="<?php echo($rc_subdir); ?>/res/js/offerta.js">
   </script>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

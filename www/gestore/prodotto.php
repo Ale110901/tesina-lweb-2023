@@ -6,10 +6,10 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $aggiungi = isset($_POST['azione']) && $_POST['azione'] === 'aggiungi';
 $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
@@ -19,7 +19,7 @@ if ($aggiungi) {
     $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
     $_POST['quantita'], $_FILES['immagine']);
 
-  redirect(307, RC_SUBDIR . '/gestore/prodotti.php', false);
+  redirect(307, $rc_subdir . '/gestore/prodotti.php', false);
 }
 
 $p_info = [
@@ -44,7 +44,7 @@ if ($id_valido) {
       $_POST['descrizione'], $_POST['costo'], $_POST['categoria'],
       $_POST['quantita'], $_FILES['immagine']);
 
-    redirect(307, RC_SUBDIR . '/gestore/prodotti.php', false);
+    redirect(307, $rc_subdir . '/gestore/prodotti.php', false);
   } else {
     $p_info = $p_info_t;
   }
@@ -60,20 +60,20 @@ $categorie = $doc_categorie->documentElement->childNodes;
 <head>
   <title>Gestione prodotto &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotto-gestore.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/prodotto-gestore.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2>GESTIONE PRODOTTO</h2>
 <?php
 $a_id = $da_modificare ? '?id=' . $p_id : '';
 ?>
-    <form action="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php<?php echo($a_id); ?>" method="post" enctype="multipart/form-data">
+    <form action="<?php echo($rc_subdir); ?>/gestore/prodotto.php<?php echo($a_id); ?>" method="post" enctype="multipart/form-data">
       <table class="py-1em giustificato">
         <tr>
           <td class="grassetto">Immagine:</td>
@@ -81,7 +81,7 @@ $a_id = $da_modificare ? '?id=' . $p_id : '';
 <?php
 if ($da_modificare) {
 ?>
-            <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+            <img class="img-prodotto" src="<?php echo($rc_subdir); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
 <?php
 }
 ?>
@@ -135,7 +135,7 @@ foreach ($categorie as $categoria) {
       <a class="button" onclick="history.back();">Torna indietro</a>
     </form>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/xml.php');
 
 $doc_faq = load_xml('faq');
 

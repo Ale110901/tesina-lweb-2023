@@ -1,7 +1,7 @@
 <?php
-require_once(RC_ROOT . '/lib/utils.php');
+require_once($rc_root . '/lib/utils.php');
 
-if (!defined('RC_SUBDIR')) {
+if (!isset($rc_subdir)) {
   header('Content-Type: text/plain');
 
   echo ('Il sito non e\' stato installato. Procedere con l\'installazione prima.');
@@ -18,7 +18,7 @@ session_start();
  * Quindi questa operazione va in questo file, perche' va eseguita dopo
  * l'avvio della sessione ma prima del controllo dei permessi.
  */
-if ($_SERVER['PHP_SELF'] === RC_SUBDIR . '/cliente/carrello.php') {
+if ($_SERVER['PHP_SELF'] === $rc_subdir . '/cliente/carrello.php') {
   if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi') {
     $_SESSION['agg_carr_id_prod'] = $_POST['id_prodotto'];
     $_SESSION['agg_carr_qta'] = $_POST['quantita'];
@@ -33,7 +33,7 @@ $e_admin =   isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === 'ad
 $e_visitatore = !$e_cliente && !$e_gestore && !$e_admin;
 
 if ($e_visitatore && !$perm_visitatore) {
-  redirect(401, RC_SUBDIR . '/utente/login.php', true);
+  redirect(401, $rc_subdir . '/utente/login.php', true);
 }
 
 if (
@@ -41,6 +41,6 @@ if (
   ($e_gestore && !$perm_gestore) ||
   ($e_admin && !$perm_admin)
 ) {
-  redirect(403, RC_SUBDIR . '/accesso_negato.php', false);
+  redirect(403, $rc_subdir . '/accesso_negato.php', false);
 }
 ?>

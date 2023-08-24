@@ -9,8 +9,8 @@ if (isset($_GET['subdir'])) {
 
 file_put_contents('config.php',
   "<?php\n" .
-  "const RC_ROOT = __DIR__;\n" .
-  "const RC_SUBDIR = '$subdir';\n" .
+  "\$rc_root = __DIR__;\n" .
+  "\$rc_subdir = '$subdir';\n" .
   "?>"
 );
 

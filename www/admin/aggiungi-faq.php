@@ -6,9 +6,9 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/faq.php');
-require_once(RC_ROOT . '/lib/utils.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/faq.php');
+require_once($rc_root . '/lib/utils.php');
 
 $faq_domanda = '';
 $faq_risposta = '';
@@ -32,7 +32,7 @@ if (!isset($_POST['azione'])) {
 } else if ($_POST['azione'] === 'aggiungi') {
   if ($_POST['domanda'] !== '' && $_POST['risposta'] !== '') {
     aggiungi_faq($_POST['domanda'], $_POST['risposta']);
-    redirect(307, RC_SUBDIR . '/faq.php', false);
+    redirect(307, $rc_subdir . '/faq.php', false);
   } else {
     $errore = true;
     $faq_domanda = $_POST['domanda'];
@@ -46,15 +46,15 @@ if (!isset($_POST['azione'])) {
 <head>
   <title>Aggiungi FAQ &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2>AGGIUNGI FAQ</h2>
-    <form method="post" action="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php">
+    <form method="post" action="<?php echo($rc_subdir); ?>/admin/aggiungi-faq.php">
       <div class="my-32">
         <label for="domanda" class="grassetto">Domanda:</label><br />
         <textarea class="input-flat w-50p" name="domanda"  rows="6" placeholder="Inserisci la domanda qui"><?php echo($faq_domanda); ?></textarea>
@@ -71,7 +71,7 @@ if (!isset($_POST['azione'])) {
 
 <?php
 if ($back_prod) {
-  $a_redir = 'href="' . RC_SUBDIR . '/prodotto.php?id=' . $id_prodotto . '"';
+  $a_redir = 'href="' . $rc_subdir . '/prodotto.php?id=' . $id_prodotto . '"';
 } else {
   $a_redir = 'onclick="history.back();"';
 }
@@ -85,6 +85,6 @@ if ($back_prod) {
 
     </form>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

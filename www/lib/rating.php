@@ -1,6 +1,6 @@
 <?php
-require_once(RC_ROOT . '/lib/ordini.php');
-require_once(RC_ROOT . '/lib/utenti.php');
+require_once($rc_root . '/lib/ordini.php');
+require_once($rc_root . '/lib/utenti.php');
 
 const K_CLIENTE = 1;
 const K_ACQUIRENTE = 2;

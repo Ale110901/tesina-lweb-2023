@@ -1,8 +1,8 @@
 <?php
-require_once(RC_ROOT . '/lib/domande.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/recensioni.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/domande.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/recensioni.php');
+require_once($rc_root . '/lib/xml.php');
 
 $doc_prodotti = load_xml('prodotti');
 
@@ -43,7 +43,7 @@ function aggiungi_prodotto($nome, $marca, $descrizione, $costo, $categoria, $qua
     $immagine['error'] === UPLOAD_ERR_OK;
   if ($upload_ok) {
     $nome_temp = $immagine['tmp_name'];
-    $nome_finale = RC_ROOT . '/res/img/prodotti/' . $id . '.png';
+    $nome_finale = $rc_root . '/res/img/prodotti/' . $id . '.png';
     move_uploaded_file($nome_temp, $nome_finale);
   }
 
@@ -85,7 +85,7 @@ function modifica_prodotto($id, $nome, $marca, $descrizione, $costo, $categoria,
     $immagine['error'] === UPLOAD_ERR_OK;
   if ($upload_ok) {
     $nome_temp = $immagine['tmp_name'];
-    $nome_finale = RC_ROOT . '/res/img/prodotti/' . $p_id . '.png';
+    $nome_finale = $rc_root . '/res/img/prodotti/' . $p_id . '.png';
     move_uploaded_file($nome_temp, $nome_finale);
   }
 

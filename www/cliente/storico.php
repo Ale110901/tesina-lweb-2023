@@ -6,10 +6,10 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/ordini.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/ordini.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/xml.php');
 
 if ($e_cliente) {
   $id_utente = $_SESSION['id_utente'];
@@ -25,14 +25,14 @@ $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_uten
 <head>
   <title>Storico acquisti &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/storico.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/storico.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="contenuto" class="centrato">
     <h2>ORDINI</h2>
@@ -76,6 +76,6 @@ foreach ($ordini as $ordine) {
     <a class="button" onclick="history.back();">Torna indietro</a>
   </div>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

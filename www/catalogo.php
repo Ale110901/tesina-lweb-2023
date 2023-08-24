@@ -6,12 +6,12 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $prodotti = $doc_prodotti->documentElement->childNodes;
 $prodotti = domlist_to_array($prodotti);
@@ -41,18 +41,18 @@ switch ($ord_type) {
 <head>
   <title>Catalogo &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/catalogo.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/catalogo.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="pb-32">CATALOGO</h2>
 
-    <form id="filtri" action="<?php echo(RC_SUBDIR); ?>/catalogo.php" method="get" class="mb-32">
+    <form id="filtri" action="<?php echo($rc_subdir); ?>/catalogo.php" method="get" class="mb-32">
       <label for="ordina">Ordinamento:</label>
 
       <select name="ordina">
@@ -87,8 +87,8 @@ switch ($ord_type) {
     $costo_finale = round($p_costo * (1 - $sconto), 2);
 ?>
       <div class="card-prodotto <?php if ($p_quantita === '0') echo('out-of-stock'); ?>">
-        <a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">
-          <img class="img-prodotto" src="<?php echo(RC_SUBDIR); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
+        <a href="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($p_id); ?>">
+          <img class="img-prodotto" src="<?php echo($rc_subdir); ?>/res/img/prodotti/<?php echo($p_id); ?>.png" alt="Immagine prodotto <?php echo($p_id); ?>"></img>
           <div class="overlay">terminato</div>
           <p><i><?php echo(ottieni_categoria($p_categoria)); ?></i></p>
           <p><i><?php echo($p_marca); ?></i></p>
@@ -106,7 +106,7 @@ switch ($ord_type) {
 ?>
     </div>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

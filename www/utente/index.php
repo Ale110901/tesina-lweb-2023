@@ -6,8 +6,8 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utils.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/utils.php');
 
 switch ($_SESSION['tipo_utente']) {
   case 'admin':
@@ -24,5 +24,5 @@ switch ($_SESSION['tipo_utente']) {
     break;
 }
 
-redirect(307, RC_SUBDIR . $home_page, false);
+redirect(307, $rc_subdir . $home_page, false);
 ?>

@@ -6,9 +6,9 @@ $perm_cliente = true;
 $perm_gestore = false;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $id_utente = $_SESSION['id_utente'];
 
@@ -27,10 +27,10 @@ $data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
 <head>
   <title>Prova &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/profilo.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/profilo.css" />
 </head>
 
 <body>
@@ -44,10 +44,10 @@ $data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
     }
   </script>
 
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
       <h2>Profilo</h2>
-      <form action="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php" method="post">
+      <form action="<?php echo($rc_subdir); ?>/cliente/profilo.php" method="post">
         <table id="info-profilo" class="py-1em">
           <tr>
             <td><b>Nome:</b></td>
@@ -102,7 +102,7 @@ $data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
             <td><b>Credito:</b></td>
             <td>
               <span><?php echo (number_format($info_utente['credito'], 2)); ?> &euro;</span>
-              <a class="link ml-2em" href="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php">Ricarica</a>
+              <a class="link ml-2em" href="<?php echo($rc_subdir); ?>/cliente/ricarica.php">Ricarica</a>
             </td>
           </tr>
           <tr>
@@ -120,21 +120,21 @@ $data_reg = date_format(date_create($info_utente['data_reg']), 'd F Y');
           <tr>
             <td><b>Storico acquisti:</b></td>
             <td>
-              <a class="link" href="<?php echo(RC_SUBDIR); ?>/cliente/storico.php">Visualizza</a>
+              <a class="link" href="<?php echo($rc_subdir); ?>/cliente/storico.php">Visualizza</a>
             </td>
           </tr>
         </table>
         <p class="con-toggle nascosto">
           <button type="submit" name="azione" value="modifica" class="button" title="Conferma modifiche">Conferma modifiche</button><br /><br />
-          <a class="button" href="<?php echo(RC_SUBDIR); ?>/cliente/profilo.php" title="Torna indietro">Torna indietro</a>
+          <a class="button" href="<?php echo($rc_subdir); ?>/cliente/profilo.php" title="Torna indietro">Torna indietro</a>
         </p>
       </form>
       <button class="button con-toggle mt-8 mb-16" title="Modifica profilo" onclick="visibilita()">Modifica profilo</button>
       <br />
-      <a href="<?php echo(RC_SUBDIR); ?>/utente/logout.php" class="button con-toggle" title="Logout">Logout</a>
+      <a href="<?php echo($rc_subdir); ?>/utente/logout.php" class="button con-toggle" title="Logout">Logout</a>
   </div>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 
 </body>
 </html>

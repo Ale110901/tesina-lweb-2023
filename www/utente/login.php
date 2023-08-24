@@ -6,9 +6,9 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/utils.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/utils.php');
 
 $sessione = isset($_SESSION['id_utente']) && !is_nan($_SESSION['id_utente']);
 $login = isset($_POST['azione']) && $_POST['azione'] === 'accedi';
@@ -32,13 +32,13 @@ if ($sessione) {
 
 if ($loggato) {
   if ($redir_dest === '') {
-    $redir_dest = RC_SUBDIR . '/index.php';
+    $redir_dest = $rc_subdir . '/index.php';
   }
 
   redirect(307, $redir_dest, false);
 }
 
-$link_reg = RC_SUBDIR . '/utente/registrazione.php';
+$link_reg = $rc_subdir . '/utente/registrazione.php';
 if ($redir_dest !== '') {
   $link_reg .= '?redirect=' . $redir_dest;
 }
@@ -49,16 +49,16 @@ if ($redir_dest !== '') {
 <head>
   <title>Login &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2 class="py-16">LOGIN</h2>
-    <form action="<?php echo(RC_SUBDIR); ?>/utente/login.php" method="post" >
+    <form action="<?php echo($rc_subdir); ?>/utente/login.php" method="post" >
       <label for="username">Nome utente:</label><br>
       <input type="text" class="input-box" name="username"><br><br>
 
@@ -84,7 +84,7 @@ if ($login && !$loggato) {
 ?>
     </div>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

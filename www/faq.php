@@ -6,9 +6,9 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/faq.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/faq.php');
+require_once($rc_root . '/lib/xml.php');
 
 $perm_modifica = $e_gestore || $e_admin;
 
@@ -26,10 +26,10 @@ $faqs = $doc_faq->documentElement->childNodes;
 <head>
   <title>FAQ &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/faq.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/faq.css" />
 </head>
 
 <body>
@@ -39,7 +39,7 @@ $faqs = $doc_faq->documentElement->childNodes;
     }
   </script>
 
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2>FAQ</h2>
     <div id="faq">
@@ -53,8 +53,8 @@ foreach ($faqs as $faq) {
         <button class="btn-domanda" onclick="mostra(<?php echo($id); ?>)"><?php echo($domanda); ?></button>
         <span class="btn-freccia">&#x21D3;</span><br />
 <?php if ($perm_modifica) { ?>
-        <a href="<?php echo(RC_SUBDIR); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" id="posizione-modifica"  class="button-icona" title="modifica">&#x01F4DD</a>
-        <form method="post" action="<?php echo(RC_SUBDIR); ?>/faq.php">
+        <a href="<?php echo($rc_subdir); ?>/admin/modifica-faq.php?id=<?php echo($id); ?>" id="posizione-modifica"  class="button-icona" title="modifica">&#x01F4DD</a>
+        <form method="post" action="<?php echo($rc_subdir); ?>/faq.php">
           <input type="hidden" name="id" value="<?php echo($id); ?>" />
           <button type="submit" id="posizione-elimina" class="button-icona" name="azione" value="elimina" title="elimina">&#x01F5D1</button>
         </form>
@@ -70,11 +70,11 @@ foreach ($faqs as $faq) {
 ?>
 
 <?php if ($perm_modifica) { ?>
-      <a href="<?php echo(RC_SUBDIR); ?>/admin/aggiungi-faq.php" class="button">Aggiungi FAQ</a>
+      <a href="<?php echo($rc_subdir); ?>/admin/aggiungi-faq.php" class="button">Aggiungi FAQ</a>
 <?php } ?>
     </div>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

@@ -6,9 +6,9 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/xml.php');
 
 $elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
@@ -24,13 +24,13 @@ $categorie = $doc_categorie->documentElement->childNodes;
 <head>
   <title>Gestione categorie &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="mb-32">GESTIONE CATEGORIE</h2>
     <div class="table mt-32 mx-auto mb-32 giustificato">
@@ -46,7 +46,7 @@ foreach ($categorie as $categoria) {
 ?>
       <div class="tr">
         <div class="td"><?php echo($c_nome); ?></div>
-        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/categorie.php" method="post">
+        <form class="td centrato" action="<?php echo($rc_subdir); ?>/gestore/categorie.php" method="post">
           <input type="hidden" name="id" value="<?php echo($c_id); ?>" />
           <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
         </form>
@@ -56,11 +56,11 @@ foreach ($categorie as $categoria) {
 ?>
     </div>
       <p class="l-h3em">
-        <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/aggiungi-categoria.php">Aggiungi categoria</a><br />
-        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
+        <a class="button b-32" href="<?php echo($rc_subdir);?>/gestore/aggiungi-categoria.php">Aggiungi categoria</a><br />
+        <a class="button" href="<?php echo($rc_subdir);?>/gestore/index.php">Torna indietro</a>
       </p>
 
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

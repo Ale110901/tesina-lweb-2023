@@ -6,10 +6,10 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
@@ -26,14 +26,14 @@ $prodotti = $root->childNodes;
 <head>
   <title>Gestione prodotti &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/prodotti-gestore.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/prodotti-gestore.css" />
 
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2 class="mb-32">GESTIONE PRODOTTI</h2>
     <div class="table mt-32 mx-auto mb-32 text-left">
@@ -69,9 +69,9 @@ foreach ($prodotti as $prodotto) {
         <div class="td"><?php echo(number_format($p_costo, 2)); ?> &euro;</div>
         <div class="td"><?php echo($p_categoria); ?></div>
         <div class="td centrato"><?php echo($p_quantita); ?></div>
-        <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
-        <div class="td centrato"><a href="<?php echo(RC_SUBDIR); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
-        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/prodotti.php" method="post">
+        <div class="td centrato"><a href="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($p_id); ?>">&#x1F441</a></div>
+        <div class="td centrato"><a href="<?php echo($rc_subdir); ?>/gestore/prodotto.php?id=<?php echo($p_id); ?>">&#x01F4DD</a></div>
+        <form class="td centrato" action="<?php echo($rc_subdir); ?>/gestore/prodotti.php" method="post">
           <input type="hidden" name="id" value="<?php echo($p_id); ?>" />
           <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
         </form>
@@ -81,11 +81,11 @@ foreach ($prodotti as $prodotto) {
 ?>
     </div>
       <p class="l-h3em">
-        <a class="button b-32" href="<?php echo(RC_SUBDIR);?>/gestore/prodotto.php">Aggiungi prodotto</a><br />
-        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/index.php">Torna indietro</a>
+        <a class="button b-32" href="<?php echo($rc_subdir);?>/gestore/prodotto.php">Aggiungi prodotto</a><br />
+        <a class="button" href="<?php echo($rc_subdir);?>/gestore/index.php">Torna indietro</a>
       </p>
 
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

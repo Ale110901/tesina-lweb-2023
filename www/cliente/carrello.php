@@ -6,11 +6,11 @@ $perm_cliente = true;
 $perm_gestore = false;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/carrello.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/utenti.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/carrello.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/utenti.php');
 
 if (isset($_SESSION['agg_carr_id_prod'])) {
   aggiungi_carrello($_SESSION['agg_carr_id_prod'], $_SESSION['agg_carr_qta']);
@@ -45,14 +45,14 @@ $credito_utente = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@id=' . $id
 <head>
   <title>Carrello &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/carrello.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/carrello.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto" class="centrato">
     <h2>CARRELLO</h2>
     <ul>
@@ -94,7 +94,7 @@ foreach ($prodotti as $prod_carrello) {
           <?php echo(number_format($prezzo_prod_or, 2)); ?> &euro;
 <?php } ?>
         </p>
-        <form class="mt-8" action="<?php echo(RC_SUBDIR); ?>/cliente/carrello.php" method="post">
+        <form class="mt-8" action="<?php echo($rc_subdir); ?>/cliente/carrello.php" method="post">
           <input type="hidden" name="id_prodotto" value="<?php echo ($id_prod); ?>" />
           <input type="number" name="quantita" value="<?php echo($qta_prod); ?>" min="0" step="1" size="4" max="<?php echo($qta_mag); ?>" />
           <button type="submit" name="azione" class="ml-8 button-icona" value="modifica" title="Modifica quantita">&#x01F4DD</button>
@@ -119,10 +119,10 @@ foreach ($prodotti as $prod_carrello) {
     <p>Bonus: &plus;<?php echo($bonus_totali); ?> crediti</p><br />
 
     <div class="mt-32">
-      <a class="button <?php if ($totale > 0) echo('sinistra'); ?>" href="<?php echo(RC_SUBDIR); ?>/catalogo.php">Indietro</a>
+      <a class="button <?php if ($totale > 0) echo('sinistra'); ?>" href="<?php echo($rc_subdir); ?>/catalogo.php">Indietro</a>
 <?php if ($totale > 0) { ?>
 <?php   if ($credito_utente >= $totale) { ?>
-      <form action="<?php echo(RC_SUBDIR); ?>/cliente/ordine.php" method="post">
+      <form action="<?php echo($rc_subdir); ?>/cliente/ordine.php" method="post">
         <button type="submit" class="button" id="button-acquista" name="azione" value="modifica-indirizzo">Termina acquisto</button>
         <input type="hidden" name="bonus" value="<?php echo($bonus_totali); ?>"/>
         <input type="hidden" name="totale" value="<?php echo($totale); ?>"/>
@@ -131,7 +131,7 @@ foreach ($prodotti as $prod_carrello) {
       <a class="button" id="button-acquista" onclick="creditoInsufficiente();">Termina acquisto</a>
       <div class="mt-32 nascosto" id="credito-insufficiente">
         <p>Credito insufficiente!</p>
-        <form action="<?php echo(RC_SUBDIR); ?>/cliente/ricarica.php" method="post">
+        <form action="<?php echo($rc_subdir); ?>/cliente/ricarica.php" method="post">
           <input type="hidden" name="azione" value="carrello" />
           <button class="button mt-8"> <span>Ricarica!</span> </a>
         </form>
@@ -148,7 +148,7 @@ foreach ($prodotti as $prod_carrello) {
     }
   </script>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

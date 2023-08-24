@@ -6,11 +6,11 @@ $perm_cliente = false;
 $perm_gestore = true;
 $perm_admin = false;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/categorie.php');
-require_once(RC_ROOT . '/lib/prodotti.php');
-require_once(RC_ROOT . '/lib/offerte.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/categorie.php');
+require_once($rc_root . '/lib/prodotti.php');
+require_once($rc_root . '/lib/offerte.php');
+require_once($rc_root . '/lib/xml.php');
 
 $elimina = isset($_POST['azione']) && $_POST['azione'] === 'elimina';
 
@@ -26,14 +26,14 @@ $offerte = xpath($doc_offerte, 'offerte', '/ns:offerte/ns:offerta');
 <head>
   <title>Gestione offerte &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/offerte-gestore.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/offerte-gestore.css" />
 
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="contenuto">
     <h2>GESTIONE OFFERTE</h2>
@@ -120,8 +120,8 @@ foreach ($offerte as $offerta) {
         <div class="td"><span><?php echo($of_desc); ?></span></div>
         <div class="td"><span><?php echo($of_val_x); ?></span></div>
         <div class="td"><span><?php echo($of_val_y); ?></span></div>
-        <div class="td"><a class="button-icona" href="<?php echo(RC_SUBDIR); ?>/gestore/offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
-        <form class="td centrato" action="<?php echo(RC_SUBDIR); ?>/gestore/offerte.php" method="post">
+        <div class="td"><a class="button-icona" href="<?php echo($rc_subdir); ?>/gestore/offerta.php?id=<?php echo($of_id); ?>">&#x01F4DD</a></div>
+        <form class="td centrato" action="<?php echo($rc_subdir); ?>/gestore/offerte.php" method="post">
           <input type="hidden" name="id" value="<?php echo($of_id); ?>" />
           <button type="submit" class="button-icona" name="azione" value="elimina">&#x01F5D1</button>
         </form>
@@ -132,12 +132,12 @@ foreach ($offerte as $offerta) {
     </div>
 
     <p class="centrato l-h3em">
-        <a class="button" href="<?php echo(RC_SUBDIR);?>/gestore/offerta.php">Aggiungi offerta</a><br />
+        <a class="button" href="<?php echo($rc_subdir);?>/gestore/offerta.php">Aggiungi offerta</a><br />
         <a class="button" onclick="history.back();">Torna indietro</a>
     </p>
 
   </div>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>

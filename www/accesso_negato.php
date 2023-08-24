@@ -6,7 +6,7 @@ $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
+require_once($rc_root . '/lib/start.php');
 
 if ($e_visitatore || $e_cliente) {
   $homepage = '/index.php';
@@ -22,22 +22,22 @@ if ($e_visitatore || $e_cliente) {
 <head>
   <title>Accesso negato &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
 </head>
 
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto">
     <h2>Accesso negato</h2>
     <p class="centrato py-1em">
       Non si dispone delle autorizzazioni necessarie per accedere a questa pagina.<br /><br />
-      <img src="<?php echo(RC_SUBDIR); ?>/res/img/divieto.png" alt="Icona divieto" /><br /><br />
-      <a href="<?php echo(RC_SUBDIR . $homepage); ?>">Torna alla home</a>
+      <img src="<?php echo($rc_subdir); ?>/res/img/divieto.png" alt="Icona divieto" /><br /><br />
+      <a href="<?php echo($rc_subdir . $homepage); ?>">Torna alla home</a>
     </p>
   </div>
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 
 </html>

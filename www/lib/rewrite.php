@@ -20,7 +20,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
 });
 
 foreach ($tables as $table) {
-  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+  $xmlFile = $rc_root . '/data/' . $table . '.xml';
 
   $doc = new DOMDocument();
   $doc->load($xmlFile);

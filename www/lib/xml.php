@@ -1,6 +1,8 @@
 <?php
 function load_xml($table) {
-  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+  global $rc_root;
+
+  $xmlFile = $rc_root . '/data/' . $table . '.xml';
 
   $xmlData = file($xmlFile);
   if (!$xmlData) {
@@ -18,7 +20,9 @@ function load_xml($table) {
 }
 
 function save_xml($doc, $table) {
-  $xmlFile = RC_ROOT . '/data/' . $table . '.xml';
+  global $rc_root;
+
+  $xmlFile = $rc_root . '/data/' . $table . '.xml';
 
   $doc->formatOutput = true;
   $doc->preserveWhiteSpace = false;

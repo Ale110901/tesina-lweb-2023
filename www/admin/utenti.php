@@ -6,9 +6,9 @@ $perm_cliente = false;
 $perm_gestore = false;
 $perm_admin = true;
 
-require_once(RC_ROOT . '/lib/start.php');
-require_once(RC_ROOT . '/lib/utenti.php');
-require_once(RC_ROOT . '/lib/xml.php');
+require_once($rc_root . '/lib/start.php');
+require_once($rc_root . '/lib/utenti.php');
+require_once($rc_root . '/lib/xml.php');
 
 $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
@@ -29,14 +29,14 @@ $utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
 <head>
   <title>Dashboard admin &ndash; R&amp;C store</title>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/common.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/header.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="<?php echo(RC_SUBDIR); ?>/res/css/utenti-admin.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/header.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo($rc_subdir); ?>/res/css/utenti-admin.css" />
 
 </head>
 <body>
-  <?php require(RC_ROOT . '/lib/header.php'); ?>
+  <?php require($rc_root . '/lib/header.php'); ?>
 
   <div id="contenuto">
     <h2>GESTIONE UTENTI</h2>
@@ -63,7 +63,7 @@ foreach ($utenti as $utente) {
   $ut_codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
   $ut_attivo = $utente->getElementsByTagName('attivo')[0]->textContent;
 ?>
-        <form class="tr" id="utente-<?php echo($ut_id); ?>" method="post" action="<?php echo(RC_SUBDIR); ?>/admin/utenti.php">
+        <form class="tr" id="utente-<?php echo($ut_id); ?>" method="post" action="<?php echo($rc_subdir); ?>/admin/utenti.php">
           <input type="hidden" name="id" value="<?php echo($ut_id); ?>"></input>
           <div class="td">
             <span class="con-toggle"><?php echo($ut_email); ?></span>
@@ -117,6 +117,6 @@ foreach ($utenti as $utente) {
     }
   </script>
 
-  <?php require(RC_ROOT . '/lib/footer.php'); ?>
+  <?php require($rc_root . '/lib/footer.php'); ?>
 </body>
 </html>
