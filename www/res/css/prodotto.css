@@ -184,3 +184,20 @@
   text-decoration: none;
   text-shadow: 1px 1px grey;
 }
+
+.colorato-r {
+  background-color: rgb(255, 255, 255, 0.774);
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.colorato-d {
+  background-color: rgb(255, 255, 255, 0.774);
+}
+
+.colorato-risp {
+  background-color: rgba(255, 255, 255, 0.774);
+  padding: 10px;
+  border-radius: 4px;
+}

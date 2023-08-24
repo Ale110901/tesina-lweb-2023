@@ -254,13 +254,17 @@ if ($id_valido) {
     for ($i = 0; $i < 5; $i++) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
+
+    $controllo_rec = $id_ut_rec === $id_ut_corr;
+    $evidenzia_contributo_rec = ($controllo_rec) ? 'colorato-r' : '';
+    $form_abilitato_rec = ($controllo_rec) ? 'nascosto' : '';
 ?>
-        <div class="flex-row my-32">
+        <div class="flex-row my-32 <?php echo($evidenzia_contributo_rec); ?>">
           <div class="fb-20">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
-            <p>da <i><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> </p>
+            <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>"><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> <?php if ($controllo_rec) echo(" &#x01F464;"); ?></p>
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
-            <div class="riquadro pa-8 mt-8 mr-32">
+            <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_rec); ?>">
               <p id="rec_supp_<?php echo($id_recensione); ?>">Supporto:
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                 <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('rec_rat', <?php echo($id_recensione); ?>, 'rec_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
@@ -344,9 +348,13 @@ if ($id_valido) {
     for ($i = 0; $i < 5; $i++) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
+
+    $controllo_dom = $id_ut_d === $id_ut_corr;
+    $evidenzia_contributo_dom = ($controllo_dom) ? 'colorato-d' : '';
+    $form_abilitato_dom = ($controllo_dom) ? 'nascosto' : '';
 ?>
         <div class="my-32">
-          <div class="flex-row" id="box-dom">
+          <div class="flex-row <?php echo($evidenzia_contributo_dom); ?>" id="box-dom">
             <div class="fb-60" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
 <?php if ($e_gestore) { ?>
             <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
@@ -358,11 +366,11 @@ if ($id_valido) {
             </div>
             <div class="fb-20">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
-              <p>da <i><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> </p>
+              <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>"><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> <?php if ($controllo_dom) echo(" &#x01F464;"); ?> </p>
             </div>
             <div class="fb-20">
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
-              <div class="riquadro pa-8 mt-8 mr-32">
+              <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_dom); ?>">
                 <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
@@ -427,8 +435,12 @@ if ($id_valido) {
       for ($i = 0; $i < 5; $i++) {
         $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
       }
+
+      $controllo_risp = $id_ut_r === $id_ut_corr;
+      $evidenzia_contributo_risp = ($controllo_risp) ? 'colorato-risp' : '';
+      $form_abilitato_risp = ($controllo_risp) ? 'nascosto' : '';
 ?>
-          <div class="flex-row my-16">
+          <div class="flex-row my-16 <?php echo($evidenzia_contributo_risp); ?>">
             <div class="fb-5">
 <?php if ($e_gestore) { ?>
             <form action="<?php echo(RC_SUBDIR); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
@@ -446,16 +458,22 @@ if ($id_valido) {
             </div>
             <div class="fb-20">
               Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
-              <p>da <i>
+              <p>da <i class="<?php if ($controllo_risp) echo("grassetto"); ?>">
 <?php
       echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']);
 ?>
                 </i>
+<?php
+      if ($controllo_risp) echo(" &#x01F464;");
+?>
               </p>
             </div>
             <div class="fb-20">
 <?php if ($loggato && ($e_cliente || $e_gestore) && !$e_risp_gestore) { ?>
-              <div class="riquadro pa-8 mt-8 mr-32">
+<?php 
+  $rating_abilitato = (!$rating_abilitato) ? 'nascosto' : '';
+?>
+              <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_risp); ?>">
                 <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
@@ -467,7 +485,7 @@ if ($id_valido) {
                   <input type="hidden" name="utente_risposta" value="<?php echo($id_ut_r); ?>" />
                   <input type="hidden" name="risp_supp" value="0" />
                   <input type="hidden" name="risp_util" value="0" />
-                  <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4" <?php if (!$rating_abilitato) echo ('disabled'); ?>>Invia</button>
+                  <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4 <?php echo($rating_abilitato); ?>">Invia</button>
                 </form>
                 <p id="risp_util_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Utilit&agrave;:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_util', 1)"<?php } ?>><?php echo($ru[0]); ?></a>
