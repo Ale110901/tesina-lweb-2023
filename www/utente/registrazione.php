@@ -1,12 +1,12 @@
 <?php
-require_once('../config.php');
-
 $perm_visitatore = true;
 $perm_cliente = false;
 $perm_gestore = false;
 $perm_admin = false;
 
-require_once($rc_root . '/lib/start.php');
+$rc_level = 1;
+require_once('../lib/start.php');
+
 require_once($rc_root . '/lib/utenti.php');
 
 $err_vuoto = false;

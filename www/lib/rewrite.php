@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+$rc_root = realpath(__DIR__ . '/..');
 
 header('Content-Type: text/plain');
 

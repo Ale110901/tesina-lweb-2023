@@ -1,6 +1,7 @@
 <?php
-require_once('../config.php');
-require_once($rc_root . '/lib/utils.php');
+require_once('../lib/utils.php');
+
+$rc_subdir = make_subdir(1);
 
 session_start();
 if (isset($_SESSION['id_utente'])) {

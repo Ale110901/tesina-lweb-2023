@@ -1,12 +1,11 @@
 <?php
-require_once('../config.php');
-
 $perm_visitatore = false;
 $perm_cliente = false;
 $perm_gestore = false;
 $perm_admin = true;
 
-require_once($rc_root . '/lib/start.php');
+$rc_level = 1;
+require_once('../lib/start.php');
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

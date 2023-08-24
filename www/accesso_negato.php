@@ -1,12 +1,11 @@
 <?php
-require_once('config.php');
-
 $perm_visitatore = true;
 $perm_cliente = true;
 $perm_gestore = true;
 $perm_admin = true;
 
-require_once($rc_root . '/lib/start.php');
+$rc_level = 0;
+require_once('./lib/start.php');
 
 if ($e_visitatore || $e_cliente) {
   $homepage = '/index.php';

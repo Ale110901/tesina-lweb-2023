@@ -12,4 +12,15 @@ function redirect($code, $page, $use_dest) {
   header('Location: ' . $page . $suffix);
   exit();
 }
+
+function make_subdir($level) {
+  $path = $_SERVER['PHP_SELF'];
+  
+  for ($i = 0; $i < $level; $i++) {
+    $pos = strrpos($path, '/');
+    $path = substr($path, 0, $pos);
+  }
+
+  return $path;
+}
 ?>
