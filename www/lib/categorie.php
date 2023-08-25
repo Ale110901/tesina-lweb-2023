@@ -48,4 +48,22 @@ function aggiungi_categoria($nome) {
 
   return true;
 }
+
+function ordina_per_categoria($elements, $desc) {
+  usort($elements, function($aElement, $bElement) use ($key, $desc) {
+    $aValue = $aElement->getElementsByTagName('categoria')[0]->textContent;
+    $aValue = ottieni_categoria($aValue);
+
+    $bValue = $bElement->getElementsByTagName('categoria')[0]->textContent;
+    $bValue = ottieni_categoria($bValue);
+
+    if ($desc) {
+      return strnatcmp($bValue, $aValue);
+    } else {
+      return strnatcmp($aValue, $bValue);
+    }
+  });
+
+  return $elements;
+}
 ?>

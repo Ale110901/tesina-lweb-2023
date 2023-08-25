@@ -50,7 +50,8 @@ $prodotti = $root->childNodes;
       </div>
 <?php
 $prodotti = domlist_to_array($prodotti);
-$prodotti = sort_by_element_txt($prodotti,'categoria', true);
+$prodotti = ordina_per_categoria($prodotti, false);
+
 foreach ($prodotti as $prodotto) {
   $p_id = $prodotto->getAttribute('id');
   $p_marca = $prodotto->getElementsByTagName('marca')[0]->textContent;
