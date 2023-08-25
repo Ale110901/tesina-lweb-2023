@@ -12,6 +12,7 @@ require_once($rc_root . '/lib/utenti.php');
 
 $err_vuoto = false;
 $err_match = false;
+$err_email = false;
 $err_pwd = false;
 $err_tel = false;
 $err_indir = false;
@@ -42,6 +43,11 @@ if ($registrazione) {
       $password2 = '';
     }
 
+    if ($email !== '' && !preg_match(REGEX_EMAIL, $email)) {
+      $err_email = true;
+      $email = '';
+    }
+
     if ($password !== '' && !preg_match(REGEX_PASSWORD, $password)) {
       $err_pwd = true;
       $password = '';
@@ -64,7 +70,7 @@ if ($registrazione) {
     }
   }
 
-  $errore = $err_pwd || $err_tel || $err_indir || $err_cf || $err_vuoto;
+  $errore = $err_vuoto || $err_match || $err_email || $err_pwd || $err_tel || $err_indir || $err_cf;
 
   if (!$errore) {
     $registrato = registra_utente($nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale);
@@ -144,6 +150,9 @@ if ($redir_dest !== '') {
   }
   if ($err_match) {
     ?><p class="mt-8">Le password non corrispondono.</p><?php
+  }
+  if ($err_cf) {
+    ?><p class="mt-8">Email non valida.</p><?php
   }
   if ($err_pwd) {
 ?>
