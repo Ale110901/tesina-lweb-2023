@@ -1,4 +1,6 @@
 <?php
+require_once($rc_root . '/lib/categorie.php');
+
 function load_xml($table) {
   global $rc_root;
 
@@ -60,6 +62,11 @@ function sort_by_element_txt($elements, $key, $desc) {
   usort($elements, function($aElement, $bElement) use ($key, $desc) {
     $aValue = $aElement->getElementsByTagName($key)[0]->textContent;
     $bValue = $bElement->getElementsByTagName($key)[0]->textContent;
+
+    if ($key == 'categoria') {
+      $aValue = ottieni_categoria($aValue);
+      $bValue = ottieni_categoria($bValue);
+    }
 
     if ($desc) {
       return strnatcmp($bValue, $aValue);
