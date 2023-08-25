@@ -1,4 +1,5 @@
 <?php
+require_once($rc_root . '/lib/constants.php');
 require_once($rc_root . '/lib/xml.php');
 
 $doc_utenti = load_xml('utenti');
@@ -103,7 +104,7 @@ function modifica_utente($id_utente, $attivo, $nome, $cognome, $email, $password
   $utente->getElementsByTagName('nome')[0]->textContent = $nome;
   $utente->getElementsByTagName('cognome')[0]->textContent = $cognome;
 
-  if (preg_match('/^[A-Za-z0-9._\-]+@[A-Za-zA0-9._\-]+\.[A-Za-z]+$/', $email)) {
+  if (preg_match(REGEX_EMAIL, $email)) {
     $utente->setAttribute('email', $email);
     $successo = false;
   }
@@ -113,17 +114,17 @@ function modifica_utente($id_utente, $attivo, $nome, $cognome, $email, $password
     $successo = false;
   }
 
-  if (preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
+  if (preg_match(REGEX_TELEFONO, $telefono)) {
     $utente->getElementsByTagName('telefono')[0]->textContent = $telefono;
     $successo = false;
   }
 
-  if (preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
+  if (preg_match(REGEX_INDIRIZZO, $indirizzo)) {
     $utente->getElementsByTagName('indirizzo')[0]->textContent = $indirizzo;
     $successo = false;
   }
 
-  if (preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
+  if (preg_match(REGEX_CF, $codice_fiscale)) {
     $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $codice_fiscale;
     $successo = false;
   }

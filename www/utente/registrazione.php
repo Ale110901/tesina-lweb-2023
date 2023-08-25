@@ -7,6 +7,7 @@ $perm_admin = false;
 $rc_level = 1;
 require_once('../lib/start.php');
 
+require_once($rc_root . '/lib/constants.php');
 require_once($rc_root . '/lib/utenti.php');
 
 $err_vuoto = false;
@@ -33,22 +34,22 @@ if ($registrazione) {
   {
     $err_vuoto = true;
   } else {
-    if (!preg_match('/^[A-Za-z0-9!£$%&()=?^,.;:_|]{8,}$/', $password)) {
+    if ($password !== '' && !preg_match(REGEX_PASSWORD, $password)) {
       $err_pwd = true;
       $password = '';
     }
 
-    if (!preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
+    if ($codice_fiscale !== '' && !preg_match(REGEX_CF, $codice_fiscale)) {
       $err_cf = true;
       $codice_fiscale = '';
     }
 
-    if (!preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
+    if ($telefono !== '' && !preg_match(REGEX_TELEFONO, $telefono)) {
       $err_tel = true;
       $telefono = '';
     }
 
-    if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
+    if ($indirizzo !== '' && !preg_match(REGEX_INDIRIZZO, $indirizzo)) {
       $err_indir = true;
       $indirizzo = '';
     }
