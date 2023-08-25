@@ -61,7 +61,7 @@ foreach ($ordini as $ordine) {
 
     $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$p_id']/ns:nome");
     $p_nome = $result[0]->textContent;
-    $o_articoli .= $p_quantita . "x " . $p_nome . "\n";
+    $o_articoli .= $p_quantita . 'x <a href="' . $rc_subdir . '/prodotto.php?id=' . $p_id . '">' . $p_nome . "</a>\n";
   }
 ?>
         <tr>
