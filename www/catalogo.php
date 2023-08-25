@@ -28,7 +28,7 @@ switch ($ord_type) {
     $prodotti = sort_by_element_txt($prodotti, 'marca', $ord_desc);
     break;
   case 'categoria':
-    $prodotti = sort_by_element_dec($prodotti, 'categoria', $ord_desc);
+    $prodotti = sort_by_element_txt($prodotti, 'categoria', $ord_desc);
     break;
   case 'prezzo':
     $prodotti = sort_by_element_dec($prodotti, 'costo', $ord_desc);
