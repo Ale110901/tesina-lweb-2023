@@ -2,13 +2,14 @@
 $rc_root = realpath(__DIR__ . '/..');
 require_once($rc_root . '/lib/xml.php');
 
-$prodotti = [ 1, 2, 3, 4, 6, 8, 9, 10, 15, 19, 20, 21, 22 ];  // Proteine in polvere
-// $prodotti = [ 5, 7, 11, 12, 13, 14, 16, 17, 18 ];  // Barrette proteiche
-// $prodotti = [ 23, 24, 25 ];   // Vitamine
-// $prodotti = [ 26, 27, 28, 29, 30 ];  // Abbigliamento
-// $prodotti = [ 31, 32, 33, 34 ];  // Accessori
+$categorie = [
+  'proteine' => [ 1, 2, 3, 4, 6, 8, 9, 10, 15, 19, 20, 21, 22 ],
+  'barrette' => [ 5, 7, 11, 12, 13, 14, 16, 17, 18 ],
+  'vitamine' => [ 23, 24, 25 ],
+  // 'abbigliamento' => [ 26, 27, 28, 29, 30 ],
+  // 'accessori' => [ 31, 32, 33, 34 ],
+];
 
-$testi = file($rc_root . '/generatori/rec_proteine.txt');
 $utenti = [
   1,
   4,
@@ -16,37 +17,40 @@ $utenti = [
 $rec_per_prod = 4;
 $rat_per_rec = 5;
 
-
 $doc_recensioni = load_xml('recensioni');
 
-for ($i = 0; $i < count($prodotti); $i++) {
-  for ($j = 0; $j < $rec_per_prod; $j++) {
-    $id_prodotto = $prodotti[$i];
+foreach ($categorie as $nome => $prodotti) {
+  $testi = file($rc_root . '/generatori/rec_' . $nome . '.txt');
 
-    $testo = $testi[array_rand($testi)];
-    $testo = substr($testo, 0, strlen($testo) - 1);
-    $id_ut_rec = $utenti[array_rand($utenti)];
-    $data = gen_data();
+  for ($i = 0; $i < count($prodotti); $i++) {
+    for ($j = 0; $j < $rec_per_prod; $j++) {
+      $id_prodotto = $prodotti[$i];
 
-    $ratings = [];
-    $ut_util = [ $id_ut_rec ];
+      $testo = $testi[array_rand($testi)];
+      $testo = substr($testo, 0, strlen($testo) - 1);
+      $id_ut_rec = $utenti[array_rand($utenti)];
+      $data = gen_data();
 
-    for ($k = 0; $k < $rat_per_rec; $k++) {
-      $diff = array_diff($utenti, $ut_util);
-      if (count($diff) === 0) {
-        break;
+      $ratings = [];
+      $ut_util = [ $id_ut_rec ];
+
+      for ($k = 0; $k < $rat_per_rec; $k++) {
+        $diff = array_diff($utenti, $ut_util);
+        if (count($diff) === 0) {
+          break;
+        }
+
+        $id_ut_rat = $diff[array_rand($diff)];
+        $supporto = rand(1, 3);
+        $utilita = rand(1, 5);
+
+        $ratings[$k] = gen_rating($id_ut_rat, $supporto, $utilita);
+
+        array_push($ut_util, $id_ut_rat);
       }
 
-      $id_ut_rat = $diff[array_rand($diff)];
-      $supporto = rand(1, 3);
-      $utilita = rand(1, 5);
-
-      $ratings[$k] = gen_rating($id_ut_rat, $supporto, $utilita);
-
-      array_push($ut_util, $id_ut_rat);
+      aggiungi_recensione($id_prodotto, $testo, $data, $id_ut_rec, $ratings);
     }
-
-    aggiungi_recensione($id_prodotto, $testo, $data, $id_ut_rec, $ratings);
   }
 }
 
