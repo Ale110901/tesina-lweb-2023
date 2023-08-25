@@ -264,7 +264,16 @@ if ($id_valido) {
           <i><?php echo($data_r); ?></i>
           <div class="fb-20 ml-32">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
-            <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>"><?php echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome']); ?></i> <?php if ($controllo_rec) echo(" &#x01F464;"); ?></p>
+            <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>">
+<?php 
+  if ($controllo_rec) {
+  echo(' Te ' . '</i>'. '&#x01F464;');
+  } else {
+    echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome'] . '</i>');
+  }
+?>        
+            </p>
+
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
             <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_rec); ?>">
               <p id="rec_supp_<?php echo($id_recensione); ?>">Supporto:
@@ -370,7 +379,15 @@ if ($id_valido) {
             </div>
             <div class="fb-15">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
-              <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>"><?php echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome']); ?></i> <?php if ($controllo_dom) echo(" &#x01F464;"); ?> </p>
+              <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>">
+<?php 
+  if ($controllo_dom) {
+    echo(' Te ' . '</i>'. '&#x01F464;');
+  } else {
+    echo($info_ut_d['nome'] . ' ' . $info_ut_d['cognome'] . '</i>');
+  }
+?>
+              </p>
             </div>
             <div class="fb-20 ml-32">
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
@@ -466,12 +483,12 @@ if ($id_valido) {
               Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
               <p>da <i class="<?php if ($controllo_risp) echo("grassetto"); ?>">
 <?php
-      echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome']);
-?>
-                </i>
-<?php
-      if ($controllo_risp) echo(" &#x01F464;");
-?>
+      if ($controllo_risp) {
+        echo(' Te ' . '</i>'. '&#x01F464;');
+      } else {
+        echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome'] . '</i>');
+      }
+?>             
               </p>
             </div>
             <div class="fb-20">
