@@ -45,6 +45,9 @@ $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_uten
       </thead>
       <tbody>
 <?php
+$ordini = domlist_to_array($ordini);
+$ordini = sort_by_element_txt($ordini, 'data', true);
+
 foreach ($ordini as $ordine) {
   $result = $ordine->getElementsByTagName('data')[0]->textContent;
 
