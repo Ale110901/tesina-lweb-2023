@@ -105,7 +105,7 @@ if ($redir_dest !== '') {
       <input type="text" class="input-box" name="email" value="<?php echo($email); ?>"><br>
 
       <label for="password">Password:</label><br>
-      <input type="text" class="input-box" name="password" value="<?php echo($password); ?>"><br>
+      <input type="password" class="input-box" name="password" value="<?php echo($password); ?>"><br>
 
       <label for="telefono">Telefono:</label><br>
       <input type="text" class="input-box" name="telefono" value="<?php echo($telefono); ?>"><br>
