@@ -36,7 +36,8 @@ if ($registrazione) {
     $telefono === '' || $indirizzo === '' || $codice_fiscale === '')
   {
     $err_vuoto = true;
-  } else {
+  }
+
     if ($password !== $password2) {
       $err_match = true;
       $password = '';
@@ -68,7 +69,6 @@ if ($registrazione) {
       $err_indir = true;
       $indirizzo = '';
     }
-  }
 
   $errore = $err_vuoto || $err_match || $err_email || $err_pwd || $err_tel || $err_indir || $err_cf;
 
