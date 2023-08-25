@@ -105,15 +105,15 @@ if ($redir_dest !== '') {
       <input type="text" class="input-box" name="email" value="<?php echo($email); ?>"><br>
 
       <label for="password">Password:</label><br>
-      <input type="password" class="input-box" name="password" value="<?php echo($password); ?>"><br>
+      <input type="text" class="input-box" name="password" value="<?php echo($password); ?>"><br>
 
-      <label for="password">Telefono:</label><br>
+      <label for="telefono">Telefono:</label><br>
       <input type="text" class="input-box" name="telefono" value="<?php echo($telefono); ?>"><br>
 
-      <label for="password">Indirizzo:</label><br>
+      <label for="indirizzo">Indirizzo:</label><br>
       <input type="text" class="input-box" name="indirizzo" value="<?php echo($indirizzo); ?>"><br>
 
-      <label for="password">Codice fiscale:</label><br>
+      <label for="codice_fiscale">Codice fiscale:</label><br>
       <input type="text" class="input-box" name="codice_fiscale" value="<?php echo($codice_fiscale); ?>"><br>
 
       <button type="submit" name="azione" value="registrazione" class="button mt-32">Registrati!</button>
