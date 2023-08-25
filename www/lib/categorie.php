@@ -50,7 +50,7 @@ function aggiungi_categoria($nome) {
 }
 
 function ordina_per_categoria($elements, $desc) {
-  usort($elements, function($aElement, $bElement) use ($key, $desc) {
+  usort($elements, function($aElement, $bElement) use ($desc) {
     $aValue = $aElement->getElementsByTagName('categoria')[0]->textContent;
     $aValue = ottieni_categoria($aValue);
 
