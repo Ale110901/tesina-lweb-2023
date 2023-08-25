@@ -2,14 +2,1102 @@
 <recensioni xmlns="http://www.lweb.uni/tesina-rcstore/recensioni/">
   <recensione id="1" idProdotto="1">
     <idUtente>1</idUtente>
-    <contenuto>Recensione di prova</contenuto>
-    <data>2022-10-27</data>
-    <ratings/>
+    <contenuto>Le proteine in polvere sono diventate un elemento essenziale nella mia routine quotidiana. Mi danno la giusta quantita' di energia per affrontare gli allenamenti e mi aiutano a recuperare piu' velocemente. Non posso fare a meno di raccomandare le proteine in polvere a chiunque sia seriamente interessato al fitness.</contenuto>
+    <data>2017-01-29</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
   </recensione>
   <recensione id="2" idProdotto="1">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono state una scoperta incredibile per me. Non solo sono facili da assumere e digerire, ma hanno anche un sapore delizioso. Consiglio vivamente di provarle se si e' alla ricerca di un modo semplice per raggiungere i propri obiettivi di allenamento.</contenuto>
+    <data>2021-05-05</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="3" idProdotto="1">
     <idUtente>4</idUtente>
-    <contenuto>Recensione di prova</contenuto>
-    <data>2022-10-27</data>
-    <ratings/>
+    <contenuto>Sono rimasto soddisfatto delle proteine in polvere che ho acquistato. Ho notato un miglioramento nella mia forza e una diminuzione del tempo di recupero muscolare. Il sapore e' ottimo e si mischiano facilmente, senza grumi.</contenuto>
+    <data>2019-06-19</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="4" idProdotto="1">
+    <idUtente>1</idUtente>
+    <contenuto>Ho iniziato ad usare le proteine in polvere dopo aver iniziato un programma di allenamento intenso. Mi sono realmente sorpreso dai risultati che ho ottenuto. Mi sento piu' tonico e i miei muscoli sembrano essere piu' definiti. Consiglio sicuramente le proteine in polvere agli altri appassionati di fitness.</contenuto>
+    <data>2022-01-19</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="5" idProdotto="2">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono state una scoperta incredibile per me. Non solo sono facili da assumere e digerire, ma hanno anche un sapore delizioso. Consiglio vivamente di provarle se si e' alla ricerca di un modo semplice per raggiungere i propri obiettivi di allenamento.</contenuto>
+    <data>2023-09-15</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="6" idProdotto="2">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte marche di proteine in polvere nel corso degli anni, ma una delle mie preferite e' sicuramente quella che sto utilizzando attualmente. Ha un gusto fantastico e mi ha aiutato a raggiungere risultati tangibili nel mio percorso verso il miglioramento fisico.</contenuto>
+    <data>2019-02-16</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="7" idProdotto="2">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere mi hanno aiutato a recuperare piu' velocemente dopo gli allenamenti intensi. Ho notato anche che mi sento piu' soddisfatto a livello energetico durante il giorno. Consiglio vivamente di provare queste proteine.</contenuto>
+    <data>2020-03-05</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="8" idProdotto="2">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere mi hanno permesso di raggiungere i miei obiettivi di costruzione muscolare in modo piu' efficiente. Ora mi sento piu' forte e le mie performance negli allenamenti sono nettamente migliorate. Sono davvero soddisfatto dei risultati che ho ottenuto grazie a loro.</contenuto>
+    <data>2019-08-08</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="9" idProdotto="3">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'integrazione fondamentale per il mio regime di allenamento. Ho notato un miglioramento significativo nella mia forza e resistenza dopo aver iniziato a usarle regolarmente. Inoltre, sono molto pratiche da preparare e possono essere facilmente mescolate con acqua o latte.</contenuto>
+    <data>2023-09-05</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="10" idProdotto="3">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'integrazione fondamentale per il mio regime di allenamento. Ho notato un miglioramento significativo nella mia forza e resistenza dopo aver iniziato a usarle regolarmente. Inoltre, sono molto pratiche da preparare e possono essere facilmente mescolate con acqua o latte.</contenuto>
+    <data>2021-05-18</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="11" idProdotto="3">
+    <idUtente>4</idUtente>
+    <contenuto>Sono rimasto impressionato dalla qualita' delle proteine in polvere che ho acquistato. Hanno un sapore delizioso e si mescolano perfettamente, senza grumi. Inoltre, mi hanno aiutato a raggiungere i miei obiettivi di aumento di massa muscolare in modo molto piu' efficace rispetto a quando non le utilizzavo.</contenuto>
+    <data>2023-09-14</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="12" idProdotto="3">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'abitudine post-allenamento per me. Hanno un sapore delizioso e mi aiutano a ricostituire le energie dopo un'intensa sessione in palestra. Inoltre, ho notato un incremento della massa muscolare da quando le utilizzo.</contenuto>
+    <data>2019-07-17</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="13" idProdotto="4">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono essenziali per il mio programma di perdita di peso. Mi aiutano a sentirmi sazio piu' a lungo, riducendo cosi' gli spuntini non salutari durante il giorno. Inoltre, mi forniscono l'energia necessaria per sostenere gli allenamenti ad alta intensita'.</contenuto>
+    <data>2019-01-17</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="14" idProdotto="4">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate il mio segreto per mantenere un livello di energia costante durante l'allenamento. Non solo mi aiutano a sentirmi piu' forte, ma mi danno quella spinta extra di cui ho bisogno per superare i miei limiti. Li consiglio vivamente a chiunque cerchi un supporto efficace per il fitness.</contenuto>
+    <data>2017-10-21</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="15" idProdotto="4">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono un must per coloro che seguono una dieta vegana o vegetariana. Aggiungono una buona dose di proteine senza l'utilizzo di prodotti di origine animale. Ho notato che mi aiutano a mantenere la massa muscolare durante la perdita di peso.</contenuto>
+    <data>2021-05-01</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="16" idProdotto="4">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono un ottimo modo per aumentare l'apporto proteico nella mia dieta, specialmente quando non ho il tempo di preparare pasti complessi. Mi sento piu' forte e ho visto dei notevoli progressi nella mia forza muscolare dall'inizio del loro utilizzo.</contenuto>
+    <data>2023-06-03</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="17" idProdotto="6">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere mi hanno aiutato a recuperare piu' velocemente dopo gli allenamenti intensi. Ho notato anche che mi sento piu' soddisfatto a livello energetico durante il giorno. Consiglio vivamente di provare queste proteine.</contenuto>
+    <data>2019-04-14</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="18" idProdotto="6">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato diverse marche di proteine in polvere nel corso degli anni, ma queste sono decisamente le migliori. Hanno un perfetto equilibrio di sapore e texture, rendendo ogni shake un piacere da consumare. Inoltre, ho notato una maggiore definizione muscolare da quando le utilizzo.</contenuto>
+    <data>2020-01-12</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="19" idProdotto="6">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato molte marche di proteine in polvere nel corso degli anni, ma una delle mie preferite e' sicuramente quella che sto utilizzando attualmente. Ha un gusto fantastico e mi ha aiutato a raggiungere risultati tangibili nel mio percorso verso il miglioramento fisico.</contenuto>
+    <data>2017-06-06</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="20" idProdotto="6">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato diverse marche di proteine in polvere nel corso degli anni, ma queste sono decisamente le migliori. Hanno un perfetto equilibrio di sapore e texture, rendendo ogni shake un piacere da consumare. Inoltre, ho notato una maggiore definizione muscolare da quando le utilizzo.</contenuto>
+    <data>2017-11-09</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="21" idProdotto="8">
+    <idUtente>1</idUtente>
+    <contenuto>Dopo aver iniziato ad assumere le proteine in polvere, ho notato una maggiore definizione muscolare e un aumento della massa magra. E' incredibile come un semplice integratore possa fare una cosi' grande differenza nella mia composizione corporea.</contenuto>
+    <data>2019-04-02</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="22" idProdotto="8">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono un must per coloro che seguono una dieta vegana o vegetariana. Aggiungono una buona dose di proteine senza l'utilizzo di prodotti di origine animale. Ho notato che mi aiutano a mantenere la massa muscolare durante la perdita di peso.</contenuto>
+    <data>2018-07-01</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="23" idProdotto="8">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate una parte essenziale della mia routine di fitness. Mentre sto cercando di costruire muscoli, mi aiutano a recuperare piu' rapidamente e ad aumentare la mia forza. Inoltre, rappresentano un'opzione pratica per un pasto veloce e nutriente.</contenuto>
+    <data>2021-04-16</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="24" idProdotto="8">
+    <idUtente>4</idUtente>
+    <contenuto>Sono rimasto soddisfatto delle proteine in polvere che ho acquistato. Ho notato un miglioramento nella mia forza e una diminuzione del tempo di recupero muscolare. Il sapore e' ottimo e si mischiano facilmente, senza grumi.</contenuto>
+    <data>2018-05-28</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="25" idProdotto="9">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate il mio segreto per mantenere un livello di energia costante durante l'allenamento. Non solo mi aiutano a sentirmi piu' forte, ma mi danno quella spinta extra di cui ho bisogno per superare i miei limiti. Li consiglio vivamente a chiunque cerchi un supporto efficace per il fitness.</contenuto>
+    <data>2019-02-19</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="26" idProdotto="9">
+    <idUtente>4</idUtente>
+    <contenuto>Dopo aver provato diverse marche di proteine in polvere, ho trovato quella che si adatta perfettamente alle mie esigenze. Ha un gusto incredibile e non provoca gonfiore o disagio dopo l'assunzione. Non posso fare a meno di raccomandarla a chiunque sia alla ricerca di un integratore proteico di qualita'.</contenuto>
+    <data>2019-09-28</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="27" idProdotto="9">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'integrazione fondamentale per il mio regime di allenamento. Ho notato un miglioramento significativo nella mia forza e resistenza dopo aver iniziato a usarle regolarmente. Inoltre, sono molto pratiche da preparare e possono essere facilmente mescolate con acqua o latte.</contenuto>
+    <data>2019-08-25</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="28" idProdotto="9">
+    <idUtente>1</idUtente>
+    <contenuto>Ho iniziato ad usare le proteine in polvere dopo aver iniziato un programma di allenamento intenso. Mi sono realmente sorpreso dai risultati che ho ottenuto. Mi sento piu' tonico e i miei muscoli sembrano essere piu' definiti. Consiglio sicuramente le proteine in polvere agli altri appassionati di fitness.</contenuto>
+    <data>2018-04-16</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="29" idProdotto="10">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate parte integrante della mia dieta quotidiana. Sono una soluzione veloce e semplice per aiutarmi a raggiungere il mio fabbisogno proteico giornaliero senza dover mangiare grandi quantita' di cibi proteici. Inoltre, ho notato un miglioramento significativo nella mia composizione corporea.</contenuto>
+    <data>2020-06-29</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="30" idProdotto="10">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'abitudine post-allenamento per me. Hanno un sapore delizioso e mi aiutano a ricostituire le energie dopo un'intensa sessione in palestra. Inoltre, ho notato un incremento della massa muscolare da quando le utilizzo.</contenuto>
+    <data>2017-12-01</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="31" idProdotto="10">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono state una scoperta incredibile per me. Non solo sono facili da assumere e digerire, ma hanno anche un sapore delizioso. Consiglio vivamente di provarle se si e' alla ricerca di un modo semplice per raggiungere i propri obiettivi di allenamento.</contenuto>
+    <data>2023-08-07</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="32" idProdotto="10">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono state una scoperta incredibile per me. Non solo sono facili da assumere e digerire, ma hanno anche un sapore delizioso. Consiglio vivamente di provarle se si e' alla ricerca di un modo semplice per raggiungere i propri obiettivi di allenamento.</contenuto>
+    <data>2017-11-09</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="33" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Dopo aver provato diverse marche di proteine in polvere, ho trovato quella che si adatta perfettamente alle mie esigenze. Ha un gusto incredibile e non provoca gonfiore o disagio dopo l'assunzione. Non posso fare a meno di raccomandarla a chiunque sia alla ricerca di un integratore proteico di qualita'.</contenuto>
+    <data>2020-02-09</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="34" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Sono rimasto soddisfatto delle proteine in polvere che ho acquistato. Ho notato un miglioramento nella mia forza e una diminuzione del tempo di recupero muscolare. Il sapore e' ottimo e si mischiano facilmente, senza grumi.</contenuto>
+    <data>2021-07-03</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="35" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere mi hanno aiutato a recuperare piu' velocemente dopo gli allenamenti intensi. Ho notato anche che mi sento piu' soddisfatto a livello energetico durante il giorno. Consiglio vivamente di provare queste proteine.</contenuto>
+    <data>2019-05-08</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="36" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono un ottimo metodo per integrare ulteriormente la propria alimentazione e favorire lo sviluppo muscolare. Ne ho provate diverse e posso dire che sono una scelta eccellente per gli amanti del fitness.</contenuto>
+    <data>2018-07-11</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="37" idProdotto="19">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate una parte essenziale della mia routine di fitness. Mentre sto cercando di costruire muscoli, mi aiutano a recuperare piu' rapidamente e ad aumentare la mia forza. Inoltre, rappresentano un'opzione pratica per un pasto veloce e nutriente.</contenuto>
+    <data>2021-08-19</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="38" idProdotto="19">
+    <idUtente>4</idUtente>
+    <contenuto>Dopo aver provato diverse marche di proteine in polvere, ho trovato quella che si adatta perfettamente alle mie esigenze. Ha un gusto incredibile e non provoca gonfiore o disagio dopo l'assunzione. Non posso fare a meno di raccomandarla a chiunque sia alla ricerca di un integratore proteico di qualita'.</contenuto>
+    <data>2019-03-28</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="39" idProdotto="19">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate il mio segreto per mantenere un livello di energia costante durante l'allenamento. Non solo mi aiutano a sentirmi piu' forte, ma mi danno quella spinta extra di cui ho bisogno per superare i miei limiti. Li consiglio vivamente a chiunque cerchi un supporto efficace per il fitness.</contenuto>
+    <data>2021-07-16</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="40" idProdotto="19">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono un must per coloro che seguono una dieta vegana o vegetariana. Aggiungono una buona dose di proteine senza l'utilizzo di prodotti di origine animale. Ho notato che mi aiutano a mantenere la massa muscolare durante la perdita di peso.</contenuto>
+    <data>2021-06-23</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="41" idProdotto="20">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono un ottimo metodo per integrare ulteriormente la propria alimentazione e favorire lo sviluppo muscolare. Ne ho provate diverse e posso dire che sono una scelta eccellente per gli amanti del fitness.</contenuto>
+    <data>2019-08-02</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="42" idProdotto="20">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono un ottimo metodo per integrare ulteriormente la propria alimentazione e favorire lo sviluppo muscolare. Ne ho provate diverse e posso dire che sono una scelta eccellente per gli amanti del fitness.</contenuto>
+    <data>2020-02-06</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="43" idProdotto="20">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'integrazione fondamentale per il mio regime di allenamento. Ho notato un miglioramento significativo nella mia forza e resistenza dopo aver iniziato a usarle regolarmente. Inoltre, sono molto pratiche da preparare e possono essere facilmente mescolate con acqua o latte.</contenuto>
+    <data>2022-07-17</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="44" idProdotto="20">
+    <idUtente>4</idUtente>
+    <contenuto>Dopo aver provato diverse marche di proteine in polvere, ho trovato quella che si adatta perfettamente alle mie esigenze. Ha un gusto incredibile e non provoca gonfiore o disagio dopo l'assunzione. Non posso fare a meno di raccomandarla a chiunque sia alla ricerca di un integratore proteico di qualita'.</contenuto>
+    <data>2021-09-05</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="45" idProdotto="21">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un elemento essenziale nella mia routine quotidiana. Mi danno la giusta quantita' di energia per affrontare gli allenamenti e mi aiutano a recuperare piu' velocemente. Non posso fare a meno di raccomandare le proteine in polvere a chiunque sia seriamente interessato al fitness.</contenuto>
+    <data>2022-11-01</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="46" idProdotto="21">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato diverse marche di proteine in polvere nel corso degli anni, ma queste sono decisamente le migliori. Hanno un perfetto equilibrio di sapore e texture, rendendo ogni shake un piacere da consumare. Inoltre, ho notato una maggiore definizione muscolare da quando le utilizzo.</contenuto>
+    <data>2018-06-14</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="47" idProdotto="21">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono essenziali per il mio programma di perdita di peso. Mi aiutano a sentirmi sazio piu' a lungo, riducendo cosi' gli spuntini non salutari durante il giorno. Inoltre, mi forniscono l'energia necessaria per sostenere gli allenamenti ad alta intensita'.</contenuto>
+    <data>2018-11-07</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="48" idProdotto="21">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'abitudine post-allenamento per me. Hanno un sapore delizioso e mi aiutano a ricostituire le energie dopo un'intensa sessione in palestra. Inoltre, ho notato un incremento della massa muscolare da quando le utilizzo.</contenuto>
+    <data>2018-05-29</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="49" idProdotto="22">
+    <idUtente>4</idUtente>
+    <contenuto>Le proteine in polvere sono diventate il mio segreto per mantenere un livello di energia costante durante l'allenamento. Non solo mi aiutano a sentirmi piu' forte, ma mi danno quella spinta extra di cui ho bisogno per superare i miei limiti. Li consiglio vivamente a chiunque cerchi un supporto efficace per il fitness.</contenuto>
+    <data>2018-09-27</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="50" idProdotto="22">
+    <idUtente>1</idUtente>
+    <contenuto>Ho iniziato ad usare le proteine in polvere dopo aver iniziato un programma di allenamento intenso. Mi sono realmente sorpreso dai risultati che ho ottenuto. Mi sento piu' tonico e i miei muscoli sembrano essere piu' definiti. Consiglio sicuramente le proteine in polvere agli altri appassionati di fitness.</contenuto>
+    <data>2017-02-12</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="51" idProdotto="22">
+    <idUtente>1</idUtente>
+    <contenuto>Le proteine in polvere sono diventate un'integrazione fondamentale per il mio regime di allenamento. Ho notato un miglioramento significativo nella mia forza e resistenza dopo aver iniziato a usarle regolarmente. Inoltre, sono molto pratiche da preparare e possono essere facilmente mescolate con acqua o latte.</contenuto>
+    <data>2017-06-18</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="52" idProdotto="22">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato molte marche di proteine in polvere nel corso degli anni, ma una delle mie preferite e' sicuramente quella che sto utilizzando attualmente. Ha un gusto fantastico e mi ha aiutato a raggiungere risultati tangibili nel mio percorso verso il miglioramento fisico.</contenuto>
+    <data>2021-05-23</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="53" idProdotto="5">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte marche di barrette proteiche, ma queste sono le migliori. Sono morbide e facilmente digeribili, il che le rende perfette da consumare prima o dopo un allenamento. Inoltre, sono fatte con ingredienti naturali, quindi puoi stare tranquillo riguardo alla loro qualita'.</contenuto>
+    <data>2023-08-27</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="54" idProdotto="5">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte barrette proteiche nel corso degli anni, ma "U Bar" si distingue per il suo sapore unico. La combinazione di cioccolato e arachidi e' semplicemente perfetta. Consigliata a chi cerca un sapore diverso dal solito.</contenuto>
+    <data>2023-11-11</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="55" idProdotto="5">
+    <idUtente>1</idUtente>
+    <contenuto>Ho scelto queste barrette proteiche dopo aver letto le recensioni positive e non sono rimasto deluso. Sono soddisfacenti e mi aiutano a rimanere pieno di energia durante le mie sessioni di allenamento. Inoltre, non hanno un sapore troppo artificiale come alcune altre marche.</contenuto>
+    <data>2017-02-23</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="56" idProdotto="5">
+    <idUtente>1</idUtente>
+    <contenuto>"R Bar" e' una barretta proteica a basso contenuto di zucchero che non delude mai. Il suo gusto cremoso e la consistenza morbida la rendono davvero piacevole da mangiare. Consiglio di provarla sia per il suo sapore che per il suo apporto proteico.</contenuto>
+    <data>2021-04-28</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="57" idProdotto="7">
+    <idUtente>4</idUtente>
+    <contenuto>"W Bar" e' la mia barretta proteica preferita. Il suo sapore ricorda quello di una vera torta al cioccolato, ma con meno zucchero e piu' proteine. Perfetta per calmare la voglia di dolce senza compromettere la dieta.</contenuto>
+    <data>2019-04-12</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="58" idProdotto="7">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono una vera salvezza quando si ha voglia di qualcosa di dolce ma si vuole anche rimanere fedeli alla propria dieta. Sono gustose come una barretta di cioccolato, ma contengono anche un buon apporto di proteine per mantenermi sazio piu' a lungo.</contenuto>
+    <data>2019-08-15</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="59" idProdotto="7">
+    <idUtente>4</idUtente>
+    <contenuto>Queste barrette proteiche sono una vera salvezza quando si ha voglia di qualcosa di dolce ma si vuole anche rimanere fedeli alla propria dieta. Sono gustose come una barretta di cioccolato, ma contengono anche un buon apporto di proteine per mantenermi sazio piu' a lungo.</contenuto>
+    <data>2022-12-25</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="60" idProdotto="7">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono una vera salvezza quando si ha voglia di qualcosa di dolce ma si vuole anche rimanere fedeli alla propria dieta. Sono gustose come una barretta di cioccolato, ma contengono anche un buon apporto di proteine per mantenermi sazio piu' a lungo.</contenuto>
+    <data>2020-08-24</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="61" idProdotto="11">
+    <idUtente>4</idUtente>
+    <contenuto>"W Bar" e' la mia barretta proteica preferita. Il suo sapore ricorda quello di una vera torta al cioccolato, ma con meno zucchero e piu' proteine. Perfetta per calmare la voglia di dolce senza compromettere la dieta.</contenuto>
+    <data>2022-04-25</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="62" idProdotto="11">
+    <idUtente>4</idUtente>
+    <contenuto>"Y Bar" e' una barretta proteica che mi ha sorpreso positivamente. Non solo e' facile da digerire, ma ha anche un ottimo bilanciamento tra proteine e carboidrati. Perfetta come spuntino post-allenamento.</contenuto>
+    <data>2018-09-25</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="63" idProdotto="11">
+    <idUtente>4</idUtente>
+    <contenuto>"S Bar" e' la mia barretta proteica preferita per gli spuntini pre-allenamento. E' facilmente digeribile, leggera e ricca di proteine per dare l'energia necessaria durante l'allenamento. Davvero un'ottima scelta per gli sportivi.</contenuto>
+    <data>2020-08-23</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="64" idProdotto="11">
+    <idUtente>4</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2019-11-24</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="65" idProdotto="12">
+    <idUtente>4</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2019-05-10</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="66" idProdotto="12">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte barrette proteiche nel corso degli anni, ma "U Bar" si distingue per il suo sapore unico. La combinazione di cioccolato e arachidi e' semplicemente perfetta. Consigliata a chi cerca un sapore diverso dal solito.</contenuto>
+    <data>2018-03-11</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="67" idProdotto="12">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono ideali per i giorni in cui non ho tempo di sedermi a mangiare un pasto completo. Posso infilare una barretta nello zaino o nella borsa e gustarla quando ho bisogno di fare uno spuntino veloce. Sono la soluzione perfetta per i giorni impegnati.</contenuto>
+    <data>2022-08-25</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="68" idProdotto="12">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono una vera salvezza quando si ha voglia di qualcosa di dolce ma si vuole anche rimanere fedeli alla propria dieta. Sono gustose come una barretta di cioccolato, ma contengono anche un buon apporto di proteine per mantenermi sazio piu' a lungo.</contenuto>
+    <data>2020-06-11</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="69" idProdotto="13">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono ideali per i giorni in cui non ho tempo di sedermi a mangiare un pasto completo. Posso infilare una barretta nello zaino o nella borsa e gustarla quando ho bisogno di fare uno spuntino veloce. Sono la soluzione perfetta per i giorni impegnati.</contenuto>
+    <data>2017-05-15</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="70" idProdotto="13">
+    <idUtente>1</idUtente>
+    <contenuto>Queste barrette proteiche sono ideali per i giorni in cui non ho tempo di sedermi a mangiare un pasto completo. Posso infilare una barretta nello zaino o nella borsa e gustarla quando ho bisogno di fare uno spuntino veloce. Sono la soluzione perfetta per i giorni impegnati.</contenuto>
+    <data>2021-12-27</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="71" idProdotto="13">
+    <idUtente>4</idUtente>
+    <contenuto>Queste barrette proteiche sono una scelta perfetta per gli atleti o per chiunque desideri un'alternativa sana agli snack tradizionali. Sono ricche di proteine e basso contenuto di zuccheri, quindi ti danno energia duratura senza far salire il livello di zucchero nel sangue.</contenuto>
+    <data>2023-10-03</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="72" idProdotto="13">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato diverse barrette proteiche nel corso degli anni, ma posso dire senza dubbio che quella che mi ha maggiormente colpito e' "X Bar". Non solo e' ricca di proteine, ma ha anche un sapore davvero delizioso. Consiglio vivamente di provarla!</contenuto>
+    <data>2021-01-05</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="73" idProdotto="14">
+    <idUtente>1</idUtente>
+    <contenuto>Adoro queste barrette proteiche! Le ho portate con me durante un viaggio in campeggio e sono state la merenda perfetta. Mi hanno dato l'energia necessaria per affrontare le lunghe escursioni e ho adorato il loro sapore.</contenuto>
+    <data>2021-06-05</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="74" idProdotto="14">
+    <idUtente>4</idUtente>
+    <contenuto>Queste barrette proteiche sono una scelta perfetta per gli atleti o per chiunque desideri un'alternativa sana agli snack tradizionali. Sono ricche di proteine e basso contenuto di zuccheri, quindi ti danno energia duratura senza far salire il livello di zucchero nel sangue.</contenuto>
+    <data>2023-06-19</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="75" idProdotto="14">
+    <idUtente>1</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono un ottimo modo per integrare le proteine nella mia dieta senza dover cucinare. Sono comode e facili da portare con me, e mi aiutano a soddisfare il mio fabbisogno proteico senza dover preparare un pasto completo.</contenuto>
+    <data>2023-10-13</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="76" idProdotto="14">
+    <idUtente>4</idUtente>
+    <contenuto>Per chi cerca una barretta proteica vegana, consiglio assolutamente "Q Bar". E' fatta con ingredienti naturali e non contiene ne' uova ne' latticini. Nonostante cio', ha comunque un sapore incredibile e apporta una buona dose di proteine. Una scelta ideale per gli amanti del fitness vegani.</contenuto>
+    <data>2022-09-05</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="77" idProdotto="16">
+    <idUtente>4</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono un ottimo modo per integrare le proteine nella mia dieta senza dover cucinare. Sono comode e facili da portare con me, e mi aiutano a soddisfare il mio fabbisogno proteico senza dover preparare un pasto completo.</contenuto>
+    <data>2017-08-15</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="78" idProdotto="16">
+    <idUtente>4</idUtente>
+    <contenuto>"V Bar" e' una barretta proteica davvero premium. Non solo ha un gusto eccezionale, ma e' anche formulata con ingredienti di alta qualita'. Ideale per chi cerca una barretta piu' naturale e salutare.</contenuto>
+    <data>2021-10-16</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="79" idProdotto="16">
+    <idUtente>1</idUtente>
+    <contenuto>"S Bar" e' la mia barretta proteica preferita per gli spuntini pre-allenamento. E' facilmente digeribile, leggera e ricca di proteine per dare l'energia necessaria durante l'allenamento. Davvero un'ottima scelta per gli sportivi.</contenuto>
+    <data>2018-07-15</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="80" idProdotto="16">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte marche di barrette proteiche, ma queste sono le migliori. Sono morbide e facilmente digeribili, il che le rende perfette da consumare prima o dopo un allenamento. Inoltre, sono fatte con ingredienti naturali, quindi puoi stare tranquillo riguardo alla loro qualita'.</contenuto>
+    <data>2022-07-06</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="81" idProdotto="17">
+    <idUtente>4</idUtente>
+    <contenuto>"V Bar" e' una barretta proteica davvero premium. Non solo ha un gusto eccezionale, ma e' anche formulata con ingredienti di alta qualita'. Ideale per chi cerca una barretta piu' naturale e salutare.</contenuto>
+    <data>2018-08-04</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="82" idProdotto="17">
+    <idUtente>4</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2020-09-03</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="83" idProdotto="17">
+    <idUtente>1</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2019-08-18</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="84" idProdotto="17">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molte marche di barrette proteiche, ma queste sono le migliori. Sono morbide e facilmente digeribili, il che le rende perfette da consumare prima o dopo un allenamento. Inoltre, sono fatte con ingredienti naturali, quindi puoi stare tranquillo riguardo alla loro qualita'.</contenuto>
+    <data>2022-04-19</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="85" idProdotto="18">
+    <idUtente>1</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2018-08-10</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="86" idProdotto="18">
+    <idUtente>1</idUtente>
+    <contenuto>"V Bar" e' una barretta proteica davvero premium. Non solo ha un gusto eccezionale, ma e' anche formulata con ingredienti di alta qualita'. Ideale per chi cerca una barretta piu' naturale e salutare.</contenuto>
+    <data>2021-03-02</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="87" idProdotto="18">
+    <idUtente>4</idUtente>
+    <contenuto>Adoro queste barrette proteiche! Le ho portate con me durante un viaggio in campeggio e sono state la merenda perfetta. Mi hanno dato l'energia necessaria per affrontare le lunghe escursioni e ho adorato il loro sapore.</contenuto>
+    <data>2022-11-23</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="88" idProdotto="18">
+    <idUtente>4</idUtente>
+    <contenuto>Le barrette proteiche di questa marca sono semplicemente deliziose! Sono succulenti e piene di sapore. Il mio gusto preferito e' il cioccolato al latte, ma ogni variante e' gustosa e saziante.</contenuto>
+    <data>2018-01-20</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="89" idProdotto="23">
+    <idUtente>4</idUtente>
+    <contenuto>Integratore di vitamine XYZ: Ho iniziato ad assumere questo integratore di vitamine per aumentare i miei livelli di energia e sono rimasto sorpreso dai risultati. Mi sento molto piu' energico e concentrato durante la giornata. Lo consiglio vivamente.</contenuto>
+    <data>2021-11-12</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="90" idProdotto="23">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato molti integratori di vitamine nel corso degli anni, ma i prodotti della marca ABC si distinguono davvero dagli altri. Non solo aiutano a rinforzare il sistema immunitario, ma ho anche notato un miglioramento nella mia digestione e nella mia salute gastrointestinale. Li consiglierei a chiunque voglia migliorare la propria salute generale.</contenuto>
+    <data>2017-04-17</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="91" idProdotto="23">
+    <idUtente>1</idUtente>
+    <contenuto>Come atleta, prendo molto sul serio la mia alimentazione e il mio benessere. Gli integratori di vitamine del marchio XYZ sono diventati un elemento essenziale nella mia routine. Hanno migliorato la mia resistenza e l'efficienza del mio allenamento. Li raccomando a tutti coloro che cercano un supporto per l'attivita' fisica.</contenuto>
+    <data>2020-01-14</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="92" idProdotto="23">
+    <idUtente>1</idUtente>
+    <contenuto>Integratore ABC di vitamine: Da quando ho iniziato a prendere questo integratore, ho notato un aumento della mia immunita'. Sono quasi riuscito a evitare il raffreddore stagionale che mi colpiva ogni anno. Sono molto soddisfatto di questo prodotto.</contenuto>
+    <data>2019-07-13</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="93" idProdotto="24">
+    <idUtente>4</idUtente>
+    <contenuto>Ho provato molti integratori di vitamine nel corso degli anni, ma l'integratore XYZ e' sicuramente il migliore. Contiene tutte le vitamine di cui ho bisogno e il mio corpo lo assorbe facilmente. Mi sento rinato e in forma dopo averlo preso regolarmente.</contenuto>
+    <data>2019-11-22</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>1</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="94" idProdotto="24">
+    <idUtente>4</idUtente>
+    <contenuto>Ho appena iniziato a prendere gli integratori di vitamine del marchio XYZ e ho notato una differenza significativa nel mio livello di energia. Mi sento piu' sveglio e pieno di vitalita' durante la giornata. Consiglio vivamente questi integratori a chiunque abbia bisogno di un supporto per il proprio benessere generale.</contenuto>
+    <data>2018-03-22</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>2</supporto>
+        <utilita>5</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="95" idProdotto="24">
+    <idUtente>4</idUtente>
+    <contenuto>Integratore ABC di vitamine: Da quando ho iniziato a prendere questo integratore, ho notato un aumento della mia immunita'. Sono quasi riuscito a evitare il raffreddore stagionale che mi colpiva ogni anno. Sono molto soddisfatto di questo prodotto.</contenuto>
+    <data>2022-10-04</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="96" idProdotto="24">
+    <idUtente>1</idUtente>
+    <contenuto>Ho appena iniziato a prendere gli integratori di vitamine del marchio XYZ e ho notato una differenza significativa nel mio livello di energia. Mi sento piu' sveglio e pieno di vitalita' durante la giornata. Consiglio vivamente questi integratori a chiunque abbia bisogno di un supporto per il proprio benessere generale.</contenuto>
+    <data>2021-11-20</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>2</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="97" idProdotto="25">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molti integratori di vitamine nel corso degli anni, ma i prodotti della marca ABC si distinguono davvero dagli altri. Non solo aiutano a rinforzare il sistema immunitario, ma ho anche notato un miglioramento nella mia digestione e nella mia salute gastrointestinale. Li consiglierei a chiunque voglia migliorare la propria salute generale.</contenuto>
+    <data>2019-11-25</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>3</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="98" idProdotto="25">
+    <idUtente>1</idUtente>
+    <contenuto>Ho provato molti integratori di vitamine, ma l'integratore XYZ e' il mio preferito assoluto. Ha tutti i nutrienti essenziali di cui ho bisogno e mi aiuta a mantenere alti i miei livelli energetici durante tutta la giornata.</contenuto>
+    <data>2020-07-29</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>3</supporto>
+        <utilita>2</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="99" idProdotto="25">
+    <idUtente>1</idUtente>
+    <contenuto>Dopo aver sofferto di capelli fragili e unghie deboli per anni, ho finalmente trovato la soluzione con gli integratori di vitamine ABC. Sono rimasto molto sorpreso dai risultati che ho ottenuto. I miei capelli sono diventati piu' forti e piu' sani, e le mie unghie sono finalmente resistenti alla rottura. Non potrei essere piu' contento!</contenuto>
+    <data>2017-07-15</data>
+    <ratings>
+      <rating idUtente="4">
+        <supporto>1</supporto>
+        <utilita>4</utilita>
+      </rating>
+    </ratings>
+  </recensione>
+  <recensione id="100" idProdotto="25">
+    <idUtente>4</idUtente>
+    <contenuto>Integratore ABC di vitamine: E' stato un salvavita per me durante l'inverno. Mi ha aiutato a combattere i malanni di stagione e a mantenere alta la mia immunita'. Non posso fare a meno di questo prodotto.</contenuto>
+    <data>2020-08-09</data>
+    <ratings>
+      <rating idUtente="1">
+        <supporto>3</supporto>
+        <utilita>1</utilita>
+      </rating>
+    </ratings>
   </recensione>
 </recensioni>
