@@ -1,5 +1,6 @@
 <?php
 $rc_root = realpath(__DIR__ . '/..');
+require_once($rc_root . '/lib/utils.php');
 require_once($rc_root . '/lib/xml.php');
 
 $categorie = [
@@ -29,7 +30,7 @@ foreach ($categorie as $nome => $prodotti) {
       $testo = $testi[array_rand($testi)];
       $testo = substr($testo, 0, strlen($testo) - 1);
       $id_ut_rec = $utenti[array_rand($utenti)];
-      $data = gen_data();
+      $data = rand_date();
 
       $ratings = [];
       $ut_util = [ $id_ut_rec ];
@@ -55,19 +56,6 @@ foreach ($categorie as $nome => $prodotti) {
 }
 
 save_xml($doc_recensioni, 'recensioni');
-
-
-function gen_data() {
-  $anno = rand(2017, 2023);
-  $mese = rand(1, 12);
-  $giorno = rand(1, 30);
-
-  $data = $anno . '-' .
-    str_pad($mese, 2, '0', STR_PAD_LEFT) . '-' .
-    str_pad($giorno, 2, '0', STR_PAD_LEFT);
-
-  return $data;
-}
 
 
 function aggiungi_recensione($id_prodotto, $contenuto, $data, $id_utente, $ratings) {
