@@ -7,9 +7,12 @@ $perm_admin = false;
 $rc_level = 1;
 require_once('../lib/start.php');
 
+require_once($rc_root . '/lib/constants.php');
 require_once($rc_root . '/lib/utenti.php');
 
 $err_vuoto = false;
+$err_match = false;
+$err_email = false;
 $err_pwd = false;
 $err_tel = false;
 $err_indir = false;
@@ -24,6 +27,7 @@ if ($registrazione) {
   $cognome = $_POST['cognome'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $password2 = $_POST['password2'];
   $telefono = $_POST['telefono'];
   $indirizzo = $_POST['indirizzo'];
   $codice_fiscale = $_POST['codice_fiscale'];
@@ -32,29 +36,41 @@ if ($registrazione) {
     $telefono === '' || $indirizzo === '' || $codice_fiscale === '')
   {
     $err_vuoto = true;
-  } else {
-    if (!preg_match('/^[A-Za-z0-9!£$%&()=?^,.;:_|]{8,}$/', $password)) {
-      $err_pwd = true;
+  }
+
+    if ($password !== $password2) {
+      $err_match = true;
       $password = '';
+      $password2 = '';
     }
 
-    if (!preg_match('/^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$/', $codice_fiscale)) {
+    if ($email !== '' && !preg_match(REGEX_EMAIL, $email)) {
+      $err_email = true;
+      $email = '';
+    }
+
+    if ($password !== '' && !preg_match(REGEX_PASSWORD, $password)) {
+      $err_pwd = true;
+      $password = '';
+      $password2 = '';
+    }
+
+    if ($codice_fiscale !== '' && !preg_match(REGEX_CF, $codice_fiscale)) {
       $err_cf = true;
       $codice_fiscale = '';
     }
 
-    if (!preg_match('/^\+[0-9]{12,13}$/', $telefono)) {
+    if ($telefono !== '' && !preg_match(REGEX_TELEFONO, $telefono)) {
       $err_tel = true;
       $telefono = '';
     }
 
-    if (!preg_match('/^([[:alnum:] ]+), ([a-zA-Z ]+), ([a-zA-Z ]+)$/', $indirizzo)) {
+    if ($indirizzo !== '' && !preg_match(REGEX_INDIRIZZO, $indirizzo)) {
       $err_indir = true;
       $indirizzo = '';
     }
-  }
 
-  $errore = $err_pwd || $err_tel || $err_indir || $err_cf || $err_vuoto;
+  $errore = $err_vuoto || $err_match || $err_email || $err_pwd || $err_tel || $err_indir || $err_cf;
 
   if (!$errore) {
     $registrato = registra_utente($nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale);
@@ -66,6 +82,7 @@ if ($registrazione) {
   $cognome = '';
   $email = '';
   $password = '';
+  $password2 = '';
   $telefono = '';
   $indirizzo = '';
   $codice_fiscale = '';
@@ -107,6 +124,9 @@ if ($redir_dest !== '') {
       <label for="password">Password:</label><br>
       <input type="password" class="input-box" name="password" value="<?php echo($password); ?>"><br>
 
+      <label for="password2">Conferma password:</label><br>
+      <input type="password" class="input-box" name="password2" value="<?php echo($password2); ?>"><br>
+
       <label for="telefono">Telefono:</label><br>
       <input type="text" class="input-box" name="telefono" value="<?php echo($telefono); ?>"><br>
 
@@ -127,6 +147,12 @@ if ($redir_dest !== '') {
 <?php
   if ($err_vuoto) {
     ?><p class="centrato grassetto mt-16">Tutti i campi devono essere compilati!</p><?php
+  }
+  if ($err_match) {
+    ?><p class="mt-8">Le password non corrispondono.</p><?php
+  }
+  if ($err_cf) {
+    ?><p class="mt-8">Email non valida.</p><?php
   }
   if ($err_pwd) {
 ?>
