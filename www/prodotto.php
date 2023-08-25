@@ -256,7 +256,7 @@ if ($id_valido) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
 
-    $controllo_rec = $id_ut_rec === $id_ut_corr;
+    $controllo_rec = $loggato && $id_ut_rec === $id_ut_corr;
     $evidenzia_contributo_rec = ($controllo_rec) ? 'colorato-r' : '';
     $form_abilitato_rec = ($controllo_rec) ? 'nascosto' : '';
 ?>
@@ -352,7 +352,7 @@ if ($id_valido) {
       $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
     }
 
-    $controllo_dom = $id_ut_d === $id_ut_corr;
+    $controllo_dom = $loggato && $id_ut_d === $id_ut_corr;
     $evidenzia_contributo_dom = ($controllo_dom) ? 'colorato-d' : '';
     $form_abilitato_dom = ($controllo_dom) ? 'nascosto' : '';
 ?>
@@ -441,7 +441,7 @@ if ($id_valido) {
         $ru[$i] = $i < $rating_pers['utilita'] ? '&#x2605' : '&#x2606';
       }
 
-      $controllo_risp = $id_ut_r === $id_ut_corr;
+      $controllo_risp = $loggato && $id_ut_r === $id_ut_corr;
       $evidenzia_contributo_risp = ($controllo_risp) ? 'colorato-risp' : '';
       $form_abilitato_risp = ($controllo_risp) ? 'nascosto' : '';
 ?>
