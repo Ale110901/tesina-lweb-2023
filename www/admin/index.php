@@ -22,10 +22,11 @@ require_once('../lib/start.php');
   <?php require($rc_root . '/lib/header.php'); ?>
   <div id="pagina-form" class="centrato">
     <h2 class="mb-32">DASHBOARD ADMIN</h2>
-    <ul>
+    <ul class="mb-8">
       <li id="utenti" class="mb-8"><a class="ml-8 scelta" href="<?php echo($rc_subdir); ?>/admin/utenti.php">Gestione utenti</a></li>
       <li id="accrediti" class="mb-8"><a class="ml-8 scelta" href="<?php echo($rc_subdir); ?>/admin/accrediti.php">Gestione accrediti</a></li>
-      <li id="faq"  class="mb-16"><a class="ml-8 scelta" href="<?php echo($rc_subdir); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
+      <li id="faq"  class="mb-8"><a class="ml-8 scelta" href="<?php echo($rc_subdir); ?>/faq.php">Gestisci FAQ</a></li>
+      <li id="faq"  class="mb-8"><a class="ml-8 scelta" href="<?php echo($rc_subdir); ?>/admin/aggiungi-faq.php">Aggiungi domanda alle FAQ</a></li>
     </ul><br />
     <a href="<?php echo($rc_subdir); ?>/utente/logout.php" class="button con-toggle" title="Logout">Logout</a>
   </div>
