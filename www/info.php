@@ -34,9 +34,10 @@ require_once('./lib/start.php');
     <div id="griglia-info" class="pb-32">
       <div>
         <h3>Contatti</h3>
-        <p>
-          cecchetto.1941039@studenti.uniroma1.it  <br />
-          roccia.1967318@studenti.uniroma1.it
+        <p class="giustificato">
+          &#x01F4E7 cecchetto.1941039@studenti.uniroma1.it<br>
+          &#x01F4E7 roccia.1967318@studenti.uniroma1.it<br>
+          &#x01F4DE +39 07731234567
         </p>
       </div>
       <div>

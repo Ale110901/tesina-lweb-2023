@@ -1,6 +1,7 @@
 Caratteri:
 - ' => &#39;
 - ? => &#63;
+- «XXXXX»
 
 Da fare:
 - Nascondere invia rating se votato
