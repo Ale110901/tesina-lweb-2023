@@ -22,7 +22,7 @@ require_once('./lib/start.php');
 <body>
   <?php require($rc_root . '/lib/header.php'); ?>
   <div id="contenuto">
-    <h2>BENVENUTI!</h2>
+    <h2 class="pb-32">BENVENUTI!</h2>
     <div class="centrato">
       <a href="https://www.google.com/maps/place/data=!3m1!4b1!4m6!3m5!1s0x13250c86391d8acf:0xd1f1f251e4767ece!8m2!3d41.4705468!4d12.9081403!16s%2Fg%2F1pp2vn0lg"><img class="scatola" src="<?php echo($rc_subdir); ?>/res/img/maps.png" alt="Google Maps"></img></a>
       <p class="pt-1em">
