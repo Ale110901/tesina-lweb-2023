@@ -5,7 +5,15 @@
     <risposta>La spedizione varia tra 1€ e 5€ e dipende dalla destinazione.</risposta>
   </faq>
   <faq id="2">
-    <domanda>Quanto costa la spedizione?</domanda>
-    <risposta>La spedizione varia tra 1€ e 5€ e dipende dalla destinazione.</risposta>
+    <domanda>Qual è la differenza tra le proteine del siero di latte isolate e concentrate?</domanda>
+    <risposta>Le proteine del siero di latte isolate hanno un maggior contenuto proteico e un minor contenuto di carboidrati e grassi rispetto alle proteine del siero di latte concentrate.</risposta>
+  </faq>
+  <faq id="3">
+    <domanda>Quali sono i vantaggi dell'utilizzo di proteine in polvere?</domanda>
+    <risposta>Favoriscono la crescita muscolare, aiutano a raggiungere l'apporto proteico giornaliero, sono facili e veloci da assumere, possono essere utilizzate come sostituto del pasto, possono aumentare il senso di sazietà</risposta>
+  </faq>
+  <faq id="4">
+    <domanda>È possibile restituire o scambiare l'articolo se non si è soddisfatti dell'acquisto?</domanda>
+    <risposta>Sì, l'articolo può essere restituito o scambiato entro un determinato periodo di tempo dall'acquisto.</risposta>
   </faq>
 </faqs>
