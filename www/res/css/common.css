@@ -414,6 +414,10 @@ select {
   width: 50%;
 }
 
+.w-70p {
+  width: 70%;
+}
+
 .w-100p {
   width: 100%;
 }

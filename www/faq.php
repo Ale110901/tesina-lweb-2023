@@ -62,7 +62,7 @@ foreach ($faqs as $faq) {
 <?php } ?>
 
       </div>
-      <div id="risposta<?php echo($id); ?>" class="nascosto">
+      <div id="risposta<?php echo($id); ?>" class="nascosto w-70p mx-auto">
         <p><?php echo($risposta); ?></p>
       </div>
 <?php
