@@ -34,8 +34,10 @@
 
 
 #header > #menu > li > a {
+  border-color: transparent;
   border-radius: 6px;
-  border: 2px;
+  border-style: solid;
+  border-width: 2px;
   color: white;
   font-size: 1.25em;
   padding: 7px 18px;
@@ -43,5 +45,5 @@
 }
 
 #header > #menu > li > a:hover {
-  border-style: solid;
+  border-color: white;
 }
