@@ -4,7 +4,3 @@ Caratteri:
 - «XXXXX»
 
 Da fare:
-- Nascondere invia rating se votato
-- Evidenziare contributi utente
-- Aggiungere data invio ai contributi
-- Uso variabile sessione per il path root
