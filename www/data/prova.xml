@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dizionario xmlns="http://www.lweb.uni/tesina-rcstore/dizionario/">
+  <elemento id="1">
+    <chiave>AAAAA</chiave>
+    <valore>BBBBB</valore>
+  </elemento>
+  <elemento id="2">
+    <chiave>CCCCC</chiave>
+    <valore>DDDDD</valore>
+  </elemento>
+</dizionario>
