@@ -118,8 +118,6 @@ if ($id_valido) {
     }
 
     $recensioni = xpath($doc_recensioni, 'recensioni', "/ns:recensioni/ns:recensione[@idProdotto='$id_prodotto']");
-
-    $doc_domande = load_xml('domande');
     $domande = xpath($doc_domande, 'domande', "/ns:domande/ns:domanda[@idProdotto='$id_prodotto']");
 
     $qta_max = $quantita;
@@ -230,8 +228,8 @@ if ($id_valido) {
 
 
     $rating_pers = [
-      'supporto' => 0,
-      'utilita' => 0
+      'supporto' => 1,
+      'utilita' => 1
     ];
     $rating_abilitato = false;
 
@@ -265,13 +263,13 @@ if ($id_valido) {
           <div class="fb-20 ml-32">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
             <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>">
-<?php 
+<?php
   if ($controllo_rec) {
   echo(' Te ' . '</i>'. '&#x01F464;');
   } else {
     echo($info_ut_rec['nome'] . ' ' . $info_ut_rec['cognome'] . '</i>');
   }
-?>        
+?>
             </p>
 
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
@@ -284,8 +282,8 @@ if ($id_valido) {
               <form id="rec_rat_<?php echo($id_recensione); ?>" method="post">
                 <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
                 <input type="hidden" name="utente_recensione" value="<?php echo($id_ut_rec); ?>" />
-                <input type="hidden" name="rec_supp" value="0" />
-                <input type="hidden" name="rec_util" value="0" />
+                <input type="hidden" name="rec_supp" value="1" />
+                <input type="hidden" name="rec_util" value="1" />
                 <button type="submit" name="azione" value="rating_recensione" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>" >Invia</button>
               </form>
               <p id="rec_util_<?php echo($id_recensione); ?>">Utilit&agrave;:
@@ -335,8 +333,8 @@ if ($id_valido) {
     $info_ut_d = ottieni_info_utente($id_ut_d);
 
     $rating_pers = [
-      'supporto' => 0,
-      'utilita' => 0
+      'supporto' => 1,
+      'utilita' => 1
     ];
     $rating_abilitato = false;
 
@@ -380,7 +378,7 @@ if ($id_valido) {
             <div class="fb-15">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
               <p>da <i class="<?php if ($controllo_dom) echo("grassetto"); ?>">
-<?php 
+<?php
   if ($controllo_dom) {
     echo(' Te ' . '</i>'. '&#x01F464;');
   } else {
@@ -400,8 +398,8 @@ if ($id_valido) {
                 <form id="dom_rat_<?php echo($id_domanda); ?>" method="post">
                   <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
                   <input type="hidden" name="utente_domanda" value="<?php echo($id_ut_d); ?>" />
-                  <input type="hidden" name="dom_supp" value="0" />
-                  <input type="hidden" name="dom_util" value="0" />
+                  <input type="hidden" name="dom_supp" value="1" />
+                  <input type="hidden" name="dom_util" value="1" />
                   <button type="submit" name="azione" value="rating_domanda" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>">Invia</button>
                 </form>
                 <p id="dom_util_<?php echo($id_domanda); ?>">Utilit&agrave;:
@@ -432,8 +430,8 @@ if ($id_valido) {
       $r_sel = $e_risp_gestore ? 'checked' : '';
 
       $rating_pers = [
-        'supporto' => 0,
-        'utilita' => 0
+        'supporto' => 1,
+        'utilita' => 1
       ];
       $rating_abilitato = false;
 
@@ -488,7 +486,7 @@ if ($id_valido) {
       } else {
         echo($info_ut_r['nome'] . ' ' . $info_ut_r['cognome'] . '</i>');
       }
-?>             
+?>
               </p>
             </div>
             <div class="fb-20">
@@ -503,8 +501,8 @@ if ($id_valido) {
                   <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
                   <input type="hidden" name="id_risposta" value="<?php echo($id_risposta); ?>" />
                   <input type="hidden" name="utente_risposta" value="<?php echo($id_ut_r); ?>" />
-                  <input type="hidden" name="risp_supp" value="0" />
-                  <input type="hidden" name="risp_util" value="0" />
+                  <input type="hidden" name="risp_supp" value="1" />
+                  <input type="hidden" name="risp_util" value="1" />
                   <button type="submit" name="azione" value="rating_risposta" class="button-2 destra mr-4 <?php if (!$rating_abilitato) echo ('nascosto'); ?>">Invia</button>
                 </form>
                 <p id="risp_util_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Utilit&agrave;:
