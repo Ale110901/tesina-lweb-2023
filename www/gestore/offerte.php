@@ -133,7 +133,7 @@ foreach ($offerte as $offerta) {
 
     <p class="centrato l-h3em">
         <a class="button" href="<?php echo($rc_subdir);?>/gestore/offerta.php">Aggiungi offerta</a><br />
-        <a class="button" onclick="history.back();">Torna indietro</a>
+        <a class="button" href="<?php echo($rc_subdir); ?>/gestore/index.php">Torna indietro</a>
     </p>
 
   </div>

@@ -53,6 +53,13 @@ if ($id_valido) {
 $da_modificare = $id_valido;
 
 $categorie = $doc_categorie->documentElement->childNodes;
+
+$ce_referer = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '';
+if ($ce_referer) {
+  $pagina_prec = $_SERVER['HTTP_REFERER'];
+} else {
+  $pagina_prec = $rc_subdir . '/gestore/prodotti.php';
+}
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -132,7 +139,7 @@ foreach ($categorie as $categoria) {
 <?php } else { ?>
       <button type="submit" name="azione" value="aggiungi" class="button mb-16" title="Aggiungi">Aggiungi</button><br />
 <?php } ?>
-      <a class="button" onclick="history.back();">Torna indietro</a>
+      <a class="button" href="<?php echo($pagina_prec); ?>">Torna indietro</a>
     </form>
   </div>
   <?php require($rc_root . '/lib/footer.php'); ?>

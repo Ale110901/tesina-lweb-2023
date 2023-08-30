@@ -13,8 +13,10 @@ require_once($rc_root . '/lib/xml.php');
 
 if ($e_cliente) {
   $id_utente = $_SESSION['id_utente'];
+  $pagina_prec = $rc_subdir . '/cliente/profilo.php';
 } else if ($e_gestore) {
   $id_utente = $_GET['id'];
+  $pagina_prec = $rc_subdir . '/gestore/utenti.php';
 }
 
 $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente='$id_utente']");
@@ -76,7 +78,7 @@ foreach ($ordini as $ordine) {
 <?php } ?>
       </tbody>
     </table>
-    <a class="button" onclick="history.back();">Torna indietro</a>
+    <a class="button" href="<?php echo($pagina_prec); ?>">Torna indietro</a>
   </div>
 
   <?php require($rc_root . '/lib/footer.php'); ?>

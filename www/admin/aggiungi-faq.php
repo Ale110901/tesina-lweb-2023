@@ -14,11 +14,6 @@ $faq_domanda = '';
 $faq_risposta = '';
 $errore = false;
 
-$back_prod = isset($_POST['id']) && $_POST['id'] !== 0;
-if ($back_prod) {
-  $id_prodotto = $_POST['id'];
-}
-
 if (!isset($_POST['azione'])) {
   // Non fa niente
 } else if ($_POST['azione'] === 'precompila') {
@@ -38,6 +33,17 @@ if (!isset($_POST['azione'])) {
     $faq_domanda = $_POST['domanda'];
     $faq_risposta = $_POST['risposta'];
   }
+}
+
+$ce_id_prod = isset($_POST['id']) && $_POST['id'] != 0;
+$ce_referer = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '';
+if ($ce_id_prod) {
+  $id_prodotto = $_POST['id'];
+  $pagina_prec = $rc_subdir . '/prodotto.php?id=' . $id_prodotto;
+} else if ($ce_referer) {
+  $pagina_prec = $_SERVER['HTTP_REFERER'];
+} else {
+  $pagina_prec = $rc_subdir . '/faq.php';
 }
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -64,19 +70,11 @@ if (!isset($_POST['azione'])) {
         <textarea class="input-flat w-50p" name="risposta" rows="6" placeholder="Inserisci la risposta qui"><?php echo($faq_risposta); ?></textarea>
       </div>
 
-<?php if ($back_prod) { ?>
+<?php if ($ce_id_prod) { ?>
       <input type="hidden" name="id" value="<?php echo($id_prodotto); ?>" ></input>
 <?php } ?>
       <button type="submit" class="button mb-16" name="azione" value="aggiungi">Aggiungi</button><br />
-
-<?php
-if ($back_prod) {
-  $a_redir = 'href="' . $rc_subdir . '/prodotto.php?id=' . $id_prodotto . '"';
-} else {
-  $a_redir = 'onclick="history.back();"';
-}
-?>
-      <a class="button" <?php echo($a_redir); ?>>Torna indietro</a>
+      <a class="button" href="<?php echo($pagina_prec); ?>">Torna indietro</a>
 <?php if ($errore) { ?>
       <p class="mt-32 grassetto">
         &#x26a0; inserire tutti i campi!

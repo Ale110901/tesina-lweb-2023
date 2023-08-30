@@ -15,8 +15,14 @@ $qta_valida = isset($_POST['quantita']) && !is_nan($_POST['quantita']);
 if ($ricarica && $qta_valida) {
   $creato = crea_accredito($_POST['quantita']);
 }
-?>
 
+$ce_referer = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '';
+if ($ce_referer) {
+  $pagina_prec = $_SERVER['HTTP_REFERER'];
+} else {
+  $pagina_prec = $rc_subdir . '/cliente/profilo.php';
+}
+?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -49,7 +55,7 @@ if ($ricarica && $qta_valida) {
     </div>
 <?php }
 ?>
-    <a class="button" onclick="history.back();">Torna indietro</a>
+    <a class="button" href="<?php echo($pagina_prec); ?>">Torna indietro</a>
   </div>
 
   <?php require($rc_root . '/lib/footer.php'); ?>

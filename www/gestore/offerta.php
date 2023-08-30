@@ -188,7 +188,7 @@ foreach ($categorie as $categoria) {
 <?php } ?>
     </form>
 
-    <a class="button" onclick="history.back();">Torna indietro</a>
+    <a class="button" href="<?php echo($rc_subdir);?>/gestore/offerte.php">Torna indietro</a>
   </div>
 
   <script type="text/javascript" src="<?php echo($rc_subdir); ?>/res/js/offerta.js">
