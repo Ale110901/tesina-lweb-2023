@@ -89,6 +89,9 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
 
   save_xml($doc_utenti, 'utenti');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_utenti = load_xml('utenti');
+
   return true;
 }
 

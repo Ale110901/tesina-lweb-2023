@@ -23,6 +23,11 @@ function aggiungi_faq($domanda, $risposta) {
   $root->appendChild($faq);
 
   save_xml($doc_faq, 'faq');
+
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_faq = load_xml('faq');
+
+  return true;
 }
 
 function elimina_faq($id) {
@@ -35,6 +40,8 @@ function elimina_faq($id) {
   $faqs->removeChild($faq);
 
   save_xml($doc_faq, 'faq');
+
+  return true;
 }
 
 function modifica_faq($id, $domanda, $risposta) {
@@ -47,5 +54,7 @@ function modifica_faq($id, $domanda, $risposta) {
   $faq->getElementsByTagName('risposta')[0]->textContent = $risposta;
 
   save_xml($doc_faq, 'faq');
+
+  return true;
 }
 ?>

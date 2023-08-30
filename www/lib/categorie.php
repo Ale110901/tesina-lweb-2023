@@ -46,6 +46,9 @@ function aggiungi_categoria($nome) {
 
   save_xml($doc_categorie, 'categorie');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_categorie = load_xml('categorie');
+
   return true;
 }
 

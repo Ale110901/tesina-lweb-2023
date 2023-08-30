@@ -47,6 +47,9 @@ function crea_ordine($indirizzo, $prezzo, $prodotti) {
 
   save_xml($doc_ordini, 'ordini');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_ordini = load_xml('ordini');
+
   return true;
 }
 ?>

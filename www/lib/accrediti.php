@@ -30,6 +30,9 @@ function crea_accredito($quantita) {
 
   save_xml($doc_accrediti, 'accrediti');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_accrediti = load_xml('accrediti');
+
   return true;
 }
 

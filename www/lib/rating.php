@@ -111,19 +111,4 @@ function aggiungi_rating($doc, $ratings, $supporto, $utilita) {
 
   return true;
 }
-
-/*
-function ottieni_rating_personale($ratings) {
-  foreach ($ratings as $rating) {
-    if ($rating->getAttribute('id') == $id_utente) {
-
-    }
-  }
-
-  return [
-    'supporto' => 3,
-    'utilita' => 2
-  ];
-}
-*/
 ?>

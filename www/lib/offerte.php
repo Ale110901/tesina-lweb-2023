@@ -192,6 +192,11 @@ function aggiungi_offerta($id, $campi) {
   $root->appendChild($offerta);
 
   save_xml($doc_offerte, 'offerte');
+
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_offerte = load_xml('offerte');
+
+  return true;
 }
 
 function modifica_offerta($id, $campi) {
@@ -209,6 +214,8 @@ function elimina_offerta($id) {
   $offerte->removeChild($offerta);
 
   save_xml($doc_offerte, 'offerte');
+
+  return true;
 }
 
 function elimina_offerte_prodotto($id_prodotto) {
@@ -238,6 +245,8 @@ function elimina_offerte_prodotto($id_prodotto) {
   }
 
   save_xml($doc_offerte, 'offerte');
+
+  return true;
 }
 
 function ottieni_info_offerta($id) {
@@ -299,7 +308,6 @@ function ottieni_info_offerta($id) {
       $result['quantitaMin'] = $offerta->getElementsByTagName('quantitaMin')[0]->textContent;
       break;
   }
-
 
   return $result;
 }

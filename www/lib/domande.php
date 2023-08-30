@@ -65,8 +65,8 @@ function aggiungi_domanda($id_prodotto, $contenuto_dom) {
 
   save_xml($doc_domande, 'domande');
 
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
-  load_xml('domande');
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_domande = load_xml('domande');
 
   return true;
 }
@@ -81,7 +81,7 @@ function aggiungi_rating_domanda($id_domanda, $supporto, $utilita) {
 
   save_xml($doc_domande, 'domande');
 
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
   $doc_domande = load_xml('domande');
 
   return true;
@@ -130,7 +130,8 @@ function aggiungi_risposta($id_domanda, $contenuto_r) {
 
   save_xml($doc_domande, 'domande');
 
-  load_xml('domande');
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_domande = load_xml('domande');
 
   return true;
 }
@@ -145,7 +146,7 @@ function aggiungi_rating_risposta($id_domanda, $id_risposta, $supporto, $utilita
 
   save_xml($doc_domande, 'domande');
 
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
   $doc_domande = load_xml('domande');
 
   return true;

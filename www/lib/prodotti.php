@@ -39,6 +39,9 @@ function aggiungi_prodotto($nome, $marca, $descrizione, $costo, $categoria, $qua
 
   save_xml($doc_prodotti, 'prodotti');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_prodotti = load_xml('prodotti');
+
   $upload_ok = isset($immagine['error']) &&
     $immagine['error'] === UPLOAD_ERR_OK;
   if ($upload_ok) {

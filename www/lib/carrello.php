@@ -30,7 +30,7 @@ function aggiungi_carrello($id_prodotto, $qta_diff) {
 
   save_xml($doc_utenti, 'utenti');
 
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
   $doc_utenti = load_xml('utenti');
 
   return true;
@@ -100,6 +100,9 @@ function svuota_carrello() {
   $utente->appendChild($carrello);
 
   save_xml($doc_utenti, 'utenti');
+
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
+  $doc_utenti = load_xml('utenti');
 
   return true;
 }

@@ -35,6 +35,7 @@ function aggiungi_recensione($id_prodotto, $contenuto) {
 
   save_xml($doc_recensioni, 'recensioni');
 
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
   $doc_recensioni = load_xml('recensioni');
 
   return true;
@@ -50,7 +51,7 @@ function aggiungi_rating_recensione($id_recensione, $supporto, $utilita) {
 
   save_xml($doc_recensioni, 'recensioni');
 
-  // BUG: se non ricarico il documento il resto continua ad usare il documento vecchio
+  // BUG: se non ricarico il documento i prossimi xpath() continuano ad usare il documento vecchio
   $doc_recensioni = load_xml('recensioni');
 
   return true;
