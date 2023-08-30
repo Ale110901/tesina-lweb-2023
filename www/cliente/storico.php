@@ -65,8 +65,12 @@ foreach ($ordini as $ordine) {
     $p_quantita = $prodotto->getAttribute('quantita');
 
     $result = xpath($doc_prodotti, 'prodotti', "/ns:prodotti/ns:prodotto[@id='$p_id']/ns:nome");
-    $p_nome = $result[0]->textContent;
-    $o_articoli .= $p_quantita . 'x <a href="' . $rc_subdir . '/prodotto.php?id=' . $p_id . '">' . $p_nome . "</a>\n";
+    if ($result->length === 0) {
+      $o_articoli .= $p_quantita . "x &lt;prodotto non piu' disponibile&gt;\n";
+    } else {
+      $p_nome = $result[0]->textContent;
+      $o_articoli .= $p_quantita . 'x <a href="' . $rc_subdir . '/prodotto.php?id=' . $p_id . '">' . $p_nome . "</a>\n";
+    }
   }
 ?>
         <tr>
