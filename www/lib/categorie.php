@@ -8,7 +8,7 @@ function ottieni_categoria($id_categoria) {
 
   $result = xpath($doc_categorie, 'categorie', "/ns:categorie/ns:categoria[@id='$id_categoria']/ns:nome");
   if ($result->length !== 1) {
-    return "Categoria sconosciuta";
+    return "&lt;categoria sconosciuta&gt;";
   } else {
     return $result[0]->textContent;
   }
