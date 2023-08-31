@@ -14,14 +14,21 @@ $modifica = isset($_POST['azione']) && $_POST['azione'] === 'modifica';
 
 if ($modifica) {
   $id_utente = $_POST['id'];
-  $attivo = isset($_POST['attivo']) && $_POST['attivo'] === 'on';
+  $tipo_utente = $_POST['tipo'];
 
-  modifica_utente($id_utente, $attivo,
-    $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
-    $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
+  if ($tipo_utente === 'gestore' || $tipo_utente === 'admin') {
+    modifica_ut_spec($id_utente,
+      $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password']);
+  } else {
+    $attivo = isset($_POST['attivo']) && $_POST['attivo'] === 'on';
+
+    modifica_cliente($id_utente, $attivo,
+      $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
+      $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
+  }
 }
 
-$utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
+$utenti = $doc_utenti->documentElement->childNodes;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -42,6 +49,7 @@ $utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
     <h2>GESTIONE UTENTI</h2>
     <div class="table mt-32">
         <div id="intestazione" class="thg grassetto">
+          <div class="td">Tipo</div>
           <div class="td">Email</div>
           <div class="td">Nome</div>
           <div class="td">Cognome</div>
@@ -55,16 +63,24 @@ $utenti = xpath($doc_utenti, 'utenti', '/ns:utenti/ns:utente[@tipo="cliente"]');
 <?php
 foreach ($utenti as $utente) {
   $ut_id = $utente->getAttribute('id');
+  $ut_tipo = $utente->getAttribute('tipo');
   $ut_nome = $utente->getElementsByTagName('nome')[0]->textContent;
   $ut_cognome = $utente->getElementsByTagName('cognome')[0]->textContent;
   $ut_email = $utente->getAttribute('email');
-  $ut_telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
-  $ut_indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
-  $ut_codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
-  $ut_attivo = $utente->getElementsByTagName('attivo')[0]->textContent;
+
+  if ($ut_tipo === 'cliente') {
+    $ut_telefono = $utente->getElementsByTagName('telefono')[0]->textContent;
+    $ut_indirizzo = $utente->getElementsByTagName('indirizzo')[0]->textContent;
+    $ut_codice_fiscale = $utente->getElementsByTagName('codiceFiscale')[0]->textContent;
+    $ut_attivo = $utente->getElementsByTagName('attivo')[0]->textContent;
+  }
 ?>
         <form class="tr" id="utente-<?php echo($ut_id); ?>" method="post" action="<?php echo($rc_subdir); ?>/admin/utenti.php">
           <input type="hidden" name="id" value="<?php echo($ut_id); ?>"></input>
+          <input type="hidden" name="tipo" value="<?php echo($ut_tipo); ?>"></input>
+          <div class="td">
+            <span><?php echo($ut_tipo); ?></span>
+          </div>
           <div class="td">
             <span class="con-toggle"><?php echo($ut_email); ?></span>
             <input type="text" class="input-flat con-toggle nascosto" name="email" value="<?php echo($ut_email); ?>" />
@@ -78,33 +94,45 @@ foreach ($utenti as $utente) {
             <input type="text" class="input-flat con-toggle nascosto" name="cognome" value="<?php echo($ut_cognome); ?>" />
           </div>
           <div class="td">
+<?php if ($ut_tipo === 'cliente') { ?>
             <span class="con-toggle"><?php echo($ut_telefono); ?></span>
             <input type="text" class="input-flat con-toggle nascosto" name="telefono" value="<?php echo($ut_telefono); ?>" />
+<?php } ?>
           </div>
           <div class="td">
+<?php if ($ut_tipo === 'cliente') { ?>
             <span class="con-toggle"><?php echo($ut_indirizzo); ?></span>
             <input type="text" class="input-flat con-toggle nascosto" name="indirizzo" value="<?php echo($ut_indirizzo); ?>" />
+<?php } ?>
           </div>
           <div class="td">
+<?php if ($ut_tipo === 'cliente') { ?>
             <span class="con-toggle"><?php echo($ut_codice_fiscale); ?></span>
             <input type="text" class="input-flat con-toggle nascosto" name="codice-fiscale" value="<?php echo($ut_codice_fiscale); ?>" />
+<?php } ?>
           </div>
           <div class="td">
             <span class="con-toggle">&ndash;</span>
             <input type="password" class="input-flat con-toggle nascosto" name="password" />
           </div>
           <div class="td">
+<?php if ($ut_tipo === 'cliente') { ?>
             <input type="checkbox" class="con-toggle" <?php if ($ut_attivo === 'true') echo("checked"); ?> disabled></input>
             <input type="checkbox" class="con-toggle nascosto" name="attivo" <?php if ($ut_attivo === 'true') echo("checked"); ?>></input>
+<?php } ?>
           </div>
           <div class="td">
-            <a href="#" class="link con-toggle" onclick="visibilita(<?php echo($ut_id); ?>);">Modifica</a>
-            <button type="submit" name="azione" value="modifica" class="link con-toggle nascosto">Conferma</button>
+            <a href="#" class="button-icona con-toggle" onclick="visibilita(<?php echo($ut_id); ?>);">&#x01F4DD</a>
+            <button type="submit" name="azione" value="modifica" class="button-icona con-toggle nascosto">&#x2705</button>
           </div>
         </form>
 <?php
 }
 ?>
+    </div>
+
+    <div class="centrato l-h3em">
+      <a class="button" href="<?php echo($rc_subdir); ?>/admin/index.php">Torna indietro</a>
     </div>
   </div>
 
