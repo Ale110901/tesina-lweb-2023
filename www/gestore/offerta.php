@@ -26,7 +26,7 @@ $o_info = [
   'numCrediti' => '0',
   'target' => 'credData',
   'creditiSpesi' => '0',
-  'dataInizio' => '1970-01-01',
+  'dataInizio' => '2020-01-01',
   'reputazione' => '0',
   'anni' => '0',
   'idProdotto' => '1',
@@ -52,7 +52,7 @@ if ($id_valido) {
 
 $da_modificare = $id_valido;
 
-$sel_creditiSpesi = $o_info['target'] === 'credData';
+$sel_creditiSpesi = $o_info['target'] === 'credData' || $o_info['target'] === 'credInizio';
 $sel_dataInizio = $o_info['target'] === 'credData';
 $sel_reputazione = $o_info['target'] === 'reputazione';
 $sel_anni = $o_info['target'] === 'dataReg';
@@ -106,12 +106,13 @@ $a_id = $da_modificare ? '?id=' . $o_id : '';
           <div id="input-target" class="my-16">
             <label for="target" class="grassetto mr-8">Target:</label>
             <select name="target" onchange="aggiornaTarget();">
-              <option value="credData" <?php if ($o_info['target'] === 'credData') echo('selected'); ?>>Crediti spesi da una determinata data</option>
-              <option value="reputazione" <?php if ($o_info['target'] === 'reputazione') echo('selected'); ?>>Reputazione minima</option>
-              <option value="dataReg" <?php if ($o_info['target'] === 'dataReg') echo('selected'); ?>>Clienti presenti da X anni</option>
-              <option value="prodSpec" <?php if ($o_info['target'] === 'prodSpec') echo('selected'); ?>>Prodotto specifico</option>
-              <option value="categoria" <?php if ($o_info['target'] === 'categoria') echo('selected'); ?>>Categoria</option>
-              <option value="eccMag" <?php if ($o_info['target'] === 'eccMag') echo('selected'); ?>>Eccedenza in magazzino</option>
+              <option value="credData" <?php if ($o_info['target'] === 'credData') echo('selected'); ?>>Spesi crediti X da data Y</option>
+              <option value="credInizio" <?php if ($o_info['target'] === 'credInizio') echo('selected'); ?>>Spesi crediti X dalla registrazione</option>
+              <option value="reputazione" <?php if ($o_info['target'] === 'reputazione') echo('selected'); ?>>Reputazione >= X</option>
+              <option value="dataReg" <?php if ($o_info['target'] === 'dataReg') echo('selected'); ?>>Cliente da X anni</option>
+              <option value="prodSpec" <?php if ($o_info['target'] === 'prodSpec') echo('selected'); ?>>Prodotto == X</option>
+              <option value="categoria" <?php if ($o_info['target'] === 'categoria') echo('selected'); ?>>Categoria == X</option>
+              <option value="eccMag" <?php if ($o_info['target'] === 'eccMag') echo('selected'); ?>>Quantita di prodotto X >= Y</option>
             </select>
           </div>
 

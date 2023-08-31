@@ -42,6 +42,9 @@ function aggiornaTarget() {
       elCreditiSpesi.classList.remove('nascosto');
       elDataInizio.classList.remove('nascosto');
       break;
+    case 'credInizio':
+      elCreditiSpesi.classList.remove('nascosto');
+      break;
     case 'reputazione':
       elReputazione.classList.remove('nascosto');
       break;

@@ -69,6 +69,12 @@ foreach ($offerte as $offerta) {
       $of_key_y = 'dataInizio';
       break;
 
+    case 'credInizio':
+      $of_desc = 'spesi crediti X dalla registrazione';
+      $of_key_x = 'creditiSpesi';
+      $of_key_y = null;
+      break;
+
     case 'reputazione':
       $of_desc = "reputazione >= X";
       $of_key_x = "reputazione";
