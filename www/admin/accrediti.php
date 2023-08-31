@@ -80,6 +80,10 @@ foreach ($accrediti as $accredito) {
 }
 ?>
     </div>
+
+    <div class="centrato">
+      <a class="button" href="<?php echo($rc_subdir); ?>/admin/index.php">Torna indietro</a>
+    </div>
   </div>
 
   <?php require($rc_root . '/lib/footer.php'); ?>
