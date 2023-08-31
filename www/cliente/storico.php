@@ -53,7 +53,7 @@ $ordini = sort_by_element_txt($ordini, 'data', true);
 foreach ($ordini as $ordine) {
   $result = $ordine->getElementsByTagName('data')[0]->textContent;
 
-  $o_data = date_format(date_create($result), 'Y/m/d H:i:s');
+  $o_data = date_format(date_create($result), 'Y-m-d H:i');
   $o_indirizzo = $ordine->getElementsByTagName('indirizzo')[0]->textContent;
   $o_prezzo = $ordine->getElementsByTagName('prezzoFinale')[0]->textContent;
 
