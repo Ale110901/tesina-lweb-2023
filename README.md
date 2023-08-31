@@ -8,25 +8,10 @@
 - ```Hackfront-ITA```: Emanuele Roccia - 1967318
   - link: https://github.com/Hackfront-ITA/tesina-lweb-2023.git
 
-## Installazione automatica
+## Installazione
 - Copiare il contenuto della cartella `www` nella cartella di destinazione.
-- Chiamare lo script `/install.php?subdir=<DIR>`, dove `<DIR>` e' la
-sottodirectory in cui lo si vuole installare
 
-Per esempio, se l'indirizzo di destinazione e' `http://10.173.0.1/rc-store/`,
-si carica la pagina `http://10.173.0.1/rc-store/install.php?subdir=/rc-store`
-
-## Installazione manuale
-- Copiare il contenuto della cartella `www` nella cartella di destinazione
-- Modificare il file `config.php` con le proprie impostazioni
-
-Per esempio:
-- la root del web server e' `/srv/www/`
-- l'indirizzo di destinazione e' `http://10.173.0.1/rc-store/`
-
-Allora si copia il contenuto di `www` in `/srv/www/rc-store/` e nel file
-`config.php` si imposta:
-- la costante `RC_ROOT` a `/srv/www/rc-store` (senza `/` finale)
-- la costante `RC_SUBDIR` a `/rc-store` (senza `/` finale)
+Il sito non necessita di ulteriori configurazioni, in quanto individua da solo
+il percorso della root e la sottodirectory in cui è installato.
 
 :snowman:
