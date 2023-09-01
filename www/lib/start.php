@@ -3,7 +3,7 @@ $rc_root = realpath(__DIR__ . '/..');
 
 require_once($rc_root . '/lib/utils.php');
 
-$rc_subdir = make_subdir($rc_level + 1);
+$rc_subdir = make_subdir($rc_level);
 
 session_start();
 

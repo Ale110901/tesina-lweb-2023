@@ -15,7 +15,7 @@ function redirect($code, $page, $use_dest) {
 function make_subdir($level) {
   $path = $_SERVER['PHP_SELF'];
 
-  for ($i = 0; $i < $level; $i++) {
+  for ($i = 0; $i < ($level + 1); $i++) {
     $pos = strrpos($path, '/');
     $path = substr($path, 0, $pos);
   }
