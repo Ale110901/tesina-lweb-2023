@@ -259,8 +259,16 @@ if ($id_valido) {
     $form_abilitato_rec = ($controllo_rec) ? 'nascosto' : '';
 ?>
         <div class="flex-row my-32 <?php echo($evidenzia_contributo_rec); ?>">
-          <i><?php echo($data_r); ?></i>
-          <div class="fb-20 ml-32">
+          <div class="fb-12">
+            <p class="corsivo inline"><?php echo($data_r); ?></p>
+<?php if ($e_gestore) { ?>
+            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+              <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
+              <button type="submit" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
+            </form>
+<?php } ?>
+          </div>
+          <div class="fb-20">
             Supporto <?php echo(number_format($rat_med_rec['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_rec['utilita'], 1)); ?>
             <p>da <i class="<?php if ($controllo_rec) echo("grassetto"); ?>">
 <?php
@@ -296,13 +304,7 @@ if ($id_valido) {
             </div>
 <?php } ?>
           </div>
-          <div class="fb-65 ml-32">
-<?php if ($e_gestore) { ?>
-            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
-              <input type="hidden" name="id_recensione" value="<?php echo($id_recensione); ?>" />
-                <button type="submit" class="button-icona" name="azione" value="elimina_recensione" title="elimina recensione">&#x01F5D1</button>
-            </form>
-<?php } ?>
+          <div class="fb-68">
             <p class="giustificato inline"><?php echo($contenuto); ?></p>
           </div>
         </div>
@@ -365,15 +367,17 @@ if ($id_valido) {
 ?>
         <div class="my-32">
           <div class="flex-row <?php echo($evidenzia_contributo_dom); ?>" id="box-dom">
-            <i><?php echo($data_d); ?></i>
-            <div class="fb-55 ml-32 cp" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
+            <div class="fb-12">
+              <p class="corsivo inline"><?php echo($data_d); ?></p>
 <?php if ($e_gestore) { ?>
-            <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
-              <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
-              <button type="submit" class="button-icona" name="azione" value="elimina_domanda" title="elimina domanda">&#x01F5D1</button>
-            </form>
+              <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" class="inline">
+                <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
+                <button type="submit" class="button-icona" name="azione" value="elimina_domanda" title="elimina domanda">&#x01F5D1</button>
+              </form>
 <?php } ?>
-              <p class="giustificato inline"><?php echo($contenuto_d); ?></p>
+            </div>
+            <div class="fb-53 cp" onclick="mostraRisposte(<?php echo($id_domanda); ?>)">
+              <p class="giustificato"><?php echo($contenuto_d); ?></p>
             </div>
             <div class="fb-15">
               Supporto <?php echo(number_format($rat_med_d['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_d['utilita'], 1)); ?>
@@ -387,9 +391,9 @@ if ($id_valido) {
 ?>
               </p>
             </div>
-            <div class="fb-20 ml-32">
+            <div class="fb-20">
 <?php if ($loggato && ($e_cliente || $e_gestore)) { ?>
-              <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_dom); ?>">
+              <div class="riquadro pa-8 mt-8 <?php echo($form_abilitato_dom); ?>">
                 <p id="dom_supp_<?php echo($id_domanda); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('dom_rat', <?php echo($id_domanda); ?>, 'dom_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>
@@ -461,8 +465,8 @@ if ($id_valido) {
       $form_abilitato_risp = ($controllo_risp) ? 'nascosto' : '';
 ?>
           <div class="flex-row my-16 <?php echo($evidenzia_contributo_risp); ?>">
-            <div class="fb-13">
-              <i><?php echo($data_risp); ?></i>
+            <div class="fb-15">
+              <p class="corsivo inline"><?php echo($data_risp); ?></p>
 <?php if ($e_gestore) { ?>
             <form action="<?php echo($rc_subdir); ?>/prodotto.php?id=<?php echo($id_prodotto); ?>" method="post" style="display: inline;">
               <input type="hidden" name="id_domanda" value="<?php echo($id_domanda); ?>" />
@@ -474,10 +478,10 @@ if ($id_valido) {
               <input type="radio" name="risposta" value="<?php echo($contenuto_r); ?>" form="eleva-<?php echo($id_domanda); ?>" <?php echo($r_sel); ?> />
 <?php } ?>
             </div>
-            <div class="fb-47">
+            <div class="fb-50">
               <?php echo($contenuto_r); ?>
             </div>
-            <div class="fb-20">
+            <div class="fb-15">
               Supporto <?php echo(number_format($rat_med_r['supporto'], 1)); ?>, utilit&agrave; <?php echo(number_format($rat_med_r['utilita'], 1)); ?>
               <p>da <i class="<?php if ($controllo_risp) echo("grassetto"); ?>">
 <?php
@@ -491,7 +495,7 @@ if ($id_valido) {
             </div>
             <div class="fb-20">
 <?php if ($loggato && ($e_cliente || $e_gestore) && !$e_risp_gestore) { ?>
-              <div class="riquadro pa-8 mt-8 mr-32 <?php echo($form_abilitato_risp); ?>">
+              <div class="riquadro pa-8 mt-8 <?php echo($form_abilitato_risp); ?>">
                 <p id="risp_supp_<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>">Supporto:
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat', '<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 1)"<?php } ?>><?php echo($rs[0]); ?></a>
                   <a class="stellina" <?php if ($rating_abilitato) { ?>onclick="setCampo('risp_rat','<?php echo($id_domanda); ?>_<?php echo($id_risposta); ?>', 'risp_supp', 2)"<?php } ?>><?php echo($rs[1]); ?></a>

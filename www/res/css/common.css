@@ -239,12 +239,28 @@ select {
   flex-basis: 20%;
 }
 
-.fb-13 {
-  flex-basis: 13%;
+.fb-12 {
+  flex-basis: 12%;
+}
+
+.fb-15 {
+  flex-basis: 15%;
+}
+
+.fb-45 {
+  flex-basis: 45%;
 }
 
 .fb-47 {
   flex-basis: 47%;
+}
+
+.fb-50 {
+  flex-basis: 50%;
+}
+
+.fb-53 {
+  flex-basis: 53%;
 }
 
 .fb-55 {
@@ -257,6 +273,10 @@ select {
 
 .fb-65 {
   flex-basis: 65%;
+}
+
+.fb-68 {
+  flex-basis: 68%;
 }
 
 .fb-80 {
