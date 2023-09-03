@@ -52,4 +52,26 @@ function crea_ordine($indirizzo, $prezzo, $prodotti) {
 
   return true;
 }
+
+function calcola_crediti_spesi($id_utente, $data_inizio) {
+  global $doc_ordini;
+
+  $ordini = xpath($doc_ordini, 'ordini', "/ns:ordini/ns:ordine[@idUtente=$id_utente]");
+
+  $cred_spesi = 0;
+  $data_inizio = date_create($data_inizio);
+
+  foreach ($ordini as $ordine) {
+    $data_ord = $ordine->getElementsByTagName('data')[0]->textContent;
+    $data_ord = date_create($data_ord);
+    if ($data_ord < $data_inizio) {
+      continue;
+    }
+
+    $prezzo_finale = $ordine->getElementsByTagName('prezzoFinale')[0]->textContent;
+    $cred_spesi += $prezzo_finale;
+  }
+
+  return $cred_spesi;
+}
 ?>

@@ -75,7 +75,7 @@ if ($id_valido) {
 
     if ($aggiungi_dom) {
       $contenuto = $_POST['domanda'];
-      aggiungi_domanda($id_prodotto, $contenuto); /* CONTROLLARE */
+      aggiungi_domanda($id_prodotto, $contenuto);
     }
 
     if ($elimina_dom) {

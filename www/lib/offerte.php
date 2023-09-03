@@ -59,7 +59,11 @@ function offerte_applicabili($prodotto) {
         if ($id_utente === 0) {
           break;
         }
-        // TODO
+        $cred_spesi_off = $offerta->getElementsByTagName('creditiSpesi')[0]->textContent;
+        $cred_spesi_att = calcola_crediti_spesi($id_utente, $data_inizio);
+        if ($cred_spesi_att >= $cred_spesi_off) {
+          array_push($off_app, $offerta);
+        }
         break;
       case 'reputazione':
         // "clienti che hanno una reputazione >= X"
