@@ -71,6 +71,9 @@ function offerte_applicabili($prodotto) {
           break;
         }
         $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:reputazione");
+        if ($result->length === 0) {
+          break;
+        }
         $result = $result[0]->textContent;
         $reputazione = $offerta->getElementsByTagName('reputazione')[0]->textContent;
         if ($result >= $reputazione) {
@@ -83,6 +86,9 @@ function offerte_applicabili($prodotto) {
           break;
         }
         $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id='$id_utente']/ns:dataRegistrazione");
+        if ($result->length === 0) {
+          break;
+        }
         $result = $result[0]->textContent;
 
         $data_reg = date_create($result);
