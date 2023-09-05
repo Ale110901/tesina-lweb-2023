@@ -4,7 +4,7 @@
 <!ELEMENT domanda (idProdotto, contenuto, ratings, risposte, data)>
 <!ATTLIST domanda
     id       ID #REQUIRED
-    idUtente ID #REQUIRED>
+    idUtente CDATA #REQUIRED>
 
 <!ELEMENT risposte (risposta*)>
 
@@ -16,7 +16,7 @@
 
 <!ELEMENT rating (supporto, utilita)>
 <!ATTLIST rating
-    idUtente ID #REQUIRED>
+    idUtente CDATA #REQUIRED>
 
 <!ELEMENT idUtente    (#PCDATA)>
 <!ELEMENT idProdotto  (#PCDATA)>
