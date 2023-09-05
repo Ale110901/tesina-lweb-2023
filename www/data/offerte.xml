@@ -2,10 +2,23 @@
 <offerte xmlns="http://www.lweb.uni/tesina-rcstore/offerte/">
   <offerta id="1">
     <tipo>sconto</tipo>
-    <percentuale>20</percentuale>
+    <percentuale>15</percentuale>
     <target>credData</target>
-    <creditiSpesi>100.00</creditiSpesi>
-    <dataInizio>2023-05-15</dataInizio>
+    <creditiSpesi>300</creditiSpesi>
+    <dataInizio>2021-01-01</dataInizio>
+  </offerta>
+  <offerta id="3">
+    <tipo>sconto</tipo>
+    <percentuale>20</percentuale>
+    <target>eccMag</target>
+    <idProdotto>1</idProdotto>
+    <quantitaMin>100</quantitaMin>
+  </offerta>
+  <offerta id="4">
+    <tipo>sconto</tipo>
+    <percentuale>5</percentuale>
+    <target>reputazione</target>
+    <reputazione>200</reputazione>
   </offerta>
   <offerta id="2">
     <tipo>bonus</tipo>
@@ -14,11 +27,16 @@
     <idProdotto>1</idProdotto>
     <quantitaMin>100</quantitaMin>
   </offerta>
-  <offerta id="3">
+  <offerta id="5">
+    <tipo>bonus</tipo>
+    <numCrediti>2</numCrediti>
+    <target>dataReg</target>
+    <anni>2</anni>
+  </offerta>
+  <offerta id="6">
     <tipo>sconto</tipo>
-    <percentuale>20</percentuale>
-    <target>eccMag</target>
-    <idProdotto>1</idProdotto>
-    <quantitaMin>100</quantitaMin>
+    <percentuale>10</percentuale>
+    <target>categoria</target>
+    <idCategoria>4</idCategoria>
   </offerta>
 </offerte>
