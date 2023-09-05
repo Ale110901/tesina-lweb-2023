@@ -45,7 +45,7 @@
       <prodotto id="11" quantita="1"/>
     </carrello>
   </utente>
-    <utente id="5" tipo="cliente" email="luca.gialli@gmail.com">
+  <utente id="5" tipo="cliente" email="luca.gialli@gmail.com">
     <attivo>true</attivo>
     <nome>Luca</nome>
     <cognome>Gialli</cognome>
@@ -56,7 +56,97 @@
     <reputazione>30</reputazione>
     <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
     <dataRegistrazione>2023-02-10</dataRegistrazione>
-    <carrello>
-    </carrello>
+    <carrello/>
+  </utente>
+  <utente id="6" tipo="cliente" email="marilena.palermo@gmail.com">
+    <attivo>false</attivo>
+    <nome>Marilena</nome>
+    <cognome>Palermo</cognome>
+    <telefono>+3907734738365</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>806</reputazione>
+    <credito>243</credito>
+    <dataRegistrazione>2018-12-27</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="7" tipo="cliente" email="annalisa.conte@gmail.com">
+    <attivo>true</attivo>
+    <nome>Annalisa</nome>
+    <cognome>Conte</cognome>
+    <telefono>+3907731944968</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>82</reputazione>
+    <credito>121</credito>
+    <dataRegistrazione>2018-08-11</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="8" tipo="cliente" email="saverio.ruggiero@gmail.com">
+    <attivo>false</attivo>
+    <nome>Saverio</nome>
+    <cognome>Ruggiero</cognome>
+    <telefono>+3907737821214</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>961</reputazione>
+    <credito>199</credito>
+    <dataRegistrazione>2017-10-16</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="9" tipo="cliente" email="benito.orlando@gmail.com">
+    <attivo>true</attivo>
+    <nome>Benito</nome>
+    <cognome>Orlando</cognome>
+    <telefono>+3907733141773</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>17</reputazione>
+    <credito>137</credito>
+    <dataRegistrazione>2019-10-07</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="10" tipo="cliente" email="cesare.landi@gmail.com">
+    <attivo>false</attivo>
+    <nome>Cesare</nome>
+    <cognome>Landi</cognome>
+    <telefono>+3907738616006</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>978</reputazione>
+    <credito>22</credito>
+    <dataRegistrazione>2018-09-07</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="11" tipo="cliente" email="livio.carta@gmail.com">
+    <attivo>false</attivo>
+    <nome>Livio</nome>
+    <cognome>Carta</cognome>
+    <telefono>+3907737734069</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>531</reputazione>
+    <credito>269</credito>
+    <dataRegistrazione>2020-04-04</dataRegistrazione>
+    <carrello/>
+  </utente>
+  <utente id="12" tipo="cliente" email="gianfranco.toscano@gmail.com">
+    <attivo>false</attivo>
+    <nome>Gianfranco</nome>
+    <cognome>Toscano</cognome>
+    <telefono>+3907736843306</telefono>
+    <indirizzo>Via Nomentana 274, Roma, Italy</indirizzo>
+    <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <reputazione>307</reputazione>
+    <credito>74</credito>
+    <dataRegistrazione>2020-11-06</dataRegistrazione>
+    <carrello/>
   </utente>
 </utenti>

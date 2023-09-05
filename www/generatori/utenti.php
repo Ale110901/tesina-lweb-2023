@@ -3,7 +3,7 @@ $rc_root = realpath(__DIR__ . '/..');
 require_once($rc_root . '/lib/utils.php');
 require_once($rc_root . '/lib/xml.php');
 
-$num_utenti = 3;
+$num_utenti = 7;
 $nomi = file($rc_root . '/generatori/ut_nomi.txt');
 $cognomi = file($rc_root . '/generatori/ut_cognomi.txt');
 
@@ -20,8 +20,8 @@ for ($i = 0; $i < $num_utenti; $i++) {
 
   $email = strtolower($nome) . '.' . strtolower($cognome) . '@gmail.com';
   $telefono = '+390773' . rand(1000000, 9999999);
-  $indirizzo = 'Lololol';
-  $codice_fiscale = 'Lerolerolero';
+  $indirizzo = 'Via Nomentana 274, Roma, Italy';
+  $codice_fiscale = 'ABCDEF81G23X567Z';
   $reputazione = rand(0, 1000);
   $credito = rand(1, 300);
   $data_reg = rand_date();
