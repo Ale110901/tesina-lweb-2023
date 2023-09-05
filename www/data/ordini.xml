@@ -1,314 +1,513 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ordini xmlns="http://www.lweb.uni/tesina-rcstore/ordini/">
   <ordine id="1" idUtente="1">
-    <data>2020-05-09T03:10:08</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>124</prezzoFinale>
+    <data>2021-07-10T03:59:41</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>168</prezzoFinale>
+    <prodotti>
+      <prodotto id="11" quantita="9"/>
+      <prodotto id="28" quantita="8"/>
+      <prodotto id="2" quantita="2"/>
+      <prodotto id="27" quantita="10"/>
+      <prodotto id="25" quantita="7"/>
+    </prodotti>
+  </ordine>
+  <ordine id="2" idUtente="6">
+    <data>2020-12-13T00:50:59</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>117</prezzoFinale>
+    <prodotti>
+      <prodotto id="22" quantita="10"/>
+      <prodotto id="25" quantita="7"/>
+      <prodotto id="14" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="3" idUtente="10">
+    <data>2019-10-17T15:38:24</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>143</prezzoFinale>
+    <prodotti>
+      <prodotto id="12" quantita="4"/>
+      <prodotto id="3" quantita="4"/>
+      <prodotto id="15" quantita="6"/>
+      <prodotto id="34" quantita="9"/>
+    </prodotti>
+  </ordine>
+  <ordine id="4" idUtente="5">
+    <data>2019-07-07T03:38:07</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>132</prezzoFinale>
+    <prodotti>
+      <prodotto id="13" quantita="7"/>
+      <prodotto id="28" quantita="9"/>
+      <prodotto id="26" quantita="9"/>
+      <prodotto id="24" quantita="6"/>
+      <prodotto id="12" quantita="8"/>
+    </prodotti>
+  </ordine>
+  <ordine id="5" idUtente="1">
+    <data>2023-09-08T23:28:26</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>135</prezzoFinale>
+    <prodotti>
+      <prodotto id="6" quantita="3"/>
+      <prodotto id="27" quantita="10"/>
+      <prodotto id="23" quantita="4"/>
+      <prodotto id="20" quantita="10"/>
+      <prodotto id="10" quantita="9"/>
+    </prodotti>
+  </ordine>
+  <ordine id="6" idUtente="5">
+    <data>2018-11-04T06:40:19</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>56</prezzoFinale>
     <prodotti>
       <prodotto id="1" quantita="7"/>
-      <prodotto id="11" quantita="2"/>
-      <prodotto id="21" quantita="8"/>
-      <prodotto id="24" quantita="8"/>
-      <prodotto id="14" quantita="6"/>
-    </prodotti>
-  </ordine>
-  <ordine id="2" idUtente="1">
-    <data>2021-03-09T03:32:43</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>108</prezzoFinale>
-    <prodotti>
-      <prodotto id="15" quantita="7"/>
-      <prodotto id="25" quantita="9"/>
-      <prodotto id="13" quantita="9"/>
-    </prodotti>
-  </ordine>
-  <ordine id="3" idUtente="1">
-    <data>2023-10-01T17:20:36</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>93</prezzoFinale>
-    <prodotti>
-      <prodotto id="4" quantita="10"/>
-    </prodotti>
-  </ordine>
-  <ordine id="4" idUtente="4">
-    <data>2020-10-05T09:00:11</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>69</prezzoFinale>
-    <prodotti>
-      <prodotto id="1" quantita="1"/>
-      <prodotto id="6" quantita="3"/>
-      <prodotto id="2" quantita="7"/>
-    </prodotti>
-  </ordine>
-  <ordine id="5" idUtente="4">
-    <data>2022-01-06T00:03:08</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>123</prezzoFinale>
-    <prodotti>
-      <prodotto id="15" quantita="4"/>
-      <prodotto id="30" quantita="2"/>
-      <prodotto id="24" quantita="10"/>
-    </prodotti>
-  </ordine>
-  <ordine id="6" idUtente="1">
-    <data>2022-03-02T10:17:53</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>127</prezzoFinale>
-    <prodotti>
-      <prodotto id="3" quantita="10"/>
+      <prodotto id="17" quantita="4"/>
+      <prodotto id="9" quantita="10"/>
+      <prodotto id="8" quantita="1"/>
       <prodotto id="19" quantita="3"/>
     </prodotti>
   </ordine>
-  <ordine id="7" idUtente="4">
-    <data>2020-06-11T17:30:14</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>131</prezzoFinale>
+  <ordine id="7" idUtente="11">
+    <data>2021-04-03T23:25:36</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>169</prezzoFinale>
     <prodotti>
       <prodotto id="22" quantita="4"/>
-      <prodotto id="21" quantita="1"/>
-      <prodotto id="23" quantita="10"/>
+      <prodotto id="28" quantita="10"/>
+      <prodotto id="31" quantita="5"/>
     </prodotti>
   </ordine>
-  <ordine id="8" idUtente="1">
-    <data>2018-03-30T12:51:52</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>61</prezzoFinale>
+  <ordine id="8" idUtente="11">
+    <data>2019-12-11T15:29:48</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>199</prezzoFinale>
     <prodotti>
-      <prodotto id="17" quantita="8"/>
-    </prodotti>
-  </ordine>
-  <ordine id="9" idUtente="4">
-    <data>2023-06-17T07:47:40</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>174</prezzoFinale>
-    <prodotti>
-      <prodotto id="7" quantita="4"/>
-      <prodotto id="7" quantita="8"/>
-    </prodotti>
-  </ordine>
-  <ordine id="10" idUtente="1">
-    <data>2018-03-20T17:22:42</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>104</prezzoFinale>
-    <prodotti>
-      <prodotto id="26" quantita="4"/>
-      <prodotto id="8" quantita="8"/>
-      <prodotto id="22" quantita="7"/>
-    </prodotti>
-  </ordine>
-  <ordine id="11" idUtente="1">
-    <data>2020-08-19T21:46:36</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>177</prezzoFinale>
-    <prodotti>
-      <prodotto id="9" quantita="3"/>
-      <prodotto id="17" quantita="7"/>
-      <prodotto id="33" quantita="7"/>
-      <prodotto id="5" quantita="10"/>
-      <prodotto id="21" quantita="3"/>
-    </prodotti>
-  </ordine>
-  <ordine id="12" idUtente="4">
-    <data>2020-12-13T04:43:35</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>176</prezzoFinale>
-    <prodotti>
-      <prodotto id="18" quantita="8"/>
-      <prodotto id="27" quantita="9"/>
-      <prodotto id="28" quantita="6"/>
-      <prodotto id="16" quantita="3"/>
-      <prodotto id="15" quantita="9"/>
-    </prodotti>
-  </ordine>
-  <ordine id="13" idUtente="4">
-    <data>2020-09-03T08:50:52</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>179</prezzoFinale>
-    <prodotti>
-      <prodotto id="31" quantita="2"/>
-      <prodotto id="17" quantita="5"/>
-    </prodotti>
-  </ordine>
-  <ordine id="14" idUtente="1">
-    <data>2021-02-14T06:18:43</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>114</prezzoFinale>
-    <prodotti>
-      <prodotto id="14" quantita="8"/>
-      <prodotto id="31" quantita="10"/>
-      <prodotto id="25" quantita="2"/>
-      <prodotto id="28" quantita="1"/>
-      <prodotto id="20" quantita="6"/>
-    </prodotti>
-  </ordine>
-  <ordine id="15" idUtente="1">
-    <data>2019-06-07T08:13:44</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>127</prezzoFinale>
-    <prodotti>
-      <prodotto id="23" quantita="8"/>
-      <prodotto id="15" quantita="1"/>
-      <prodotto id="23" quantita="7"/>
-      <prodotto id="32" quantita="2"/>
-    </prodotti>
-  </ordine>
-  <ordine id="16" idUtente="1">
-    <data>2022-09-18T02:18:14</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>183</prezzoFinale>
-    <prodotti>
-      <prodotto id="24" quantita="6"/>
-    </prodotti>
-  </ordine>
-  <ordine id="17" idUtente="1">
-    <data>2017-02-21T20:07:19</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>61</prezzoFinale>
-    <prodotti>
-      <prodotto id="23" quantita="4"/>
-      <prodotto id="26" quantita="5"/>
-      <prodotto id="28" quantita="1"/>
-      <prodotto id="7" quantita="1"/>
-    </prodotti>
-  </ordine>
-  <ordine id="18" idUtente="1">
-    <data>2019-01-16T11:06:04</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>124</prezzoFinale>
-    <prodotti>
-      <prodotto id="8" quantita="9"/>
-      <prodotto id="5" quantita="4"/>
-      <prodotto id="31" quantita="3"/>
-    </prodotti>
-  </ordine>
-  <ordine id="19" idUtente="1">
-    <data>2018-01-03T21:08:48</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>195</prezzoFinale>
-    <prodotti>
-      <prodotto id="2" quantita="4"/>
-      <prodotto id="3" quantita="5"/>
-      <prodotto id="27" quantita="9"/>
-      <prodotto id="3" quantita="7"/>
-      <prodotto id="17" quantita="5"/>
-    </prodotti>
-  </ordine>
-  <ordine id="20" idUtente="4">
-    <data>2023-05-19T09:53:42</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>184</prezzoFinale>
-    <prodotti>
-      <prodotto id="27" quantita="6"/>
-    </prodotti>
-  </ordine>
-  <ordine id="21" idUtente="4">
-    <data>2023-08-14T11:11:00</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>101</prezzoFinale>
-    <prodotti>
-      <prodotto id="34" quantita="6"/>
-      <prodotto id="15" quantita="3"/>
-      <prodotto id="8" quantita="8"/>
-      <prodotto id="27" quantita="6"/>
-      <prodotto id="33" quantita="5"/>
-    </prodotti>
-  </ordine>
-  <ordine id="22" idUtente="4">
-    <data>2021-04-09T19:18:34</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>95</prezzoFinale>
-    <prodotti>
-      <prodotto id="8" quantita="9"/>
-      <prodotto id="12" quantita="4"/>
-      <prodotto id="28" quantita="7"/>
-    </prodotti>
-  </ordine>
-  <ordine id="23" idUtente="4">
-    <data>2022-01-28T09:07:43</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>58</prezzoFinale>
-    <prodotti>
-      <prodotto id="24" quantita="3"/>
-      <prodotto id="2" quantita="10"/>
-      <prodotto id="21" quantita="4"/>
-    </prodotti>
-  </ordine>
-  <ordine id="24" idUtente="1">
-    <data>2023-08-23T17:14:17</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>126</prezzoFinale>
-    <prodotti>
-      <prodotto id="12" quantita="3"/>
-      <prodotto id="2" quantita="1"/>
-      <prodotto id="24" quantita="10"/>
+      <prodotto id="20" quantita="5"/>
       <prodotto id="4" quantita="8"/>
+      <prodotto id="27" quantita="1"/>
+      <prodotto id="24" quantita="3"/>
+      <prodotto id="24" quantita="7"/>
     </prodotti>
   </ordine>
-  <ordine id="25" idUtente="4">
-    <data>2019-06-24T21:35:32</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>80</prezzoFinale>
+  <ordine id="9" idUtente="8">
+    <data>2023-06-03T03:35:05</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>158</prezzoFinale>
     <prodotti>
-      <prodotto id="15" quantita="4"/>
-      <prodotto id="2" quantita="10"/>
-      <prodotto id="29" quantita="3"/>
-      <prodotto id="33" quantita="9"/>
-      <prodotto id="16" quantita="7"/>
+      <prodotto id="14" quantita="5"/>
     </prodotti>
   </ordine>
-  <ordine id="26" idUtente="4">
-    <data>2023-11-27T20:11:20</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>183</prezzoFinale>
+  <ordine id="10" idUtente="5">
+    <data>2019-06-20T09:15:20</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>196</prezzoFinale>
     <prodotti>
-      <prodotto id="27" quantita="4"/>
-      <prodotto id="23" quantita="8"/>
-      <prodotto id="25" quantita="9"/>
-      <prodotto id="18" quantita="7"/>
-    </prodotti>
-  </ordine>
-  <ordine id="27" idUtente="1">
-    <data>2020-11-29T13:17:52</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>200</prezzoFinale>
-    <prodotti>
-      <prodotto id="13" quantita="5"/>
-      <prodotto id="14" quantita="1"/>
-      <prodotto id="5" quantita="1"/>
-      <prodotto id="13" quantita="5"/>
-    </prodotti>
-  </ordine>
-  <ordine id="28" idUtente="4">
-    <data>2017-07-14T23:22:34</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>139</prezzoFinale>
-    <prodotti>
-      <prodotto id="25" quantita="1"/>
-      <prodotto id="21" quantita="3"/>
+      <prodotto id="1" quantita="10"/>
       <prodotto id="30" quantita="1"/>
     </prodotti>
   </ordine>
-  <ordine id="29" idUtente="4">
-    <data>2021-01-13T23:09:18</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>117</prezzoFinale>
+  <ordine id="11" idUtente="9">
+    <data>2022-05-18T00:33:18</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>185</prezzoFinale>
     <prodotti>
-      <prodotto id="30" quantita="3"/>
-      <prodotto id="31" quantita="9"/>
-      <prodotto id="12" quantita="3"/>
+      <prodotto id="23" quantita="10"/>
+      <prodotto id="8" quantita="10"/>
+      <prodotto id="1" quantita="5"/>
+      <prodotto id="17" quantita="1"/>
+      <prodotto id="4" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="12" idUtente="11">
+    <data>2021-10-10T13:26:04</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>96</prezzoFinale>
+    <prodotti>
+      <prodotto id="10" quantita="8"/>
+      <prodotto id="4" quantita="10"/>
+      <prodotto id="26" quantita="6"/>
+    </prodotti>
+  </ordine>
+  <ordine id="13" idUtente="12">
+    <data>2019-04-11T00:14:21</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>158</prezzoFinale>
+    <prodotti>
+      <prodotto id="22" quantita="8"/>
+      <prodotto id="9" quantita="7"/>
+    </prodotti>
+  </ordine>
+  <ordine id="14" idUtente="12">
+    <data>2021-02-24T13:25:01</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>190</prezzoFinale>
+    <prodotti>
+      <prodotto id="27" quantita="2"/>
+      <prodotto id="17" quantita="7"/>
+      <prodotto id="18" quantita="1"/>
+      <prodotto id="21" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="15" idUtente="8">
+    <data>2019-05-02T01:54:38</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>194</prezzoFinale>
+    <prodotti>
+      <prodotto id="33" quantita="8"/>
+      <prodotto id="32" quantita="7"/>
+      <prodotto id="5" quantita="4"/>
+    </prodotti>
+  </ordine>
+  <ordine id="16" idUtente="7">
+    <data>2020-05-27T16:15:39</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>68</prezzoFinale>
+    <prodotti>
+      <prodotto id="34" quantita="5"/>
+      <prodotto id="4" quantita="6"/>
+      <prodotto id="12" quantita="7"/>
+      <prodotto id="34" quantita="4"/>
       <prodotto id="28" quantita="5"/>
     </prodotti>
   </ordine>
-  <ordine id="30" idUtente="1">
-    <data>2019-07-07T10:28:41</data>
-    <indirizzo>Via Doria, Latina, Italy</indirizzo>
-    <prezzoFinale>88</prezzoFinale>
+  <ordine id="17" idUtente="1">
+    <data>2021-02-10T01:09:50</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>60</prezzoFinale>
     <prodotti>
-      <prodotto id="5" quantita="8"/>
-      <prodotto id="27" quantita="2"/>
-      <prodotto id="15" quantita="4"/>
-      <prodotto id="31" quantita="2"/>
+      <prodotto id="32" quantita="5"/>
+      <prodotto id="32" quantita="2"/>
+    </prodotti>
+  </ordine>
+  <ordine id="18" idUtente="11">
+    <data>2019-09-26T02:51:58</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>144</prezzoFinale>
+    <prodotti>
+      <prodotto id="19" quantita="2"/>
+      <prodotto id="10" quantita="5"/>
       <prodotto id="26" quantita="3"/>
+      <prodotto id="19" quantita="8"/>
+    </prodotti>
+  </ordine>
+  <ordine id="19" idUtente="4">
+    <data>2018-02-13T10:10:00</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>152</prezzoFinale>
+    <prodotti>
+      <prodotto id="8" quantita="5"/>
+      <prodotto id="12" quantita="6"/>
+      <prodotto id="3" quantita="8"/>
+      <prodotto id="28" quantita="4"/>
+    </prodotti>
+  </ordine>
+  <ordine id="20" idUtente="5">
+    <data>2023-06-14T07:31:59</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>154</prezzoFinale>
+    <prodotti>
+      <prodotto id="24" quantita="9"/>
+      <prodotto id="7" quantita="8"/>
+      <prodotto id="30" quantita="6"/>
+      <prodotto id="33" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="21" idUtente="7">
+    <data>2022-11-29T17:32:01</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>51</prezzoFinale>
+    <prodotti>
+      <prodotto id="7" quantita="2"/>
+      <prodotto id="12" quantita="4"/>
+      <prodotto id="2" quantita="4"/>
+    </prodotti>
+  </ordine>
+  <ordine id="22" idUtente="12">
+    <data>2017-08-13T16:37:27</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>106</prezzoFinale>
+    <prodotti>
+      <prodotto id="25" quantita="10"/>
+    </prodotti>
+  </ordine>
+  <ordine id="23" idUtente="6">
+    <data>2022-11-08T05:56:16</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>190</prezzoFinale>
+    <prodotti>
+      <prodotto id="22" quantita="2"/>
+      <prodotto id="33" quantita="2"/>
+      <prodotto id="23" quantita="8"/>
+      <prodotto id="10" quantita="2"/>
+    </prodotti>
+  </ordine>
+  <ordine id="24" idUtente="8">
+    <data>2023-09-10T19:16:48</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>96</prezzoFinale>
+    <prodotti>
+      <prodotto id="16" quantita="5"/>
+    </prodotti>
+  </ordine>
+  <ordine id="25" idUtente="8">
+    <data>2017-07-02T02:15:38</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>172</prezzoFinale>
+    <prodotti>
+      <prodotto id="19" quantita="1"/>
+      <prodotto id="22" quantita="9"/>
+      <prodotto id="20" quantita="8"/>
+      <prodotto id="2" quantita="10"/>
+    </prodotti>
+  </ordine>
+  <ordine id="26" idUtente="1">
+    <data>2023-02-15T18:04:17</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>60</prezzoFinale>
+    <prodotti>
+      <prodotto id="17" quantita="7"/>
+      <prodotto id="23" quantita="4"/>
+      <prodotto id="30" quantita="5"/>
+    </prodotti>
+  </ordine>
+  <ordine id="27" idUtente="4">
+    <data>2018-09-18T21:04:00</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>190</prezzoFinale>
+    <prodotti>
+      <prodotto id="12" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="28" idUtente="4">
+    <data>2018-09-27T18:17:53</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>125</prezzoFinale>
+    <prodotti>
+      <prodotto id="19" quantita="10"/>
+      <prodotto id="12" quantita="10"/>
+      <prodotto id="20" quantita="4"/>
+      <prodotto id="20" quantita="10"/>
+      <prodotto id="19" quantita="4"/>
+    </prodotti>
+  </ordine>
+  <ordine id="29" idUtente="6">
+    <data>2021-01-07T09:11:06</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>132</prezzoFinale>
+    <prodotti>
+      <prodotto id="7" quantita="1"/>
+      <prodotto id="24" quantita="8"/>
+      <prodotto id="5" quantita="6"/>
+    </prodotti>
+  </ordine>
+  <ordine id="30" idUtente="12">
+    <data>2020-04-25T12:02:04</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>119</prezzoFinale>
+    <prodotti>
+      <prodotto id="34" quantita="10"/>
+      <prodotto id="7" quantita="3"/>
+      <prodotto id="30" quantita="10"/>
+      <prodotto id="26" quantita="9"/>
+      <prodotto id="32" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="31" idUtente="1">
+    <data>2018-09-22T21:44:22</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>164</prezzoFinale>
+    <prodotti>
+      <prodotto id="6" quantita="7"/>
+      <prodotto id="13" quantita="10"/>
+      <prodotto id="13" quantita="2"/>
+      <prodotto id="8" quantita="2"/>
+    </prodotti>
+  </ordine>
+  <ordine id="32" idUtente="5">
+    <data>2020-02-30T15:49:08</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>161</prezzoFinale>
+    <prodotti>
+      <prodotto id="8" quantita="3"/>
+      <prodotto id="18" quantita="5"/>
+      <prodotto id="23" quantita="3"/>
+      <prodotto id="8" quantita="2"/>
+    </prodotti>
+  </ordine>
+  <ordine id="33" idUtente="9">
+    <data>2018-01-18T23:15:30</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>156</prezzoFinale>
+    <prodotti>
+      <prodotto id="13" quantita="6"/>
+      <prodotto id="13" quantita="1"/>
+      <prodotto id="34" quantita="3"/>
+    </prodotti>
+  </ordine>
+  <ordine id="34" idUtente="6">
+    <data>2019-02-20T08:33:12</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>129</prezzoFinale>
+    <prodotti>
+      <prodotto id="28" quantita="7"/>
+    </prodotti>
+  </ordine>
+  <ordine id="35" idUtente="12">
+    <data>2020-02-30T14:59:57</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>188</prezzoFinale>
+    <prodotti>
+      <prodotto id="21" quantita="10"/>
+      <prodotto id="3" quantita="9"/>
+    </prodotti>
+  </ordine>
+  <ordine id="36" idUtente="10">
+    <data>2018-06-04T14:38:52</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>111</prezzoFinale>
+    <prodotti>
+      <prodotto id="5" quantita="3"/>
+    </prodotti>
+  </ordine>
+  <ordine id="37" idUtente="5">
+    <data>2022-04-04T16:50:43</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>172</prezzoFinale>
+    <prodotti>
+      <prodotto id="13" quantita="3"/>
+      <prodotto id="20" quantita="3"/>
+      <prodotto id="34" quantita="5"/>
+    </prodotti>
+  </ordine>
+  <ordine id="38" idUtente="5">
+    <data>2020-06-09T00:23:09</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>118</prezzoFinale>
+    <prodotti>
+      <prodotto id="26" quantita="1"/>
+    </prodotti>
+  </ordine>
+  <ordine id="39" idUtente="6">
+    <data>2023-04-26T08:40:48</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>156</prezzoFinale>
+    <prodotti>
+      <prodotto id="12" quantita="3"/>
+    </prodotti>
+  </ordine>
+  <ordine id="40" idUtente="4">
+    <data>2020-10-09T15:07:04</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>87</prezzoFinale>
+    <prodotti>
+      <prodotto id="18" quantita="9"/>
+      <prodotto id="22" quantita="9"/>
+      <prodotto id="4" quantita="5"/>
+    </prodotti>
+  </ordine>
+  <ordine id="41" idUtente="4">
+    <data>2019-11-29T09:30:37</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>150</prezzoFinale>
+    <prodotti>
+      <prodotto id="9" quantita="5"/>
+      <prodotto id="30" quantita="3"/>
+      <prodotto id="26" quantita="3"/>
+      <prodotto id="17" quantita="7"/>
+      <prodotto id="13" quantita="9"/>
+    </prodotti>
+  </ordine>
+  <ordine id="42" idUtente="4">
+    <data>2017-01-04T09:34:09</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>178</prezzoFinale>
+    <prodotti>
+      <prodotto id="4" quantita="1"/>
+      <prodotto id="30" quantita="7"/>
+      <prodotto id="30" quantita="3"/>
+      <prodotto id="26" quantita="7"/>
+      <prodotto id="16" quantita="9"/>
+    </prodotti>
+  </ordine>
+  <ordine id="43" idUtente="4">
+    <data>2021-01-04T07:37:59</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>98</prezzoFinale>
+    <prodotti>
+      <prodotto id="32" quantita="7"/>
+    </prodotti>
+  </ordine>
+  <ordine id="44" idUtente="9">
+    <data>2017-09-30T10:23:22</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>188</prezzoFinale>
+    <prodotti>
+      <prodotto id="31" quantita="5"/>
+      <prodotto id="5" quantita="8"/>
+      <prodotto id="26" quantita="8"/>
+      <prodotto id="19" quantita="7"/>
+    </prodotti>
+  </ordine>
+  <ordine id="45" idUtente="6">
+    <data>2018-04-29T07:25:09</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>193</prezzoFinale>
+    <prodotti>
+      <prodotto id="1" quantita="10"/>
+      <prodotto id="11" quantita="2"/>
+      <prodotto id="30" quantita="5"/>
+    </prodotti>
+  </ordine>
+  <ordine id="46" idUtente="4">
+    <data>2022-11-18T06:59:44</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>154</prezzoFinale>
+    <prodotti>
+      <prodotto id="4" quantita="3"/>
+      <prodotto id="30" quantita="7"/>
+      <prodotto id="9" quantita="2"/>
+    </prodotti>
+  </ordine>
+  <ordine id="47" idUtente="9">
+    <data>2023-01-01T10:44:13</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>167</prezzoFinale>
+    <prodotti>
+      <prodotto id="26" quantita="9"/>
+      <prodotto id="23" quantita="8"/>
+    </prodotti>
+  </ordine>
+  <ordine id="48" idUtente="11">
+    <data>2020-07-03T05:37:17</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>110</prezzoFinale>
+    <prodotti>
+      <prodotto id="20" quantita="9"/>
+      <prodotto id="12" quantita="3"/>
+    </prodotti>
+  </ordine>
+  <ordine id="49" idUtente="10">
+    <data>2018-10-16T09:09:37</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>100</prezzoFinale>
+    <prodotti>
+      <prodotto id="5" quantita="10"/>
+      <prodotto id="28" quantita="7"/>
+      <prodotto id="14" quantita="2"/>
+      <prodotto id="18" quantita="6"/>
+      <prodotto id="13" quantita="8"/>
+    </prodotti>
+  </ordine>
+  <ordine id="50" idUtente="9">
+    <data>2018-07-30T12:00:18</data>
+    <indirizzo>Via Doria 4, Latina, Italy</indirizzo>
+    <prezzoFinale>59</prezzoFinale>
+    <prodotti>
+      <prodotto id="27" quantita="9"/>
+      <prodotto id="15" quantita="2"/>
+      <prodotto id="30" quantita="6"/>
     </prodotti>
   </ordine>
 </ordini>
