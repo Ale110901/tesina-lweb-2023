@@ -95,6 +95,48 @@ function registra_utente($nome, $cognome, $email, $password, $telefono, $indiriz
   return true;
 }
 
+function modifica_cliente($id_utente, $attivo, $nome, $cognome, $email, $password, $telefono, $indirizzo, $codice_fiscale) {
+  global $doc_utenti;
+
+  $successo = true;
+
+  $result = xpath($doc_utenti, 'utenti', "/ns:utenti/ns:utente[@id=$id_utente]");
+  $utente = $result[0];
+
+  $utente->getElementsByTagName('attivo')[0]->textContent = $attivo ? 'true' : 'false';
+  $utente->getElementsByTagName('nome')[0]->textContent = $nome;
+  $utente->getElementsByTagName('cognome')[0]->textContent = $cognome;
+
+  if (preg_match(REGEX_EMAIL, $email)) {
+    $utente->setAttribute('email', $email);
+    $successo = false;
+  }
+
+  if ($password !== '') {
+    $utente->getElementsByTagName('password')[0]->textContent = md5($password);
+    $successo = false;
+  }
+
+  if (preg_match(REGEX_TELEFONO, $telefono)) {
+    $utente->getElementsByTagName('telefono')[0]->textContent = $telefono;
+    $successo = false;
+  }
+
+  if (preg_match(REGEX_INDIRIZZO, $indirizzo)) {
+    $utente->getElementsByTagName('indirizzo')[0]->textContent = $indirizzo;
+    $successo = false;
+  }
+
+  if (preg_match(REGEX_CF, $codice_fiscale)) {
+    $utente->getElementsByTagName('codiceFiscale')[0]->textContent = $codice_fiscale;
+    $successo = false;
+  }
+
+  save_xml($doc_utenti, 'utenti');
+
+  return $successo;
+}
+
 function modifica_ut_spec($id_utente, $nome, $cognome, $email, $password) {
   global $doc_utenti;
 
