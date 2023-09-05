@@ -1,5 +1,5 @@
 <?php
-$rc_root = realpath(__DIR__ . '/..');
+$rc_root = realpath(__DIR__ . '/../www/');
 
 header('Content-Type: text/plain');
 
