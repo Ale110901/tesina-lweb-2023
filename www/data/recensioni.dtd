@@ -4,14 +4,14 @@
 <!ELEMENT recensione (idUtente, contenuto, ratings, data)>
 <!ATTLIST recensione
     id         ID #REQUIRED
-    idProdotto ID #REQUIRED>
+    idProdotto CDATA #REQUIRED>
 
 
 <!ELEMENT ratings (rating*)>
 
 <!ELEMENT rating (supporto, utilita)>
 <!ATTLIST rating
-    idUtente ID #REQUIRED>
+    idUtente CDATA #REQUIRED>
 
 <!ELEMENT contenuto   (#PCDATA)>
 <!ELEMENT data        (#PCDATA)>

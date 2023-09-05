@@ -4,7 +4,7 @@
 <!ELEMENT ordine (data, indirizzo, prezzoFinale, prodotti)>
 <!ATTLIST ordine
     id       ID #REQUIRED
-    idUtente ID #REQUIRED>
+    idUtente CDATA #REQUIRED>
 
 <!ELEMENT prodotti  (prodotto*)>
 
