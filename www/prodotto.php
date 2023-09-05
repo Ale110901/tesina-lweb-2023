@@ -190,13 +190,14 @@ if ($id_valido) {
               <span id='prezzo-finale'><?php echo(number_format($costo_finale, 2)); ?> &euro;</span>
             </div>
           </div>
+<?php $puo_acquistare = $disponibile && $qta_max > 0 && !$e_admin && !$e_gestore; ?>
             <form id="prod-top-dx-action" action="<?php echo($rc_subdir); ?>/cliente/carrello.php" method="post">
               <input type="hidden" name="id_prodotto" value="<?php echo($id_prodotto); ?>" />
               <div id="input-qta">
-                <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($qta_max); ?>" <?php if (!$disponibile || $qta_max === 0) echo ('disabled'); ?>/>
+                <input type="number" name="quantita" class="input-box" value="1" min="1" step="1" max="<?php echo($qta_max); ?>" <?php if (!$puo_acquistare) echo ('disabled'); ?>/>
               </div>
               <div id="btn-aggiungi">
-                <button type="submit" name="azione" value="aggiungi" class="button ml-8" <?php if (!$disponibile || $qta_max === 0) echo ('disabled'); ?>>Aggiungi al carrello</button>
+                <button type="submit" name="azione" value="aggiungi" class="button ml-8" <?php if (!$puo_acquistare) echo ('disabled'); ?>>Aggiungi al carrello</button>
               </div>
             </form>
         </div>
