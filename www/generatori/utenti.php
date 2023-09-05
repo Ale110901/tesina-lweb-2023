@@ -66,14 +66,14 @@ function registra_utente($attivo, $nome, $cognome, $email, $password,
   $el_codice_fiscale = $doc_utenti->createElement('codiceFiscale', $codice_fiscale);
   $nuovo_utente->appendChild($el_codice_fiscale);
 
-  $el_password = $doc_utenti->createElement('password', md5($password));
-  $nuovo_utente->appendChild($el_password);
+  $el_credito = $doc_utenti->createElement('credito', $credito);
+  $nuovo_utente->appendChild($el_credito);
 
   $el_reputazione = $doc_utenti->createElement('reputazione', $reputazione);
   $nuovo_utente->appendChild($el_reputazione);
 
-  $el_credito = $doc_utenti->createElement('credito', $credito);
-  $nuovo_utente->appendChild($el_credito);
+  $el_password = $doc_utenti->createElement('password', md5($password));
+  $nuovo_utente->appendChild($el_password);
 
   $el_data_reg = $doc_utenti->createElement('dataRegistrazione', $data_reg);
   $nuovo_utente->appendChild($el_data_reg);
