@@ -46,4 +46,244 @@
       </risposta>
     </risposte>
   </domanda>
+  <domanda id="3" idProdotto="3">
+    <idUtente>1</idUtente>
+    <contenuto>Sto iniziando a prendere le proteine del siero del latte post-allenamento. Quanto tempo dopo l'allenamento dovrei assumerle per massimizzare i benefici?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>5</idUtente>
+        <contenuto>È meglio assumerle entro 30-60 minuti dopo l'allenamento, durante quella che viene chiamata 'finestra anabolica'. Questo ottimizza il recupero e la riparazione muscolare.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>4</idUtente>
+        <contenuto>Io le prendo sempre la mattina, indipendentemente da quando mi alleno. Non penso che il tempismo sia così cruciale.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="4" idProdotto="3">
+    <idUtente>4</idUtente>
+    <contenuto>Sto cercando una proteina del siero del latte con un basso contenuto di zuccheri. Quali ingredienti dovrei evitare nell'etichetta</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>1</idUtente>
+        <contenuto>Controlla l'etichetta per ingredienti come sciroppo di glucosio, fruttosio o altri zuccheri aggiunti. Molte proteine in polvere hanno dolcificanti naturali come stevia o eritritolo, che sono opzioni migliori.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>Ti suggerirei di evitare completamente le proteine del siero e di optare per proteine vegane. Hanno comunque un ottimo profilo aminoacidico e spesso meno additivi.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="3" idProdotto="16">
+    <idUtente>1</idUtente>
+    <contenuto>Ciao a tutti! Sto cercando una barretta proteica che non sia troppo gommosa o pastosa. Come è la consistenza di questa barretta con i fiocchi di soia croccanti?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>5</idUtente>
+        <contenuto>Ciao! Ho provato queste barrette e adoro la croccantezza dei fiocchi di soia. Rompono quella tipica consistenza gommosa di molte barrette proteiche e aggiungono un bel crunch!</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>4</idUtente>
+        <contenuto>Per me, anche se i fiocchi di soia aggiungono croccantezza, la base della barretta è ancora un po' pastosa. Dipende dai gusti personali, immagino.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="4" idProdotto="16">
+    <idUtente>4</idUtente>
+    <contenuto>Sono curioso di sapere se questa barretta proteica con fiocchi di soia croccanti è adatta ai vegani. Qualcuno sa quali proteine vengono utilizzate?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>1</idUtente>
+        <contenuto>Ciao! Ho controllato l'etichetta dell'ultima barretta che ho mangiato e, sebbene contenga fiocchi di soia, la proteina principale era del siero di latte. Quindi, no, non è vegan.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>Mi sono fatto la stessa domanda. Purtroppo, molte barrette proteiche usano il siero di latte come principale fonte di proteina. Meglio leggere sempre l'etichetta!</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="5" idProdotto="16">
+    <idUtente>1</idUtente>
+    <contenuto>Sono sempre in giro e cerco una barretta proteica che possa sostituire un pasto quando sono di fretta. Questa barretta con fiocchi di soia croccanti è saziante?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>4</idUtente>
+        <contenuto>Sì, trovo che queste barrette siano abbastanza sazianti grazie al contenuto proteico e alla fibra dei fiocchi di soia. Me la cavo bene fino al pasto successivo quando ne mangio una.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>Per me, funzionano meglio come spuntino piuttosto che come sostituto del pasto. Potresti aver bisogno di qualcosa in più se hai una grande fame.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="6" idProdotto="31">
+    <idUtente>4</idUtente>
+    <contenuto>Sto cercando una borraccia di grande capacità per le mie lunghe escursioni. Questa borraccia da 3.9 litri è comoda da trasportare?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>1</idUtente>
+        <contenuto>Ciao! Io uso la borraccia da 3.9 litri per le mie escursioni e, anche se è grande, trovo che il design e la maniglia siano abbastanza ergonomici. Ma è meglio assicurarsi di avere uno zaino dove può entrare comodamente.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>La ho provata, ma per me era un po' troppo ingombrante. Dipende da quanto sei disposto a portare in termini di peso e dimensioni.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="7" idProdotto="31">
+    <idUtente>1</idUtente>
+    <contenuto>Mi chiedo se questa borraccia da 3.9 litri sia a prova di perdite. Qualcuno ha avuto problemi con essa?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>4</idUtente>
+        <contenuto>La uso tutti i giorni per la palestra e non ho mai avuto problemi di perdite. Assicurati solo di chiudere bene il tappo!</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>Una volta mi è caduta e ha avuto una piccola perdita, ma penso fosse più un problema di come l'ho chiusa piuttosto che della borraccia stessa.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="8" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Ciao a tutti! Ho sentito dire che la Caseina Micellare è ottima da assumere prima di dormire. Qualcuno può spiegare il motivo?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>1</idUtente>
+        <contenuto>La Caseina Micellare è una proteina a lento rilascio. Quando la assumi prima di dormire, rilascia aminoacidi nel tuo sistema per molte ore, sostenendo la crescita e la riparazione muscolare mentre dormi.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>5</idUtente>
+        <contenuto>In realtà, prendo sempre le mie proteine dopo l'allenamento, indipendentemente dal tipo. Ma ho sentito anch'io che la caseina può essere buona di notte.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="9" idProdotto="15">
+    <idUtente>1</idUtente>
+    <contenuto>Sono intollerante al lattosio. La Caseina Micellare può causare problemi agli intolleranti come me?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>4</idUtente>
+        <contenuto>La caseina deriva dal latte, quindi può contenere tracce di lattosio. Tuttavia, molti integratori purificano la proteina e contengono quantità minime di lattosio. Meglio controllare l'etichetta!</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>2</idUtente>
+        <contenuto>La caseina è una proteina del latte, quindi se sei molto sensibile, potresti avere problemi. Esistono alternative proteiche senza lattosio come la proteina di riso o di soia.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="10" idProdotto="15">
+    <idUtente>4</idUtente>
+    <contenuto>Ho iniziato a prendere Caseina Micellare per sostenere i miei muscoli durante la notte. Ma quanto tempo prima di dormire dovrei assumerla?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>5</idUtente>
+        <contenuto>Io la prendo circa 30 minuti prima di andare a letto per dare al mio corpo il tempo di iniziare la digestione e assicurarmi che gli aminoacidi vengano rilasciati durante il mio sonno.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>1</idUtente>
+        <contenuto>Prendo la mia caseina subito dopo il mio allenamento serale, che a volte può essere anche un paio d'ore prima di dormire. Finché la prendi nella finestra di tempo prima di dormire, dovresti andar bene..</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="11" idProdotto="14">
+    <idUtente>1</idUtente>
+    <contenuto>Sto cercando una barretta proteica che non sia troppo secca o difficile da masticare. Questa barretta morbida e gustosa come si comporta a livello di consistenza?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>5</idUtente>
+        <contenuto>Ho provato queste barrette e sono davvero morbide e facili da masticare. La consistenza è lontana da quella tipica e secca di alcune barrette proteiche che ho provato in passato.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>4</idUtente>
+        <contenuto>La trovo molto buona, ma se la conservi in un luogo freddo potrebbe diventare un po' più compatta. Consiglio di tenerla a temperatura ambiente.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
+  <domanda id="12" idProdotto="14">
+    <idUtente>1</idUtente>
+    <contenuto>Mi chiedo se oltre alle proteine e alle vitamine, questa barretta contenga anche un alto contenuto di zuccheri o carboidrati. Qualcuno ha controllato?</contenuto>
+    <data>2022-09-07</data>
+    <ratings/>
+    <risposte>
+      <risposta id="1">
+        <idUtente>5</idUtente>
+        <contenuto>Ho fatto un'occhiata all'etichetta di una che ho mangiato l'altro giorno e, anche se è arricchita con vitamine e proteine, ha un contenuto di zuccheri abbastanza moderato. Come sempre, però, dipende dalla marca.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+      <risposta id="2">
+        <idUtente>4</idUtente>
+        <contenuto>Sì, controlla sempre l'etichetta. Alcune barrette proteiche compensano il sapore con zuccheri o dolcificanti aggiunti, quindi è sempre meglio verificare.</contenuto>
+        <data>2022-10-27</data>
+        <ratings/>
+      </risposta>
+    </risposte>
+  </domanda>
 </domande>
