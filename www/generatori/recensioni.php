@@ -7,16 +7,24 @@ $categorie = [
   'proteine' => [ 1, 2, 3, 4, 6, 8, 9, 10, 15, 19, 20, 21, 22 ],
   'barrette' => [ 5, 7, 11, 12, 13, 14, 16, 17, 18 ],
   'vitamine' => [ 23, 24, 25 ],
-  // 'abbigliamento' => [ 26, 27, 28, 29, 30 ],
-  // 'accessori' => [ 31, 32, 33, 34 ],
+  'abbigliamento' => [ 26, 27, 28, 29, 30 ],
+  'accessori' => [ 31, 32, 33, 34 ],
 ];
 
 $utenti = [
   1,
   4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
 ];
 $rec_per_prod = 4;
-$rat_per_rec = 5;
+$rat_per_rec = 7;
 
 $doc_recensioni = load_xml('recensioni');
 

@@ -6,8 +6,16 @@ require_once($rc_root . '/lib/xml.php');
 $utenti = [
   1,
   4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
 ];
-$num_ordini = 30;
+$num_ordini = 50;
 $max_prod_per_ord = 5;
 $max_qta = 10;
 $max_prodotti = 34;
@@ -18,7 +26,7 @@ $doc_ordini = load_xml('ordini');
 for ($i = 0; $i < $num_ordini; $i++) {
   $id_utente = $utenti[array_rand($utenti)];
   $dataora = rand_datetime();
-  $indirizzo = 'Via Doria, Latina, Italy';
+  $indirizzo = 'Via Doria 4, Latina, Italy';
   $prezzo = rand(50, 200);
 
   $prodotti = [];
