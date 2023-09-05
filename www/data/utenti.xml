@@ -5,7 +5,7 @@
     <nome>Mario</nome>
     <cognome>Rossi</cognome>
     <telefono>+390773123456</telefono>
-    <indirizzo>Via Isonzo 104, Latina, Italia</indirizzo>
+    <indirizzo>Via del Corso 104, Latina, Italia</indirizzo>
     <codiceFiscale>RSSMRA83P12E472K</codiceFiscale>
     <credito>1000.00</credito>
     <reputazione>100</reputazione>
@@ -33,7 +33,7 @@
     <nome>Marco</nome>
     <cognome>Verdi</cognome>
     <telefono>+390773123456</telefono>
-    <indirizzo>Via Isonzo, 104, Latina, Italia</indirizzo>
+    <indirizzo>Via del Corso 104, Latina, Italia</indirizzo>
     <codiceFiscale>ABCDEF81G23X567Z</codiceFiscale>
     <credito>120.00</credito>
     <reputazione>100</reputazione>
