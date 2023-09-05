@@ -44,7 +44,7 @@
 </xsd:element>
 
 <xsd:element name="idUtente"   type="xsd:positiveInteger" />
-<xsd:element name="data"       type="xsd:dateTime" />
+<xsd:element name="data"       type="xsd:date" />
 <xsd:element name="contenuto"  type="xsd:string" />
 <xsd:element name="supporto"   type="xsd:integer" />
 <xsd:element name="utilita"    type="xsd:integer" />
