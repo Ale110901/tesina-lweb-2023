@@ -4,5 +4,6 @@ Caratteri:
 - «XXXXX»
 
 Da fare:
-- Spesi crediti da data
 - Sistemare tabella gestione utenti (esce fuori dalla pagina)
+- Sistemare flex pagina prodotto
+- Rivedere prodotto in manuale utente
