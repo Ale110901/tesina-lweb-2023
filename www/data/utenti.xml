@@ -45,4 +45,18 @@
       <prodotto id="11" quantita="1"/>
     </carrello>
   </utente>
+    <utente id="5" tipo="cliente" email="luca.gialli@gmail.com">
+    <attivo>true</attivo>
+    <nome>Luca</nome>
+    <cognome>Gialli</cognome>
+    <telefono>+390773123456</telefono>
+    <indirizzo>Via Marconi 12, Latina, Italia</indirizzo>
+    <codiceFiscale>RSSMRA83P12E472K</codiceFiscale>
+    <credito>150.00</credito>
+    <reputazione>30</reputazione>
+    <password>5f4dcc3b5aa765d61d8327deb882cf99</password>
+    <dataRegistrazione>2023-02-10</dataRegistrazione>
+    <carrello>
+    </carrello>
+  </utente>
 </utenti>
