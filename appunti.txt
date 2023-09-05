@@ -5,5 +5,4 @@ Caratteri:
 
 Da fare:
 - Sistemare tabella gestione utenti (esce fuori dalla pagina)
-- Sistemare flex pagina prodotto
 - Rivedere prodotto in manuale utente
