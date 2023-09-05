@@ -45,7 +45,7 @@ $utenti = $doc_utenti->documentElement->childNodes;
 <body>
   <?php require($rc_root . '/lib/header.php'); ?>
 
-  <div id="contenuto">
+  <div id="gestione-utenti">
     <h2>GESTIONE UTENTI</h2>
     <div class="table mt-32">
         <div id="intestazione" class="thg grassetto">

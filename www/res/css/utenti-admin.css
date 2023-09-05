@@ -1,4 +1,22 @@
+#gestione-utenti {
+  background-color: #f0d3d6;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+#gestione-utenti > .table {
+  font-size: 0.75em;
+}
+
 #intestazione {
-    display: table-row;
-    border: 3px solid black;
+  display: table-row;
+  border: 3px solid black;
 }

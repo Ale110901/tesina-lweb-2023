@@ -217,7 +217,7 @@ select {
 
 .td {
   display: table-cell;
-  padding: 10px 20px;
+  padding: 10px 5px;
   border-bottom: 1px solid rgb(170, 162, 162);
 }
 
