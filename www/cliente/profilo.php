@@ -13,7 +13,7 @@ require_once($rc_root . '/lib/xml.php');
 $id_utente = $_SESSION['id_utente'];
 
 if (isset($_POST['azione']) && $_POST['azione'] === 'modifica') {
-  modifica_utente($id_utente, true,
+  modifica_cliente($id_utente, true,
     $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
     $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
 }
