@@ -24,7 +24,7 @@ if ($modifica) {
 
     modifica_cliente($id_utente, $attivo,
       $_POST['nome'], $_POST['cognome'], $_POST['email'], $_POST['password'],
-      $_POST['telefono'], $_POST['indirizzo'], $_POST['codice_fiscale']);
+      $_POST['telefono'], $_POST['indirizzo'], $_POST['codice-fiscale']);
   }
 }
 
